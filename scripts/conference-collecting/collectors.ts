@@ -17,12 +17,12 @@ const WIKICFP_CONFIG: {
   categoryLimit: number | null;
   categoryPageLimit: number | null;
 } = {
-  categoryLimit: 1,
-  categoryPageLimit: 5,
+  categoryLimit: null,
+  categoryPageLimit: null,
 };
 
 const EASYCHAIR_CONFIG: { pageLimit: number | null } = {
-  pageLimit: 10,
+  pageLimit: null,
 };
 
 /**

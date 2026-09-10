@@ -11,7 +11,12 @@ import { saveConferenceDatabase } from "./storage.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DATABASE_PATH = path.join(__dirname, "conference-postings.json");
+const DATABASE_PATH = path.join(
+  __dirname,
+  "..",
+  "..",
+  "conference-postings.json",
+);
 
 async function main(): Promise<void> {
   const startTime = Date.now();

@@ -6,7 +6,6 @@ import type { CollectedConference } from "./schema.js";
  */
 export async function randomDelay(minMs: number, maxMs: number): Promise<void> {
   const delay = Math.random() * (maxMs - minMs) + minMs;
-  console.log(`Delaying for ${delay.toFixed(0)} ms`);
   await new Promise((resolve) => setTimeout(resolve, delay));
 }
 
