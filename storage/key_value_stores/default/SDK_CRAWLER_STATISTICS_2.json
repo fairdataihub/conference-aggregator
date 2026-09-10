@@ -1,27 +1,50 @@
 {
-  "requestsFinished": 20,
-  "requestsFailed": 0,
-  "requestsRetries": 0,
-  "requestsFailedPerMinute": 0,
-  "requestsFinishedPerMinute": 11,
-  "requestMinDurationMillis": 5234,
-  "requestMaxDurationMillis": 5408,
-  "requestTotalFailedDurationMillis": 0,
-  "requestTotalFinishedDurationMillis": 106210,
-  "crawlerStartedAt": "2026-09-10T22:23:03.225Z",
-  "crawlerFinishedAt": "2026-09-10T22:24:50.151Z",
-  "statsPersistedAt": "2026-09-10T22:24:50.151Z",
-  "crawlerRuntimeMillis": 106968,
-  "crawlerLastStartTimestamp": 1789078983183,
+  "requestsFinished": 0,
+  "requestsFailed": 20,
+  "requestsRetries": 20,
+  "requestsFailedPerMinute": 2,
+  "requestsFinishedPerMinute": 0,
+  "requestMinDurationMillis": null,
+  "requestMaxDurationMillis": 0,
+  "requestTotalFailedDurationMillis": 105210,
+  "requestTotalFinishedDurationMillis": 0,
+  "crawlerStartedAt": "2026-09-10T22:33:37.892Z",
+  "crawlerFinishedAt": "2026-09-10T22:40:38.566Z",
+  "statsPersistedAt": "2026-09-10T22:40:38.566Z",
+  "crawlerRuntimeMillis": 420700,
+  "crawlerLastStartTimestamp": 1789079617866,
   "requestRetryHistogram": [
+    null,
+    null,
+    null,
     20
   ],
   "statsId": "2",
-  "requestAvgFailedDurationMillis": null,
-  "requestAvgFinishedDurationMillis": 5311,
-  "requestTotalDurationMillis": 106210,
+  "requestAvgFailedDurationMillis": 5261,
+  "requestAvgFinishedDurationMillis": null,
+  "requestTotalDurationMillis": 105210,
   "requestsTotal": 20,
   "requestsWithStatusCode": {},
-  "errors": {},
-  "retryErrors": {}
+  "errors": {
+    "/home/runner/work/conference-aggregator/conference-aggregator/scripts/conference-collecting/collectors.ts:245:26": {
+      "missing error code": {
+        "TypeError": {
+          "(0 , import_utils.generateCollectionDate) is not a function": {
+            "count": 20
+          }
+        }
+      }
+    }
+  },
+  "retryErrors": {
+    "/home/runner/work/conference-aggregator/conference-aggregator/scripts/conference-collecting/collectors.ts:245:26": {
+      "missing error code": {
+        "TypeError": {
+          "(0 , import_utils.generateCollectionDate) is not a function": {
+            "count": 60
+          }
+        }
+      }
+    }
+  }
 }
