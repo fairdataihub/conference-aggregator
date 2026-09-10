@@ -17,12 +17,12 @@ const WIKICFP_CONFIG: {
   categoryLimit: number | null;
   categoryPageLimit: number | null;
 } = {
-  categoryLimit: 3,
-  categoryPageLimit: 50,
+  categoryLimit: 1,
+  categoryPageLimit: 5,
 };
 
 const EASYCHAIR_CONFIG: { pageLimit: number | null } = {
-  pageLimit: 100,
+  pageLimit: 10,
 };
 
 /**
@@ -197,7 +197,6 @@ function extractWikiCFPConferenceUrls($: CheerioCrawlingContext["$"]): Array<{
         const dateParts = dateStr.split("-").map((d) => d.trim());
 
         if (dateParts.length === 2) {
-          // Try to parse the dates
           try {
             const startDate = new Date(dateParts[0]);
             const endDate = new Date(dateParts[1]);
@@ -218,6 +217,7 @@ function extractWikiCFPConferenceUrls($: CheerioCrawlingContext["$"]): Array<{
       // Second cell contains location
       if (cells.length > 1) {
         const location = $(cells[1]).text().trim();
+
         if (location) {
           data.location = location;
         }
@@ -352,6 +352,7 @@ async function collectWikiCFPConferences(
       location?: string;
     }
   >();
+
   let categoryPagesScanned = 0;
 
   const categoryCrawler = new CheerioCrawler({
@@ -361,6 +362,7 @@ async function collectWikiCFPConferences(
 
     async requestHandler(context) {
       const { $, log } = context;
+
       categoryPagesScanned++;
 
       log.debug(
@@ -427,12 +429,18 @@ async function collectWikiCFPConferences(
 
   const detailCrawler = new CheerioCrawler({
     maxRequestsPerCrawl: conferenceUrls.size,
-    maxRequestsPerMinute: 20,
+    maxRequestsPerMinute: 12,
+    maxConcurrency: 1,
+
+    preNavigationHooks: [
+      async () => {
+        await randomDelay(5001, 5200);
+      },
+    ],
 
     async requestHandler({ $, log, request }) {
-      await randomDelay(5001, 5200);
-
       const data = conferenceUrls.get(request.url);
+
       const posting = parseWikiCFPConferenceDetail(
         $,
         request.url,
@@ -544,6 +552,7 @@ function parseEasyChairConferences(
     const conferenceSeries = rawAcronym;
     const conferenceLocation = $(cells[2]).text().trim();
     const rawDate = $(cells[4]).text().trim();
+
     const {
       startDate: conferenceStartDate,
       endDate: conferenceEndDate,
@@ -643,6 +652,7 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
 
     async requestHandler({ $, log, request, addRequests }) {
       pagesScanned++;
+
       const found = parseEasyChairConferences($);
 
       postings.push(...found);
@@ -684,6 +694,7 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
   const postingsByDetailUrl = new Map(
     limitedPostings.map((posting) => [posting.conferenceUri, posting]),
   );
+
   const conferenceUrls = [...postingsByDetailUrl.keys()].filter(
     (conferenceUrl): conferenceUrl is string => Boolean(conferenceUrl),
   );
@@ -694,7 +705,14 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
 
   const detailCrawler = new CheerioCrawler({
     maxRequestsPerCrawl: conferenceUrls.length,
-    maxRequestsPerMinute: 20,
+    maxRequestsPerMinute: 12,
+    maxConcurrency: 1,
+
+    preNavigationHooks: [
+      async () => {
+        await randomDelay(5000, 5200);
+      },
+    ],
 
     async requestHandler({ $, request, log }) {
       const posting = postingsByDetailUrl.get(request.url);
@@ -704,6 +722,7 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
       }
 
       const conferenceWebsite = extractEasyChairConferenceWebsite($);
+
       posting.conferenceUri = conferenceWebsite;
 
       log.debug(`${conferenceWebsite ? "Found" : "No"} conference website`);
