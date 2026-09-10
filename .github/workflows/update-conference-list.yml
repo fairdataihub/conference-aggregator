@@ -21,23 +21,26 @@ jobs:
     name: Collect Conferences
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: main
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 11
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: pnpm
 
-      - run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - run: pnpm exec tsx scripts/conference-collecting/main.ts
+      - name: Collect conferences
+        run: pnpm exec tsx scripts/conference-collecting/main.ts
 
       - name: Check for changes
         id: git-status
