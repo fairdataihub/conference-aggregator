@@ -1,10 +1,9 @@
 {
   "metadata": {
-    "lastUpdated": "2026-09-10T22:25:21.529Z",
-    "totalPostings": 25,
+    "lastUpdated": "2026-09-10T22:33:28.950Z",
+    "totalPostings": 20,
     "sources": [
-      "wikicfp",
-      "easychair"
+      "wikicfp"
     ]
   },
   "postings": [
@@ -1427,83 +1426,6 @@
         }
       ],
       "_source": "wikicfp"
-    },
-    {
-      "id": "https://easychair.org/cfp/aimce27",
-      "conferenceName": "The 3rd International Workshop on Artificial Intelligence, Mechanical and Civil Engineering",
-      "conferenceYear": 2027,
-      "conferenceUri": "https://aimce27.com/",
-      "conferenceLocation": "Casablanca, Morocco",
-      "conferenceAcronym": "AIMCE'27",
-      "conferenceSeries": "AIMCE'27",
-      "conferenceStartDate": "2027-04-09",
-      "_source": "easychair",
-      "conferenceCategories": [
-        "artificial intelligence",
-        "electrical engineering",
-        "mechanical engineering",
-        "civil engineering"
-      ],
-      "submissionDeadline": "December 20, 2026"
-    },
-    {
-      "id": "https://easychair.org/cfp/BA-26",
-      "conferenceName": "3rd BMEMat‑Advanced Materials Joint Symposium",
-      "conferenceYear": 2026,
-      "conferenceUri": "https://conference.lifeintelligence.hk/api/wap?home",
-      "conferenceLocation": "Hong Kong, China",
-      "conferenceAcronym": "3rd BMEMat‑AM",
-      "conferenceSeries": "3rd BMEMat‑AM",
-      "conferenceStartDate": "2026-11-06",
-      "_source": "easychair",
-      "conferenceCategories": [
-        "biomaterials",
-        "advanced materials",
-        "biomedical engineering",
-        "translational medicine"
-      ],
-      "submissionDeadline": "September 30, 2026"
-    },
-    {
-      "id": "https://easychair.org/cfp/hajjconfex2026",
-      "conferenceName": "Hajj Conference",
-      "conferenceYear": 2026,
-      "conferenceUri": "https://hajjconfex.com/",
-      "conferenceLocation": "Jeddah, Saudi Arabia",
-      "conferenceAcronym": "hajjconfex2026",
-      "conferenceSeries": "hajjconfex2026",
-      "conferenceStartDate": "2026-11-08",
-      "_source": "easychair"
-    },
-    {
-      "id": "https://easychair.org/cfp/wmt2026",
-      "conferenceName": "When Materials Think: Computational Materials for Mobile and Ubiquitous Interaction",
-      "conferenceYear": 2026,
-      "conferenceUri": "https://wmt2026workshop.github.io/",
-      "conferenceLocation": "Glasgow, UK",
-      "conferenceAcronym": "WMT",
-      "conferenceSeries": "WMT 2026",
-      "conferenceStartDate": "2026-12-01",
-      "_source": "easychair",
-      "conferenceCategories": [
-        "human computer interaction",
-        "ubiquitous computing",
-        "smart materials",
-        "embedded artificial intelligence"
-      ],
-      "submissionDeadline": "October 10, 2026"
-    },
-    {
-      "id": "https://easychair.org/cfp/WSIS-2026",
-      "conferenceName": "Workshop on Secure and Intelligent Systems (in Conjunction with the 19th International Conference on Internet of Things and Smart Spaces)",
-      "conferenceYear": 2026,
-      "conferenceUri": "https://wsis-2026.site/",
-      "conferenceLocation": "Hanoi, Viet Nam",
-      "conferenceAcronym": "WSIS",
-      "conferenceSeries": "WSIS 2026",
-      "conferenceStartDate": "2026-11-23",
-      "_source": "easychair",
-      "submissionDeadline": "October 1, 2026"
     }
   ]
 }

@@ -1,27 +1,50 @@
 {
-  "requestsFinished": 1,
-  "requestsFailed": 0,
-  "requestsRetries": 0,
-  "requestsFailedPerMinute": 0,
-  "requestsFinishedPerMinute": 44,
-  "requestMinDurationMillis": 607,
-  "requestMaxDurationMillis": 607,
-  "requestTotalFailedDurationMillis": 0,
-  "requestTotalFinishedDurationMillis": 607,
-  "crawlerStartedAt": "2026-09-10T22:22:59.854Z",
-  "crawlerFinishedAt": "2026-09-10T22:23:01.159Z",
-  "statsPersistedAt": "2026-09-10T22:23:01.159Z",
-  "crawlerRuntimeMillis": 1351,
-  "crawlerLastStartTimestamp": 1789078979808,
+  "requestsFinished": 0,
+  "requestsFailed": 1,
+  "requestsRetries": 1,
+  "requestsFailedPerMinute": 11,
+  "requestsFinishedPerMinute": 0,
+  "requestMinDurationMillis": null,
+  "requestMaxDurationMillis": 0,
+  "requestTotalFailedDurationMillis": 977,
+  "requestTotalFinishedDurationMillis": 0,
+  "crawlerStartedAt": "2026-09-10T22:33:23.908Z",
+  "crawlerFinishedAt": "2026-09-10T22:33:28.904Z",
+  "statsPersistedAt": "2026-09-10T22:33:28.904Z",
+  "crawlerRuntimeMillis": 5033,
+  "crawlerLastStartTimestamp": 1789079603871,
   "requestRetryHistogram": [
+    null,
+    null,
+    null,
     1
   ],
   "statsId": "0",
-  "requestAvgFailedDurationMillis": null,
-  "requestAvgFinishedDurationMillis": 607,
-  "requestTotalDurationMillis": 607,
+  "requestAvgFailedDurationMillis": 977,
+  "requestAvgFinishedDurationMillis": null,
+  "requestTotalDurationMillis": 977,
   "requestsTotal": 1,
   "requestsWithStatusCode": {},
-  "errors": {},
-  "retryErrors": {}
+  "errors": {
+    "/home/runner/work/conference-aggregator/conference-aggregator/scripts/conference-collecting/collectors.ts:613:26": {
+      "missing error code": {
+        "TypeError": {
+          "(0 , import_utils.generateCollectionDate) is not a function": {
+            "count": 1
+          }
+        }
+      }
+    }
+  },
+  "retryErrors": {
+    "/home/runner/work/conference-aggregator/conference-aggregator/scripts/conference-collecting/collectors.ts:613:26": {
+      "missing error code": {
+        "TypeError": {
+          "(0 , import_utils.generateCollectionDate) is not a function": {
+            "count": 3
+          }
+        }
+      }
+    }
+  }
 }
