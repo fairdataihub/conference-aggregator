@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "lastUpdated": "2026-09-10T16:51:33.606Z",
+    "lastUpdated": "2026-09-10T22:25:21.529Z",
     "totalPostings": 25,
     "sources": [
       "wikicfp",
@@ -9,7 +9,7 @@
   },
   "postings": [
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191099&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191099&copyownerid=13881",
       "conferenceName": "ACM--2026 The 10th International Conference on Communications and Future Internet (ICCFI 2026)",
       "conferenceYear": 2026,
       "conferenceUri": "https://www.iccfi.org/",
@@ -18,10 +18,69 @@
       "conferenceStartDate": "2026-10-29",
       "conferenceEndDate": "2026-10-31",
       "conferenceLocation": "Paris, France",
+      "conferenceCategories": [
+        "artificial intelligence",
+        "information security",
+        "information technology",
+        "communications"
+      ],
+      "callForAbstract": "Full Name: The 10th International Conference on Communications and Future Internet \rAbbreviation: ICCFI 2026\rWebsite: https://www.iccfi.org/\rVenue: Paris, France\rDates: 29th-31st, October, 2026\r\rThe 10th International Conference on Communications and Future Internet (ICCFI 2026), will take place in Paris, France from 29th-31st, October, 2026. ICCFI 2026 is sponsored by UHA University, France. As a premier global forum, it continues its tradition of fostering the exchange of groundbreaking research and innovative ideas that are shaping the future of digital transformation.\r\r[ Proceedings ]\rAll accepted and registered papers will be published in ICCFI Conference Proceedings, which will be archived in the ACM Digital Library, and indexed by Ei Compendex and Scopus and submitted to be reviewed by Thomson Reuters Conference Proceedings Citation Index (ISI Web of Science).\r\r[ Conference History ]\rICCFI 2025 | Ryukyus, Japan\rISBN: 978-3-032-15034-9\rhttps://link.springer.com/book/9783032150349\r\r ICCFI 2024 | Kagoshima-shi, Japan\rISBN-13: 979-8-3503-8905-0\rhttps://ieeexplore.ieee.org/xpl/conhome/10936278/proceeding\r(Ei Compendex & Scopus)\r\rICCFI 2023 | Nagoya, Japan\r\rICCFI 2022 | Okayama University, Japan\r\rICCFI 2021 | Virtual Conference\r\rICCFI 2020 | Singapore\r\rICCFI 2019 | Bangkok, Thailand\r\rICCFI 2018 | Beijing, China\r\rICCFI 2017 | Jeju Island, South Korea\r\r[ Call for Papers ]\rTopics are interested but not limited to:\r\"Communication Networks and Technologies\"\rNext-Generation Mobile Communications (5G/6G and Beyond)\rAdvanced Wireless and Sensor Systems\rNetwork Architectures and Management\rAI and Intelligence in Communications\rComputing, Cloud, and Energy Efficiency\r\r\"Mobile Applications and Services\"\rVertical Applications and Services\rInteractive and Multimedia Technologies\rCommunication and Social Computing\rIntelligent Systems and Platforms\rEmerging Interfaces and Enabling Technologies\rNext-Generation Paradigms\rSecurity, Privacy and Trust\r\rmore details: https://www.iccfi.org/cfp.html\r\r\r[ Call for Special Sessions ]\rSpecial Sessions may address one or more Tracks, but they should be Organized under a unified theme. Special Sessions are intended to allow projects or any other group of authors to present their own work. It is not expected that open calls for papers are launched for Special Sessions, in order to attract authors or presenters.\rSpecial Sessions will be evaluated according to the following criteria:\r– Relevance\r– Timeliness\r– Technical content\r– Novelty\r– Overall Recommendation\r\rmore details: https://www.iccfi.org/ss.html\r\r\r\r[ Submission ]\rMake a submission via zmeeting: https://www.zmeeting.org/submission/iccfi2026\r\rmore details:https://www.iccfi.org/sub.html\r\r\r[ Conference Awards ]\rYoung Scientist Award\rOutstanding Organization Award\rBest Industrial Paper Award\rBest Student Paper Award\rBest Oral Presentation Award\rBest Poster Presentation Award\r\r\r[ Contact us ]\rFidelia Lee\rPhone: +001(626)-2004303\rE-mail: iccfi_Conf@outlook.com",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191098",
+          "resourceAcronym": "ACM ICCFI 2026",
+          "resourceName": "ACM--2026 The 10th International Conference on Communications and Future Internet (ICCFI 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192669",
+          "resourceAcronym": "ICCBN 2026",
+          "resourceName": "IEEE--2026 the 14th International Conference on Communications and Broadband Networking (ICCBN 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=175829",
+          "resourceAcronym": "IEEE-MLNLP 2026",
+          "resourceName": "2026 IEEE 9th International Conference on Machine Learning and Natural Language Processing (MLNLP 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=200216",
+          "resourceAcronym": "Future Foods Congress  2027",
+          "resourceName": "Future Foods Congress 2027 Future Foods Congress 2027: Shaping Future Food Systems through Sustainability and Digital Innovation"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192668",
+          "resourceAcronym": "IEEE ICCBN 2026",
+          "resourceName": "IEEE--2026 the 14th International Conference on Communications and Broadband Networking (ICCBN 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191586",
+          "resourceAcronym": "ICAIT 2026",
+          "resourceName": "15th International Conference on Advanced Computer Science and Information Technology"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191292&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191292&copyownerid=13881",
       "conferenceName": "2026 The 9th International Conference on Robotics, Control and Automation Engineering (RCAE 2026)",
       "conferenceYear": 2026,
       "conferenceUri": "http://www.rcae.net/",
@@ -30,10 +89,69 @@
       "conferenceStartDate": "2026-10-23",
       "conferenceEndDate": "2026-10-25",
       "conferenceLocation": "Baoding, China",
+      "conferenceCategories": [
+        "robotics",
+        "artificial intelligence",
+        "engineering",
+        "machine learning"
+      ],
+      "callForAbstract": "★★ RCAE 2026★★\r\r★Full Name: The 9th International Conference on Robotics, Control and Automation Engineering (RCAE 2026)\r★Abbreviation: RCAE 2026\r★Website: http://www.rcae.net/\r★Date: October 23-25, 2026 \r★Venue: Baoding, China\r\r2026 9th International Conference on Robotics, Control and Automation Engineering (RCAE 2026) will take place in Baoding, China during October 23-25, 2026. The conference is sponsored by North China Electric Power University. Researchers, engineers, practitioners, and students from industry, universities, and government agencies are invited to present their latest work and discuss research and applications for robotics, control, and automation engineering cooperation. Technical sessions, poster sessions, and technical visits will be organized.\r\r★Call for Papers★\rA. Robotics and Control\rMobile robots\rHumanoid robots\rMicro robots and micro-manipulation\rSearch, rescue and field robotics\rSpace and underwater robots\rMedical robots and bio-robotics\rB. Autonomous Systems\rIntelligent autonomous systems\rCognitive approach for robotics\rNetworked control systems\rMachine learning\rMulti-agent systems\rC. Perception and Sensing\rPerception systems\rRobot sensing and data fusion\rLocalization, navigation and mapping\rSensor networks\rNeural networks\rD. Control Systems\rAdaptive control\rControl system modeling\rRobust control\rOptimal control\rDiscrete event systems\rE. Automation and Computing\rProcess automation\rIntelligent automation\rHome, laboratory and service automation\rBuilding energy efficiency\rCloud computing\r...\rMore Topics, please visit http://www.rcae.net/cfp.html\r\r★ Special Sessions★\rSpecial Session 1: Deep Reinforcement Learning for Intelligent Control and Automation Engineering\rOrganizers: Xinghua Liu, Xi'an University of Technology, China\rBangji Fan, Xi'an University of Science and Technology, China\rGuangyu Song, Xi'an University of Technology, China\r\rSpecial Session 2: Reliability, Safety and Cooperative Control of Intelligent Robots\rOrganizers: Tao Xie, Shanghai University, China\rYang Li, Hangzhou International Innovation Institute, Beihang University, China\rYing Li, Xiamen University of Technology, China\rJin Ke, Fuzhou University, China\r\rSpecial Session 3: UAV Detection, Recognition and Countermeasure Technology\rOrganizer: Ding Chen, Xi'an Technological University, China\r\rSpecial Session 4: Frontier Advances in Motion Planning and Control of Nonlinear Systems\rOrganizers: Tenglong Huang, Northwest A&F University, China\rWeizhong Chen, Xi’an Polytechnic University, China\rYankai Li, Xi'an University of Technology, China\r\rSpecial Session 5: Cooperative Control, Intelligence, and Applications of Unmanned Swarm Systems\rOrganizers: Keding Yan, Xi'an Technological University, China\rKun Yan, Xi’an Technological University, China\r\rSpecial Session 6: Theory and Application of Automation, Intelligence and Big Data Technology in Complex Production Process\rOrganizers: Dayu Tan, Anhui University, China\rHaojie Huang, Fuzhou University, China\rDan Yang, Hunan University of Science and Technology, China\r\rSpecial Session 7: Autonomous Evolution and Intelligent Evaluation of UAV Swarm\rOrganizers: Jialong Zhang, Test Center, National University of Defense Technology, China\rWei Duan, Test Center, National University of Defense Technology, China\rPu Zhang, Xi'an University of Technology, China\r\rSpecial Session 8: Learning-Driven Control and Fault Diagnosis for High-Reliability Intelligent Systems\rOrganizers: Yiyang Chen, Soochow University, China\rZhaomin Lv, Shanghai University of Engineering Science, China\rSudao He, The Hong Kong University of Science and Technology, Hong Kong, China\r\rSpecial Session 9: Intelligent Control and Simulation for Power Generation Systems\rOrganizer: Yu Huang, North China Electric Power University, China\r\rSpecial Session 10: Renewable Energy Power Forecasting and Its Applications in Power Systems\rOrganizers: Xuguang Wang, North China Electric Power University, China\rDan Huang, North China Electric Power University, China\r\rSpecial Session 11: Modeling and Control of Power Electronic Systems\rOrganizers: Jian Wang, Hebei Institute of Mechanical and Electrical Technology, China\rLidong Hao, Hebei Institute of Mechanical and Electrical Technology, China\r\rSpecial Session 12: Uncertainty-Aware Perception, Planning and Control for Intelligent Robots\rOrganizers: Jianliang Mao, Shanghai University of Electric Power, China\rXiangyang Liu, Hefei University of Technology, China\r\rSpecial Session 13: Fault Diagnosis and Predictive Maintenance\rOrganizers: Dongnian Jiang, Lanzhou University of Technology, China\rHuichao Cao, Lanzhou University of Technology, China\rHaijie Mao, Lanzhou University of Technology, China\r\rSpecial Session 14: AI-Driven Intelligent Fault Diagnosis, Tolerant control and Predictive Maintenance for Autonomous Systems\rOrganizers: Li Guo, Anhui Polytechnic University, China\rYuan Ge, Anhui Polytechnic University, China\rYuhang Xu, Nanjing University of Aeronautics and Astronautics, China\rXiaolu Chen, Anhui Polytechnic University, China\r\rSpecial Session 15: Mission-Oriented PHM, Resilient Control, and Autonomous Decision-Making for Unmanned Systems\rOrganizers: Li Guo, Anhui Polytechnic University, China\rYuan Ge, Anhui Polytechnic University, China\rYuhang Xu, Nanjing University of Aeronautics and Astronautics, China\rXiaolu Chen, Anhui Polytechnic University, China\r\r\r★ Keynote Speaker★\rYuxin Zhao, Harbin Engineering University, China \rZhigang Zeng, Huazhong University of Science and Technology, China \rQinglei Hu, Beihang University, China \rLianqing Liu, Shenyang Institute of Automation, Chinese Academy of Sciences, China\rDayi Wang, Beijing Spacecraft Overall Design Department, China\rChao Shen, Xi'an Jiaotong University, China\rJianqiang Li, Shenzhen University, China\r\r★Committee★\rConference General Chairs\rBin JIANG,  IEEE Fellow, Nanjing University of Aeronautics and Astronautics (China)\rYunpeng LIU, North China Electric Power University (China)\r\rConference Co-Chairs\rDayi WANG, China Academy of Space Technology (China)\rHongtian CHEN, Shanghai Jiao Tong University (China)\rYongjie ZHAI, North China Electric Power University (China)\r\rOrganizing Chair\rYu HUANG, North China Electric Power University (China)\r\rProgram Chairs\rYang LI, Hangzhou International Innovation Institute of Beihang University (China)\rZhihong GUAN, Huazhong University of Science and Technology (China)\r\rProgram Co-Chairs\rDongnian JIANG, Lanzhou University of Technology (China)\rLi GUO, Anhui Polytechnic University (China)\rMeng ZHANG, Xi'an Jiaotong University (China)\rXinggang Yan, University of Kent (UK)\r\rSpecial Session Chairs\rChaobo CHEN, Xi’an Technological University (China)\rJialong ZHANG, National University of Defense Technology (China)\rJin Ke, Fuzhou University (China)\rXinghua LIU, Xi'an University of Technology (China)\rYing Li, Xiamen University of Technology (China)\r\rPublicity Chairs\rAli Al-Ataby, The American University of Ras Al Khaimah (UAE)\rDing CHEN, Xi'an Technological University (China)\rLing LI, Changsha University of Science & Technology (China)\rXue ZHANG, Shanghai Jiao Tong University (China)\rYap Hwa Jen, University of Malaya (Malaysia)\rYuchen JIANG, Harbin Institute of Technology (China)\rZhaoyan ZHANG, Hebei University (China)\r\rPublication Chairs\rChao Shang, Tsinghua University (China)\rFan Liang, China University of Geosciences (China)\rFanyong Chen, Anhui Polytechnic University (China)\rMeng ZHOU, North China University of Technology (China)\rZepeng LIU, Tongji University (China)\rZhiqiang HE, Hebei Finance University (China)\r\rAward Chairs\rBo LIU, Hebei Agricultural University (China)\rHao LUO, Harbin Institute of Technology (China)\r\rTreasurer\rAijing Cao, Anhui University of Finance and Economics (China)\r\rRegional Chair of Shanghai, China\rJianliang MAO, Shanghai University of Electric Power (China)\rRuijie LIU, University of Shanghai for Science and Technology (China)\rTao XIE, Shanghai University (China)\rZhaomin LV, Shanghai University of Engineering Science (China)\r\rRegional Chair of Nanjing, China\rChuang CHEN, Nanjing Tech University (China)\rHaidong SHEN, Nanjing University of Aeronautics and Astronautics (China)\rTongle ZHOU, Nanjing University of Aeronautics and Astronautics (China)\r\rRegional Chair of Suzhou, China\rShenghui GUO, Suzhou University of Science and Technology (China)\rYiyang CHEN, Soochow University (China)\r\rRegional Chair of Hangzhou, China\rXiuli WANG, Zhejiang University of Technology (China)\r\rRegional Chair of Xi’an, China\rKun YAN, Xi'an Technological University (China)\rWeizhong CHEN, Xi'an Polytechnic University (China)\r\rRegional Chair of Hefei, China\rDayu TAN, Anhui University (China)\r\rRegional Chair of Guilin, China\rXinzhi YAO, Guilin University of Electronic Technology (China)\r\rRegional Chair of Hong Kong, China\rSudao HE, The Hong Kong University of Science and Technology (China)\r\rRegional Chair of Baoding, China\rDan Huang, North China Electric Power University (China)\rPenghua LI, North China Electric Power University (China)\rRui CHEN, North China Electric Power University (China)\rShiyin ZHANG, North China Electric Power University (China)\rXuguang WANG, North China Electric Power University (China)\rYue ZHANG, North China Electric Power University (China)\rZhu WANG, North China Electric Power University (China)\r\r★ Publication★\rSubmitted papers will be peer reviewed by conference committees. Accepted full papers will be published in RCAE 2026 Conference Proceedings, which will be archived in IEEE Xplore, and indexed by EI Compendex, Scopus, and other indexing services.\r\r\r★Submission★\r1. Full Paper (Publication and Presentation)\r2. Abstract (Presentation Only)\r★Online Submission System: https://easychair.org/conferences/?conf=rcae2026\rAny question, please contact: rcaesub@academic.net\rMore details about submission, please visit http://rcae.net/sub.html\r\r★★Conference Schedule★★\rOctober 23rd, 2026 | Sign in and Collect Conference Materials\rOctober 24th, 2026 | Opening Ceremony & Keynote Speeches & Parallel Sessions for Authors' Presentation\rOctober 25th, 2026 | Invited Speeches & Parallel Sessions for Authors' Presentation\r\r★Contact Us★\rMs. Mia Huang (Conference Secretary)\rEmail: rcaesub@academic.net\r(Working hours:  10:00-18:00, Monday to Friday; Time Zone: GMT+8)",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191984",
+          "resourceAcronym": "IC-ICEE 2026",
+          "resourceName": "IEEE 2026 2nd International Conference on Intelligent Control and Electrical Engineering"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192215",
+          "resourceAcronym": "RAAI 2026",
+          "resourceName": "2026 6th International Conference on Robotics, Automation, and Artificial Intelligence (RAAI 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202550",
+          "resourceAcronym": "ISRIMT 2026",
+          "resourceName": "IEEE 2026 8th International Symposium on Robotics & Intelligent Manufacturing Technology"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203083",
+          "resourceAcronym": "SI: AI for Control Systems 2027",
+          "resourceName": "Special Issue on Applied Artificial Intelligence for Control Systems (Electronics, MDPI)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=86369",
+          "resourceAcronym": "CEVVE 2026",
+          "resourceName": "2026 4th International Conference on Electric Vehicle and Vehicle Engineering"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191293",
+          "resourceAcronym": "RCAE--EI 2026",
+          "resourceName": "2026 The 9th International Conference on Robotics, Control and Automation Engineering (RCAE 2026)"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191426&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191426&copyownerid=13881",
       "conferenceName": "2026 8th International Conference on Mechatronics, Robotics and Automation (ICMRA 2026)",
       "conferenceYear": 2026,
       "conferenceUri": "http://www.icmra.org/",
@@ -42,10 +160,69 @@
       "conferenceStartDate": "2026-11-13",
       "conferenceEndDate": "2026-11-15",
       "conferenceLocation": "Suzhou, China",
+      "conferenceCategories": [
+        "robotics",
+        "mechatronics",
+        "artificial intelligence",
+        "engineering"
+      ],
+      "callForAbstract": "ICMRA 2026 [Ei Compendex and Scopus]\r\r★Full name: 2026 8th International Conference on Mechatronics, Robotics and Automation (ICMRA 2026)\r★Abbreviation: ICMRA 2026\r★Time：November 13-15, 2026\r★Place：Suzhou, China\r★Website：http://www.icmra.org/\r\r2026 8th International Conference on Mechatronics, Robotics and Automation (ICMRA 2026) will be held in Suzhou, China during November 13-15, 2026. It's sponsored by Suzhou University of Science and Technology, hosted by School of Electronic & Information Engineering, Suzhou University of Science and Technology, China.\r\r\r★Call for paper★\rTopics of interest for submission include, but are not limited to:\r1. Mechatronics:\rMechatronics systems and design\rActuators and sensors\rControl systems\rRobotics and automation\r2. Robotics:\rRobot kinematics and dynamics\rRobot motion planning and control\rMobile robots and unmanned systems\rSensor and perception systems\r3. Automation:\rIndustrial automation and control\rAutomation in manufacturing and production\rIntelligent transportation systems\rCyber-physical systems\r4. Applications:\rMedical and healthcare robotics\rService and personal robots\rAgricultural robotics\rSpace and underwater robotics\rFor more topics, please visit at http://www.icmra.org/cfp.html\r\r★Call for special session★\rThe Organizing Committee invites proposals for Special & Invited Sessions of ICMRA 2026. Special sessions complement the regular technical program by highlighting new and emerging research topics or innovative applications of established approaches. The topic of a special session proposal should be timely and compelling.\r\rPlease submit proposals in pdf format by email to icmra_conf@163.com. Proposal should include the following information:\r1.Title and abstract: Propose a title and a brief abstract of no more than approximately 200 words that will allow conference attendees to understand the topic and the focus of the special session.\r2.Information of Organizer(s): Please provide the name(s) of organizer(s); the email of main contact person; brief bio(s) of organizer(s).\rSubmission Deadline: August 1st, 2026\r\r★Publication★\rAfter peer review process, all full papers accepted by ICMRA 2026 will be published into ICMRA 2026 Conference Proceedings.\r\rPublication History\rICMRA 2024 IEEE Conference Proceedings: ISBN: 979-8-3503-5246-7 | Ei Compendex | Scopus\rICMRA 2023 IEEE Conference Proceedings: ISBN: 979-8-3503-0752-8 | Ei Compendex | Scopus\rICMRA 2022 IEEE Conference Proceedings: ISBN: 978-1-6654-7264-7 | Ei Compendex | Scopus\rICMRA 2021 IEEE Conference Proceedings: ISBN: 978-1-6654-2726-5 | Ei Compendex | Scopus\rICMRA 2020 IEEE Conference Proceedings: ISBN: 978-1-7281-9031-0 | Ei Compendex | Scopus\rICMRA 2018 IEEE Conference Proceedings: ISBN: 978-1-5386-5269-5 | Ei Compendex | Scopus\r\r★Submission★\r1. Full paper (Publication and Presentation)\r2. Abstract (Only Presentation)\r\rSubmission Online Electrical System (.pdf): https://www.zmeeting.org/submission/icmra2026\rMore detail about submission, please visit at http://www.icmra.org/sub.html\r\r★★Conference Schedule★★\rNovember 13, 2026 | Sign in and Collect Conference Materials\rNovember 14, 2026 | Opening Remark & Keynote Speeches & Oral / Poster Sessions\rNovember 15, 2026 |  Invited Speeches & Oral / Poster Sessions\r\r★★Contact:\rLily ZENG (Conference Secretary)\rWeb: http://www.icmra.org/\rEmail: icmra_conf@163.com\rWechat: iconf-ras (NOTE:ICMRA2026)",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203131",
+          "resourceAcronym": "ISIMA 2026",
+          "resourceName": "2026 3rd International Symposium on Intelligent Manufacturing and Automation"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202543",
+          "resourceAcronym": "ICUSAC 2026",
+          "resourceName": "IEEE 2026 3rd International Conference on Unmanned Systems and Automation Control"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191427",
+          "resourceAcronym": "ICMRA 2026",
+          "resourceName": "2026 8th International Conference on Mechatronics, Robotics and Automation (ICMRA 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=86369",
+          "resourceAcronym": "CEVVE 2026",
+          "resourceName": "2026 4th International Conference on Electric Vehicle and Vehicle Engineering"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202896",
+          "resourceAcronym": "AIIE--EI 2027",
+          "resourceName": "2027 International Conference on Artificial Intelligence and Intelligent Education (AIIE 2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=201710",
+          "resourceAcronym": "PSCE--EI 2027",
+          "resourceName": "2027 International Conference on Power Systems and Control Engineering (PSCE 2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191728&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191728&copyownerid=13881",
       "conferenceName": "ACM--2026 The 7th International Conference on Intelligent Medicine and Health (ICIMH 2026)",
       "conferenceYear": 2026,
       "conferenceUri": "http://www.icimh.com/",
@@ -54,10 +231,69 @@
       "conferenceStartDate": "2026-11-13",
       "conferenceEndDate": "2026-11-15",
       "conferenceLocation": "Guangzhou, China",
+      "conferenceCategories": [
+        "artificial intelligence",
+        "biomedical engineering",
+        "medicine",
+        "e-health"
+      ],
+      "callForAbstract": "Full Name: The 7th International Conference on Intelligent Medicine and Health\rAbbreviation: ICIMH 2026\r\r\r*The 7th International Conference on Intelligent Medicine and Health (ICIMH 2026)*\rGuangzhou, China | November 13-15, 2026\rWebsite: http://www.icimh.com/\r\r\r ◆ Committees\rConference Chairs\rEmanuele Trucco, University of Dundee, UK (FRSA, FIAPR, FBMVA, FAAIA)\rJimmy Liu, Southern University of Science and Technology, China\rYifan Chen, University of Electronic Science and Technology of China, China (FIEEE, FIET)\rLin Shu, South China University of Technology, China\r\rConference Co-chair\rJin Zhang, Sichuan University, China\r\rProgram Chairs\rYanwu Xu, South China University of Technology, China\rBin Hu, South China University of Technology, China\rRupesh Agrawal, Nanyang Technological University, Singapore\rJun Cheng (Principal Scientist), Agency for Science, Technology and Research (A*STAR), Singapore\rMing Chen, Zhejiang University, China\rYitian Zhao, Ningbo lnstitute of Materials Technology & Engineering, Chinese Academy of Science, China\rRong Ni, Zhejiang University, China\r\rPublication Chairs\rQi Liu, South China University of Technology, China\rHancong Wu, South China University of Technology, China\rYuyan Chen, Nantong Institute of Technology, China\r\rPublicity Chairs\rHuazhu Fu, Agency for Science, Technology and Research (A*STAR), Singapore\rEmma Shujun Wang, Hong Kong Polytechnic University, Hong Kong, China\rRisa Higashita, Southern University of Science and Technology, China\rYue Sun, Chengdu University of Technology, China\rShaolong Shi, Fuyao University of Science and Technology, China\r\rArea Chairs\rJiong Zhang, Ningbo Institute of Industrial Technology, Chinese Academy of Science, China\rTao Tan, Macao Polytechnic University, Macao, China\rHeng Li, Shenzhen University of Advanced Technology, China\rZheng Gong, Hong Kong Centre for Cerebro-cardiovascular Health Engineering, Hong Kong, China\rMeng Wang, National University of Singapore, Singapore\r\rLocal Organizing Chairs\rYe Liu, South China University of Technology, China\rHanyi Yu, South China University of Technology, China\r\r\r ◆ Publication\r\rConference Proceedings\rAll papers will be strictly double blind reviewed by the program committee and reviewers, and accepted papers after proper registration and presentation will be published in the ACM Conference Proceedings, indexed by Ei Compendex and Scopus.\r\r\r ◆ Publication History\rICIMH 2025: The International Conference Proceedings Series by ACM (ISBN: 979-8-4007-1574-7) has been archived in ACM Digital Library and  indexed by Ei Compendex and Scopus. (https://dl.acm.org/doi/proceedings/10.1145/3784929)\rICIMH 2024: The International Conference Proceedings Series by ACM (ISBN: 979-8-4007-0961-6) has been archived in ACM Digital Library and  indexed by Ei Compendex and Scopus. (https://dl.acm.org/doi/proceedings/10.1145/3715931)\rICIMH 2022: The International Conference Proceedings Series by ACM (ISBN: 978-1-4503-9708-7) has been archived in ACM Digital Library and  indexed by Ei Compendex and Scopus. (https://dl.acm.org/doi/proceedings/10.1145/3560071)\rICIMH 2021: The International Conference Proceedings Series by ACM (ISBN: 978-1-4503-8590-9) has been archived in ACM Digital Library and  indexed by Ei Compendex and Scopus. (https://dl.acm.org/doi/proceedings/10.1145/3484377)\rICIMH 2019: The International Conference Proceedings Series by ACM (ISBN: 978-1-4503-7286-2) has been archived in ACM Digital Library and  indexed by Ei Compendex and Scopus. (https://dl.acm.org/citation.cfm?id=3348416)\r\r  \r\r ◆ Topics (Topics of interest for submission include, but are not limited to:)\r   \rTrack 1: Virtual Reality and Augmented Reality\r- VR/AR applications in surgical training and simulation\r- Augmented reality for real-time clinical decision support\r- Immersive therapy for mental health and rehabilitation\r- VR/AR in medical education and patient engagement\r- Human-computer interaction in medical VR/AR systems\r- Ethical and privacy challenges in healthcare VR/AR\r\rTrack 2: Big Data and Cloud Computing\r- Federated learning and privacy-preserving healthcare analytics\r- Cloud-based platforms for telemedicine and remote monitoring\r- AI-driven big data analytics for disease prediction and prevention\r- Blockchain for secure health data sharing and interoperability\r- Real-time processing of wearable and IoT-generated health data\r- Scalable architectures for genomic and precision medicine data\r\rTrack 3: Intelligent Healthcare Systems\r- AI-powered clinical decision support systems (CDSS)\r- Robotics and automation in hospital workflows\r- Smart hospital infrastructure and IoT integration\r- Natural language processing (NLP) for electronic health records (EHR)\r- Explainable AI (XAI) for transparent medical diagnostics\r- Adaptive systems for chronic disease management\r \rTrack 4: Medical Imaging and Informatics\r- Deep learning for radiology, pathology, and microscopy image analysis\r- 3D reconstruction and visualization in diagnostic imaging\r- AI-assisted early detection of cancers and neurological disorders\r- Multimodal medical image fusion and registration\r- Edge computing for real-time medical imaging processing\r- Standards and interoperability in medical imaging informatics\r\rTrack 5: Personalized Medicine and Treatment\r- Genomics and AI for tailored therapeutic strategies\r- Pharmacogenomics and drug response prediction\r- Wearable sensors and continuous health monitoring for personalized care\r- Patient-derived organoids and computational modeling\r- Ethical and regulatory frameworks for personalized medicine\r- Behavioral analytics for individualized lifestyle interventions\r\rTrack 6: Healthcare Technology and Applications\r- Mobile health (mHealth) apps for disease management\r- Telehealth platforms and remote patient monitoring solutions\r- Assistive technologies for aging populations and disabilities\r- Point-of-care diagnostics and portable medical devices\r- AI chatbots and virtual health assistants\r- Social determinants of health (SDOH) and technology-enabled interventions\r\rFor more topics, please visit: http://www.icimh.com/cfp.html.\r\r\r ◆Submission Instructions\r\r  - English is the official language. Paper should be written and presented only in English.\r  - If you want to make a presentation and publish your paper, submit a full paper (no less than 8 pages); just want to make a presentation, abstract (200-400 words) is enough.\r  - Submission: \r  1) By online submission system: http://confsys.iconf.org/submission/icimh2026\r  2) By Email: icimh_contact@126.com\r  3) Template: Please format your paper according to the template (https://www.icimh.com/files/template.docx) before submission.\r\r\r◆General Program\r\r   The detailed conference program is to be available online at the late of October 2026. For your convenience, schedule at a glance is given below.\r\r  Day 1 - November 13, 2026\r  -10:00-17:00  |  Onsite Registration & Materials Collection\r  -14:00-17:00  |  Committee Conference\r \r  Day 2 - November 14, 2026\r  -09:00-12:00  |  Opening Remark and Keynote Speeches\r  -12:00-13:30  |  Lunch\r  -13:30-18:00  |  Parallel Sessions\r  -18:00-19:30  |  Award Ceremony & Dinner Banquet\r\r  Day 3 - November 15, 2026\r  -09:00-18:00  |  Invited Speeches & Parallel Sessions\r  \r\r ◆Contact us\r\r  Conference secretary:  Miss Tessa Chen\r  Email: icimh_contact@126.com\r  Tel: +86-13103333373\r  Website: http://www.icimh.com/\r  Office Hours: 9:30--18:00, Monday to Friday (GMT+8 Time Zone)",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192800",
+          "resourceAcronym": "ACM CSAI 2026",
+          "resourceName": "ACM--2026 The 10th International Conference on Computer Science and Artificial Intelligence (CSAI 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=200077",
+          "resourceAcronym": "ACM-AAMLDS 2026",
+          "resourceName": "2026 International Conference on Advanced Algorithms, Machine Learning, and Data Science (AAMLDS 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202579",
+          "resourceAcronym": "ACM--CFP--RobCE 2027",
+          "resourceName": "2027 7th International Conference on Robotics and Control Engineering (RobCE 2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=169901",
+          "resourceAcronym": "DEPLING  2023",
+          "resourceName": "DEPLING 2023 International Conference on Dependency Linguistics"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203053",
+          "resourceAcronym": "ACM TRUST  2027",
+          "resourceName": "ACM TRUST 2027 ACM Conference on Trustworthy and Responsible AI and Computing Systems"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194995",
+          "resourceAcronym": "ACM ICSCA 2027",
+          "resourceName": "ACM--2027 16th International Conference on Software and Computer Applications (ICSCA 2027)"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191768&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191768&copyownerid=13881",
       "conferenceName": "2026 the 11th International Conference on Intelligent Transportation Engineering (ICITE 2026)",
       "conferenceYear": 2026,
       "conferenceUri": "http://www.icite.org/",
@@ -66,10 +302,69 @@
       "conferenceStartDate": "2026-11-06",
       "conferenceEndDate": "2026-11-08",
       "conferenceLocation": "Hong Kong, China",
+      "conferenceCategories": [
+        "artificial intelligence",
+        "management",
+        "transportation",
+        "engineering"
+      ],
+      "callForAbstract": "Full Name: 2026 the 11th International Conference on Intelligent Transportation Engineering (ICITE 2026)\rAbbreviation: ICITE 2026\rHong Kong, China | November 6-8, 2026 \rhttp://www.icite.org\r\r**Sponsored by\rThe University of Hong Kong (HKU)\r\r**Proceedings\rThe accepted papers after proper registration and presentation, will be published into the IOS conference proceedings, and reviewed by the Ei Compendex and Scopus, etc.\r\r**Previous ICITE\rICITE2025 | IOS Press | ISBN: 978-1-64368-640-0 | Ei Compendex & Scopus\rICITE2024 | IOS Press | ISBN: 978-1-64368-602-8 | Ei Compendex & Scopus\rICITE2023 | IEEE | ISBN: 979-8-3503-1420-5 - IEEE Xplore | Ei Compendex & Scopus\rICITE2022 | IEEE | ISBN: 978-1-6654-6006-4 - IEEE Xplore | Ei Compendex & Scopus\rICITE2021 | Springer- Lecture Notes in Electrical Engineering (LNEE) | Ei Compendex & Scopus\rICITE2020 | IEEE | ISBN: 978-1-7281-9409-7 - IEEE Xplore | Ei Compendex & Scopus\rICITE2019 | IEEE | ISBN: 978-1-7281-4552-5 - IEEE Xplore | Ei Compendex & Scopus\rICITE2018 | IEEE | ISBN: 978-1-5386-7830-5 - IEEE Xplore | Ei Compendex & Scopus \rICITE2017 | IEEE | ISBN: 978-1-5090-6272-0 - IEEE Xplore | Ei Compendex & Scopus\rICITE2016 | IEEE | ISBN: 978-1-4673-9046-0 - IEEE Xplore | Ei Compendex & Scopus \r\r**ICITE Conference Committees\r*Advisory Chairs\rYANG, Hai, Professor, The Hong Kong University of Science and Technology, Hong Kong\rQU, Xiaobo, Professor, Tsinghua University, China (Member, Academia Europaea-The Academy of Europe)\r*Conference Chairs\rZHANG, Fangni, Professor, The University of Hong Kong, Hong Kong\rAI, Bo, Professor, Beijing Jiaotong University, China (IEEE Fellow, IET Fellow)\r*Conference Co-Chairs\rCHEN, Yanyan, Professor, Beijing University of Technology, China\rMAO, Guoqiang, Professor, Southeast University, China (IEEE Fellow, IET Fellow)\r*Technical Program Committee Chairs\rHUANG, Helai, Professor, Central South University, China\rCHENG, Nan, Professor, Xidian University, China\rCHEN, Xiangxian, Professor, Zhejiang University, China\rNG, Andrew Keong, Associate Professor, Singapore Institute of Technology, Singapore\r*Technical Program Committee Co-Chairs\rXU, Zhigang, Professor, Chang  an University, China\rLIU, Zhiyuan, Professor, Southeast University, China\rHUANG, Ailing, Professor, Beijing Jiaotong University, China\rLI, Ruimin, Professor, Tsinghua University, China\r\r**ICITE Awards\rYoung Scientist Award\rBest Paper Award\rBest Student Paper Award\rOutstanding Contribution Award \rOutstanding Reviewer Award\rOral Presentation Award\r\r**Keynote Speakers of Past ICITEs\rProf. Guoqiang Mao, Southeast University, China . IEEE Fellow, IET Fellow\rProf. Feiyue Wang, Chinese Academy of Sciences. Fellow of IEEE\rProf. Miguel Angel Sotelo, University of Alcala. Fellow of IEEE\rProf. Jinhu Lv, Beihang University, China. Fellow of IEEE\rProf. Kun Yang, University of Essex, UK. IEEE, IET Fellow\r\r**Submission\rICITE 2026 is now accepting manuscript submissions. \rPlease submit your full paper to us: icite_ite@vip.163.com\rSubmission guideline: https://www.icite.org/submission.html\r\r**Contact us\rMs. Suvy S.W. Li\rEmail: icite_ite@vip.163.com\rWeChat: iconf-cs-2",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192214",
+          "resourceAcronym": "ICMSR--SCI 2026",
+          "resourceName": "2026 12th International Conference on Mechatronics Systems and Robotics (ICMSR 2026)--SCI"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192217",
+          "resourceAcronym": "RAAI--EI 2026",
+          "resourceName": "2026 6th International Conference on Robotics, Automation, and Artificial Intelligence (RAAI 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191769",
+          "resourceAcronym": "ICITE--EI 2026",
+          "resourceName": "2026 the 11th International Conference on Intelligent Transportation Engineering (ICITE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192657",
+          "resourceAcronym": "ICCIT 2026",
+          "resourceName": "IEEE--2026 The 5th International Conference on Cognitive and Intelligent Technology (ICCIT 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=169901",
+          "resourceAcronym": "DEPLING  2023",
+          "resourceName": "DEPLING 2023 International Conference on Dependency Linguistics"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194810",
+          "resourceAcronym": "AIAIS 2027",
+          "resourceName": "IEEE--2027 International Conference on Artificial Intelligence and Applied Intelligent Systems (AIAIS)"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192685&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192685&copyownerid=13881",
       "conferenceName": "ACM--2026 5th International Conference on Computer Applications Technology (CCAT 2026)",
       "conferenceYear": 2026,
       "conferenceUri": "https://ccat.org/",
@@ -78,10 +373,69 @@
       "conferenceStartDate": "2026-12-18",
       "conferenceEndDate": "2026-12-20",
       "conferenceLocation": "Fukuoka, Japan",
+      "conferenceCategories": [
+        "computing",
+        "computer engineering",
+        "artificial intelligence",
+        "software engineering"
+      ],
+      "callForAbstract": "Full Name: 2026 5th International Conference on Computer Applications Technology\rAbbreviation: CCAT 2026\rDecember 18-20,2026 | Fukuoka, Japan\rMore details, please visit: https://ccat.org/\r\rCCAT brings together researchers and practitioners worldwide to discuss timely innovations in computer, Internet, and software tools, including technology integration in engineering education as well as related assessment and dissemination. CCAT 2026 will strengthen academia–industry dialogue and research-to-industry exchange, welcoming professionals, industrialists, and students to share results, join interactive discussions and special sessions, and explore the future potential of computer applications technology.\r\r【Keynote Speakers】\rProf. Yutaka Arakawa, Kyushu University, Japan\rProf. Hideaki Kimata, Kogakuin University, Japan\r\rMore speakers to be announced......\r\r【Conference Awards】\rOutstanding Organization Award\rOutstanding Contribution Award\rBest Paper Award\rBest Oral Presentation Award\rBest Poster Presentation Award\r\r【Proceedings & Previous CCAT】\rAll accepted and registered papers will be published in CCAT Conference Proceedings, which will be archived in the ACM Digital Library, and indexed by Ei Compendex and Scopus and submitted to be reviewed by Thomson Reuters Conference Proceedings Citation Index (ISI Web of Science).\r\r**CCAT 2025, IEEE Xplore online, Ei&Scopus Index\rhttps://ieeexplore.ieee.org/xpl/conhome/11573641/proceeding\r\r**CCAT 2024, IEEE Xplore online, Ei&Scopus Index\rhttps://ieeexplore.ieee.org/xpl/conhome/10884309/proceeding\r\r**CCAT 2023, IEEE Xplore online, Ei&Scopus Index\rhttps://ieeexplore.ieee.org/xpl/conhome/10410268/proceeding\r\r**CCAT 2022, IEEE Xplore online, Ei&Scopus Index\rhttps://ieeexplore.ieee.org/xpl/conhome/10006724/proceeding\r\r【 Call for Papers 】\rTopics of interest include, but are not limited to:\r\rTopic 1: Software Engineering and Modern Development\r*Software Requirements and Engineering\r*Software Architecture, Design Patterns, and Microservices\r*Modern Programming Paradigms and Languages\r*Software Quality Assurance, Verification, and Validation\r*Empirical Software Engineering and Metrics\r......\r\rTopic 2: Artificial Intelligence and Computational Intelligence\r*Machine Learning, Deep Learning, and Neural Networks\r*Evolutionary Computing and Meta-heuristic Optimization\r*Natural Language Processing and Large Language Models\r*Computer Vision, Image, and Video Processing\r*Intelligent and Adaptive Human-Computer Interaction\r......\r\rTopic 3: Intelligent Systems and Industrial Informatics (Industry 4.0/5.0)\r*Smart Manufacturing, Production, and Process Control\r*Predictive and Prescriptive Maintenance\r*Industrial Internet of Things and Smart Sensor Systems\r*Robotics, Autonomous Systems, and Flexible Automation\r*Mixed, Augmented, and Virtual Reality in Industry\r......\r\rTopic 4: Computer Systems, Networks, and Cybersecurity\r*Operating Systems and Distributed Systems\r*Computer Networks, Communication Protocols, and Next-Generation Internet\r*High-Performance, Parallel, and Cloud Computing\r*Edge, Fog, and Mobile Edge Computing Architectures\r*Cybersecurity, Cryptography, and Network Security\r.....\r\rmore please click:  https://ccat.org/cfp.html\r\r\r[ Special Session ]\rSpecial Session proposals should be emailed (PDF) to ccat_info@yeah.net by September 30, 2026. \rPlease include: \r(1) Title and abstract\r(2) Rationale \r(3) Proposed speakers\r(4) Biographies\rSubmission format and Important Dates\rThe subject should state CCAT 2026 Special Session Proposal.\rProposals submitted before September 30th, 2026, will be given priority.\rNotifications of acceptance/rejection will be provided by October 20th, 2026.\r\r\r[ Submission ]\rMake a submission via Zmeeting: https://www.zmeeting.org/submission/ccat2026\rPS: Listener is warmly welcomed to register via: https://www.zmeeting.org/register/ccat2026\r\r[ Contact us ]\rMs. Yuki Yu\rE-mail: ccat_info@yeah.net",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192800",
+          "resourceAcronym": "ACM CSAI 2026",
+          "resourceName": "ACM--2026 The 10th International Conference on Computer Science and Artificial Intelligence (CSAI 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203053",
+          "resourceAcronym": "ACM TRUST  2027",
+          "resourceName": "ACM TRUST 2027 ACM Conference on Trustworthy and Responsible AI and Computing Systems"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194995",
+          "resourceAcronym": "ACM ICSCA 2027",
+          "resourceName": "ACM--2027 16th International Conference on Software and Computer Applications (ICSCA 2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191728",
+          "resourceAcronym": "ACM ICIMH 2026",
+          "resourceName": "ACM--2026 The 7th International Conference on Intelligent Medicine and Health (ICIMH 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=169901",
+          "resourceAcronym": "DEPLING  2023",
+          "resourceName": "DEPLING 2023 International Conference on Dependency Linguistics"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202579",
+          "resourceAcronym": "ACM--CFP--RobCE 2027",
+          "resourceName": "2027 7th International Conference on Robotics and Control Engineering (RobCE 2027)"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192800&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192800&copyownerid=13881",
       "conferenceName": "ACM--2026 The 10th International Conference on Computer Science and Artificial Intelligence (CSAI 2026)",
       "conferenceYear": 2026,
       "conferenceUri": "http://www.csai.org/",
@@ -90,10 +444,69 @@
       "conferenceStartDate": "2026-12-18",
       "conferenceEndDate": "2026-12-21",
       "conferenceLocation": "Beijing, China",
+      "conferenceCategories": [
+        "computing",
+        "computer science",
+        "artificial intelligence",
+        "human-computer interaction"
+      ],
+      "callForAbstract": "※The 10th CSAI2026 (Computer Science and AI) | Beijing, China ※ Open Access, EI Compendex&Scopus Indexed ※\r\rFull name: ACM--2026 The 10th International Conference on Computer Science and Artificial Intelligence (CSAI 2026)\rAbbreviation: CSAI 2026\r*Time: December 18-21, 2026\r*Place: Beijing, China\r*Web: http://www.csai.org\r\r==Sponsored by\rBeijing Computer Federation, China\rBeijing Computer Federation (BCF), founded in 1987, was initiated by Prof. Yang Fuqing (Academician) together with many well-known experts and professors in the field of computer science, acknowledged by the Beijing Municipal Civil Affairs Bureau, and affiliated to the Beijing Municipal Association for Science and Technology.\r\r==Awards\rBest Paper Award\rExcellent Organization Award \rOutstanding Contribution Award\r\r==Call for Tracks\r1. To set a track under the conference scope, can gather the experts in a specific area from academic communication. If you are interested, you can write the application to csai@young.ac.cn\r2. Each track should have 1 organizer and committee members, who are responsible for the track publicity. At least 5-8 presentations/full paper can be collected in a successful track.\r3. The privileges for the organizer\r-organization award\r-1 free to attend the conference without registration fee\r\r==Invited Speaker Application\rIf you are a professor or an Assoc. Professor who are interested to share your research idea during the conference, you can write the application to csai@young.ac.cn, you will enjoy the special registration rate for participation.\r\r==Proceedings\rThe conference is calling for papers. All papers will undergo strict peer-review. Accepted papers will be published in the ACM conference proceedings, which will be submitted to EI Compendex & Scopus, etc. \rThe conference proceedings will be published as open access since now, which will increases the visibility of the research, helps authors reach a wider audience, and can lead to higher citation rates and greater academic impact. \rThe proceedings of CSAI2017-2025 have been successfully published included in ACM digital library, and indexed by EI Compendex and Scopus, etc.\r\r==Submission\r1. Full paper (publication and presentation) \r2. Abstract (presentation only) \r\r**Submit paper via online system: https://easychair.org/conferences/?conf=csai2026\r**More detail about submission, please visit at https://csai.org/cal-for-papers.html\r**CSAI2026 will accept the online presentation for those who can't attend the conference. \r\r==Conference History\rCSAI 2025 Proceedings (ISBN: 979-8-4007-1962-2) | December 12-15, 2024 | Beijing, China \rCSAI 2024 Proceedings (ISBN: 979-8-4007-1818-2) | December 6-8, 2024 | Beijing, China    | EI Compendex and Scopus indexed\rCSAI 2023 Proceedings (ISBN: 979-8-4007-0868-8) | December 8-10, 2023 |  Beijing, China  | EI Compendex and Scopus indexed\rCSAI 2022 Proceedings (ISBN: 978-1-4503-9777-3) | December 9-11, 2022 | Beijing, China  | EI Compendex and Scopus indexed\rCSAI 2021 Proceedings (ISBN: 978-1-4503-8415-5) | December 4-6, 2021 | Beijing, China  | EI Compendex and Scopus indexed\rCSAI 2020 Proceedings (ISBN: 978-1-4503-8843-6) | December 11-13, 2020 | Zhuhai, China | EI Compendex and Scopus indexed\rCSAI 2019 Proceedings (ISBN: 978-1-4503-7627-3) | December 6-8, 2019 | Beijing, China | EI Compendex and Scopus indexed\rCSAI 2018 Proceedings (ISBN: 978-1-4503-6606-9) | December 8-10, 2018 | Shenzhen, China | EI Compendex and Scopus indexed\rCSAI 2017 Proceedings (ISBN: 978-1-4503-5392-2) | December 5-7, 2017 | Jakarta, Indonesia | EI Compendex and Scopus indexed\r\r==Topics (include but not limit)\r1. Artificial Intelligence and Machine Learning\r● AI Theory and Algorithms (AI Algorithms, Artificial Intelligence and Intelligent Computing)\r● Machine Learning and Deep Learning (Machine Learning & Applications, Artificial Intelligence, Machine, Deep Learning)\r● Neural Networks and Fuzzy Systems (Neural Networks & Fuzzy System, Soft Computing)\r● Genetic Algorithms and Evolutionary Computation (Genetic Algorithm)\r● Federated Learning and Self-Supervised Learning (Federated Learning, Self-Supervised Learning)\r● Intelligent Information Systems and Decision Support (Decision Support System, Intelligent Information & Database Systems)\r● AI Tools and Applications (Artificial Intelligence Tools & Applications)\r\r2. Databases and Information Retrieval\r● Database Systems and Data Management (Database & Information Retrieval, Data Management, Database and Data Mining)\r● Multimedia Databases and Services (Multimedia DB's, Multimedia Systems and Services)\r● Information Retrieval and Semantic Search (Information Retrieval, Web Intelligence Applications & Search)\r● Mining Data, Text, and Web Data (Mining Data, Text, and the Web)\r\r3. Computer Networks and Security\r● Computer Networks and Data Communication (Computer Networks, Data Communication and Networking, Networking and Communications)\r● Wireless, Mobile and IoT (Wireless, Mobile and Ubiquitous Computing, Mobile Computing, Internet of Things (IoT), Sensor Networks)\r● Network Security and Information Assurance (Security and Information Assurance)\r\r4. Computer Architecture and Systems\r● Embedded Systems and Reconfigurable Computing (Embedded System and Software, Reconfigurable Computing)\r● Operating Systems and Distributed Systems (Operating Systems, Distributed and Parallel Systems and Algorithms, Parallel and Distributed Computing)\r\r5. Software Engineering and Programming Technologies\r● Software Engineering Methods and Techniques (Software Engineering, Methods and Techniques for Software Development)\r● Programming Languages and Compiler Design (Programming Languages, Compiler Design)\r\r6. Multimedia and Intelligent Signal Processing\r● Image Signal Processing and Pattern Recognition (DSP/Image Processing/Pattern Recognition/Multimedia, Image Signal Processing)\r\r7. Computational Intelligence and Cognitive Computing\r● Intelligent Computing and Fuzzy Systems (Soft Computing, Neural Networks & Fuzzy System)\r● Computational Thinking and Cognitive Computing (Computational Thinking and Education Analysis)\rFor more topic, please visit the official website: https://csai.org/cal-for-papers.html\r\r\r==Conference Brief Program\r**December 18, 2026 (Friday)\r10:00-17:00 Registration & Material Collecting\r14:00-17:30 Special Session-Educational Games\r16:00–18:00 Committee Meeting\r\r**December 19, 2026  (Saturday)\r09:00-12:10 Opening & Keynote Speeches\r12:10-13:30 Lunch\r13:30-18:00 Authors' Oral Presentation\r18:30-21:00 Dinner\r\r**December 20, 2026 (Sunday)\r09:30-12:30 Parallel Sessions & Poster Presentations\r12:30–14:00 Lunch\r14:00–15:30 Parallel Sessions\r18:30-20:00 Banquet and Best Presentation Awards & Closing\r\r**December 21, 2026 (Monday)\r10:00-18:00 Social Program (Optional and Paid)\r\r==Contact\rKiko Xu\rE-mail: csai@young.ac.cn\rWeb: http://www.csai.org\rTel: +86-191-3627-5767\rWechat ID: iconf-ras",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192402",
+          "resourceAcronym": "CVEI 2026",
+          "resourceName": "2026 International Academic Conference on Computer Vision and Embodied Intelligence"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192686",
+          "resourceAcronym": "CCAT 2026",
+          "resourceName": "ACM--2026 5th International Conference on Computer Applications Technology (CCAT 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192215",
+          "resourceAcronym": "RAAI 2026",
+          "resourceName": "2026 6th International Conference on Robotics, Automation, and Artificial Intelligence (RAAI 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=175829",
+          "resourceAcronym": "IEEE-MLNLP 2026",
+          "resourceName": "2026 IEEE 9th International Conference on Machine Learning and Natural Language Processing (MLNLP 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203053",
+          "resourceAcronym": "ACM TRUST  2027",
+          "resourceName": "ACM TRUST 2027 ACM Conference on Trustworthy and Responsible AI and Computing Systems"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191360",
+          "resourceAcronym": "ITCCMA  2026",
+          "resourceName": "ITCCMA 2026 13th International Conference on Information Technology, Control, Chaos, Modeling and Applications"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194244&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194244&copyownerid=13881",
       "conferenceName": "IEEE--2026 International Conference on Power, Electronics and Intelligent Systems (PEIS 2026)",
       "conferenceYear": 2026,
       "conferenceUri": "https://peis.org/",
@@ -102,10 +515,69 @@
       "conferenceStartDate": "2026-11-06",
       "conferenceEndDate": "2026-11-08",
       "conferenceLocation": "Nanjing, China",
+      "conferenceCategories": [
+        "energy",
+        "electronics",
+        "power",
+        "artificial intelligence"
+      ],
+      "callForAbstract": "Full Name: 2026 International Conference on Power, Electronics and Intelligent Systems\rAbbreviation: PEIS 2026\rNanjing, China | November 6-8, 2026\rMore details, please visit: https://peis.org/\r\rInternational Conference on Power, Electronics and Intelligent Systems(PElS 2026) will be held in Nanjing, China during November 6-8, 2026. Sponsored by Nanjing Institute of Technology, this conference will convene global experts, scholars, and engineers to explore the integration of power electronics with AI and IT—a key driver in reshaping modern energy and industrial systems.\rThe forum aims to foster discussions on new theories and technologies, promote interdisciplinary collaboration, and accelerate the translation of innovations into practical solutions for building a clean, low-carbon, safe, and efficient energy future.\r* PEIS 2026 has been included in IEEE Conference List: https://conferences.ieee.org/conferences_events/conferences/conferencedetails/72634\r\r【Conference Awards】\rYoung Researcher Award | Outstanding Reviewer Award | Outstanding Organization Award| Best Paper Award | Best Paper Runner-up | Best PhD Student Award | Best Student Paper Award | Best Industrial Paper Award | Best Oral Presentation Award | Best Poster Presentation Award\r\r【Proceedings】\rSubmitted papers will be peer-reviewed by the Technical Program Committee based on relevance, quality, and originality. Accepted papers will be published in the IEEE conference proceedings, included in IEEE Xplore, and submitted for indexing in Ei Compendex and Scopus after the conference. At least one author of each accepted paper must register and present at the conference.\r\r【 Keynote Speakers 】\rProf. Vladimir Terzija, Newcastle University, UK (IEEE Fellow, Humboldt Fellow)\rProf. Dean Sharafi, IEEE PES\r\rMore speakers to be announced. \r\r【 Call for Papers 】\rTopics of interest include, but are not limited to:\r\rTopic 1: Intelligent Energy Conversion & Storage Technologies\r*Renewable Energy Systems\r*Photovoltaic Power Generation\r*Electrical Machines and Drives\r*Electrical Batteries and BMS\r*Energy Storage Technology\r......\r\rTopic 2: High-efficiency Power Electronics and Intelligent Equipment\r*GaN/SiC High-Frequency High-Density Converters\r*High-Frequency Magnetic Integration\r*Predictive & Intelligent Control for Converters\r*AI-Driven Condition Monitoring & Prognostics\r*Digital Twin for Power Electronics\r......\r\rTopic 3: Smart Grid & Energy System Integration\r*Grid Stability with High Renewables\r*Grid Integration of Distributed Renewables\r*Cooperative Optimization of Grids & Microgrids\r*Virtual Power Plants & Market Trading\r*Power System Cybersecurity\r......\r\rTopic 4: High Voltage Engineering & Grid Security\r*Nanocomposite Dielectrics\r*Insulation for HVDC/FACTS Equipment\r*Fault Diagnosis for GIS & Transformers\r*Lightning & Switching Overvoltage Protection\r*Insulation in Hybrid AC/DC Grids\r.....\r\rmore please click:  https://peis.org/topics.html\r\r\r[ Call for Tracks ]\rWe are now welcoming proposals for thematic tracks to be held as part of the International Conference on Power Energy, Electronics and Intelligent Systems. Proposals should be submitted by September 30th, 2026 via the conference email: peis_conference@vip.163.com (please ensure you have read the rules and guidelines beforehand).\r\r► Overview\rTracks that organized by leading experts, form a core component of our conference. They are designed to create a focused forum for in-depth discussion and collaboration on specific, cutting-edge topics within the broader fields of power energy, electronics, and intelligent systems. We encourage proposals that bring together an international group of researchers to explore new challenges and advancements. Proposals that highlight the role of electronics and intelligent systems in advancing sustainable power and energy solutions will be particularly welcomed.\r\r► Submission Guidelines for Track Proposals\rAll track proposals must be submitted through the conference email: peis_conference@vip.163.com. A complete proposal should include:\r\r#Title of the proposed track.\r#Scope and Rationale: A brief description (approx. 200-300 words) outlining the track's focus, its relevance to the conference theme, and why it would appeal to a broad international audience.\r#Organizers: Names, affiliations, and short bios of the track chairs (typically 2-4 experts in the field).\r#Preliminary Program Committee: A list of potential PC members who have agreed to review for the track.\r\rRegistration Fee Waiver: A registration fee waiver for one track chair will be granted for tracks that achieve sufficient participation. The condition is: (# of in-person registrations for the track) + (0.5 * # of online registrations for the track) ≥ 8\r\r\r[ Submission ]\rMake a submission via Easychair: https://easychair.org/my/conference?conf=pels2026\rPS: Listener is warmly welcomed to register via: https://www.zmeeting.org/register/peis2026\r\r[ Contact us ]\rMs. Yuki Yu\rE-mail: peis_conference@vip.163.com",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=175829",
+          "resourceAcronym": "IEEE-MLNLP 2026",
+          "resourceName": "2026 IEEE 9th International Conference on Machine Learning and Natural Language Processing (MLNLP 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202950",
+          "resourceAcronym": "20th IEEE MCSoC  2027",
+          "resourceName": "20th IEEE MCSoC 2027 20th IEEE International Symposium on Embedded Multicore/Many-core Systems-on-Chip (MCSoC-2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195447",
+          "resourceAcronym": "IEEE SSCI 2027",
+          "resourceName": "2027 IEEE Symposium Series on Computational Intelligence"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203126",
+          "resourceAcronym": "MobiWis  2027",
+          "resourceName": "MobiWis 2027 The 23rd International Conference on Mobile Web and Intelligent Information Systems"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=201207",
+          "resourceAcronym": "IEEE SMC 2027",
+          "resourceName": "IEEE International Conference on Systems, Man, and Cybernetics"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=169901",
+          "resourceAcronym": "DEPLING  2023",
+          "resourceName": "DEPLING 2023 International Conference on Dependency Linguistics"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194351&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194351&copyownerid=13881",
       "conferenceName": "ACM--2027 9th Asia Pacific Information Technology Conference (APIT 2027)",
       "conferenceYear": 2027,
       "conferenceUri": "https://www.apit.net/",
@@ -114,10 +586,69 @@
       "conferenceStartDate": "2027-01-22",
       "conferenceEndDate": "2027-01-24",
       "conferenceLocation": "Osaka, Japan",
+      "conferenceCategories": [
+        "artificial intelligence",
+        "information science",
+        "internet of things",
+        "big data"
+      ],
+      "callForAbstract": "Full name: 2027 9th Asia Pacific Information Technology Conference \rAbbreviation: APIT 2027\r\rThe 2027 9th Asia Pacific Information Technology Conference (APIT 2027) will be held during January 22-24, 2027 in Ritsumeikan University (Osaka Ibaraki Campus), Osaka, Japan.\r\rConference Website: https://www.apit.net/\r\r\rAPIT 2027 important information:\r1. Publication of APIT 2027: \rAfter the peer-review process, all accepted papers of APIT 2027 after proper registration and presentation will be published in one of the following conference proceedings or journal:\rAPIT 2027 ACM Conference Proceedings, which will be indexed by Ei Compendex and Scopus, and submitted to be reviewed by Thomson Reuters Conference Proceedings Citation Index (ISI Web of Science).\rExcellent papers after registration and presentation, can be published in Journal of Advances in Information Technology (JAIT, ISSN: 1798-2340; CiteScore: 4.8, IF: 1.5): indexed by ESCI (Web of Science), Scopus, EBSCO, Google Scholar, CNKI, Crossref, etc.\r\r2. The APIT 2026 was successfully held as hybrid style during January 9-11, 2026 in Hokkaido University, Japan. APIT conferences proceedings are all archived in the ACM Digital Library from 2019 to 2026. And  2019-2026 conference proceedings have been indexed in EI compendex and Scopus!\r3. Call for papers: Artificial Intelligence and Machine Learning, Big Data and Data Science, Cloud Computing and Edge Computing, Cybersecurity and Privacy, Internet of Things (IoT) and Smart Systems and so on. (https://www.apit.net/cfp.html)\r4. Prof. Qing Li (IEEE Fellow) from The Hong Kong Polytechnic University in China and Prof. Nikola Kasabov (IEEE Fellow) from Auckland University of Technology in New Zealand will be APIT 2027 keynote Speakers.\r\rConference Venue: Ritsumeikan University (Osaka Ibaraki Campus), Japan\rAddress: 2-150 Iwakuracho, Ibaraki, Osaka 567-8570, Japan\r\rSubmission and Contact information:\rSubmission System: https://www.zmeeting.org/submission/APIT2027\rAPIT 2027 conference secretary: Ms. Jassica Yao\rE-mail: apit.conference@gmail.com\rTel: +86-021-59561560\rWechat: +86-18917644698\r\rAPIT 2027 is an international forum for sharing knowledge and results in theory, methodology and new advances and research results in the fields of Information Technology.\rFor more conference information, please visit the APIT 2027 website: https://www.apit.net/",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191257",
+          "resourceAcronym": "IEITAI 2026",
+          "resourceName": "2026 2nd International Conference on Information Engineering, Intelligent Information Technology and Artificial Intelligence"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=190061",
+          "resourceAcronym": "IEEE ICCT-PACIFIC 2026",
+          "resourceName": "2026 IEEE 2nd International Conference on Consumer Technology - Pacific (ICCT-Pacific 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=86369",
+          "resourceAcronym": "CEVVE 2026",
+          "resourceName": "2026 4th International Conference on Electric Vehicle and Vehicle Engineering"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192800",
+          "resourceAcronym": "ACM CSAI 2026",
+          "resourceName": "ACM--2026 The 10th International Conference on Computer Science and Artificial Intelligence (CSAI 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191975",
+          "resourceAcronym": "LATIS 2026",
+          "resourceName": "2026 International Conference on Low Altitude Technology and Intelligent Systems"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=169901",
+          "resourceAcronym": "DEPLING  2023",
+          "resourceName": "DEPLING 2023 International Conference on Dependency Linguistics"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194352&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194352&copyownerid=13881",
       "conferenceName": "SPIE--2027 8th International Conference on Computer Vision and Computational Intelligence (CVCI 2027)",
       "conferenceYear": 2027,
       "conferenceUri": "http://www.cvci.net/",
@@ -126,10 +657,69 @@
       "conferenceStartDate": "2027-01-22",
       "conferenceEndDate": "2027-01-24",
       "conferenceLocation": "Osaka, Japan",
+      "conferenceCategories": [
+        "software engineering",
+        "artificial intelligence",
+        "computing",
+        "computational intelligence"
+      ],
+      "callForAbstract": "Full name: 2027 8th International Conference on Computer Vision and Computational Intelligence\rAbbreviation:   CVCI 2027\r\r2027 8th International Conference on Computer Vision and Computational Intelligence(CVCI 2027) will be held in Ritsumeikan University (Osaka Ibaraki Campus), Osaka, Japan during January 22-24, 2027.\r\rConference Website: http://www.cvci.net/\r\rCVCI 2027 information: \r1. CVCI 2027 is supported by Ritsumeikan University (Osaka Ibaraki Campus), Japan.\r2. All peer reviewed and accepted papers, after registration and presentation will be published in the CVCI 2027 SPIE Conference Proceedings, which will be included in SPIE Digital Library and indexed by Ei Compendex, Scopus. . \r3. Prof. Nikola Kasabov (IEEE Fellow)  from Auckland University of Technology, New Zealand will be the keynote speaker.\r\r4.  The history of CVCI conference：\rCVCI 2020 received submissions from all over the world and was successfully held in Bali Island, Indonesia during January 17-19, 2020.\rAll the conference papers of CVCI 2020 is archived in the ACM Digital Library on March 26, 2020 and have been indexed by Ei Compendex, Scopus on June 1, 2020.\r\rDue to COVID-19 situation，CVCI 2021 was held online during January 15-17, 2021.\rAll the conference papers of CVCI 2021 is archived in the ACM Digital Library on May 18, 2021 and have been indexed by Ei Compendex, Scopus on June 4, 2021.\r\rDue to of the COVID-19 worldwide outbreak, CVCI 2022 was also forced to change to online meeting.\rAll the conference papers of CVCI 2022 is archived in the ACM Digital Library on March 15, 2022 and have been indexed by Ei Compendex, Scopus on April 1, 2022.\r\rCVCI 2023 was successfully held during February 9-11, 2023 in TON DUC THANG UNIVERSITY. \rAll the conference papers of CVCI 2023 is archived in the ACM Digital Library on June 12, 2023 and have been indexed by Ei Compendex, Scopus on July 7, 2023.\r\rCVCI 2024 was successfully held in as hybrid style in Bangkok, Thailand during January 29-31, 2024. \rAll the conference papers of CVCI 2024 is archived in the ACM Digital Library on May 29, 2024 and have been indexed by Ei Compendex, Scopus on June 26, 2024.\r\rCVCI 2025 was successfully held as hybrid style during January 10-12, 2025 in The Education University of Hong Kong.\rAll the conference papers of CVCI 2025 is archived in the ACM Digital Library on August 22, 2025 . \r\rCVCI 2026 was successfully held as hybrid style during January 9-11, 2026 in Hokkaido University, Japan.\r\rConference Venue： Ritsumeikan University (Osaka Ibaraki Campus), Japan\rAddress: 2-150 Iwakuracho, Ibaraki, Osaka 567-8570, Japan\r\r\rSubmission and Contact Methods\rSubmission Methods: https://www.zmeeting.org/submission/CVCI2027\rE-mail: cvci.conference@gmail.com\rConference Specialist: Ms. Josie Shen\r\rCVCI 2027 can provide a better platform for academic communication in research and development, professional practice in Computer Vision and Computational Intelligence.\rFor more conference information, please visit the conference website: http://www.cvci.net/",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=189985",
+          "resourceAcronym": "SPIE CVIT 2026",
+          "resourceName": "SPIE--2026 7th International Conference on Computer Vision and Information Technology (CVIT 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=200159",
+          "resourceAcronym": "SPIE SPRA 2027",
+          "resourceName": "SPIE--2027 7th Symposium on Pattern Recognition and Applications (SPRA 2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=199581",
+          "resourceAcronym": "SOICT  2026",
+          "resourceName": "SOICT 2026 The 15th International Symposium on Information and Communication Technology"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=190645",
+          "resourceAcronym": "SPIE ITCC 2026",
+          "resourceName": "SPIE--2026 8th International Conference on Information Technology and Computer Communications (ITCC 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=169901",
+          "resourceAcronym": "DEPLING  2023",
+          "resourceName": "DEPLING 2023 International Conference on Dependency Linguistics"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=199927",
+          "resourceAcronym": "SPIE ICDIP 2027",
+          "resourceName": "SPIE--2027 The 19th International Conference on Digital Image Processing (ICDIP 2027)"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194514&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194514&copyownerid=13881",
       "conferenceName": "2026 12th International Conference on Robotics and Artificial Intelligence (ICRAI 2026)",
       "conferenceYear": 2026,
       "conferenceUri": "https://icrai.org/",
@@ -138,10 +728,69 @@
       "conferenceStartDate": "2026-12-18",
       "conferenceEndDate": "2026-12-20",
       "conferenceLocation": "Incheon, Korea",
+      "conferenceCategories": [
+        "artificial intelligence",
+        "automation",
+        "mechatronics",
+        "engineering"
+      ],
+      "callForAbstract": "★Full name: 2026 12th International Conference on Robotics and Artificial Intelligence (ICRAI 2026)\r★Abbreviation: ICRAI 2026\r★Website: https://icrai.org/\r★Date: December 18-20, 2026\r★Held in: Yonsei University, Songdo, Incheon, Korea\r★Sponsored by: Yonsei University, South Korea\r\r★Call for papers★\rThe conference topics include, but are not limited to: \r*  Aerial and Underwater Robotics\r*  Bio-inspired Robotics\r*  Cable Robots, Cognitive Robotics\r*  Cognitive Approach for Robotics\r*  Control and Supervision Systems\r*  Human-Robots Interfaces\r*  Humanoid Robots\r*  Intelligent Robotics and Systems\r*  Legged Robots and Manipulation\r*  Mechatronics Systems\r*  Mobile Robots and Intelligent Autonomous Systems\r*  Modeling and Identification\r*  Motion Planning and Learning\r*  Network Robotics\r*  Opto-mechatronics\r*  Parallel Robotics\r*  Probabilistic Robotics\r*  Reconfigurable Robots\r*  Robot Control\r*  Robot Design, Development and Control\r*  Robust Control and Process Control\r*  Service and Field Robotics\r*  Social Robotics\r*  Vision, Recognition and Reconstruction\r*  Wheeled Mobile Robots\rMore Topics, please visit at https://www.icrai.org/topic.html\r\r★Publication★\rSubmitted papers will be reviewed by 2-3 peer reviewers. \rLike the previous conferences, submitted papers will be sent to around 2-3 reviewers for peer review. Accepted papers will be published into ICRAI 2026 Conference proceedings, which will be submitted to EI Compendex, Scopus and other major databases for abstracting and indexing (A&I).\r\r★Publication History★\r• ICRAI 2025-Nagoya, Japan | December 19-21, 2025\rISBN: 979-8-3315-9069-7 | Ei Compendex and Scopus (soon)\r• ICRAI 2024-Singapore | November 15-17, 2024\rISBN: 979-8-4007-1745-1 | Ei Compendex and Scopus\r• ICRAI 2023-Singapore | November 17-19, 2023\rISSN: 979-8-4007-0828-2 | Ei Compendex and Scopus\r• ICRAI 2022-Singapore | November 18-20, 2022\rISSN: 978-1-4503-9754-4 | Ei Compendex and Scopus\r• ICRAI 2021-Guangzhou, China | November 19-22, 2021\rISBN: 978-1-4503-8585-5 | Ei Compendex and Scopus\r• ICRAI 2020-Singapore (Virtual) | November 20-22, 2020\rISBN: 978-1-4503-8859-7 | Ei Compendex and Scopus\r• ICRAI 2019-Singapore | November 22-24, 2019\rISBN: 978-1-4503-7235-0 | Ei compendex and Scopus\r• ICRAI 2018-Guangzhou, China | November 17-19, 2018\rISBN: 978-1-4503-6584-0 | Ei compendex and Scopus\r• ICRAI 2017-Shanghai, China | December 29-31, 2017\rISBN: 978-1-4503-5358-8 | Ei compendex and Scopus\r\r★Submission★\r1. Full paper (publication and presentation)\r2. Abstract (presentation only)\r\rFor full paper and abstract, please upload it to the Electronic Submission System (.pdf) \r(https://www.zmeeting.org/submission/ICRAI2026)\rSend your enquiry to icraiconf@outlook.com\rMore details about submission, please visit at https://www.icrai.org/submission.html \r\r\r★Venue★\rYonsei University's International Campus - Songdo\rAddress: 85 Songdogwahak-ro, Yeonsu-gu, Incheon 21983, Republic of Korea\rWebsite: https://www.yonsei.ac.kr/en_sc/1818/subview.do \r\r★★Conference Schedule★★\rFriday-December 18, 2026\r10:00 -16:00    Conference Sign in and Materials Collection \r\rSaturday-December 19, 2026\r09:00-09:10    Welcome Message by the conference chair\r09:10-09:50    Keynote Speech 1\r09:50-10:30    Keynote Speech 2\r10:30-10:50    Coffee Break and Group Photo\r10:50-11:30    Keynote Speech 3\r11:30-12:00    Invited Speech 1\r12:00-13:30    Lunch\r13:30-15:30    Parallel Sessions\r15:30-16:00    Coffee Break\r16:00-18:00    Parallel Sessions\r18:00-20:00    Dinner\r\rSunday-December 20, 2026\r09:00-09:30    Invited Speech 2\r09:30-11:30    Parallel Sessions\r11:30-12:00    Closing Ceremony\r\r★Contact★\rMs. Carrie Lee (Conference Secretary)\rEmail: icraiconf@outlook.com\rWechat No: asr2020217 (Note: ICRAI 2026)",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191205",
+          "resourceAcronym": "CAAIE 2027",
+          "resourceName": "7th Conference on Advanced Artificial Intelligence and Education"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=201208",
+          "resourceAcronym": "WSDM 2027",
+          "resourceName": "20th ACM International Conference on Web Search and Data Mining"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192865",
+          "resourceAcronym": "Artificial Intelligence & Special Educa 2026",
+          "resourceName": "Artificial Intelligence in Special Education: Designing Inclusive, Equitable and Sustainable Futures"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=86369",
+          "resourceAcronym": "CEVVE 2026",
+          "resourceName": "2026 4th International Conference on Electric Vehicle and Vehicle Engineering"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194513",
+          "resourceAcronym": "ICRAI 2026",
+          "resourceName": "2026 12th International Conference on Robotics and Artificial Intelligence (ICRAI 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202896",
+          "resourceAcronym": "AIIE--EI 2027",
+          "resourceName": "2027 International Conference on Artificial Intelligence and Intelligent Education (AIIE 2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194633&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194633&copyownerid=13881",
       "conferenceName": "Springer--2026 10th International Conference on Natural Language Processing and Information Retrieval (NLPIR 2026)",
       "conferenceYear": 2026,
       "conferenceUri": "http://www.nlpir.net/",
@@ -150,10 +799,69 @@
       "conferenceStartDate": "2026-12-11",
       "conferenceEndDate": "2026-12-13",
       "conferenceLocation": "Nara, Japan",
+      "conferenceCategories": [
+        "natural language processing",
+        "software engineering",
+        "artificial intelligence",
+        "deep learning"
+      ],
+      "callForAbstract": "★Full name: Springer--2026 10th International Conference on Natural Language Processing and Information Retrieval (NLPIR 2026)\r★Abbreviation: NLPIR 2026\r★Website:  http://www.nlpir.net \r★Date：December 11-13, 2026\r★Held in: Nara, Japan\r\r★Call for papers★\rCore NLP & Data Science\r-Foundations of Language Processing\rData/text mining, corpus linguistics, and psycholinguistic modeling\rBasic NLP pipelines: tokenization, POS tagging, lemmatization, dependency parsing, and semantic role labeling\rLow-resource language engineering and cross-lingual adaptation\r\r-Linguistic Analysis & Understanding\rSyntax, semantics, discourse analysis, and pragmatics\rMultimodal speech recognition/synthesis (ASR/TTS) and conversational AI\rDiachronic corpora, temporal reasoning, and evolving language models\r\r-Knowledge Systems & Semantics\rAutomated knowledge acquisition, ontology generation/alignment, and semantic web technologies\rNeuro-symbolic integration: combining logic-based reasoning with neural networks\r\r-Content Analysis & IR\rTopic modeling, event/anomaly detection, and sentiment/emotion analysis\rDocument summarization, plagiarism detection, and authorship attribution\rDynamic/personalized IR, adversarial retrieval, and cross-language systems\r\r-Social & Multimedia Analysis\rPersonality/emotion detection in social media, misinformation tracking\rMultimodal IR (text, image, video) and virality prediction\r\r\r-AI-Driven Methods & Innovations\rLarge Language Models (LLMs) & Transformers\rArchitectures (BERT, GPT, T5, LLaMA) for NLU, generation, and few-shot learning\rDomain-specific LLMs (e.g., BioGPT, Codex) and tools like ChatGPT, DeepSeek, Claude\rEthical challenges: bias mitigation, hallucination control, and AI-generated content detection\r\r-Generative AI & Automation\rAbstractive summarization, synthetic data generation, and conversational agents\rMultimodal LLMs (e.g., GPT-4V) for vision-language tasks\r\r-Graph & Deep Learning\rGNNs for co-occurrence graphs, knowledge graph completion, and dynamic networks\rSwarm intelligence hybridized with transformer architectures\r\r-Efficiency & Scalability\rModel compression (pruning, quantization), federated learning, and edge NLP\rDistributed training frameworks for trillion-parameter models\r\r\r-Cross-Cutting Themes\rHuman-Centric NLP\rInteractive AI: chatbots, dynamic query resolution, and personalized recommendation systems\rExplainability (XAI) and visualization of attention mechanisms\r\r-Machine Translation & Multilinguality\rZero-shot translation, LLM-driven low-resource adaptation, and post-editing workflows\r\r-Decentralized & Collaborative Systems\rBlockchain for decentralized knowledge graphs, federated search, and privacy-preserving NLP\r\r-Ethics & Governance\rAI safety, fairness audits, and regulatory compliance (e.g., EU AI Act)\rCombatting misinformation and deepfakes in social/content platforms\r\r\r-Emerging Frontiers\rAI for Science: LLMs in biomedical NLP, climate text analysis, and legal document processing\rEmbodied AI: Language models integrated with robotics and real-world interaction\rSelf-Supervised Learning: Pre-training paradigms beyond transformers\r\r★ Publication\rAll peer-reviewed and presented papers from NLPIR 2026 will be published as post-proceedings in a volume of the Springer book series: Lecture Notes in Networks and Systems, indexed by Ei Compendex, Scopus, etc.\r\r**NLPIR 2018-2025 Conference Proceedings has been published online, and indexed by Ei Compendex and Scopus already.\rNLPIR 2025 Springer:Lecture Notes in Networks and Systems (LNNS, volume 1904)\rNLPIR 2024 ACM Digital Library (ISBN: 979-8-4007-1738-3)\rNLPIR 2023 ACM Digital Library (ISBN: 979-8-4007-0922-7)\rNLPIR 2022 ACM Digital Library (ISBN: 978-1-4503-9762-9)\rNLPIR 2021 ACM Digital Library (ISBN: 978-1-4503-8735-4)\rNLPIR 2020 ACM Digital Library (ISBN: 978-1-4503-7760-7) \rNLPIR 2019 ACM Digital Library (ISBN: 978-1-4503-6279-5)\rNLPIR 2018 ACM Digital Library (ISBN: 978-1-4503-6551-2)\r\r★Submission★\r1. Submitted papers should be prepared according to the paper template and the length should be at least 10 pages (Single column)\r2. The submitted paper is requested to be written in complete English.\rPaper Template for Docx: https://nlpir.net/splnproc1703.docm\rPaper Template for LaTex: https://nlpir.net/Latex-template.zip\r\r*Electronic Submission System Link: \rhttps://www.zmeeting.org/submission/NLPIR2026\r\rYou will receive the submission confirmation email from the conference email after around 2 working days. If you haven't received it, please contact us as soon as possible. (Email: nlpir@asr.org)\rMore details about submission, please visit at https://nlpir.net/sub.html\r\r\r★Conference Venue\rNara Women's University\rAddress: 〒630-8506, 奈良市北魚屋東町( Kita-uoya-higashi-machi, Nara City 630-8506)\r\r★★Contact us\rMs. Sophie Chen (Conference Secretary)\rEmail:nlpir@asr.org\rConference Website: www.nlpir.net",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202889",
+          "resourceAcronym": "Springer ICAMM 2027",
+          "resourceName": "Springer--2027 11th International Conference on Advanced Manufacturing and Materials (ICAMM 2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=201541",
+          "resourceAcronym": "Springer ICOCE 2027",
+          "resourceName": "Springer--2027 11th International Conference on Civil Engineering (ICOCE 2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202551",
+          "resourceAcronym": "Springer ISDEA 2027",
+          "resourceName": "Springer--2027 6th International Conference on Intelligent Systems Design and Engineering Applications (ISDEA 2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191733",
+          "resourceAcronym": "Springer AISS 2026",
+          "resourceName": "Springer--2026 Second International Conference on Artificial Intelligence for Sustainable Society (AISS 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=200163",
+          "resourceAcronym": "Springer ICIEA 2027",
+          "resourceName": "Springer--2027 14th International Conference on Industrial Engineering and Applications (ICIEA 2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=200172",
+          "resourceAcronym": "Springer IELR 2027",
+          "resourceName": "Springer--2027 4th International Conference on Innovative Education and Learning Resources (IELR 2027)"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194945&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194945&copyownerid=13881",
       "conferenceName": "2026 International Conference on Artificial Intelligence and Education Systems (AIES 2026)",
       "conferenceYear": 2026,
       "conferenceUri": "https://www.aies.net/",
@@ -162,10 +870,69 @@
       "conferenceStartDate": "2026-12-18",
       "conferenceEndDate": "2026-12-20",
       "conferenceLocation": "Kunming, China",
+      "conferenceCategories": [
+        "artificial intelligence",
+        "education",
+        "e-learning",
+        "deep learning"
+      ],
+      "callForAbstract": "★Full name: 2026 International Conference on Artificial Intelligence and Education Systems (AIES 2026)\r★Abbreviation: AIES 2026\r★Website:  https://www.aies.net/ \r★Date：December 18-20, 2026\r★Held in: Kunming, China\r★Sponsored by: Yunnan Normal University, China\r\r★Call for papers★\rGenerative AI in Education\r-AI content generation for teaching\r-LLM-powered tutoring systems\r-Automated essay evaluation\r-Synthetic educational materials\r-Ethical use of GenAI by students\r-Hallucination mitigation in EdTech\r-Prompt engineering for learning\r\rIntelligent Tutoring Systems\r-Adaptive learning algorithms\r-Knowledge tracing models\r-Personalized learning paths\r-Real-time feedback mechanisms\r-Learner modeling techniques\r-Cognitive diagnostic assessment\r-Multi-agent tutoring architectures\r\rConversational AI & Chatbots\r-Educational dialogue systems\r-Virtual learning assistants\r-Socratic questioning bots\r-Collaborative learning support\r-Emotional support chatbots\r-Multilingual educational bots\r-Voice-based learning interfaces\r\rImmersive Learning Tech\r-Immersive Learning Tech\r-AI-powered metaverse learning\r-Spatial computing for training\r-Haptic feedback systems\r-3D simulation environments\r-Embodied learning experiences\r-Multisensory learning design\r\rLearning Analytics & Assessment\r-Multimodal learning data mining\r-Predictive student analytics\r-Automated grading systems\r-Learning behavior pattern recognition\r-Early warning systems\r-Dashboard visualization design\r-Privacy-preserving analytics\r\rEducational Intelligent Systems Design\r-Educational Intelligent Systems Design\r-Edge computing in smart classrooms\r-Real-time inference optimization\r-Federated learning for education\r-Cloud-native educational infrastructure\r-Microservices for scalable EdTech\r-API design for learning ecosystems\rSystem reliability & fault tolerance\r\r\r★ Publication\rThe AIES 2026 accepted (Registered & Presented) full papers will be included to be published in the International Conference Proceedings, which will be submitted to be indexed by Ei Compendex and Scopus.\r\r\r★Submission★\r1. All submissions should be with a minimum paper length of Five (5) and a maximum paper length of Ten (10) printed pages including figures without incurring additional page charges. Papers exceeding 10 pages will not be accepted at AIES 2026. \r2. The conference language is in English so please prepare the abstract / full paper and the oral presentation in English.\r3. Full papers will be published in the conference proceedings.  If publication is not required, then we invite you to submit the abstract only.\r4. The version of your submission must be in the requested format. The authors are suggested to use the Conference template.\rPaper Template for Docx: https://www.aies.net/template.docx\rPaper Template for LaTex: https://www.aies.net/latex-template.zip\r\r*Electronic Submission System Link: \rhttps://www.zmeeting.org/submission/AIES2026\r\rYou will receive the submission confirmation email from the conference email after around 2 working days. If you haven't received it, please contact us as soon as possible. (Email: aies@academic.net)\rMore details about submission, please visit at https://www.aies.net/sub.html\r\r \r★Conference Venue\rYunnan Lishui Yunquan Hotel\rAddress: No. 768 Juxian Street, University Town, Chenggong District, Kunming, Yunnan, China\rWebsite: https://www.lishuiyunquanhotel.cn/en\r\r★★Contact us\rMs. Yulia Yu (Conference Secretary)\rEmail: aies@academic.net\rConference Website: https://www.aies.net/",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203066",
+          "resourceAcronym": "AISNS 2026",
+          "resourceName": "2026 4th International Conference on Artificial Intelligence, Systems and Network Security"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=199804",
+          "resourceAcronym": "ASCIC 2026",
+          "resourceName": "AFRICAN SMART CITIES & INNOVATION CONGRESS"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202834",
+          "resourceAcronym": "GEAI 2026",
+          "resourceName": "2026 International Conference on Green Energy and Artificial Intelligence"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192865",
+          "resourceAcronym": "Artificial Intelligence & Special Educa 2026",
+          "resourceName": "Artificial Intelligence in Special Education: Designing Inclusive, Equitable and Sustainable Futures"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195062",
+          "resourceAcronym": "CISSE 2026 – Cybersecurity Education Con 2026",
+          "resourceName": "30th Colloquium for Information Systems Security Education"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=175829",
+          "resourceAcronym": "IEEE-MLNLP 2026",
+          "resourceName": "2026 IEEE 9th International Conference on Machine Learning and Natural Language Processing (MLNLP 2026)"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194993&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194993&copyownerid=13881",
       "conferenceName": "ACM--2026 10th International Conference on Computational Biology and Bioinformatics (ICCBB 2026)",
       "conferenceYear": 2026,
       "conferenceUri": "http://www.iccbb.org/",
@@ -174,10 +941,69 @@
       "conferenceStartDate": "2026-11-13",
       "conferenceEndDate": "2026-11-15",
       "conferenceLocation": "Bangkok, Thailand",
+      "conferenceCategories": [
+        "computing",
+        "bioinformatics",
+        "artificial intelligence",
+        "image processing"
+      ],
+      "callForAbstract": "Full name: 2026 10th International Conference on Computational Biology and Bioinformatics  \rAbbreviation: ICCBB 2026\r\r2026 10th International Conference on Computational Biology and Bioinformatics (ICCBB 2026) will be held from November 13 to 15, 2026, in Bangkok, Thailand. It is ponsored by Chulalongkorn University. ICCBB 2026 will  provide a platform for academic communication in Computational Biology and Bioinformatics and related areas. \r\rconference website: http://www.iccbb.org/\r\r\rPublication and Indexing: ICCBB 2026 International Conference Proceedings by ACM, archived in ACM Digital Library, indexed by Ei Compendex and Scopus, and submitted to be reviewed by Thomson Reuters Conference Proceedings Citation Index (ISI Web of Science).\rPublication History: In the past 9 years, papers of ICCBB have been published in ACM Conference Proceedings, archived in ACM Digital Library, indexed by Ei Compendex and Scopus. \r\rCall for Special Sessions:\rInterested scholars are warmly invited to submit their personal information and a brief proposal to the conference email (iccbb@cbees.net), to apply for the role of Special Session Chair.\rRemuneration will be provided to organizers upon successful organization of the special session.\r\r1.AI Foundation Models and Large Language Models for Computational Biology and Bioinformatics\rFocus on foundation models, multimodal biological AI, biomedical LLMs, protein/nucleic acid language models, and generative AI for biological discovery.\r2. Single-Cell, Spatial Omics and Digital Tissue Analytics\rCovering single-cell sequencing, spatial transcriptomics, multi-omics integration, cell atlas construction, tumor microenvironment analysis, and computational pathology.\r3. Precision Medicine, Digital Health and Translational Bioinformatics\rIncluding clinical bioinformatics, biomarker discovery, disease risk prediction, wearable health data analytics, real-world evidence, and AI-assisted personalized medicine.\r\rIf you are interested in organizing the special sessions, please contact iccbb@cbees.net for details.\r* Additional special session topics can be proposed by applicants based on research expertise.\r\r\rCall for Papers, Topics included but not limited to the follows.\r(1)Computational Biology and Medical Informatics:  Bio-data visualization; Adaptive computation in bioinformatics; Bio-inspired computing; Computational systems biology; Data mining, machine learning, and artificial intelligence; Drug discovery and validation; Medical and biomedical informatics; Bio-imaging; Big data analytics in healthcare;\r(2)Bioinformatics: Genome analysis; DNA, RNA and protein sequence analysis; Biomarker discovery; Functional genomics; Gene expression analysis; Metagenomics data analysis; Protein folding; Proteomics & other omics; Sequence analysis and genome assembly; Cancer genomics; Computational proteomics; Translational bioinformatics; Population genetics\rMore topics, please visit: http://iccbb.org/cfp.html\r\rConference Venue\rChulalongkorn University\rAddr: Phayathai Road, Pathumwan, Bangkok 10330 Thailand\rWeb: https://www.chula.ac.th/en/\rTel: +66 2215 3555\rEmail: int.off@chula.ac.th\r\r\rElectronic Submission System: https://confsys.iconf.org/submission/iccbb2026\rE-mail: iccbb@cbees.net\rTel: +852-5705-7341  \rConference Secretary: Ms. Stephanie Chen\r\rICCBB series can provide a platform for academic communication in Computational Biology and Bioinformatics as well as related areas. For more conference information, please visit the conference website: www.iccbb.org",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192800",
+          "resourceAcronym": "ACM CSAI 2026",
+          "resourceName": "ACM--2026 The 10th International Conference on Computer Science and Artificial Intelligence (CSAI 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191728",
+          "resourceAcronym": "ACM ICIMH 2026",
+          "resourceName": "ACM--2026 The 7th International Conference on Intelligent Medicine and Health (ICIMH 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203053",
+          "resourceAcronym": "ACM TRUST  2027",
+          "resourceName": "ACM TRUST 2027 ACM Conference on Trustworthy and Responsible AI and Computing Systems"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=169901",
+          "resourceAcronym": "DEPLING  2023",
+          "resourceName": "DEPLING 2023 International Conference on Dependency Linguistics"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194995",
+          "resourceAcronym": "ACM ICSCA 2027",
+          "resourceName": "ACM--2027 16th International Conference on Software and Computer Applications (ICSCA 2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=171242",
+          "resourceAcronym": "IEEE-AIBDCC 2026",
+          "resourceName": "2026 IEEE International Conference on Artificial Intelligence, Big Data and Cloud Computing (AIBDCC 2026)"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194995&copyownerid=13881",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194995&copyownerid=13881",
       "conferenceName": "ACM--2027 16th International Conference on Software and Computer Applications (ICSCA 2027)",
       "conferenceYear": 2027,
       "conferenceUri": "http://www.icsca.org/",
@@ -186,10 +1012,69 @@
       "conferenceStartDate": "2027-01-22",
       "conferenceEndDate": "2027-01-24",
       "conferenceLocation": "Putrajaya, Malaysia",
+      "conferenceCategories": [
+        "software engineering",
+        "computer engineering",
+        "computing",
+        "artificial intelligence"
+      ],
+      "callForAbstract": "ICSCA2027 in Putrajaya, Malaysia | Scopus Journal | Software and Computer Applications Conference / Ei Compendex and Scopus\r\r★ Full name: ACM--2027 16th International Conference on Software and Computer Applications (ICSCA 2027)\r★ Abbreviation: ICSCA 2027\r★ Website: http://www.icsca.org/\r★ Date: January 22-24, 2027\r★ Held in: Putrajaya, Malaysia\r★ Co-sponsored by: Universiti Malaysia Pahang, Malaysia; and FH JOANNEUM University of Applied Sciences, Austria\r\rICSCA is a global platform uniting academicians, researchers, students, engineers and industry professionals worldwide to present their latest research and technological advancements in Software and Computer Applications. With a proven track record, it has organized 15 international conferences since 2012, expanding globally from Singapore to renowned locations including France, the UK, Hong Kong, Thailand, Brunei, Malaysia and Indonesia.\rIts proceedings focus on cutting-edge topics and challenges in the field, covering computer theory and applications, software design, data mining, image processing, information theory, network engineering, and computer-aided education.\r\r- Call For Papers -\rTopics of interest for submission include, but are not limited to:\r\rTrack 1: Software Engineering & Development Practices\r- Requirements Engineering and Specification\r- Agile, DevOps, and CI/CD Methodologies\r- Software Architecture and Design Patterns\r- Microservices and Cloud-Native Development\r- Model-Driven Engineering (MDE)\r......\r\rTrack 2: Intelligent Systems & IoT Innovations\r- IoT Architectures and Edge Computing\r- Cyber-Physical Systems (CPS)\r- Smart Cities and Urban Computing\r- Industrial IoT (IIoT) and Industry 4.0\r- Mobile and Ubiquitous Computing\r......\r\rTrack 3: Artificial Intelligence & Machine Learning\r- Deep Learning and Neural Networks\r- Natural Language Processing (NLP)\r- Computer Vision and Image Recognition\r- Reinforcement Learning and Robotics\r- Generative AI and Large Language Models (LLMs)\r......\r\rTrack 4: Data Science & Big Data Analytics\r- Big Data Infrastructure and Storage\r- Data Mining and Knowledge Discovery\r- Data Visualization and Dashboarding\r- Social Network Analysis and Graph Mining\r- Bioinformatics and Computational Biology\r......\r\rTrack 5: Cybersecurity & Trustworthy Systems\r- Blockchain and Decentralized Systems\r- Cryptographic Protocols and Post-Quantum Cryptography\r- Network Security and Intrusion Detection\r- IoT and Cloud Security\r- Privacy-Preserving Computation (e.g., Homomorphic Encryption)\r......\r\rTrack 6: Emerging Technologies & Cross-Disciplinary Applications\r- Metaverse and Virtual Reality (VR)\r- Quantum Computing Algorithms and Applications\r- Green Computing and Sustainable IT\r- Human-Computer Interaction (HCI)\r- Computational Healthcare and Telemedicine\r......\r\rMore Topics, please visit at https://www.icsca.org/cfp.html\r\r\r- Publication -\rThe accepted paper will be included into ICSCA 2027 Conference Proceedings, which will be published in the International Conference Proceedings Series by ACM, which will be archived in  ACM Digital Library, and indexed by EI Compendex, Scopus, and submitted to be reviewed by Thomson Reuters Conference Proceedings Citation Index (ISI Web of Science).\r\rICSCA has very credible publication index records: http://www.icsca.org/history.html \r\rICSCA 2025 | ISBN: 979-8-4007-1012-4 |  ACM Digital Library，Scopus & Ei-Compendex Index\rICSCA 2024 | ISBN: 979-8-4007-0832-9 |  ACM Digital Library，Scopus & Ei-Compendex Index \rICSCA 2023 | ISBN: 978-1-4503-9859-6 |  ACM Digital Library，Scopus & Ei-Compendex Index \rICSCA 2022 | ISBN: 978-1-4503-8577-0 |  ACM Digital Library，Scopus & Ei-Compendex Index \rICSCA 2021 | ISBN: 978-1-4503-8882-5 |  ACM Digital Library，Scopus & Ei-Compendex Index\rICSCA 2020 | ISBN: 978-1-4503-7665-5 |  ACM Digital Library，Scopus & Ei-Compendex Index\rICSCA 2019 | ISBN: 978-1-4503-6573-4 |  ACM Digital Library，Scopus & Ei-Compendex Index \rICSCA 2018 | ISBN: 978-1-4503-5414-1 |  ACM Digital Library，Scopus & Ei-Compendex Index\rICSCA 2017 | ISBN: 978-1-4503-4857-7 |  ACM Digital Library，Scopus & Ei-Compendex Index\r\r- Submission -\rAccepted full paper will be invited to give the oral presentation at the conference and be published.\r● Please prepare  (Double-column 4-12 pages), (One-column 8-20 pages) including all figures.\r● Please log in the Electronic Submission System; ( .pdf only) to submit your full paper.\rAccepted abstract will be invited to give the oral presentation at the conference only, the presentation will not be published.\r\r* Welcome to submit the paper or abstract by Electronic Submission System:\rhttps://www.zmeeting.org/submission/icsca2027\r\rMore details about submission, please visit at https://www.icsca.org/author.html\r\r\r- Conference Program -\rJanuary 22, 2027 | Arrival & Registration\rJanuary 23, 2027| Opening Remarks & Keynote Speech( Morning )+Author Presentation in Sessions  ( Afternoon )\rJanuary 24, 2027 | Author Presentation in Sessions\r\r\r- About Putrajaya -\rNestled 25km south of bustling Kuala Lumpur, Putrajaya is Malaysia’s sleek, purpose-built federal administrative capital—a stunning blend of futuristic urban planning, Islamic-Malay architectural grandeur, and lush greenery.\rLaunched in 1999, this “Intelligent Garden City” boasts a sprawling man-made lake, the iconic pink-domed Putra Mosque, striking bridges like the Seri Wawasan, and vast parks covering nearly 40% of its landscape. By day, it’s a hub of governmental efficiency; by night, its landmarks glow beautifully against the sky, making it a photographer’s dream and a peaceful escape from KL’s chaos.\r\r- Contact -\rConference Secretary: Ms. Freda\rEmail: icsca_general@163.com | icsca_general@outlook.com\rTel: +86-18010667294",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192800",
+          "resourceAcronym": "ACM CSAI 2026",
+          "resourceName": "ACM--2026 The 10th International Conference on Computer Science and Artificial Intelligence (CSAI 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191728",
+          "resourceAcronym": "ACM ICIMH 2026",
+          "resourceName": "ACM--2026 The 7th International Conference on Intelligent Medicine and Health (ICIMH 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203053",
+          "resourceAcronym": "ACM TRUST  2027",
+          "resourceName": "ACM TRUST 2027 ACM Conference on Trustworthy and Responsible AI and Computing Systems"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=169901",
+          "resourceAcronym": "DEPLING  2023",
+          "resourceName": "DEPLING 2023 International Conference on Dependency Linguistics"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=200077",
+          "resourceAcronym": "ACM-AAMLDS 2026",
+          "resourceName": "2026 International Conference on Advanced Algorithms, Machine Learning, and Data Science (AAMLDS 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191779",
+          "resourceAcronym": "ISCMI 2026",
+          "resourceName": "2026 13th International Conference on Soft Computing & Machine Intelligence (ISCMI 2026)"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195135&copyownerid=182680",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195135&copyownerid=182680",
       "conferenceName": "2026 2nd International Conference on Intelligent Equipment and Industrial Design",
       "conferenceYear": 2026,
       "conferenceUri": "https://ais.cn/u/bmeAfi",
@@ -198,10 +1083,69 @@
       "conferenceStartDate": "2026-09-23",
       "conferenceEndDate": "2026-09-25",
       "conferenceLocation": "Zhengzhou, China",
+      "conferenceCategories": [
+        "automation",
+        "design",
+        "control",
+        "industrial engineering"
+      ],
+      "callForAbstract": "2026 2nd International Conference on Intelligent Equipment and Industrial Design (IEID 2026) will be held on September 23-25, 2026 in Zhengzhou, China.\r\r𝗖𝗼𝗻𝗳𝗲𝗿𝗲𝗻𝗰𝗲 𝗪𝗲𝗯𝘀𝗶𝘁𝗲: https://ais.cn/u/bmeAfi\r\r---𝗖𝗮𝗹𝗹 𝗳𝗼𝗿 𝗽𝗮𝗽𝗲𝗿𝘀---\rThe topics of interest for submission include, but are not limited to:\r◕Track 1: Intelligent Equipment & Industrial Automation\rIntelligent Industrial Equipment\rIndustrial Robotics & Automation\rSmart Sensors & Actuators\rSmart Manufacturing\rIndustrial Internet of Things (IIoT)\rIntelligent Maintenance & Diagnostics\rIntelligent Transportation & Logistics Equipment\rIntelligent Agricultural Equipment\rEnergy-Efficient Equipment\rReliability & Safety of Intelligent Equipment\r\r◕Track 2: Control Systems & AI Integration\rAdvanced Motion Control\rMechatronic & Hybrid Control\rModel Predictive & Adaptive Control\rReal-Time & Distributed Control Systems\rAI & IoT Integration in Control\rSafety-Critical Control Systems\rFault Detection & Diagnostics\rSmart Grid & Renewable Energy Control\rCommunication Protocols & Signal Processing\rPerformance Optimization in Control\r\r◕Track 3: Industrial Design & Human-Machine Systems\rHuman-Machine Interaction\rIntelligent Interfaces\rVR/AR in Industrial Equipment\rDigital Prototyping & Simulation\r3D Modeling & Visualization\rIntelligent Logistics & Warehouse Systems\rSoftware & Embedded Systems for Intelligent Equipment\rAI in Industrial Design\r\r---𝗦𝗽𝗲𝗮𝗸𝗲𝗿𝘀---\rProf. Zhaoyang Shi, Beijing University of Technology\rProf. Hao Li, Zhongyuan University of Technology\rProf. Shanliang Yao, Wuhan Institute of Technology\r\r---𝗣𝘂𝗯𝗹𝗶𝗰𝗮𝘁𝗶𝗼𝗻---\rAll papers will be reviewed by two or three experts from the committees. After a thorough review process, all accepted papers will be published in the IET Conference Proceedings (ISSN: 2732-4494). They will be indexed by IET Inspec and IEEE Xplore, and will be submitted to EI and Scopus for indexing.\r\r---𝗜𝗺𝗽𝗼𝗿𝘁𝗮𝗻𝘁 𝗗𝗮𝘁𝗲𝘀---\rRegistration Deadline: September 9, 2026\rFinal Paper Submission Date: September 9, 2026\rConference Dates: September 23-25, 2026\r\r--- 𝗣𝗮𝗽𝗲𝗿 𝗦𝘂𝗯𝗺𝗶𝘀𝘀𝗶𝗼𝗻---\rPlease send the full paper(word+pdf) to Submission System:\rhttps://ais.cn/u/bmeAfi",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191231",
+          "resourceAcronym": "ICDSDI 2026",
+          "resourceName": "2026 3rd International Conference on Digital Systems and Design Innovation"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=86369",
+          "resourceAcronym": "CEVVE 2026",
+          "resourceName": "2026 4th International Conference on Electric Vehicle and Vehicle Engineering"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202676",
+          "resourceAcronym": "ICMSP 2026",
+          "resourceName": "IEEE 2026 8th International Conference on Intelligent Control, Measurement and Signal Processing"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203131",
+          "resourceAcronym": "ISIMA 2026",
+          "resourceName": "2026 3rd International Symposium on Intelligent Manufacturing and Automation"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=186208",
+          "resourceAcronym": "IEEE CSPE 2026",
+          "resourceName": "IEEE--2026 International Conference on Computational Science and Power Engineering (CSPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202608",
+          "resourceAcronym": "CBASE 2026",
+          "resourceName": "IEEE 2026 5th International Conference on Cloud Computing, Big Data Applications and Software Engineering"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191434",
+          "resourceAcronym": "VLSIA  2026",
+          "resourceName": "VLSIA 2026 12th International Conference on VLSI and Applications"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191279",
+          "resourceAcronym": "ICDSDI 2026",
+          "resourceName": "2026 3rd International Conference on Digital Systems and Design Innovation"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195206&copyownerid=196813",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195206&copyownerid=196813",
       "conferenceName": "2026 International Conference on Cybersecurity Systems",
       "conferenceYear": 2026,
       "conferenceUri": "https://css-conference.org/2026/",
@@ -210,10 +1154,69 @@
       "conferenceStartDate": "2026-10-27",
       "conferenceEndDate": "2026-10-30",
       "conferenceLocation": "Paris, France",
+      "conferenceCategories": [
+        "cybersecurity",
+        "cloud computing",
+        "federated learning",
+        "artificial intelligence"
+      ],
+      "callForAbstract": "The International Conference on Cybersecurity Systems (CCSS 2026) is a lively and inclusive gathering where researchers, academics, and industry professionals from across the globe come together to explore the latest advancements in Cybersecurity Systems and intelligent systems. Cybersecurity Systems received a lot of attention as AI continues to reshape industries and push the boundaries of what’s possible. CSS 2026 creates a welcoming space for innovation, collaboration, and the exchange of ideas in the Cybersecurity domain.\r\rCCSS 2026 serves as a premier platform for researchers, academics, and industry professionals to converge and explore the latest advancements, challenges, and applications in the dynamic fields of Cybersecurity Models and Systems. The conference provides a collaborative environment for the exchange of ideas, fostering innovation and promoting interdisciplinary research at the intersection of these transformative domains. \r\rTopics include (but are not limited to):\r\r    Network and Internet Systems Security\r    Information and Data Security\r    Cybersecurity Applications\r    Cryptography and Encryption\r    Identity & Access Management (IAM)\r    Cloud and Edge Security\r    Cybersecurity in Healthcare\r    Cybersecurity in Internet of Things (IoT) systems\r    Digital Forensics Systems\r    Federated Learning Systems\r    Risk Management & Governance\r    Edge and Distributed AI Security\r    Cybersecurity Ethics and Governance\r    AI and Cybersecurity\r    Cybersecurity and Smart Cities\r    Cybersecurity and Quantum Computing\r    Threat Detection & Incident Response\r    Cybersecurity in Emerging Technologies",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195062",
+          "resourceAcronym": "CISSE 2026 – Cybersecurity Education Con 2026",
+          "resourceName": "30th Colloquium for Information Systems Security Education"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=201358",
+          "resourceAcronym": "ICIAI--EI 2027",
+          "resourceName": "2027 the 11th International Conference on Innovation in Artificial Intelligence (ICIAI 2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=199662",
+          "resourceAcronym": "MODERN SYSTEMS 2026",
+          "resourceName": "International Conference of Modern Systems Engineering Solutions"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=199886",
+          "resourceAcronym": "Governing GP AI Systems 2026",
+          "resourceName": "CfP: CLSR Special Issue on Governing General-Purpose AI Systems"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194772",
+          "resourceAcronym": "Dairy Systems & Technology 2026",
+          "resourceName": "Precision Dairy Systems & Technology Conference"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=190942",
+          "resourceAcronym": "Digitalization of Financial Systems 2026",
+          "resourceName": "Digitalization of Financial Systems: Ethical Implications and Sustainable Development Perspective"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195302&copyownerid=196813",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195302&copyownerid=196813",
       "conferenceName": "The 13th International Conference on Social Networks Analysis, Management and Security",
       "conferenceYear": 2026,
       "conferenceUri": "https://emergingtechnet.org/SNAMS2026/index.php",
@@ -222,10 +1225,69 @@
       "conferenceStartDate": "2026-11-17",
       "conferenceEndDate": "2026-11-20",
       "conferenceLocation": "Barcelona, Spain",
+      "conferenceCategories": [
+        "generative ai",
+        "large language models",
+        "social networks analysis",
+        "artificial intelligence"
+      ],
+      "callForAbstract": "Call for Papers\r\rSocial network analysis is the study of relationships between social entities, a field significantly enriched by the recent advances in internet technologies and social media platforms such as Facebook, Twitter, and LinkedIn. These platforms offer unprecedented opportunities for individuals to connect, communicate, and share their perspectives on a vast array of topics. The dynamic and ever-evolving nature of social networks, coupled with the massive scale of user participation, poses significant challenges for researchers, particularly in data mining and machine learning. The International Conference on Social Networks Analysis, Management and Security (SNAMS-2026) aims to provide a comprehensive forum for researchers, practitioners, and industry experts to present and discuss their latest findings and innovations in the realm of social network analysis. This conference seeks to explore the vast opportunities in social networks, addressing both theoretical and practical challenges. SNAMS-2026 is dedicated to fostering an environment where students, scientists, engineers, and researchers can exchange ideas, present novel research contributions, and share experiences across all facets of social networks. We invite original research contributions in a wide range of topics, including but not limited to:\r\r    GENERAL SOCIAL NETWORKS TOPICS\r        Data mining and machine learning techniques for social networks\r        Analysis of social media content and trends\r        Impact of social networks on society and human behavior\r        Network visualization and big data analytics\r        Algorithms and models for social network analysis.\r        Sentiment analysis and opinion mining in social media\r        Influence and information propagation in social networks\r    SYSTEMS & INFRASTRUCTURE\r        Systems and algorithms for social search.\r        Infrastructure support for social networks and systems.\r        Dynamics and evolution patterns of large and complex networks.\r        Social properties in systems design.\r        Learnings from operational social networks.\r    ALGORITHMS AND MODELS\r        Deep Learning and Knowledge Discovery.\r        Measurement and analysis of social and crowdsourcing systems.\r        Benchmarking, modeling, performance and workload characterization.\r        Modeling Social Networks and behavior.\r        Information propagation and assimilation in social networks.\r    SOCIAL NETWORK APPLICATIONS\r        Novel social applications and systems.\r        Communities in social networks\r        Social networks and online education.\r        Content sharing (posts, images, videos)\r        Multilingual social networks.\r    PRIVACY & SECURITY\r        Privacy and security in social systems.\r        Trust and reputations in social systems.\r        Detection, analysis, prevention of spam, phishing, and misbehavior in social systems.\r    ONLINE SOCIAL NETWORK\r        Special purpose Online Social Networks (e.g., Facebook, X (Twitter), Instagram, LinkedIn, TikTok).\r        Mobile advertising on Online Social Networks\r        Sentiment analysis on Online Social Networks.\r    BIG DATA AND SOCIAL NETWORKS\r        Network visualization and big data analytics.\r        Big data technologies for social network analysis .\r        Big Data and Social Paradigms",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203130",
+          "resourceAcronym": "SCSN-AI 2027",
+          "resourceName": "15th International Workshop on Semantic Computing and AI for Social Networks and Organizational Knowledge - From User Information to Collective Intelligence in the Age of AI Agents"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194271",
+          "resourceAcronym": "COMPLEX NETWORKS  2026",
+          "resourceName": "COMPLEX NETWORKS 2026 15th International Conference on Complex Networks & Their Applications"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=190156",
+          "resourceAcronym": "AI in Social Sciences 2026",
+          "resourceName": "AI in Social Sciences (working title)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203078",
+          "resourceAcronym": "DASFAA 2027",
+          "resourceName": "Database Systems for Advanced Applications"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202754",
+          "resourceAcronym": "12th Istanbul Security Conference 2026",
+          "resourceName": "12th Istanbul Security Conference and Co-events"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=169901",
+          "resourceAcronym": "DEPLING  2023",
+          "resourceName": "DEPLING 2023 International Conference on Dependency Linguistics"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=201172&copyownerid=196813",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=201172&copyownerid=196813",
       "conferenceName": "The International Conference on Artificial Intelligence Centric Systems, Services, and Applications",
       "conferenceYear": 2026,
       "conferenceUri": "https://emergingtechnet.org/AISSA2026/index.php",
@@ -234,10 +1296,69 @@
       "conferenceStartDate": "2026-12-08",
       "conferenceEndDate": "2026-12-10",
       "conferenceLocation": "San Antonio, USA.",
+      "conferenceCategories": [
+        "generative ai",
+        "large language models",
+        "federated learning",
+        "artificial intelligence"
+      ],
+      "callForAbstract": "Call for Papers\r\rArtificial Intelligence (AI) systems are computational frameworks designed to perform tasks that typically require human intelligence, such as learning, reasoning, problem-solving, perception, and decision-making. These systems integrate algorithms, data, and computing power to enable machines to adapt and improve their performance over time. AI systems encompass a wide range of technologies, including machine learning, natural language processing, computer vision, and autonomous robotics, and they are increasingly applied in domains such as healthcare, finance, cybersecurity, transportation, and smart cities. As they continue to evolve, AI systems are not only transforming industries and enhancing human capabilities but also raising important considerations around ethics, transparency, and trustworthiness.\r\rThe International Conference on Artificial Intelligence Centric Systems, Services, and Applications (AISSA 2026) aims to bring together leading researchers, academics, and practitioners from around the world to share their latest findings, innovations, and applications in Artificial Intelligence and intelligent systems. AISSA 2026 provides a premier interdisciplinary platform for presenting advances and exchanging insights on the theoretical foundations, cutting-edge technologies, and real-world implementations of AI. AISSA 2026 will feature keynote talks, technical paper sessions, workshops, and tutorials covering a wide range of AI topics. We invite submissions of high-quality research papers describing original and unpublished results in all areas of Artificial Intelligence Systems. addresses the use of advanced intelligent systems in providing cybersecurity solutions in many fields, and the challenges, approaches, and future directions. We invite the submission of original papers on all topics related to Intelligent Systems with special interest in but not limited to:\r\r    Machine Learning and Data-Driven Systems\r        Deep Learning, Representation Learning, and Transfer Learning\r        Reinforcement Learning and Adaptive Systems\r        Federated, Distributed, and Edge AI\r        Reinforcement Learning and Autonomous Agents\r        Federated Learning and Distributed AI Systems\r        AI Applications and Intelligent Systems\r        Scalable and High-Performance AI Architectures\r        Edge AI, Cloud AI, and Embedded Intelligence\r        Optimization and Resource-Aware AI Systems\r\r    Natural Language and Multimodal AI\r        Natural Language Processing and Understanding\r        Speech Recognition and Conversational Agents\r        Multimodal Learning and Vision-Language Systems\r        Knowledge Representation and Reasoning\r        Data Mining, Knowledge Discovery, and Information Retrieval\r        Automated Planning and Scheduling\r\r    Generative AI, Foundation Models, and Large Language Models\r        Generative AI and Large Language Models (LLMs)\r        Explainable and Responsible AI\r        Federated, Distributed, and Edge AI\r        Reinforcement Learning and Autonomous Agents\r        AI for Decision Support Systems\r        Natural Language Processing and Computational Linguistics\r        Multilingual and Low-Resource Language Models\r        Human-Computer Interaction (HCI) and Assistive Technologies\r        Conversational AI and Dialogue Systems\r        Computational Language and Human-Centered Systems\r        Prompt Engineering and Fine-tuning\r        Multimodal LLMs\r        Agentic AI\r\r    Computer Vision, Image and Video Processing\r        Image and Video Understanding\r        Object Detection, Recognition, and Tracking\r        Multimodal Learning and Vision-Language Systems\r        3D Vision and Scene Understanding\r        Affective Computing and Emotion Recognition\r\r    Artificial Intelligence Applications\r        Robotics and Autonomous Systems\r        AI for Healthcare, Smart Cities, and Transportation\r        AI in Finance, Education, and Industry 4.0\r        AI for Cybersecurity, Privacy, and Digital Trust\r        AI Infrastructure and Engineering\r        Recommender Systems and Personalization\r        AI for Social Good and Humanitarian Applications\r        Emerging Trends and Future Directions in AI Systems\r\r    Artificial Intelligence Security\r        Responsible and Trustworthy AI\r        Explainable AI and Transparency\r        Ethical and Societal Implications of AI\r        AI Safety, Robustness, and Security\r        AI Policy, Regulation, and Governance",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194810",
+          "resourceAcronym": "AIAIS 2027",
+          "resourceName": "IEEE--2027 International Conference on Artificial Intelligence and Applied Intelligent Systems (AIAIS)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192213",
+          "resourceAcronym": "ICMSR 2026",
+          "resourceName": "2026 12th International Conference on Mechatronics Systems and Robotics (ICMSR 2026)--SCI"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192217",
+          "resourceAcronym": "RAAI--EI 2026",
+          "resourceName": "2026 6th International Conference on Robotics, Automation, and Artificial Intelligence (RAAI 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192215",
+          "resourceAcronym": "RAAI 2026",
+          "resourceName": "2026 6th International Conference on Robotics, Automation, and Artificial Intelligence (RAAI 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=190925",
+          "resourceAcronym": "IEEE PESA 2026",
+          "resourceName": "IEEE--2026 11th International Conference on Power Electronics Systems and Applications (PESA 2026)--SCI"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=169901",
+          "resourceAcronym": "DEPLING  2023",
+          "resourceName": "DEPLING 2023 International Conference on Dependency Linguistics"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203022&copyownerid=200244",
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203022&copyownerid=200244",
       "conferenceName": "5th International Conference on Innovations in Computer Science",
       "conferenceYear": 2026,
       "conferenceUri": "https://iconics.neduet.edu.pk/",
@@ -246,10 +1367,69 @@
       "conferenceStartDate": "2026-12-23",
       "conferenceEndDate": "2026-12-24",
       "conferenceLocation": "Karachi, Pakistan",
+      "conferenceCategories": [
+        "computer science",
+        "artificial intelligence",
+        "deep learning",
+        "quantum computing"
+      ],
+      "callForAbstract": "ICONICS'26 invites original contributions addressing theoretical, experimental, and applied aspects of computer science and related fields.\r\rAccepted papers are published in IEEE Conference Proceedings (subject to approval).",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192402",
+          "resourceAcronym": "CVEI 2026",
+          "resourceName": "2026 International Academic Conference on Computer Vision and Embodied Intelligence"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192686",
+          "resourceAcronym": "CCAT 2026",
+          "resourceName": "ACM--2026 5th International Conference on Computer Applications Technology (CCAT 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195158",
+          "resourceAcronym": "Science & Religion Forum 2026",
+          "resourceName": "Foundations in Science and Religion: Boundaries of Theory & Practice"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192990",
+          "resourceAcronym": "Cancer Science 2026",
+          "resourceName": "8th World Congress on Cancer Research and Oncology"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195157",
+          "resourceAcronym": "Science & Religion Forum 2026",
+          "resourceName": "Data, Laws & Evidence: Philosophy of Science in Dialogue with religious Thought"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=175829",
+          "resourceAcronym": "IEEE-MLNLP 2026",
+          "resourceName": "2026 IEEE 9th International Conference on Machine Learning and Natural Language Processing (MLNLP 2026)"
+        }
+      ],
       "_source": "wikicfp"
     },
     {
-      "id": "uri:https://easychair.org/cfp/aimce27",
+      "id": "https://easychair.org/cfp/aimce27",
       "conferenceName": "The 3rd International Workshop on Artificial Intelligence, Mechanical and Civil Engineering",
       "conferenceYear": 2027,
       "conferenceUri": "https://aimce27.com/",
@@ -257,10 +1437,17 @@
       "conferenceAcronym": "AIMCE'27",
       "conferenceSeries": "AIMCE'27",
       "conferenceStartDate": "2027-04-09",
-      "_source": "easychair"
+      "_source": "easychair",
+      "conferenceCategories": [
+        "artificial intelligence",
+        "electrical engineering",
+        "mechanical engineering",
+        "civil engineering"
+      ],
+      "submissionDeadline": "December 20, 2026"
     },
     {
-      "id": "uri:https://easychair.org/cfp/BA-26",
+      "id": "https://easychair.org/cfp/BA-26",
       "conferenceName": "3rd BMEMat‑Advanced Materials Joint Symposium",
       "conferenceYear": 2026,
       "conferenceUri": "https://conference.lifeintelligence.hk/api/wap?home",
@@ -268,10 +1455,17 @@
       "conferenceAcronym": "3rd BMEMat‑AM",
       "conferenceSeries": "3rd BMEMat‑AM",
       "conferenceStartDate": "2026-11-06",
-      "_source": "easychair"
+      "_source": "easychair",
+      "conferenceCategories": [
+        "biomaterials",
+        "advanced materials",
+        "biomedical engineering",
+        "translational medicine"
+      ],
+      "submissionDeadline": "September 30, 2026"
     },
     {
-      "id": "uri:https://easychair.org/cfp/hajjconfex2026",
+      "id": "https://easychair.org/cfp/hajjconfex2026",
       "conferenceName": "Hajj Conference",
       "conferenceYear": 2026,
       "conferenceUri": "https://hajjconfex.com/",
@@ -282,7 +1476,7 @@
       "_source": "easychair"
     },
     {
-      "id": "uri:https://easychair.org/cfp/wmt2026",
+      "id": "https://easychair.org/cfp/wmt2026",
       "conferenceName": "When Materials Think: Computational Materials for Mobile and Ubiquitous Interaction",
       "conferenceYear": 2026,
       "conferenceUri": "https://wmt2026workshop.github.io/",
@@ -290,18 +1484,26 @@
       "conferenceAcronym": "WMT",
       "conferenceSeries": "WMT 2026",
       "conferenceStartDate": "2026-12-01",
-      "_source": "easychair"
+      "_source": "easychair",
+      "conferenceCategories": [
+        "human computer interaction",
+        "ubiquitous computing",
+        "smart materials",
+        "embedded artificial intelligence"
+      ],
+      "submissionDeadline": "October 10, 2026"
     },
     {
-      "id": "uri:https://easychair.org/cfp/WSIS-2026",
+      "id": "https://easychair.org/cfp/WSIS-2026",
       "conferenceName": "Workshop on Secure and Intelligent Systems (in Conjunction with the 19th International Conference on Internet of Things and Smart Spaces)",
       "conferenceYear": 2026,
-      "conferenceUri": "https://wsis-2026.netlify.app/",
+      "conferenceUri": "https://wsis-2026.site/",
       "conferenceLocation": "Hanoi, Viet Nam",
       "conferenceAcronym": "WSIS",
       "conferenceSeries": "WSIS 2026",
       "conferenceStartDate": "2026-11-23",
-      "_source": "easychair"
+      "_source": "easychair",
+      "submissionDeadline": "October 1, 2026"
     }
   ]
 }

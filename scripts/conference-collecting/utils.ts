@@ -151,27 +151,6 @@ export function extractConferenceAcronym(title: string): string | undefined {
 }
 
 /**
- * Creates a unique deduplication key for a conference.
- * Prioritizes URI, then acronym+year, then normalized title+year.
- */
-export function createDeduplicationKey(
-  title: string,
-  acronym: string | undefined,
-  year: number,
-  conferenceUri?: string,
-): string {
-  if (conferenceUri) {
-    return `uri:${conferenceUri}`;
-  }
-
-  if (acronym) {
-    return `acronym:${acronym.toLowerCase()}:${year}`;
-  }
-
-  return `title:${normalizeConferenceTitle(title)}:${year}`;
-}
-
-/**
  * Counts the number of populated (non-empty) fields in a conference posting.
  */
 export function countPopulatedFields(posting: CollectedConference): number {
@@ -217,7 +196,7 @@ export function areSameConference(
     b.conferenceAcronym &&
     a.conferenceYear === b.conferenceYear &&
     a.conferenceAcronym.toLowerCase().trim() ===
-      b.conferenceAcronym.toLowerCase().trim()
+    b.conferenceAcronym.toLowerCase().trim()
   ) {
     return true;
   }
@@ -225,7 +204,7 @@ export function areSameConference(
   return (
     a.conferenceYear === b.conferenceYear &&
     normalizeConferenceTitle(a.conferenceName) ===
-      normalizeConferenceTitle(b.conferenceName)
+    normalizeConferenceTitle(b.conferenceName)
   );
 }
 
@@ -259,7 +238,7 @@ export function getMatchReason(
     b.conferenceAcronym &&
     a.conferenceYear === b.conferenceYear &&
     a.conferenceAcronym.toLowerCase().trim() ===
-      b.conferenceAcronym.toLowerCase().trim()
+    b.conferenceAcronym.toLowerCase().trim()
   ) {
     return `same acronym + year (${a.conferenceAcronym}:${a.conferenceYear})`;
   }
@@ -267,7 +246,7 @@ export function getMatchReason(
   if (
     a.conferenceYear === b.conferenceYear &&
     normalizeConferenceTitle(a.conferenceName) ===
-      normalizeConferenceTitle(b.conferenceName)
+    normalizeConferenceTitle(b.conferenceName)
   ) {
     return "same normalized title + year";
   }

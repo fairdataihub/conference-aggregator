@@ -29,6 +29,21 @@ export interface CollectedConference {
   conferenceSeries?: string;
   /** Source of the record (e.g., "wikicfp", "easychair") */
   _source?: string;
+  /** Date this posting was collected (YYYY-MM-DD, based on scrape time) */
+  collectionDate?: string;
+  /** WikiCFP category labels shown in the details page header */
+  conferenceCategories?: string[];
+  /** Text from the "Call For Papers" / CFP area (WikiCFP details pages) */
+  callForAbstract?: string;
+  /** Related resources from the WikiCFP "Related Resources" block */
+  conferenceRelatedResrouces?: Array<{
+    resourceUri: string;
+    resourceAcronym: string;
+    resourceName: string;
+  }>;
+
+  /** EasyChair submission deadline (e.g., "October 1, 2026") */
+  submissionDeadline?: string;
 }
 
 /**
