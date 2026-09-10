@@ -10,15 +10,15 @@ on:
   # Run when changes are pushed to main.
   push:
     branches:
-      - main
+      - test
 
   # Allow manual trigger.
   workflow_dispatch:
 
 jobs:
-  collect-conferences:
+  collect-wikicfp:
     runs-on: ubuntu-latest
-    name: Collect Conferences
+    name: Collect WikiCFP
 
     steps:
       - name: Checkout
@@ -39,8 +39,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Collect conferences
-        run: pnpm exec tsx scripts/conference-collecting/main.ts
+      - name: Collect WikiCFP conferences
+        run: pnpm exec tsx scripts/conference-collecting/main.ts --site wikicfp
 
       - name: Check for changes
         id: git-status
@@ -55,13 +55,63 @@ jobs:
         if: steps.git-status.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v7
         with:
-          commit-message: "chore: update conference list"
-          title: "chore: update conference list"
+          commit-message: "chore: update conference list (wikicfp)"
+          title: "chore: update conference list (wikicfp)"
           body: |
-            Automated conference list update.
+            Automated conference list update (WikiCFP).
 
             Generated at:
             ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          branch: update/conferences-${{ github.run_number }}
+          branch: update/conferences-wikicfp-${{ github.run_number }}
+          base: main
+          delete-branch: true
+
+  collect-easychair:
+    runs-on: ubuntu-latest
+    name: Collect EasyChair
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Collect EasyChair conferences
+        run: pnpm exec tsx scripts/conference-collecting/main.ts --site easychair
+
+      - name: Check for changes
+        id: git-status
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create Pull Request
+        if: steps.git-status.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore: update conference list (easychair)"
+          title: "chore: update conference list (easychair)"
+          body: |
+            Automated conference list update (EasyChair).
+
+            Generated at:
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          branch: update/conferences-easychair-${{ github.run_number }}
           base: main
           delete-branch: true

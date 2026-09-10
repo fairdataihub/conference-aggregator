@@ -18,7 +18,7 @@ const WIKICFP_CONFIG: {
   categoryPageLimit: number | null;
 } = {
   categoryLimit: null,
-  categoryPageLimit: null,
+  categoryPageLimit: 6,
 };
 
 const EASYCHAIR_CONFIG: { pageLimit: number | null } = {

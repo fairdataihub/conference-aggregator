@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "collect:all": "tsx scripts/conference-collecting/main.ts --site all",
+    "collect:wikicfp": "tsx scripts/conference-collecting/main.ts --site wikicfp",
+    "collect:easychair": "tsx scripts/conference-collecting/main.ts --site easychair"
   },
   "keywords": [],
   "author": "",
