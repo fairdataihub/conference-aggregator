@@ -1,6 +1,6 @@
 {
 	"id": "oW8ASd1BUoJO6Cr",
-	"json": "{\"id\":\"oW8ASd1BUoJO6Cr\",\"url\":\"http://www.wikicfp.com/cfp/call?conference=artificial%20intelligence&page=1\",\"loadedUrl\":\"http://www.wikicfp.com/cfp/call?conference=artificial%20intelligence&page=1\",\"uniqueKey\":\"http://www.wikicfp.com/cfp/call?conference=artificial+intelligence&page=1\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"state\":4}},\"handledAt\":\"2026-09-10T07:01:24.072Z\"}",
+	"json": "{\"id\":\"oW8ASd1BUoJO6Cr\",\"url\":\"http://www.wikicfp.com/cfp/call?conference=artificial%20intelligence&page=1\",\"loadedUrl\":\"http://www.wikicfp.com/cfp/call?conference=artificial%20intelligence&page=1\",\"uniqueKey\":\"http://www.wikicfp.com/cfp/call?conference=artificial+intelligence&page=1\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"state\":4}},\"handledAt\":\"2026-09-10T16:49:15.812Z\"}",
 	"method": "GET",
 	"orderNo": null,
 	"retryCount": 0,

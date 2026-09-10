@@ -17,21 +17,31 @@ const DATABASE_PATH = path.join(
   "conference-postings.json",
 );
 
-type Site = "all" | "wikicfp" | "easychair";
+const COLLECTORS = {
+  wikicfp: collectWikiCFP,
+  easychair: collectEasyChair,
+} as const;
+
+type Site = "all" | keyof typeof COLLECTORS;
 
 function parseSiteArg(): Site {
   // Supports:
   // - `--site all|wikicfp|easychair`
   // - `--site=<value>`
-  const eqValue = process.argv.find((a) => a.startsWith("--site="))?.split("=", 2)[1];
-  const spValue = process.argv.find((a) => a === "--site");
-  const nextValue = spValue ? process.argv[process.argv.indexOf(spValue) + 1] : undefined;
+  const eqValue = process.argv
+    .find((arg) => arg.startsWith("--site="))
+    ?.split("=", 2)[1];
+
+  const spValue = process.argv.find((arg) => arg === "--site");
+  const nextValue = spValue
+    ? process.argv[process.argv.indexOf(spValue) + 1]
+    : undefined;
 
   const rawSite = eqValue ?? nextValue ?? "";
   const normalized = rawSite.trim().toLowerCase();
 
-  if (normalized === "wikicfp" || normalized === "easychair" || normalized === "all") {
-    return normalized;
+  if (normalized === "all" || normalized in COLLECTORS) {
+    return normalized as Site;
   }
 
   return "all";
@@ -58,17 +68,13 @@ function mergePostingsById(
 async function main(): Promise<void> {
   const startTime = Date.now();
   const site = parseSiteArg();
+
   console.log(`[Main] Starting conference collection (site=${site})`);
 
   if (site === "all") {
-    const collectors = [
-      ["wikicfp", collectWikiCFP],
-      ["easychair", collectEasyChair],
-    ] as const;
-
     const collected: CollectedConference[] = [];
 
-    for (const [name, collect] of collectors) {
+    for (const [name, collect] of Object.entries(COLLECTORS)) {
       try {
         const postings = await collect();
         collected.push(...postings);
@@ -77,7 +83,6 @@ async function main(): Promise<void> {
       }
     }
 
-    // Deterministic ordering helps keep diffs small between runs.
     collected.sort((a, b) => a.id.localeCompare(b.id));
 
     const db: ConferenceDatabase = {
@@ -88,7 +93,9 @@ async function main(): Promise<void> {
           ...new Set(
             collected
               .map((posting) => posting._source)
-              .filter((source): source is string => Boolean(source)),
+              .filter(
+                (source): source is string => Boolean(source),
+              ),
           ),
         ],
       },
@@ -99,8 +106,7 @@ async function main(): Promise<void> {
   } else {
     // Single-site update: keep other sources, replace only this site's postings.
     const existingDb = await loadConferenceDatabase(DATABASE_PATH);
-
-    const collect = site === "wikicfp" ? collectWikiCFP : collectEasyChair;
+    const collect = COLLECTORS[site];
     const updated = await collect();
 
     for (const posting of updated) {
@@ -108,11 +114,9 @@ async function main(): Promise<void> {
     }
 
     const existingOtherSources = existingDb.postings.filter(
-      (p) => p._source !== site,
+      (posting) => posting._source !== site,
     );
 
-    // Preserve other sources when ids collide (e.g. same conference found by both sites).
-    // This keeps `--site wikicfp` from mutating existing `easychair` records.
     const byId = new Map<string, CollectedConference>(
       existingOtherSources.map((posting) => [posting.id, posting]),
     );
@@ -124,6 +128,7 @@ async function main(): Promise<void> {
     }
 
     const mergedPostings = [...byId.values()];
+
     mergedPostings.sort((a, b) => a.id.localeCompare(b.id));
 
     const db: ConferenceDatabase = {
@@ -136,8 +141,8 @@ async function main(): Promise<void> {
 
   const elapsedMs = Date.now() - startTime;
   const elapsedSec = (elapsedMs / 1000).toFixed(2);
-
   const finalDb = await loadConferenceDatabase(DATABASE_PATH);
+
   console.log(
     `[Main] Complete: ${finalDb.postings.length} conferences in database`,
   );

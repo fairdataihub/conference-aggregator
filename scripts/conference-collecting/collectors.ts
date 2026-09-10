@@ -17,12 +17,12 @@ const WIKICFP_CONFIG: {
   categoryLimit: number | null;
   categoryPageLimit: number | null;
 } = {
-  categoryLimit: null,
-  categoryPageLimit: 6,
+  categoryLimit: 1,
+  categoryPageLimit: 5,
 };
 
 const EASYCHAIR_CONFIG: { pageLimit: number | null } = {
-  pageLimit: null,
+  pageLimit: 5,
 };
 
 /**
@@ -418,7 +418,7 @@ async function collectWikiCFPConferences(
 
   console.log(
     `[WikiCFP] Category ${categoryNumber}/${categoryTotal}: ` +
-      `${conferenceUrls.size} conferences across ${categoryPagesScanned} pages`,
+    `${conferenceUrls.size} conferences across ${categoryPagesScanned} pages`,
   );
 
   if (!conferenceUrls.size) {
@@ -475,7 +475,7 @@ async function collectWikiCFPConferences(
 
   console.log(
     `[WikiCFP] Category ${categoryNumber}/${categoryTotal}: ` +
-      `parsed ${postings.length}/${urls.length} conferences`,
+    `parsed ${postings.length}/${urls.length} conferences`,
   );
 
   return postings;
