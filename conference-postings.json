@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "lastUpdated": "2026-09-11T01:05:14.217Z",
+    "lastUpdated": "2026-09-11T03:31:02.483Z",
     "totalPostings": 25,
     "sources": [
       "wikicfp",
@@ -153,78 +153,6 @@
       "_source": "wikicfp"
     },
     {
-      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191426&copyownerid=13881",
-      "collectionDate": "2026-09-11",
-      "conferenceName": "2026 8th International Conference on Mechatronics, Robotics and Automation (ICMRA 2026)",
-      "conferenceYear": 2026,
-      "conferenceUri": "http://www.icmra.org/",
-      "conferenceAcronym": "ICMRA--EI 2026",
-      "conferenceSeries": "ICMRA--EI",
-      "conferenceStartDate": "2026-11-13",
-      "conferenceEndDate": "2026-11-15",
-      "conferenceLocation": "Suzhou, China",
-      "conferenceCategories": [
-        "robotics",
-        "mechatronics",
-        "artificial intelligence",
-        "engineering"
-      ],
-      "callForAbstract": "ICMRA 2026 [Ei Compendex and Scopus]\r\r★Full name: 2026 8th International Conference on Mechatronics, Robotics and Automation (ICMRA 2026)\r★Abbreviation: ICMRA 2026\r★Time：November 13-15, 2026\r★Place：Suzhou, China\r★Website：http://www.icmra.org/\r\r2026 8th International Conference on Mechatronics, Robotics and Automation (ICMRA 2026) will be held in Suzhou, China during November 13-15, 2026. It's sponsored by Suzhou University of Science and Technology, hosted by School of Electronic & Information Engineering, Suzhou University of Science and Technology, China.\r\r\r★Call for paper★\rTopics of interest for submission include, but are not limited to:\r1. Mechatronics:\rMechatronics systems and design\rActuators and sensors\rControl systems\rRobotics and automation\r2. Robotics:\rRobot kinematics and dynamics\rRobot motion planning and control\rMobile robots and unmanned systems\rSensor and perception systems\r3. Automation:\rIndustrial automation and control\rAutomation in manufacturing and production\rIntelligent transportation systems\rCyber-physical systems\r4. Applications:\rMedical and healthcare robotics\rService and personal robots\rAgricultural robotics\rSpace and underwater robotics\rFor more topics, please visit at http://www.icmra.org/cfp.html\r\r★Call for special session★\rThe Organizing Committee invites proposals for Special & Invited Sessions of ICMRA 2026. Special sessions complement the regular technical program by highlighting new and emerging research topics or innovative applications of established approaches. The topic of a special session proposal should be timely and compelling.\r\rPlease submit proposals in pdf format by email to icmra_conf@163.com. Proposal should include the following information:\r1.Title and abstract: Propose a title and a brief abstract of no more than approximately 200 words that will allow conference attendees to understand the topic and the focus of the special session.\r2.Information of Organizer(s): Please provide the name(s) of organizer(s); the email of main contact person; brief bio(s) of organizer(s).\rSubmission Deadline: August 1st, 2026\r\r★Publication★\rAfter peer review process, all full papers accepted by ICMRA 2026 will be published into ICMRA 2026 Conference Proceedings.\r\rPublication History\rICMRA 2024 IEEE Conference Proceedings: ISBN: 979-8-3503-5246-7 | Ei Compendex | Scopus\rICMRA 2023 IEEE Conference Proceedings: ISBN: 979-8-3503-0752-8 | Ei Compendex | Scopus\rICMRA 2022 IEEE Conference Proceedings: ISBN: 978-1-6654-7264-7 | Ei Compendex | Scopus\rICMRA 2021 IEEE Conference Proceedings: ISBN: 978-1-6654-2726-5 | Ei Compendex | Scopus\rICMRA 2020 IEEE Conference Proceedings: ISBN: 978-1-7281-9031-0 | Ei Compendex | Scopus\rICMRA 2018 IEEE Conference Proceedings: ISBN: 978-1-5386-5269-5 | Ei Compendex | Scopus\r\r★Submission★\r1. Full paper (Publication and Presentation)\r2. Abstract (Only Presentation)\r\rSubmission Online Electrical System (.pdf): https://www.zmeeting.org/submission/icmra2026\rMore detail about submission, please visit at http://www.icmra.org/sub.html\r\r★★Conference Schedule★★\rNovember 13, 2026 | Sign in and Collect Conference Materials\rNovember 14, 2026 | Opening Remark & Keynote Speeches & Oral / Poster Sessions\rNovember 15, 2026 |  Invited Speeches & Oral / Poster Sessions\r\r★★Contact:\rLily ZENG (Conference Secretary)\rWeb: http://www.icmra.org/\rEmail: icmra_conf@163.com\rWechat: iconf-ras (NOTE:ICMRA2026)",
-      "conferenceRelatedResrouces": [
-        {
-          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203131",
-          "resourceAcronym": "ISIMA 2026",
-          "resourceName": "2026 3rd International Symposium on Intelligent Manufacturing and Automation"
-        },
-        {
-          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
-          "resourceAcronym": "Ei/Scopus-AI2A 2026",
-          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
-        },
-        {
-          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
-          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
-          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
-        },
-        {
-          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202543",
-          "resourceAcronym": "ICUSAC 2026",
-          "resourceName": "IEEE 2026 3rd International Conference on Unmanned Systems and Automation Control"
-        },
-        {
-          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
-          "resourceAcronym": "AMLDS 2027",
-          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
-        },
-        {
-          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191427",
-          "resourceAcronym": "ICMRA 2026",
-          "resourceName": "2026 8th International Conference on Mechatronics, Robotics and Automation (ICMRA 2026)"
-        },
-        {
-          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=86369",
-          "resourceAcronym": "CEVVE 2026",
-          "resourceName": "2026 4th International Conference on Electric Vehicle and Vehicle Engineering"
-        },
-        {
-          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202896",
-          "resourceAcronym": "AIIE--EI 2027",
-          "resourceName": "2027 International Conference on Artificial Intelligence and Intelligent Education (AIIE 2027)"
-        },
-        {
-          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=201710",
-          "resourceAcronym": "PSCE--EI 2027",
-          "resourceName": "2027 International Conference on Power Systems and Control Engineering (PSCE 2027)"
-        },
-        {
-          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
-          "resourceAcronym": "AAIML 2027",
-          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
-        }
-      ],
-      "_source": "wikicfp"
-    },
-    {
       "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191728&copyownerid=13881",
       "collectionDate": "2026-09-11",
       "conferenceName": "ACM--2026 The 7th International Conference on Intelligent Medicine and Health (ICIMH 2026)",
@@ -364,6 +292,78 @@
           "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194810",
           "resourceAcronym": "AIAIS 2027",
           "resourceName": "IEEE--2027 International Conference on Artificial Intelligence and Applied Intelligent Systems (AIAIS)"
+        }
+      ],
+      "_source": "wikicfp"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192685&copyownerid=13881",
+      "collectionDate": "2026-09-11",
+      "conferenceName": "ACM--2026 5th International Conference on Computer Applications Technology (CCAT 2026)",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://ccat.org/",
+      "conferenceAcronym": "ACM CCAT 2026",
+      "conferenceSeries": "ACM CCAT",
+      "conferenceStartDate": "2026-12-18",
+      "conferenceEndDate": "2026-12-20",
+      "conferenceLocation": "Fukuoka, Japan",
+      "conferenceCategories": [
+        "computing",
+        "computer engineering",
+        "artificial intelligence",
+        "software engineering"
+      ],
+      "callForAbstract": "Full Name: 2026 5th International Conference on Computer Applications Technology\rAbbreviation: CCAT 2026\rDecember 18-20,2026 | Fukuoka, Japan\rMore details, please visit: https://ccat.org/\r\rCCAT brings together researchers and practitioners worldwide to discuss timely innovations in computer, Internet, and software tools, including technology integration in engineering education as well as related assessment and dissemination. CCAT 2026 will strengthen academia–industry dialogue and research-to-industry exchange, welcoming professionals, industrialists, and students to share results, join interactive discussions and special sessions, and explore the future potential of computer applications technology.\r\r【Keynote Speakers】\rProf. Yutaka Arakawa, Kyushu University, Japan\rProf. Hideaki Kimata, Kogakuin University, Japan\r\rMore speakers to be announced......\r\r【Conference Awards】\rOutstanding Organization Award\rOutstanding Contribution Award\rBest Paper Award\rBest Oral Presentation Award\rBest Poster Presentation Award\r\r【Proceedings & Previous CCAT】\rAll accepted and registered papers will be published in CCAT Conference Proceedings, which will be archived in the ACM Digital Library, and indexed by Ei Compendex and Scopus and submitted to be reviewed by Thomson Reuters Conference Proceedings Citation Index (ISI Web of Science).\r\r**CCAT 2025, IEEE Xplore online, Ei&Scopus Index\rhttps://ieeexplore.ieee.org/xpl/conhome/11573641/proceeding\r\r**CCAT 2024, IEEE Xplore online, Ei&Scopus Index\rhttps://ieeexplore.ieee.org/xpl/conhome/10884309/proceeding\r\r**CCAT 2023, IEEE Xplore online, Ei&Scopus Index\rhttps://ieeexplore.ieee.org/xpl/conhome/10410268/proceeding\r\r**CCAT 2022, IEEE Xplore online, Ei&Scopus Index\rhttps://ieeexplore.ieee.org/xpl/conhome/10006724/proceeding\r\r【 Call for Papers 】\rTopics of interest include, but are not limited to:\r\rTopic 1: Software Engineering and Modern Development\r*Software Requirements and Engineering\r*Software Architecture, Design Patterns, and Microservices\r*Modern Programming Paradigms and Languages\r*Software Quality Assurance, Verification, and Validation\r*Empirical Software Engineering and Metrics\r......\r\rTopic 2: Artificial Intelligence and Computational Intelligence\r*Machine Learning, Deep Learning, and Neural Networks\r*Evolutionary Computing and Meta-heuristic Optimization\r*Natural Language Processing and Large Language Models\r*Computer Vision, Image, and Video Processing\r*Intelligent and Adaptive Human-Computer Interaction\r......\r\rTopic 3: Intelligent Systems and Industrial Informatics (Industry 4.0/5.0)\r*Smart Manufacturing, Production, and Process Control\r*Predictive and Prescriptive Maintenance\r*Industrial Internet of Things and Smart Sensor Systems\r*Robotics, Autonomous Systems, and Flexible Automation\r*Mixed, Augmented, and Virtual Reality in Industry\r......\r\rTopic 4: Computer Systems, Networks, and Cybersecurity\r*Operating Systems and Distributed Systems\r*Computer Networks, Communication Protocols, and Next-Generation Internet\r*High-Performance, Parallel, and Cloud Computing\r*Edge, Fog, and Mobile Edge Computing Architectures\r*Cybersecurity, Cryptography, and Network Security\r.....\r\rmore please click:  https://ccat.org/cfp.html\r\r\r[ Special Session ]\rSpecial Session proposals should be emailed (PDF) to ccat_info@yeah.net by September 30, 2026. \rPlease include: \r(1) Title and abstract\r(2) Rationale \r(3) Proposed speakers\r(4) Biographies\rSubmission format and Important Dates\rThe subject should state CCAT 2026 Special Session Proposal.\rProposals submitted before September 30th, 2026, will be given priority.\rNotifications of acceptance/rejection will be provided by October 20th, 2026.\r\r\r[ Submission ]\rMake a submission via Zmeeting: https://www.zmeeting.org/submission/ccat2026\rPS: Listener is warmly welcomed to register via: https://www.zmeeting.org/register/ccat2026\r\r[ Contact us ]\rMs. Yuki Yu\rE-mail: ccat_info@yeah.net",
+      "conferenceRelatedResrouces": [
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=127474",
+          "resourceAcronym": "Ei/Scopus-AI2A 2026",
+          "resourceName": "2026 IEEE 6th International Conference on Artificial Intelligence, Automation and Algorithms (AI2A 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172345",
+          "resourceAcronym": "Ei/Scopus-ACEPE 2026",
+          "resourceName": "2026 3rd IEEE Asia Conference on Advances in Electrical and Power Engineering (ACEPE 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=187796",
+          "resourceAcronym": "AAIML 2027",
+          "resourceName": "IEEE--2027 2nd International Conference on Advances in Artificial Intelligence and Machine Learning"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192800",
+          "resourceAcronym": "ACM CSAI 2026",
+          "resourceName": "ACM--2026 The 10th International Conference on Computer Science and Artificial Intelligence (CSAI 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=180065",
+          "resourceAcronym": "AMLDS 2027",
+          "resourceName": "IEEE--2027 3rd International Conference on Advanced Machine Learning and Data Science"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203053",
+          "resourceAcronym": "ACM TRUST  2027",
+          "resourceName": "ACM TRUST 2027 ACM Conference on Trustworthy and Responsible AI and Computing Systems"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194995",
+          "resourceAcronym": "ACM ICSCA 2027",
+          "resourceName": "ACM--2027 16th International Conference on Software and Computer Applications (ICSCA 2027)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191728",
+          "resourceAcronym": "ACM ICIMH 2026",
+          "resourceName": "ACM--2026 The 7th International Conference on Intelligent Medicine and Health (ICIMH 2026)"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=169901",
+          "resourceAcronym": "DEPLING  2023",
+          "resourceName": "DEPLING 2023 International Conference on Dependency Linguistics"
+        },
+        {
+          "resourceUri": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202579",
+          "resourceAcronym": "ACM--CFP--RobCE 2027",
+          "resourceName": "2027 7th International Conference on Robotics and Control Engineering (RobCE 2027)"
         }
       ],
       "_source": "wikicfp"
