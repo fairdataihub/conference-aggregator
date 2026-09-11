@@ -826,6 +826,24 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
         posting.conferenceCategories = topics;
       }
 
+      // `div#cfp` contains some title/date tables and then the rest of the
+      // call text. We want only the text after the tables.
+      const cfpDiv = $("#cfp");
+      if (cfpDiv.length) {
+        const callForAbstract = cfpDiv
+          .clone()
+          .find("table")
+          .remove()
+          .end()
+          .text()
+          .replace(/\s+/g, " ")
+          .trim();
+
+        if (callForAbstract) {
+          posting.callForAbstract = callForAbstract;
+        }
+      }
+
       const submissionDeadlineRow = $("tr")
         .filter((_, tr) => {
           const firstTdText = $(tr).find("td").first().text().trim().toLowerCase();

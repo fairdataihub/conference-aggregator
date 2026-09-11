@@ -20,7 +20,7 @@ const DATABASE_PATH = path.join(
 const COLLECTORS = {
   wikicfp: collectWikiCFP,
   easychair: collectEasyChair,
-} as const;
+};
 
 type Site = "all" | keyof typeof COLLECTORS;
 
@@ -32,37 +32,22 @@ function parseSiteArg(): Site {
     .find((arg) => arg.startsWith("--site="))
     ?.split("=", 2)[1];
 
-  const spValue = process.argv.find((arg) => arg === "--site");
-  const nextValue = spValue
-    ? process.argv[process.argv.indexOf(spValue) + 1]
-    : undefined;
+  const siteFlagIndex = process.argv.indexOf("--site");
+  const nextValue =
+    siteFlagIndex !== -1 ? process.argv[siteFlagIndex + 1] : undefined;
 
   const rawSite = eqValue ?? nextValue ?? "";
   const normalized = rawSite.trim().toLowerCase();
 
-  if (normalized === "all" || normalized in COLLECTORS) {
-    return normalized as Site;
+  if (normalized === "all") {
+    return "all";
+  }
+
+  if (normalized === "wikicfp" || normalized === "easychair") {
+    return normalized;
   }
 
   return "all";
-}
-
-function mergePostingsById(
-  existing: CollectedConference[],
-  updated: CollectedConference[],
-): CollectedConference[] {
-  const byId = new Map<string, CollectedConference>();
-
-  for (const posting of existing) {
-    byId.set(posting.id, posting);
-  }
-
-  // Updated postings should win in case of collisions.
-  for (const posting of updated) {
-    byId.set(posting.id, posting);
-  }
-
-  return [...byId.values()];
 }
 
 async function main(): Promise<void> {
@@ -122,9 +107,8 @@ async function main(): Promise<void> {
     );
 
     for (const posting of updated) {
-      if (!byId.has(posting.id)) {
-        byId.set(posting.id, posting);
-      }
+      // Replace by `id` so updated postings win on collisions.
+      byId.set(posting.id, posting);
     }
 
     const mergedPostings = [...byId.values()];
