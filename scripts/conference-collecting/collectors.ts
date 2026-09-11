@@ -12,16 +12,21 @@ import {
 
 const WIKICFP_BASE_URL = "http://www.wikicfp.com";
 const EASYCHAIR_BASE_URL = "https://easychair.org";
+const CFP_WIKI_BASE_URL = "https://cfp.wiki";
 
 const WIKICFP_CONFIG: {
   categoryLimit: number | null;
   categoryPageLimit: number | null;
 } = {
-  categoryLimit: 1,
-  categoryPageLimit: 3,
+  categoryLimit: 0,
+  categoryPageLimit: 0,
 };
 
 const EASYCHAIR_CONFIG: { pageLimit: number | null } = {
+  pageLimit: 0,
+};
+
+const CFP_WIKI_CONFIG: { pageLimit: number | null } = {
   pageLimit: 5,
 };
 
@@ -337,54 +342,6 @@ function parseWikiCFPConferenceDetail(
     console.log("[WikiCFP] CFP details (div.cfp after Call For Papers):", cfpDetails);
   }
 
-  const relatedResourcesHeading = $("h3")
-    .filter((_, el) =>
-      $(el).text().trim().toLowerCase().includes("related resources"),
-    )
-    .first();
-
-  const relatedResourcesDiv = relatedResourcesHeading.length
-    ? relatedResourcesHeading.closest("center").next("div.cfp").first()
-    : $();
-
-  const relatedResources = relatedResourcesDiv
-    .find("a")
-    .map((_, a) => {
-      const href = $(a).attr("href");
-      const resourceAcronym = $(a).text().trim();
-      const resourceUri = href
-        ? resolveUrl(href, WIKICFP_BASE_URL) ?? ""
-        : "";
-
-      // The related resources `<td>` contains: `<a>acronym</a> <long title...>`
-      // We'll take the `<td>` text and remove the anchor text to get the long title.
-      const tdText = $(a).closest("td").text().replace(/\s+/g, " ").trim();
-      const resourceName = resourceAcronym
-        ? tdText.replace(resourceAcronym, "").trim()
-        : tdText;
-
-      if (!resourceUri || !resourceAcronym || !resourceName) {
-        return null;
-      }
-
-      return { resourceUri, resourceAcronym, resourceName };
-    })
-    .get()
-    .filter(
-      (t): t is {
-        resourceUri: string;
-        resourceAcronym: string;
-        resourceName: string;
-      } => t !== null && Boolean(t),
-    );
-
-  if (relatedResources.length) {
-    console.log(
-      "[WikiCFP] conferenceRelatedResrouces (Related Resources):",
-      relatedResources,
-    );
-  }
-
   const year =
     conferenceStartDate?.match(/^(\d{4})/)?.[1] ??
     conferenceEndDate?.match(/^(\d{4})/)?.[1] ??
@@ -401,21 +358,18 @@ function parseWikiCFPConferenceDetail(
   return {
     id: conferenceDetailUrl,
     collectionDate,
+    _source: "wikicfp",
     conferenceName,
     conferenceYear,
     conferenceUri,
-    ...(seriesFromListing && { conferenceAcronym: seriesFromListing }),
-    ...(conferenceAcronym && { conferenceSeries: conferenceAcronym }),
-    ...(conferenceStartDate && { conferenceStartDate }),
-    ...(conferenceEndDate && { conferenceEndDate }),
-    ...(conferenceLocation && { conferenceLocation }),
-    ...(submissionDeadline && { submissionDeadline }),
-    ...(categories.length && { conferenceCategories: categories }),
-    ...(cfpDetails && { callForAbstract: cfpDetails }),
-    ...(relatedResources.length && {
-      conferenceRelatedResrouces: relatedResources,
-    }),
-    _source: "wikicfp",
+    conferenceLocation: conferenceLocation || null,
+    conferenceStartDate: conferenceStartDate ?? null,
+    conferenceEndDate: conferenceEndDate ?? null,
+    conferenceAcronym: seriesFromListing ?? null,
+    conferenceSeries: conferenceAcronym ?? null,
+    conferenceCategories: categories.length ? categories : null,
+    conferenceText: cfpDetails || null,
+    submissionDeadline: submissionDeadline || null,
   };
 }
 
@@ -427,6 +381,7 @@ async function collectWikiCFPConferences(
   categoryNumber: number,
   categoryTotal: number,
 ): Promise<CollectedConference[]> {
+  // Step 1: Crawl WikiCFP category listing pages to collect detail URLs + lightweight metadata.
   const conferenceUrls = new Map<
     string,
     {
@@ -510,6 +465,7 @@ async function collectWikiCFPConferences(
     return [];
   }
 
+  // Step 2: Crawl each conference detail page and parse the full posting.
   const postings: CollectedConference[] = [];
 
   const detailCrawler = new CheerioCrawler({
@@ -563,11 +519,14 @@ async function collectWikiCFPConferences(
     `parsed ${postings.length}/${urls.length} conferences`,
   );
 
+  // Step 3: Return all parsed postings for this category.
   return postings;
 }
 
 export async function collectWikiCFP(): Promise<CollectedConference[]> {
+  // Step 1: Fetch all WikiCFP categories.
   const categories = await collectWikiCFPCategories();
+  console.log("[WikiCFP] Categories:", categories);
 
   if (!categories.length) {
     console.log("[WikiCFP] No categories found");
@@ -584,6 +543,7 @@ export async function collectWikiCFP(): Promise<CollectedConference[]> {
     `[WikiCFP] Processing ${categoriesToProcess.length}/${categories.length} categories`,
   );
 
+  // Step 2: Process each category (list crawl + detail crawl), accumulating postings.
   const postings: CollectedConference[] = [];
 
   for (const [index, categoryUrl] of categoriesToProcess.entries()) {
@@ -600,6 +560,7 @@ export async function collectWikiCFP(): Promise<CollectedConference[]> {
 
   console.log(`[WikiCFP] Collected ${postings.length} conferences`);
 
+  // Step 3: Return all postings across processed categories.
   return postings;
 }
 
@@ -653,15 +614,18 @@ function parseEasyChairConferences(
       // Use the EasyChair posting URL itself as the stable identifier.
       id: conferenceUri,
       collectionDate,
+      _source: "easychair",
       conferenceName: title,
       conferenceYear,
       conferenceUri,
-      ...(conferenceLocation && { conferenceLocation }),
-      ...(acronym && { conferenceAcronym: acronym }),
-      ...(conferenceSeries && { conferenceSeries }),
-      ...(conferenceStartDate && { conferenceStartDate }),
-      ...(conferenceEndDate && { conferenceEndDate }),
-      _source: "easychair",
+      conferenceLocation: conferenceLocation || null,
+      conferenceStartDate: conferenceStartDate ?? null,
+      conferenceEndDate: conferenceEndDate ?? null,
+      conferenceAcronym: acronym ?? null,
+      conferenceSeries: conferenceSeries ?? null,
+      conferenceCategories: null,
+      conferenceText: null,
+      submissionDeadline: null,
     });
   });
 
@@ -729,6 +693,7 @@ function extractEasyChairConferenceWebsite(
 }
 
 export async function collectEasyChair(): Promise<CollectedConference[]> {
+  // Step 1: Crawl EasyChair listing pages and collect conferences (initial fields).
   const postings: CollectedConference[] = [];
   const url = `${EASYCHAIR_BASE_URL}/cfp`;
   let pagesScanned = 0;
@@ -774,6 +739,7 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
 
   await crawler.run([url]);
 
+  // Step 2: Limit results and build a URL -> posting map for detail crawling.
   const limitedPostings =
     EASYCHAIR_CONFIG.pageLimit !== null
       ? postings.slice(0, EASYCHAIR_CONFIG.pageLimit)
@@ -791,6 +757,7 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
     posting.conferenceUri = "";
   });
 
+  // Step 3: Crawl EasyChair detail pages and enrich each posting.
   const detailCrawler = new CheerioCrawler({
     maxRequestsPerCrawl: conferenceUrls.length,
     maxRequestsPerMinute: 12,
@@ -830,7 +797,7 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
       // call text. We want only the text after the tables.
       const cfpDiv = $("#cfp");
       if (cfpDiv.length) {
-        const callForAbstract = cfpDiv
+        const conferenceText = cfpDiv
           .clone()
           .find("table")
           .remove()
@@ -839,8 +806,8 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
           .replace(/\s+/g, " ")
           .trim();
 
-        if (callForAbstract) {
-          posting.callForAbstract = callForAbstract;
+        if (conferenceText) {
+          posting.conferenceText = conferenceText;
         }
       }
 
@@ -875,4 +842,315 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
   console.log(`[EasyChair] Collected ${limitedPostings.length} conferences`);
 
   return limitedPostings;
+}
+
+/**
+ * Collects conference editions from cfp.wiki.
+ *
+ * Note: this is a best-effort scraper using the text content and a few stable
+ * label markers ("Location", "Event date", "Paper deadline", "Status").
+ */
+export async function collectCfpWiki(): Promise<CollectedConference[]> {
+  // Step 1: Crawl the `/conferences` listing page to collect detail URLs + basic year/date metadata.
+  const listingUrl = `${CFP_WIKI_BASE_URL}/conferences`;
+  const detailUrls = new Set<string>();
+
+  // Metadata collected from the listing page
+  const listingCardMetaByDetailUrl = new Map<
+    string,
+    {
+      conferenceName: string | null;
+      conferenceYear: number | null;
+      conferenceLocation: string | null;
+      conferenceStartDate: string | null;
+      conferenceEndDate: string | null;
+      conferenceAcronym: string | null;
+      conferenceSeries: string | null;
+      submissionDeadline: string | null;
+    }
+  >();
+
+  const listingCrawler = new CheerioCrawler({
+    maxRequestsPerCrawl: 1,
+    maxRequestsPerMinute: 5,
+    maxConcurrency: 1,
+
+    async requestHandler({ $, request }) {
+      // Conference detail links look like `/conferences/<something>`.
+      // Limit to the main listing section to avoid unrelated links.
+      $(".page-section article.conference-list-card")
+        .toArray()
+        .forEach((el) => {
+          const card = $(el);
+          const titleLink = card.find(".conference-list-title a[href]").first();
+          const href = titleLink.attr("href");
+          if (!href) return;
+
+          const abs = resolveUrl(href, CFP_WIKI_BASE_URL);
+          if (!abs) return;
+          if (!abs.includes("/conferences/")) return;
+          if (abs === request.url) return;
+
+          detailUrls.add(abs);
+
+          const conferenceName = titleLink.text().trim() || null;
+
+          const conferenceAcronymText = card
+            .find(".badge-row .badge")
+            .first()
+            .text()
+            .trim();
+          const conferenceAcronym = conferenceAcronymText || null;
+
+          // Subtitle is typically the hosting/organizing entity.
+          const conferenceSeries =
+            card.find(".conference-list-subtitle").first().text().trim() ||
+            null;
+
+          const locationStrong = card
+            .find(".conference-list-meta strong")
+            .filter((_, strongEl) => $(strongEl).text().trim() === "Location")
+            .first();
+          const conferenceLocation =
+            locationStrong.parent().find("div").first().text().trim() ||
+            null;
+
+          // Year badge is shown as `2026` in the card.
+          const yearText = card
+            .find(".badge-row .muted.small-text")
+            .first()
+            .text()
+            .trim();
+          const yearFromBadge = yearText ? Number.parseInt(yearText, 10) : undefined;
+
+          // Conference event date is in `.conference-list-meta` under the
+          // `Event date` label.
+          const eventDateStrong = card
+            .find(".conference-list-meta strong")
+            .filter((_, strongEl) => $(strongEl).text().trim() === "Event date")
+            .first();
+          const eventDateRaw = eventDateStrong
+            .parent()
+            .find("div")
+            .first()
+            .text()
+            .trim();
+
+          const eventDateNormalized = eventDateRaw
+            ? eventDateRaw.replace(/–/g, "-")
+            : "";
+          const eventDateParsed = eventDateNormalized
+            ? parseDateRange(eventDateNormalized)
+            : {};
+
+          const conferenceYear =
+            eventDateParsed.year ?? yearFromBadge ?? null;
+
+          const paperDeadlineStrong = card
+            .find(".conference-list-meta strong")
+            .filter(
+              (_, strongEl) => $(strongEl).text().trim() === "Paper deadline",
+            )
+            .first();
+          const paperDeadlineRaw = paperDeadlineStrong
+            .parent()
+            .find("div")
+            .first()
+            .text()
+            .trim();
+
+          const paperDeadlineNormalized = paperDeadlineRaw
+            ? paperDeadlineRaw.replace(/–/g, "-")
+            : "";
+          const deadlineParsed = paperDeadlineNormalized
+            ? parseDateRange(paperDeadlineNormalized)
+            : {};
+
+          listingCardMetaByDetailUrl.set(abs, {
+            conferenceName,
+            conferenceYear,
+            conferenceLocation,
+            conferenceStartDate: eventDateParsed.startDate ?? null,
+            conferenceEndDate: eventDateParsed.endDate ?? null,
+            conferenceAcronym,
+            conferenceSeries,
+            submissionDeadline: deadlineParsed.startDate ?? null,
+          });
+        });
+    },
+
+    errorHandler: async ({ request, log }, error) => {
+      log.error(`cfp.wiki listing request failed: ${request.url}`, {
+        error: String(error),
+      });
+    },
+  });
+
+  await listingCrawler.run([listingUrl]);
+
+  // Step 2: Build the list of detail URLs to crawl (respecting pageLimit) and parse each detail page.
+  const detailUrlList = [...detailUrls];
+  const limitedDetailUrls =
+    CFP_WIKI_CONFIG.pageLimit === null
+      ? detailUrlList
+      : detailUrlList.slice(0, CFP_WIKI_CONFIG.pageLimit);
+
+  const postings: CollectedConference[] = [];
+
+  const detailCrawler = new CheerioCrawler({
+    maxRequestsPerCrawl: limitedDetailUrls.length || 1,
+    maxRequestsPerMinute: 8,
+    maxConcurrency: 1,
+
+    preNavigationHooks: [
+      async () => {
+        await randomDelay(2500, 3500);
+      },
+    ],
+
+    async requestHandler({ $, request, log }) {
+      // Step 3: Parse the detail page fields and merge/override with listing-derived values.
+      const listingMeta = listingCardMetaByDetailUrl.get(request.url);
+      if (!listingMeta?.conferenceName) {
+        return;
+      }
+      if (listingMeta.conferenceYear === null) {
+        return;
+      }
+
+      const title =
+        $("h1").first().text().trim() || $("h2").first().text().trim();
+
+      if (!title) {
+        return;
+      }
+
+      // Prefer listing-derived fields; only parse detail page when the
+      // listing card didn't have the value.
+      let conferenceLocation = listingMeta.conferenceLocation;
+      let conferenceStartDate = listingMeta.conferenceStartDate;
+      let conferenceEndDate = listingMeta.conferenceEndDate;
+      let submissionDeadline = listingMeta.submissionDeadline;
+
+      if (
+        conferenceLocation === null ||
+        conferenceStartDate === null ||
+        conferenceEndDate === null ||
+        submissionDeadline === null
+      ) {
+        const pageText = $("body").text().replace(/\s+/g, " ").trim();
+
+        if (conferenceLocation === null) {
+          const locationMatch = pageText.match(
+            /Location\s+(.+?)\s+Event date/i,
+          );
+          conferenceLocation = locationMatch?.[1]?.trim() ?? null;
+        }
+
+        if (conferenceStartDate === null || conferenceEndDate === null) {
+          const eventDateMatch = pageText.match(
+            /Event date\s+(.+?)\s+Paper deadline/i,
+          );
+          const eventDateRaw = eventDateMatch?.[1]?.trim();
+          const eventDateNormalized = eventDateRaw
+            ? eventDateRaw.replace(/–/g, "-")
+            : "";
+
+          const eventDateParsed = eventDateNormalized
+            ? parseDateRange(eventDateNormalized)
+            : {};
+
+          conferenceStartDate =
+            eventDateParsed.startDate ?? conferenceStartDate;
+          conferenceEndDate = eventDateParsed.endDate ?? conferenceEndDate;
+        }
+
+        if (submissionDeadline === null) {
+          const paperDeadlineMatch = pageText.match(
+            /Paper deadline\s+(.+?)\s+Status/i,
+          );
+          const paperDeadlineRaw = paperDeadlineMatch?.[1]?.trim();
+          const deadlineParsed = paperDeadlineRaw
+            ? parseDateRange(paperDeadlineRaw)
+            : {};
+
+          submissionDeadline = deadlineParsed.startDate ?? null;
+        }
+      }
+
+      const dlFields = $("dl.definition-list")
+        .find("dt")
+        .toArray()
+        .reduce((acc, dt) => {
+          const key = $(dt).text().trim();
+          if (!key) return acc;
+
+          const dd = $(dt).next("dd").first();
+          const aHref = dd.find("a").first().attr("href") ?? null;
+          const value =
+            aHref ?? dd.text().replace(/\s+/g, " ").trim() ?? "";
+
+          acc[key] = value;
+          return acc;
+        }, {} as Record<string, string>);
+
+      console.log("dlFields", dlFields);
+
+      // Prefer `dl.definition-list` categories (comma-separated in the dd).
+      const conferenceCategories = dlFields["Category"]
+        ? dlFields["Category"]
+          .split(",")
+          .map((t) => t.trim())
+          .filter((t) => Boolean(t))
+        : [];
+
+
+
+      const conferenceText = $("main").first().text().replace(/\s+/g, " ").trim();
+
+      // The detail page includes an `Abbreviation: ...` line inside `div.cfp`.
+      // Use it to derive a stable "series" (strip the trailing year).
+      const abbreviationMatch = conferenceText.match(
+        /Abbreviation:\s*(.+?)\s+Website:/i,
+      );
+      const abbreviation = abbreviationMatch?.[1]?.trim();
+      const detailDerivedConferenceSeries = abbreviation
+        ? abbreviation.replace(/\b(19\d{2}|20\d{2})\b/g, "").trim() || null
+        : null;
+
+      const officialSiteHref = dlFields["Official site"] ?? null;
+      const conferenceUri = officialSiteHref
+        ? resolveUrl(officialSiteHref, CFP_WIKI_BASE_URL) ?? officialSiteHref
+        : null;
+
+      postings.push({
+        id: request.url,
+        collectionDate: generateCollectionDate(),
+        _source: "cfpwiki",
+        conferenceName: listingMeta.conferenceName,
+        conferenceYear: listingMeta.conferenceYear,
+        conferenceUri,
+        conferenceLocation: conferenceLocation || null,
+        conferenceStartDate,
+        conferenceEndDate,
+        conferenceAcronym: listingMeta.conferenceAcronym || null,
+        conferenceSeries:
+          detailDerivedConferenceSeries ?? listingMeta.conferenceSeries ?? null,
+        conferenceCategories:
+          conferenceCategories.length > 0 ? conferenceCategories : null,
+        conferenceText: conferenceText || null,
+        submissionDeadline:
+          submissionDeadline || null,
+      });
+    },
+
+    errorHandler: async ({ request, log }, error) => {
+      log.error(`cfp.wiki detail request failed: ${request.url}`, {
+        error: String(error),
+      });
+    },
+  });
+
+  await detailCrawler.run(limitedDetailUrls);
+  return postings;
 }

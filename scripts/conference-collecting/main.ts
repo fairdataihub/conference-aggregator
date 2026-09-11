@@ -3,7 +3,7 @@ import { fileURLToPath } from "node:url";
 
 import type { CollectedConference, ConferenceDatabase } from "./schema.js";
 
-import { collectEasyChair, collectWikiCFP } from "./collectors.js";
+import { collectCfpWiki, collectEasyChair, collectWikiCFP } from "./collectors.js";
 
 import { loadConferenceDatabase, saveConferenceDatabase } from "./storage.js";
 
@@ -20,6 +20,7 @@ const DATABASE_PATH = path.join(
 const COLLECTORS = {
   wikicfp: collectWikiCFP,
   easychair: collectEasyChair,
+  cfpwiki: collectCfpWiki,
 };
 
 type Site = "all" | keyof typeof COLLECTORS;
@@ -43,7 +44,11 @@ function parseSiteArg(): Site {
     return "all";
   }
 
-  if (normalized === "wikicfp" || normalized === "easychair") {
+  if (
+    normalized === "wikicfp" ||
+    normalized === "easychair" ||
+    normalized === "cfpwiki"
+  ) {
     return normalized;
   }
 
