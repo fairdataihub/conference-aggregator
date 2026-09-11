@@ -1,9 +1,9 @@
 {
-  "usableSessionsCount": 23,
+  "usableSessionsCount": 6,
   "retiredSessionsCount": 0,
   "sessions": [
     {
-      "id": "session_Y9tIGtcGBG",
+      "id": "session_p7hFhC0NFL",
       "cookieJar": {
         "version": "tough-cookie@6.0.2",
         "storeType": "MemoryCookieStore",
@@ -11,29 +11,19 @@
         "enableLooseMode": false,
         "allowSpecialUseDomain": true,
         "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "86119FECD65E552588F06D6EA368DA82",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:03:27.938Z",
-            "lastAccessed": "2026-09-11T01:03:27.938Z"
-          }
-        ]
+        "cookies": []
       },
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:53:27.329Z",
-      "createdAt": "2026-09-11T01:03:27.329Z",
+      "expiresAt": "2026-09-11T04:19:10.503Z",
+      "createdAt": "2026-09-11T03:29:10.503Z",
       "usageCount": 1,
       "maxUsageCount": 50,
       "errorScore": 0
     },
     {
-      "id": "session_b9yizzE56r",
+      "id": "session_XdQdhx7qL4",
       "cookieJar": {
         "version": "tough-cookie@6.0.2",
         "storeType": "MemoryCookieStore",
@@ -41,29 +31,19 @@
         "enableLooseMode": false,
         "allowSpecialUseDomain": true,
         "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "CA7F89E8689A327A793141F661C436B5",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:03:29.829Z",
-            "lastAccessed": "2026-09-11T01:03:29.829Z"
-          }
-        ]
+        "cookies": []
       },
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:53:29.357Z",
-      "createdAt": "2026-09-11T01:03:29.357Z",
+      "expiresAt": "2026-09-11T04:19:12.348Z",
+      "createdAt": "2026-09-11T03:29:12.348Z",
       "usageCount": 1,
       "maxUsageCount": 50,
       "errorScore": 0
     },
     {
-      "id": "session_5foNCkQtsD",
+      "id": "session_ZhIeq1kXtg",
       "cookieJar": {
         "version": "tough-cookie@6.0.2",
         "storeType": "MemoryCookieStore",
@@ -71,29 +51,19 @@
         "enableLooseMode": false,
         "allowSpecialUseDomain": true,
         "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "6968C069319115CC7A81AF56ACA43224",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:03:30.287Z",
-            "lastAccessed": "2026-09-11T01:03:30.287Z"
-          }
-        ]
+        "cookies": []
       },
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:53:29.840Z",
-      "createdAt": "2026-09-11T01:03:29.840Z",
+      "expiresAt": "2026-09-11T04:19:17.985Z",
+      "createdAt": "2026-09-11T03:29:17.985Z",
       "usageCount": 1,
       "maxUsageCount": 50,
       "errorScore": 0
     },
     {
-      "id": "session_QRrNhW1VEd",
+      "id": "session_85L3VAbzmr",
       "cookieJar": {
         "version": "tough-cookie@6.0.2",
         "storeType": "MemoryCookieStore",
@@ -101,29 +71,19 @@
         "enableLooseMode": false,
         "allowSpecialUseDomain": true,
         "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "3842A1548719A5736377C13AB2A6BB8E",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:03:35.565Z",
-            "lastAccessed": "2026-09-11T01:03:35.565Z"
-          }
-        ]
+        "cookies": []
       },
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:53:30.340Z",
-      "createdAt": "2026-09-11T01:03:30.340Z",
+      "expiresAt": "2026-09-11T04:19:23.458Z",
+      "createdAt": "2026-09-11T03:29:23.458Z",
       "usageCount": 1,
       "maxUsageCount": 50,
       "errorScore": 0
     },
     {
-      "id": "session_fZJsVlgcSM",
+      "id": "session_no0cfOEg0d",
       "cookieJar": {
         "version": "tough-cookie@6.0.2",
         "storeType": "MemoryCookieStore",
@@ -131,29 +91,19 @@
         "enableLooseMode": false,
         "allowSpecialUseDomain": true,
         "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "22711B66005DC71CB59425E9C691C08D",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:03:40.797Z",
-            "lastAccessed": "2026-09-11T01:03:40.797Z"
-          }
-        ]
+        "cookies": []
       },
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:53:35.574Z",
-      "createdAt": "2026-09-11T01:03:35.574Z",
+      "expiresAt": "2026-09-11T04:19:29.092Z",
+      "createdAt": "2026-09-11T03:29:29.092Z",
       "usageCount": 1,
       "maxUsageCount": 50,
       "errorScore": 0
     },
     {
-      "id": "session_bDrcEcB6fe",
+      "id": "session_WG9alj2DWM",
       "cookieJar": {
         "version": "tough-cookie@6.0.2",
         "storeType": "MemoryCookieStore",
@@ -161,533 +111,13 @@
         "enableLooseMode": false,
         "allowSpecialUseDomain": true,
         "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "960259B568AB6AF0A428F5140E6DA3E6",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:03:45.966Z",
-            "lastAccessed": "2026-09-11T01:03:45.966Z"
-          }
-        ]
+        "cookies": []
       },
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:53:40.805Z",
-      "createdAt": "2026-09-11T01:03:40.805Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_a1N6yo1XAE",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "82D92CA6D5431355DA62BA3F3B793BAC",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:03:51.257Z",
-            "lastAccessed": "2026-09-11T01:03:51.257Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:53:45.974Z",
-      "createdAt": "2026-09-11T01:03:45.974Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_5azthsJndX",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "E9B8C2C9ACB5D5D6F9F75E328306BE66",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:03:56.528Z",
-            "lastAccessed": "2026-09-11T01:03:56.528Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:53:51.271Z",
-      "createdAt": "2026-09-11T01:03:51.271Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_7DTmBHe9B1",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "CDD726F08253A569B404EE454E8A2AF8",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:04:01.644Z",
-            "lastAccessed": "2026-09-11T01:04:01.644Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:53:56.534Z",
-      "createdAt": "2026-09-11T01:03:56.534Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_ZpKj0l75BI",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "B7B4AF1B44BCE1EEF9DF148913C352B2",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:04:06.895Z",
-            "lastAccessed": "2026-09-11T01:04:06.895Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:54:01.672Z",
-      "createdAt": "2026-09-11T01:04:01.672Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_pEQ7EhwKQP",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "B2DC488DD076117FAEB84AA4D17318F1",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:04:12.004Z",
-            "lastAccessed": "2026-09-11T01:04:12.004Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:54:06.901Z",
-      "createdAt": "2026-09-11T01:04:06.901Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_6Ns6wZCunx",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "40E498B3CFEAD7B37A155C3321BFCA19",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:04:17.109Z",
-            "lastAccessed": "2026-09-11T01:04:17.109Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:54:12.008Z",
-      "createdAt": "2026-09-11T01:04:12.008Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_OeBKKoyXpi",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "9D1330862986C0A16C3DA85CC53D4D72",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:04:22.301Z",
-            "lastAccessed": "2026-09-11T01:04:22.301Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:54:17.115Z",
-      "createdAt": "2026-09-11T01:04:17.115Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_k8KQ6fn4je",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "7D01F0019880644FCD465648E93A116C",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:04:27.410Z",
-            "lastAccessed": "2026-09-11T01:04:27.410Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:54:22.306Z",
-      "createdAt": "2026-09-11T01:04:22.306Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_cc2fXctqvW",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "55397A82F9B91736822C6D296B467F27",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:04:32.603Z",
-            "lastAccessed": "2026-09-11T01:04:32.603Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:54:27.416Z",
-      "createdAt": "2026-09-11T01:04:27.416Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_PQS8aSjq9b",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "DF6F4C452423C0931F42455B8E456D7B",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:04:37.825Z",
-            "lastAccessed": "2026-09-11T01:04:37.825Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:54:32.609Z",
-      "createdAt": "2026-09-11T01:04:32.609Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_FW1xUgVl7Y",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "B349347227D0FE8D8F7451A29566ADA4",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:04:43.056Z",
-            "lastAccessed": "2026-09-11T01:04:43.056Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:54:37.832Z",
-      "createdAt": "2026-09-11T01:04:37.832Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_KptGSm4Q67",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "AF5E9A47737166E499B5B66261B121FA",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:04:48.242Z",
-            "lastAccessed": "2026-09-11T01:04:48.242Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:54:43.063Z",
-      "createdAt": "2026-09-11T01:04:43.063Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_gmqPMEok6H",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "9C11D641637D61AD5E3FF77E7B7E6193",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:04:53.366Z",
-            "lastAccessed": "2026-09-11T01:04:53.366Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:54:48.249Z",
-      "createdAt": "2026-09-11T01:04:48.249Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_ePtqYcIFyM",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "E5648A14F5008ECB64E1C32E1FAD11B1",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:04:58.649Z",
-            "lastAccessed": "2026-09-11T01:04:58.649Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:54:53.371Z",
-      "createdAt": "2026-09-11T01:04:53.371Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_hIHzJhobVN",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "4F38BB8F5CD7858B064176FE8C9D0F94",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:05:03.821Z",
-            "lastAccessed": "2026-09-11T01:05:03.821Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:54:58.658Z",
-      "createdAt": "2026-09-11T01:04:58.658Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_thHF1mg0oZ",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "D0A7323C15DBF2B55932087154847618",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:05:09.062Z",
-            "lastAccessed": "2026-09-11T01:05:09.062Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:55:03.826Z",
-      "createdAt": "2026-09-11T01:05:03.826Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_oGc9qnnT8X",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "JSESSIONID",
-            "value": "70A8F351A8E8994D3E013229D6ECC131",
-            "domain": "www.wikicfp.com",
-            "path": "/cfp",
-            "hostOnly": true,
-            "creation": "2026-09-11T01:05:14.205Z",
-            "lastAccessed": "2026-09-11T01:05:14.205Z"
-          }
-        ]
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-11T01:55:09.070Z",
-      "createdAt": "2026-09-11T01:05:09.070Z",
+      "expiresAt": "2026-09-11T04:19:34.787Z",
+      "createdAt": "2026-09-11T03:29:34.787Z",
       "usageCount": 1,
       "maxUsageCount": 50,
       "errorScore": 0
