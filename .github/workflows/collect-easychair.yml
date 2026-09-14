@@ -4,12 +4,18 @@ on:
   push:
     branches:
       - test
+    paths-ignore:
+      - conference-postings.json
   schedule:
     - cron: "0 2 * * 1"
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: conference-data-test
+  cancel-in-progress: false
 
 jobs:
   collect-easychair:
