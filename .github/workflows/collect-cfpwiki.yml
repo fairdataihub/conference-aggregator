@@ -1,4 +1,4 @@
-name: collect-cfpwiki
+name: Collect cfp.wiki
 
 on:
   push:
@@ -19,40 +19,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: test
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 24
-          cache: pnpm
+          node-version: 22
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Collect cfp.wiki conferences
-        run: pnpm exec tsx scripts/conference-collecting/main.ts --site cfpwiki
+      - name: Collect cfp.wiki
+        run: pnpm start -- --site cfpwiki
 
-      - name: Check for changes
-        id: git-status
-        run: |
-          if git diff --quiet; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Commit and push changes
-        if: steps.git-status.outputs.changed == 'true'
+      - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add conference-postings.json
-          git commit -m "chore: update conference list (cfp.wiki)"
-          git push origin test
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update cfp.wiki conference data"
+          git push
