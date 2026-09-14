@@ -18,16 +18,16 @@ const WIKICFP_CONFIG: {
   categoryLimit: number | null;
   categoryPageLimit: number | null;
 } = {
-  categoryLimit: 1,
-  categoryPageLimit: 1,
+  categoryLimit: null,
+  categoryPageLimit: null,
 };
 
 const EASYCHAIR_CONFIG: { pageLimit: number | null } = {
-  pageLimit: 5,
+  pageLimit: null,
 };
 
 const CFP_WIKI_CONFIG: { pageLimit: number | null } = {
-  pageLimit: 5,
+  pageLimit: null,
 };
 
 /**
