@@ -32,7 +32,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Collect WikiCFP
-        run: pnpm start -- --site wikicfp
+        run: pnpm collect:wikicfp
 
       - name: Commit changes
         run: |

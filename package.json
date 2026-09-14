@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "collect:all": "tsx scripts/conference-collecting/main.ts --site all",
+    "start": "tsx scripts/conference-collecting/main.ts",
     "collect:wikicfp": "tsx scripts/conference-collecting/main.ts --site wikicfp",
-    "collect:easychair": "tsx scripts/conference-collecting/main.ts --site easychair"
+    "collect:easychair": "tsx scripts/conference-collecting/main.ts --site easychair",
+    "collect:cfpwiki": "tsx scripts/conference-collecting/main.ts --site cfpwiki"
   },
   "keywords": [],
   "author": "",
