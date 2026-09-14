@@ -17,17 +17,49 @@ const CFP_WIKI_BASE_URL = "https://cfp.wiki";
 const WIKICFP_CONFIG: {
   categoryLimit: number | null;
   categoryPageLimit: number | null;
+  crawlMinDelayBetweenRequests: number;
+  crawlMaxDelayBetweenRequests: number;
 } = {
   categoryLimit: null,
   categoryPageLimit: null,
+  crawlMinDelayBetweenRequests: 5001,
+  crawlMaxDelayBetweenRequests: 5200,
 };
 
-const EASYCHAIR_CONFIG: { pageLimit: number | null } = {
+const EASYCHAIR_CONFIG: {
+  pageLimit: number | null;
+  crawlMinDelayBetweenRequests: number;
+  crawlMaxDelayBetweenRequests: number;
+} = {
   pageLimit: null,
+  crawlMinDelayBetweenRequests: 3001,
+  crawlMaxDelayBetweenRequests: 3900,
 };
 
-const CFP_WIKI_CONFIG: { pageLimit: number | null } = {
+const EASYCHAIR_DETAIL_CRAWL_CONFIG: {
+  crawlMinDelayBetweenRequests: number;
+  crawlMaxDelayBetweenRequests: number;
+} = {
+  crawlMinDelayBetweenRequests: 5000,
+  crawlMaxDelayBetweenRequests: 5200,
+};
+
+const CFP_WIKI_CONFIG: {
+  pageLimit: number | null;
+  crawlMinDelayBetweenRequests: number;
+  crawlMaxDelayBetweenRequests: number;
+} = {
   pageLimit: null,
+  crawlMinDelayBetweenRequests: 3001,
+  crawlMaxDelayBetweenRequests: 3900,
+};
+
+const CFP_WIKI_DETAIL_CRAWL_CONFIG: {
+  crawlMinDelayBetweenRequests: number;
+  crawlMaxDelayBetweenRequests: number;
+} = {
+  crawlMinDelayBetweenRequests: 2500,
+  crawlMaxDelayBetweenRequests: 3500,
 };
 
 /**
@@ -57,7 +89,6 @@ async function collectWikiCFPCategories(): Promise<string[]> {
 
   const crawler = new CheerioCrawler({
     maxRequestsPerCrawl: 1,
-    maxRequestsPerMinute: 5,
 
     async requestHandler({ $, log }) {
       const found = parseWikiCFPCategories($);
@@ -411,8 +442,15 @@ async function collectWikiCFPConferences(
 
   const categoryCrawler = new CheerioCrawler({
     maxRequestsPerCrawl: WIKICFP_CONFIG.categoryPageLimit ?? 5000,
-    maxRequestsPerMinute: 20,
     maxConcurrency: 1,
+    preNavigationHooks: [
+      async () => {
+        await randomDelay(
+          WIKICFP_CONFIG.crawlMinDelayBetweenRequests,
+          WIKICFP_CONFIG.crawlMaxDelayBetweenRequests,
+        );
+      },
+    ],
 
     async requestHandler(context) {
       const { $, log } = context;
@@ -484,15 +522,15 @@ async function collectWikiCFPConferences(
 
   const detailCrawler = new CheerioCrawler({
     maxRequestsPerCrawl: conferenceUrls.size,
-    maxRequestsPerMinute: 12,
     maxConcurrency: 1,
-
     preNavigationHooks: [
       async () => {
-        await randomDelay(5001, 5200);
+        await randomDelay(
+          WIKICFP_CONFIG.crawlMinDelayBetweenRequests,
+          WIKICFP_CONFIG.crawlMaxDelayBetweenRequests,
+        );
       },
     ],
-
     async requestHandler({ $, log, request }) {
       const data = conferenceUrls.get(request.url);
 
@@ -714,9 +752,15 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
 
   const crawler = new CheerioCrawler({
     maxRequestsPerCrawl: EASYCHAIR_CONFIG.pageLimit ?? 5000,
-    maxRequestsPerMinute: 20,
     maxConcurrency: 1,
-
+    preNavigationHooks: [
+      async () => {
+        await randomDelay(
+          EASYCHAIR_CONFIG.crawlMinDelayBetweenRequests,
+          EASYCHAIR_CONFIG.crawlMaxDelayBetweenRequests,
+        );
+      },
+    ],
     async requestHandler({ $, log, request, addRequests }) {
       pagesScanned++;
 
@@ -774,12 +818,14 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
   // Step 3: Crawl EasyChair detail pages and enrich each posting.
   const detailCrawler = new CheerioCrawler({
     maxRequestsPerCrawl: conferenceUrls.length,
-    maxRequestsPerMinute: 12,
     maxConcurrency: 1,
 
     preNavigationHooks: [
       async () => {
-        await randomDelay(5000, 5200);
+        await randomDelay(
+          EASYCHAIR_DETAIL_CRAWL_CONFIG.crawlMinDelayBetweenRequests,
+          EASYCHAIR_DETAIL_CRAWL_CONFIG.crawlMaxDelayBetweenRequests,
+        );
       },
     ],
 
@@ -892,9 +938,15 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
 
   const listingCrawler = new CheerioCrawler({
     maxRequestsPerCrawl: 1,
-    maxRequestsPerMinute: 5,
     maxConcurrency: 1,
-
+    preNavigationHooks: [
+      async () => {
+        await randomDelay(
+          CFP_WIKI_CONFIG.crawlMinDelayBetweenRequests,
+          CFP_WIKI_CONFIG.crawlMaxDelayBetweenRequests,
+        );
+      },
+    ],
     async requestHandler({ $, request }) {
       // Conference detail links look like `/conferences/<something>`.
       // Limit to the main listing section to avoid unrelated links.
@@ -1013,12 +1065,14 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
 
   const detailCrawler = new CheerioCrawler({
     maxRequestsPerCrawl: limitedDetailUrls.length || 1,
-    maxRequestsPerMinute: 8,
     maxConcurrency: 1,
 
     preNavigationHooks: [
       async () => {
-        await randomDelay(2500, 3500);
+        await randomDelay(
+          CFP_WIKI_DETAIL_CRAWL_CONFIG.crawlMinDelayBetweenRequests,
+          CFP_WIKI_DETAIL_CRAWL_CONFIG.crawlMaxDelayBetweenRequests,
+        );
       },
     ],
 
