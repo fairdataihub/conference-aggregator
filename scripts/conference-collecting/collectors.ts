@@ -18,12 +18,12 @@ const WIKICFP_CONFIG: {
   categoryLimit: number | null;
   categoryPageLimit: number | null;
 } = {
-  categoryLimit: 0,
-  categoryPageLimit: 0,
+  categoryLimit: 1,
+  categoryPageLimit: 1,
 };
 
 const EASYCHAIR_CONFIG: { pageLimit: number | null } = {
-  pageLimit: 0,
+  pageLimit: 5,
 };
 
 const CFP_WIKI_CONFIG: { pageLimit: number | null } = {
@@ -281,13 +281,32 @@ function parseWikiCFPConferenceDetail(
   let conferenceLocation =
     $("span[property='v:locality']").attr("content") || locationFromListing;
 
+  // WikiCFP detail pages render key/value data in a header table as:
+  // <th>Where</th><td>...</td>, <th>Submission Deadline</th><td>...</td>, etc.
+  // Build a map once, then read the values we need.
+  const kvFields: Record<string, string> = {};
+  $("th").each((_, th) => {
+    const key = $(th).text().trim();
+    if (!key) return;
+
+    const row = $(th).closest("tr");
+    const td = row.find("td").first();
+    if (!td.length) return;
+
+    if (key === "Submission Deadline") {
+      const iso =
+        td.find("span[property='v:startDate']").first().attr("content")?.split(
+          "T",
+        )[0];
+      kvFields[key] = iso ?? td.text().trim();
+      return;
+    }
+
+    kvFields[key] = td.text().trim();
+  });
+
   if (!conferenceLocation) {
-    $("th").each((_, th) => {
-      if ($(th).text().trim() === "Where") {
-        conferenceLocation =
-          $(th).closest("tr").find("td").eq(1).text().trim() || undefined;
-      }
-    });
+    conferenceLocation = kvFields["Where"] || undefined;
   }
 
   if (conferenceLocation) {
@@ -295,13 +314,8 @@ function parseWikiCFPConferenceDetail(
   }
 
   // WikiCFP detail pages include "Submission Deadline" in the same header table as "Where".
-  let submissionDeadline: string | undefined;
-  $("th").each((_, th) => {
-    if ($(th).text().trim() === "Submission Deadline") {
-      submissionDeadline =
-        $(th).closest("tr").find("td").eq(1).text().trim() || undefined;
-    }
-  });
+  const submissionDeadline: string | undefined =
+    kvFields["Submission Deadline"] || undefined;
 
   let conferenceUri = "";
 
@@ -365,8 +379,8 @@ function parseWikiCFPConferenceDetail(
     conferenceLocation: conferenceLocation || null,
     conferenceStartDate: conferenceStartDate ?? null,
     conferenceEndDate: conferenceEndDate ?? null,
-    conferenceAcronym: seriesFromListing ?? null,
-    conferenceSeries: conferenceAcronym ?? null,
+    conferenceAcronym: conferenceAcronym ?? null,
+    conferenceSeries: seriesFromListing ?? null,
     conferenceCategories: categories.length ? categories : null,
     conferenceText: cfpDetails || null,
     submissionDeadline: submissionDeadline || null,
@@ -818,9 +832,16 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
         })
         .first();
 
-      const submissionDeadline = submissionDeadlineRow.find("td").eq(1).text().trim();
-      if (submissionDeadline) {
-        posting.submissionDeadline = submissionDeadline;
+      const submissionDeadlineRaw = submissionDeadlineRow
+        .find("td")
+        .eq(1)
+        .text()
+        .trim();
+
+      if (submissionDeadlineRaw) {
+        const deadlineParsed = parseDateRange(submissionDeadlineRaw);
+        posting.submissionDeadline =
+          deadlineParsed.startDate ?? submissionDeadlineRaw;
       }
 
       log.debug(`${conferenceWebsite ? "Found" : "No"} conference website`);
@@ -865,7 +886,6 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
       conferenceStartDate: string | null;
       conferenceEndDate: string | null;
       conferenceAcronym: string | null;
-      conferenceSeries: string | null;
       submissionDeadline: string | null;
     }
   >();
@@ -901,11 +921,6 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
             .text()
             .trim();
           const conferenceAcronym = conferenceAcronymText || null;
-
-          // Subtitle is typically the hosting/organizing entity.
-          const conferenceSeries =
-            card.find(".conference-list-subtitle").first().text().trim() ||
-            null;
 
           const locationStrong = card
             .find(".conference-list-meta strong")
@@ -973,7 +988,6 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
             conferenceStartDate: eventDateParsed.startDate ?? null,
             conferenceEndDate: eventDateParsed.endDate ?? null,
             conferenceAcronym,
-            conferenceSeries,
             submissionDeadline: deadlineParsed.startDate ?? null,
           });
         });
@@ -1094,8 +1108,6 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
           return acc;
         }, {} as Record<string, string>);
 
-      console.log("dlFields", dlFields);
-
       // Prefer `dl.definition-list` categories (comma-separated in the dd).
       const conferenceCategories = dlFields["Category"]
         ? dlFields["Category"]
@@ -1105,18 +1117,23 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
         : [];
 
 
+      // `conferenceText` should come from the "CFP summary" card (summary + topics),
+      // not from all of `main`.
+      const cfpSummaryCard = $("div.card.stack-lg")
+        .filter((_, el) => {
+          const title = $(el).find("h2.section-title").first().text().trim();
+          return title.includes("CFP summary");
+        })
+        .first();
+      const conferenceText = cfpSummaryCard
+        .find("div.muted")
+        .map((_, el) => $(el).text().trim())
+        .get()
+        .join(" ")
+        .replace(/\s+/g, " ")
+        .trim();
 
-      const conferenceText = $("main").first().text().replace(/\s+/g, " ").trim();
-
-      // The detail page includes an `Abbreviation: ...` line inside `div.cfp`.
-      // Use it to derive a stable "series" (strip the trailing year).
-      const abbreviationMatch = conferenceText.match(
-        /Abbreviation:\s*(.+?)\s+Website:/i,
-      );
-      const abbreviation = abbreviationMatch?.[1]?.trim();
-      const detailDerivedConferenceSeries = abbreviation
-        ? abbreviation.replace(/\b(19\d{2}|20\d{2})\b/g, "").trim() || null
-        : null;
+      const detailConferenceSeries = dlFields["Series"] ?? null;
 
       const officialSiteHref = dlFields["Official site"] ?? null;
       const conferenceUri = officialSiteHref
@@ -1135,7 +1152,7 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
         conferenceEndDate,
         conferenceAcronym: listingMeta.conferenceAcronym || null,
         conferenceSeries:
-          detailDerivedConferenceSeries ?? listingMeta.conferenceSeries ?? null,
+          detailConferenceSeries ?? null,
         conferenceCategories:
           conferenceCategories.length > 0 ? conferenceCategories : null,
         conferenceText: conferenceText || null,

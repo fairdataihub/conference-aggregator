@@ -3,21 +3,19 @@ name: collect-wikicfp
 on:
   schedule:
     - cron: "0 2 * * 1"
-  push:
-    branches:
-      - test
   workflow_dispatch:
 
 jobs:
   collect-wikicfp:
     runs-on: ubuntu-latest
     name: Collect WikiCFP
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: test
+          ref: main
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -43,18 +41,12 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Create Pull Request
+      - name: Commit and push changes
         if: steps.git-status.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v7
-        with:
-          commit-message: "chore: update conference list (wikicfp)"
-          title: "chore: update conference list (wikicfp)"
-          body: |
-            Automated conference list update (WikiCFP).
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-            Generated at:
-            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          branch: update/conferences-wikicfp-${{ github.run_number }}
-          base: test
-          delete-branch: true
-
+          git add conference-postings.json
+          git commit -m "chore: update conference list (WikiCFP)"
+          git push origin main

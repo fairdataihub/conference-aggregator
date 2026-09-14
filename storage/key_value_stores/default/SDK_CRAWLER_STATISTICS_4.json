@@ -1,27 +1,38 @@
 {
   "requestsFinished": 5,
   "requestsFailed": 0,
-  "requestsRetries": 0,
+  "requestsRetries": 1,
   "requestsFailedPerMinute": 0,
-  "requestsFinishedPerMinute": 16,
-  "requestMinDurationMillis": 3328,
-  "requestMaxDurationMillis": 3916,
+  "requestsFinishedPerMinute": 0,
+  "requestMinDurationMillis": 5655,
+  "requestMaxDurationMillis": 6859,
   "requestTotalFailedDurationMillis": 0,
-  "requestTotalFinishedDurationMillis": 17707,
-  "crawlerStartedAt": "2026-09-11T23:53:28.224Z",
-  "crawlerFinishedAt": "2026-09-11T23:53:46.555Z",
-  "statsPersistedAt": "2026-09-11T23:53:46.555Z",
-  "crawlerRuntimeMillis": 18355,
-  "crawlerLastStartTimestamp": 1789170808200,
+  "requestTotalFinishedDurationMillis": 29636,
+  "crawlerStartedAt": "2026-09-14T08:40:29.892Z",
+  "crawlerFinishedAt": "2026-09-14T16:51:31.326Z",
+  "statsPersistedAt": "2026-09-14T16:51:31.326Z",
+  "crawlerRuntimeMillis": 29461455,
+  "crawlerLastStartTimestamp": 1789375229871,
   "requestRetryHistogram": [
-    5
+    4,
+    1
   ],
   "statsId": "4",
   "requestAvgFailedDurationMillis": null,
-  "requestAvgFinishedDurationMillis": 3541,
-  "requestTotalDurationMillis": 17707,
+  "requestAvgFinishedDurationMillis": 5927,
+  "requestTotalDurationMillis": 29636,
   "requestsTotal": 5,
   "requestsWithStatusCode": {},
   "errors": {},
-  "retryErrors": {}
+  "retryErrors": {
+    "C:\\Users\\jacob\\conference-aggregator\\node_modules\\.pnpm\\@apify+timeout@0.4.14\\node_modules\\@apify\\src\\index.ts:109:74": {
+      "missing error code": {
+        "Error": {
+          "requestHandler timed out after 100 seconds (HuKh2IURA54wdOV).": {
+            "count": 1
+          }
+        }
+      }
+    }
+  }
 }
