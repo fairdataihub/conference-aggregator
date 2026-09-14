@@ -1,9 +1,10 @@
 {
   "metadata": {
-    "lastUpdated": "2026-09-14T19:30:18.243Z",
-    "totalPostings": 5,
+    "lastUpdated": "2026-09-14T19:31:20.609Z",
+    "totalPostings": 10,
     "sources": [
-      "cfpwiki"
+      "cfpwiki",
+      "easychair"
     ]
   },
   "postings": [
@@ -102,6 +103,111 @@
       ],
       "conferenceText": "The 3rd International Symposium on Intelligent Technology for Future Transportation (ITFT 2026) will be held in Glasgow, UK, from October 20-22, 2026 (hybrid). Following the successful editions of ITFT 2024 in Helsinki, Finland and ITFT 2025 in London, United Kingdom, this conference will continue to bring together distinguished scholars from around the world in the field of intelligent transportation to deliver keynote and invited speeches, as well as oral & poster presentations. The conference aims to continue the legacy of fostering innovation and collaboration in the field of intelligent transportation, and to create a smarter, greener, and more interconnected transportation landscape. T1：Intelligent Vehicle Technology and Applications T2：Intelligent Transportation Management T3：Advanced Technology for Public Transportation T4：Design and implementation of Intelligent Transportation Infrastructure T5：Other Intelligent Technology for Transportation",
       "submissionDeadline": "2026-09-10"
+    },
+    {
+      "id": "https://easychair.org/cfp/HDTBHI2026",
+      "collectionDate": "2026-09-14",
+      "_source": "easychair",
+      "conferenceName": "Digital Twins for Chronic Disease Monitoring and Personalized Healthcare",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://mdclab.info/hdt-bhi2026.php",
+      "conferenceLocation": "Hong Kong, China",
+      "conferenceStartDate": "2026-12-12",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "HDT-BHI",
+      "conferenceSeries": "HDT-BHI 2026",
+      "conferenceCategories": [
+        "smart health",
+        "personalized healthcare",
+        "health informatics",
+        "healthcare digital twins"
+      ],
+      "conferenceText": "Topics: smart health personalized healthcare health informatics healthcare digital twinsCall for One-Page AbstractsThe 2026 International Workshop on Digital Twins for Chronic Disease Monitoring and Personalized Healthcare will be held in conjunction with the IEEE EMBS International Conference on Biomedical and Health Informatics (BHI 2026) on December 12, 2026, in Hong Kong.The workshop will explore healthcare digital twins for continuous monitoring, early detection, and personalized management of chronic diseases. We invite one-page abstracts presenting research, emerging ideas, case studies, prototypes, or work in progress related to healthcare digital twins and personalized healthcare.Topics of interest include:• Multimodal health data integration• Wearable, mobile, and physiological sensing• Smartphone-based health monitoring• Mechanistic and physiology-based models• Machine learning and data-driven predictive models• Hybrid mechanistic and AI-based models• Disease progression detection and prediction• AI-assisted disease assessment and clinical decision support• Personalized disease management• Clinical integration of healthcare digital twins• Healthcare accessibility and continuity of careSubmission GuidelinesAbstracts should be limited to one page, written in English, and submitted in PDF format. The abstract should clearly describe the motivation, proposed approach or study, key findings or expected contribution, and relevance to the workshop. Submissions should include the title, author names, affiliations, and contact information for the corresponding author.Selected abstracts will be invited for oral presentation at the workshop.Important DatesAbstract submission deadline: October 1, 2026Acceptance notification: October 15, 2026Workshop date: December 12, 2026Workshop webpage:https://mdclab.info/hdt-bhi2026.php",
+      "submissionDeadline": "2026-10-01"
+    },
+    {
+      "id": "https://easychair.org/cfp/ICACTE2027",
+      "collectionDate": "2026-09-14",
+      "_source": "easychair",
+      "conferenceName": "2027 20th International Conference on Advanced Computer Theory and Engineering",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://www.icacte.org/",
+      "conferenceLocation": "Nanjing, China",
+      "conferenceStartDate": "2027-08-13",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "ICACTE",
+      "conferenceSeries": "ICACTE 2027",
+      "conferenceCategories": [
+        "artificial intelligence",
+        "machine learning",
+        "computer systems",
+        "networks"
+      ],
+      "conferenceText": "Topics: artificial intelligence machine learning computer systems networks2027 20th International Conference on Advanced Computer Theory and Engineering (ICACTE) will be held in Nanjing, China during August 13-15, 2027. Since its inception in 2008, ICACTE has been held in various locations across the globe, including Germany, Singapore, South Korea, and China. Each edition attracts participants from all over the world, providing them with an opportunity to collaborate and network.Sponsored by Southeast University, China, hosted by School of Computer Science and Engineering, Southeast University, China; assisted by Hangzhou International Innovation Institute of Beihang University, China, Anhui Jianzhu University, China and Nanjing Xiaozhuang University, China.Submission GuidelinesSubmission Process1). Download the Paper Template for formatting your paper.2). Submit your paper to Online Submission System or icacte@bmail.org.- via online submission system: an account is needed, if you don't have, please register first.- via mailbox: the email subject should be named as \"Submission-ICACTE 2027-Full Paper/ Abstract\".3). The conference secretary (icacte@bmail.org) will contact you within three working days once receiving your submission.Policy on Multiple SubmissionsICACTE 2027 will not accept any paper that, at the time of submission, is under review for, has already been published in, or has already been accepted for publication in, a journal or another venue with formally published proceedings.List of TopicsTopics of interest for submission include, but are not limited to:Track 1. Artificial Intelligence and Machine LearningTrack 2. Computer Systems and NetworksTrack 3. Data Science and ApplicationsTrack 4. Human-Computer Interaction and MultimediaTrack 5. Software Engineering and ApplicationsTrack 6. Quantum Information and Quantum ComputingTrack 7: Blockchain Technology and ApplicationsCommitteesConference ChairsWitold Pedrycz, University of Alberta, Canada (IEEE Fellow)Zhigeng Pan, Hangzhou International Innovation Institute of Beihang University, ChinaGang Xu, Hangzhou Dianzi University, ChinaTechnical Program Committee ChairsChangsheng Xu, Chinese Academy of Sciences, China (IEEE Fellow & IAPR Fellow)Yudong Zhang, Southeast University, China (IEEE Fellow)Jozef M. Zurada, University of Louisville, USAManolis Vavalis, University of Thessaly, GreeceHuan Zhou, Northwestern Polytechnical University, ChinaKewen Xia, Hebei University of Technology, ChinaLi Li, Hangzhou Dianzi University, ChinaTechnical Program Committee Co-chairsLe Sun, Nanjing University of Information Science and Technology, ChinaYalong Yang, Anhui Jianzhu University, ChinaHao Zheng, Nanjing Xiaozhuang University, ChinaPublicity ChairsJie Yu, National University of Defense Technology, ChinaAbu Barkat Ullah, University of Canberra, AustraliaKashif Naseer Qureshi, University of Limerick, IrelandYafei Hou, Okayama University, JapanZhongpan Qiu, Xiamen University, ChinaChangli Li, Nanjing University of Information Science and Technology, ChinaWenwen Pan, Hangzhou Dianzi University, ChinaPublication ChairsFairouz Kamareddine, Heriot-Watt University, UKZhi Li, Guangxi Normal University, ChinaJun Zhu, Nanjing Agricultural University, ChinaSteering CommitteeZhiguo Qu, Nanjing University of Information Science and Technology, ChinaDonghui Shi, Anhui Jianzhu University, ChinaRegional ChairsXianyong Fang, Anhui University, ChinaYong Wang, Anhui Polytechnic University, ChinaKomalpreet Kaur, Salem State University, USAPavel Loskot, Zhejiang University, ChinaLocal Organizing ChairsJianfeng Lu, Hangzhou Dianzi University, ChinaJiayi Xu, Hangzhou Dianzi University, ChinaShanqing Zhang, Hangzhou Dianzi University, ChinaTreasurerSongsong Hong, Taizhou College, ChinaPublicationSubmitted papers will be peer reviewed by program committees and technical committee, and accepted papers will be published into conference proceedings.VenueSoutheast University, ChinaContactMs. Luna Wuicacte@bmail.org+86-19180927671Office Time: 9:30--18:00, Monday to Friday (GMT+8 Time Zone)",
+      "submissionDeadline": "2027-03-10"
+    },
+    {
+      "id": "https://easychair.org/cfp/ICCCM2027",
+      "collectionDate": "2026-09-14",
+      "_source": "easychair",
+      "conferenceName": "The 15th International Conference on Computer and Communications Management",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://www.icccm.org/",
+      "conferenceLocation": "Tokyo, Japan",
+      "conferenceStartDate": "2027-07-09",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "ICCCM",
+      "conferenceSeries": "ICCCM 2027",
+      "conferenceCategories": [
+        "communication theory",
+        "networking",
+        "image processing",
+        "optical communication"
+      ],
+      "conferenceText": "Topics: communication theory networking image processing optical communicationWe are happy to announce that The 15th International Conference on Computer and Communications Management (ICCCM 2027) will be held in Tokyo, Japan during July 9-11, 2027. It is hosted by Shibaura Institute of Technology, Japan. Featured with keynote speeches, invited speeches, oral presentations, poster presentations and social networking event, ICCCM 2027 welcomes the participation of anyone who is interested in the related fields.Submission GuidelinesLanguage & Requirements▪ English is the official language of the conference; the paper should be written and presented only in English.▪ Full paper-MS Word (no less than 8 pages) and Full paper-LaTeX Template (no less than 4 pages) submission is required for publication and presentation.▪ Paper abstract (200-400 words) submission is required for presentation only without publication.Submission ConfirmationThe submission will be confirmed immediately by the submission system. The conference secretary will assigned a Paper ID to the submission from icccm.org@hotmail.com within three working days. To ensure receipt of all correspondence from the conference, please add icccm.org@hotmail.com as acceptable emails to receive.Academic EthicsOnly work that has not been previously published at the time of the conference will be considered. Besides, ethical conduct is the most essential virtual of any academic. Hence any act of plagiarism is a totally unacceptable academic misconduct and cannot be tolerated.List of Topics• Channel Modeling and Estimation• Energy Harvesting and Low Energy Communication• Feedback and Two-Way Communication• Holographic Surfaces and Reconfigurable Surfaces• Information Theory and Channel Capacity• Integrated Sensing and Communications• Low Resolution Communication• Scheduling and Opportunism• Resource Management• URLLC, Time Sensitive and Deterministic Networking• Network Slicing• Routing and Congestion Control• Waveforms, Coding and Modulation• Iterative Techniques, Detection, and Decoding• ...CommitteesConference ChairsTok Wang Ling, National University of Singapore, SingaporeSergei Gorlatch, University of Muenster, GermanyTakumi Miyoshi, Shibaura Institute of Technology, JapanProgram ChairsLjiljana Trajkovic (IEEE Fellow), Simon Fraser University, CanadaXingwei Wang, Northeastern University, ChinaMasato Oguchi, Ochanomizu University, JapanKiyoshi Ueda, Nihon University, JapanHideo Yokota, University of the Ryukyus, JapanProgram Vice-chairsYang Yue, Xi'an Jiaotong University, ChinaChih-Peng Fan, National Chung Hsing University, Taiwan, ChinaSteering CommitteeNobuo Funabiki, Okayama University, JapanNoritaka Shigei, Kagoshima University, JapanPublication ChairShintaro Oyama, Nagoya University, Japan & University of the Ryukyus, JapanPublicity ChairsKar Peo Yar, Singapore Institute of Technology, SingaporeXintong Ling, Southeast University, ChinaLau Bee Theng, Swinburne University of Technology, MalaysiaWararat Songpan, Khon Kaen University, ThailandRegional ChairsMeijuan Chen, Nanjing University of Posts and Telecommunications, ChinaAlex Mathews, Bethany College, USAYih-Chuan Lin, National Formosa University, Taiwan, ChinaLocal Organizing ChairHiroaki Morino, Shibaura Institute of Technology, JapanLocal CommitteesTaku Yamazaki, Shibaura Institute of Technology, JapanManami Kanamaru, Shibaura Institute of Technology, JapanPublicationAll papers will be strictly double blind reviewed by the program committee, and accepted papers after proper registration and presentation will be published in the Conference Proceedings.VenueShibaura Institute of Technology (TOYOSU campus), TokyoAddress: 3-7-5 Toyosu, Koto-ku, Tokyo 135-8548ContactChie Hakoneicccm.org@hotmail.com10:30-19:00, Monday to Friday (GMT+9 Time Zone)",
+      "submissionDeadline": "2027-01-15"
+    },
+    {
+      "id": "https://easychair.org/cfp/ICPADM2027",
+      "collectionDate": "2026-09-14",
+      "_source": "easychair",
+      "conferenceName": "2027 15th International Conference on the Properties and Applications of Dielectric Materials",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://icpadm2027.org/",
+      "conferenceLocation": "Denpasar, Bali, Indonesia",
+      "conferenceStartDate": "2027-08-02",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "ICPADM",
+      "conferenceSeries": "ICPADM 2027",
+      "conferenceCategories": [
+        "dielectric properties & measurement",
+        "high voltage & insulation systems",
+        "nanodielectrics & advanced materials",
+        "condition monitoring & diagnostics"
+      ],
+      "conferenceText": "Topics: dielectric properties & measurement high voltage & insulation systems nanodielectrics & advanced materials condition monitoring & diagnosticsThe 15th International Conference on the Properties and Applications of Dielectric Materials (ICPADM) is the premier international forum for researchers, engineers, and practitioners in the field of dielectric and electrical insulation materials. Since its inception in 1985, ICPADM has grown into a highly respected conference series sponsored by the IEEE Dielectrics and Electrical Insulation Society (DEIS).ICPADM 2027 marks the 15th edition of this prestigious conference, to be held for the first time in Bali, Indonesia. All accepted papers will be published in the conference proceedings and submitted for inclusion in the IEEE Xplore Digital Library.Topics & ScopeSubmissions are welcomed in, but not limited to, the following areas:Dielectric Properties & MeasurementDielectric spectroscopy & characterizationPermittivity & loss measurementsPartial discharge diagnosticsSpace charge phenomenaHigh Voltage & Insulation SystemsSolid, liquid & gaseous insulationHV power equipment insulationCable & transformer insulationSurge protection systemsNanodielectrics & Advanced MaterialsPolymer nanocompositesNanoparticle functionalizationBio-based dielectric materialsFlexible & printable dielectricsCondition Monitoring & DiagnosticsOnline & offline monitoringAI-based fault diagnosisThermal imaging & acoustic methodsAging & lifetime assessmentSmart & Functional MaterialsFerroelectric & piezoelectric materialsElectroactive polymersEnergy storage dielectricsElectrocaloric materialsApplications & Emerging TopicsPower electronics packagingRenewable energy systemsEV & transportation insulationDC insulation challengesSubmission GuidelinesFormatting RequirementsUse officialIEEE conference paper templateA4 or US Letter page sizeTwo-column format for full papersMaximum 4-6 pages including referencesMinimum font size: 10ptSubmit as PDF onlyContent RequirementsOriginal, unpublished work onlyWritten entirely in EnglishInclude structured abstractAll figures must be clear & legibleReferences in IEEE formatNo plagiarism (will be checked)PresentationOral or poster presentationOral: 15 min + 5 min Q&APoster: A1 size, portrait orientationAt least one author must register1 registration covers 1 paperAfter AcceptanceComplete IEEE e-copyright transferRegister by early bird deadlineSubmit final camera-ready versionIEEE Xplore publicationSelected Papers will be considered for journal extension",
+      "submissionDeadline": "2027-03-01"
+    },
+    {
+      "id": "https://easychair.org/cfp/ICSSS2027",
+      "collectionDate": "2026-09-14",
+      "_source": "easychair",
+      "conferenceName": "2027 International Conference on System Safety and Security",
+      "conferenceYear": 2027,
+      "conferenceUri": "http://www.icsss.net/",
+      "conferenceLocation": "Savannah, Georgia, United States",
+      "conferenceStartDate": "2027-11-03",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "ICSSS2027",
+      "conferenceSeries": "ICSSS2027",
+      "conferenceCategories": [
+        "cybersecurity",
+        "security training",
+        "system safety engineering",
+        "industrial practices"
+      ],
+      "conferenceText": "Topics: cybersecurity security training system safety engineering industrial practicesWe would like to invite you to participate in 2027 International Conference on System Safety and Security (ICSSS), which will be held at Georgia Southern University, Savannah, GA, USA from November 3-5, 2027.In the era of rapid advancements in information technology, artificial intelligence, and the Internet of Things, ensuring system safety and security has become a critical global priority. As modern systems, including industrial control, aerospace, and healthcare, become increasingly intelligent, they also face a growing array of security threats. The Rise of Autonomous and Learning Systems: The integration of AI and Machine Learning (ML) introduces a new paradigm where 'safety' is no longer just about avoiding failure, but ensuring Algorithmic Responsibility and robustness against adversarial manipulation. ICSSS recognizes that for these technologies to be trusted in critical infrastructure, they must be designed with transparency, fairness, and ethical oversight at their core. The Human and Educational Foundation: Beyond technical innovation, the sustainability of system safety depends on a skilled workforce. By integrating Security Pedagogy and Education into its core mission, ICSSS seeks to bridge the gap between academic research and the classroom. We aim to explore how modern instruction, from ethical hacking labs to AI-driven curriculum, can prepare the next generation of engineers and scholars to tackle evolving global risks.Submission Guidelines1. Papers should be written in English and limited to 4-10 pages.2. The authors of the paper will take responsibility for any Intellectual Property issues concerning the papers on their own.3. Accepted full papers will be invited for oral presentation at the conference and will be published in the conference proceedings.4. Papers accepted to be published into the conference proceedings must fully comply with the conference format for the final camera ready submission.5. Accepted abstracts will be invited for oral presentation at the conference, the presentation WILL NOT be published.List of TopicsDesign and analysis of safety‑critical systemsHazard identification, risk assessment, and safety analysisReliability, Maintainability, and Availability (RAM) analysisSafety certification, standards, and regulatory complianceResilient system architecturesRisk management frameworks and resilience engineeringEmergency response, disaster recovery, and business continuityHuman factors, safety culture, and organizational resilienceNetwork, system, and cloud securitySecurity protocols, cryptography, and identity managementThreat modeling, vulnerability assessment, and intrusion detectionSecurity of IoT, Cyber‑Physical Systems (CPS), and SCADA systemsIndustrial control systems and smart manufacturing securityEmbedded system safety and securityCritical infrastructure protection and operational technology (OT) security...PublicationSubmitted paper will be peer reviewed by conference committees, and accepted papers will be included in ICSSS 2027 Conference Proceedings.VenueGeorgia Southern University (Armstrong Campus Student Union)Address: 11935 Abercorn Street, Savannah, GA 31419ContactMail Address: icsss_conf@acamedic.netPhone Number：+001(559)-8624927",
+      "submissionDeadline": "2027-06-20"
     }
   ]
 }
