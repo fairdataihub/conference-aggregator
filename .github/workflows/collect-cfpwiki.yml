@@ -13,10 +13,6 @@ on:
 permissions:
   contents: write
 
-concurrency:
-  group: conference-data-test
-  cancel-in-progress: false
-
 jobs:
   collect-cfpwiki:
     runs-on: ubuntu-latest
@@ -25,6 +21,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: test
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -53,4 +51,14 @@ jobs:
           fi
 
           git commit -m "chore: update cfp.wiki conference data"
-          git push
+
+      - name: Pull latest changes and push
+        run: |
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin test && git push origin test && exit 0
+            echo "Push failed, retrying in 5 seconds..."
+            sleep 5
+          done
+
+          echo "Failed to push after 5 attempts."
+          exit 1
