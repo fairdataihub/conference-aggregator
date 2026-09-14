@@ -1,9 +1,15 @@
 name: collect-cfpwiki
 
 on:
+  push:
+    branches:
+      - test
   schedule:
     - cron: "0 2 * * 1"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   collect-cfpwiki:
@@ -15,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: main
+          ref: test
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -49,4 +55,4 @@ jobs:
 
           git add conference-postings.json
           git commit -m "chore: update conference list (cfp.wiki)"
-          git push origin main
+          git push origin test
