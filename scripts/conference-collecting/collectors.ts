@@ -20,8 +20,8 @@ const WIKICFP_CONFIG: {
   crawlMinDelayBetweenRequests: number;
   crawlMaxDelayBetweenRequests: number;
 } = {
-  categoryLimit: 1,
-  categoryPageLimit: 1,
+  categoryLimit: null,
+  categoryPageLimit: null,
   crawlMinDelayBetweenRequests: 5001,
   crawlMaxDelayBetweenRequests: 5200,
 };
@@ -31,7 +31,7 @@ const EASYCHAIR_CONFIG: {
   crawlMinDelayBetweenRequests: number;
   crawlMaxDelayBetweenRequests: number;
 } = {
-  pageLimit: 5,
+  pageLimit: null,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
@@ -49,7 +49,7 @@ const CFP_WIKI_CONFIG: {
   crawlMinDelayBetweenRequests: number;
   crawlMaxDelayBetweenRequests: number;
 } = {
-  pageLimit: 5,
+  pageLimit: null,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };

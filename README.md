@@ -5,7 +5,7 @@
 <h1>Conference Aggregator</h1>
 
 <p>
-A small TypeScript toolset to collect and aggregate conference CFP/posting metadata from public sources (WikiCFP, EasyChair).
+A small TypeScript toolset to collect and aggregate conference CFP/posting metadata from public sources (WikiCFP, EasyChair, cfp.wiki).
 </p>
 
 <br />
@@ -18,51 +18,40 @@ A small TypeScript toolset to collect and aggregate conference CFP/posting metad
 
 This repository contains a lightweight conference aggregator that crawls public conference listing sites and saves a deduplicated JSON database of conference postings at the repository root (`conference-postings.json`). It is intended for research and tooling that needs a machine-readable list of upcoming conferences and their CFP details.
 
-The collector currently implements scrapers for two sources:
+The collector currently implements scrapers for three sources:
 
 - `wikicfp` (WikiCFP)
 - `easychair` (EasyChair CFP search)
+- `cfpwiki` (cfp.wiki)
 
 Extracted fields include conference name, year, dates, location, website URL, CFP text snippets, categories/tags, and source metadata. Records are deduplicated and merged on save.
 
 ## What this repo does
 
-- Crawls listing and detail pages on WikiCFP and EasyChair.
+- Crawls listing and detail pages on WikiCFP, EasyChair, and cfp.wiki.
 - Parses conference metadata and normalizes dates and acronyms.
 - Merges new postings into a single JSON database at `conference-postings.json`.
 - Provides single-site and full-collection CLI commands.
 
 ## How collection works
 
-When you run a collection command, the main script crawls site listings, extracts detail-page URLs, fetches detail pages, parses relevant metadata, and writes a consolidated JSON database. The process is implemented in TypeScript using `crawlee`.
+Running a collection script executes `scripts/conference-collecting/main.ts` with a `--site` argument (`all`, `wikicfp`, `easychair`, `cfpwiki`).
 
-```mermaid
-flowchart TD
-  A[Run collector (scripts/conference-collecting/main.ts)] --> B{--site arg}
-  B -->|all| C[Run all collectors]
-  B -->|wikicfp| D[Run WikiCFP collector]
-  B -->|easychair| E[Run EasyChair collector]
-  C --> F[Fetch listings -> detail pages]
-  D --> F
-  E --> F
-  F --> G[Parse metadata -> normalize dates/acronyms]
-  G --> H[Merge + deduplicate postings]
-  H --> I[Save to conference-postings.json]
-```
+1. Crawl listings and collect detail-page URLs.
+2. Fetch detail pages and parse conference metadata.
+3. Merge/deduplicate postings and write the consolidated DB.
 
-Key implementation files:
+## Code layout
 
-- [scripts/conference-collecting/main.ts](scripts/conference-collecting/main.ts#L1)
-- [scripts/conference-collecting/collectors.ts](scripts/conference-collecting/collectors.ts#L1)
-- [scripts/conference-collecting/schema.ts](scripts/conference-collecting/schema.ts#L1)
-- [scripts/conference-collecting/storage.ts](scripts/conference-collecting/storage.ts#L1)
+- `scripts/conference-collecting/main.ts`: CLI entrypoint (`--site`)
+- `scripts/conference-collecting/collectors.ts`: source-specific scrapers
+- `scripts/conference-collecting/schema.ts`: record/DB shapes
+- `scripts/conference-collecting/storage.ts`: load/save `conference-postings.json`
 
-## Tech stack
+## Where data is stored
 
-- Language: TypeScript
-- Crawling/scraping: `crawlee`
-- Runtime tooling: `tsx` (dev runtime for TypeScript)
-- Data: JSON file (`conference-postings.json`)
+- `conference-postings.json` (repo root): consolidated, deduplicated output.
+- `storage/` (repo root): Crawlee internal crawl state (KV stores + request queues). Deleting it resets crawl progress/state.
 
 ## Getting started
 
@@ -97,15 +86,21 @@ pnpm run collect:wikicfp
 pnpm run collect:easychair
 ```
 
+- Collect only cfp.wiki:
+
+```bash
+pnpm run collect:cfpwiki
+```
+
 The collectors write the consolidated database to `conference-postings.json` at the repository root.
 
 ## Development
 
-- Collection logic lives in [scripts/conference-collecting/collectors.ts](scripts/conference-collecting/collectors.ts#L1).
-- Shape of stored records is defined in [scripts/conference-collecting/schema.ts](scripts/conference-collecting/schema.ts#L1).
-- Storage helpers are in [scripts/conference-collecting/storage.ts](scripts/conference-collecting/storage.ts#L1).
+- Scraper logic lives in [scripts/conference-collecting/collectors.ts](scripts/conference-collecting/collectors.ts#L1).
+- Record/DB shapes are defined in [scripts/conference-collecting/schema.ts](scripts/conference-collecting/schema.ts#L1).
+- Load/save helpers are in [scripts/conference-collecting/storage.ts](scripts/conference-collecting/storage.ts#L1).
 
-To iterate on the collectors, modify the code and run the appropriate `pnpm run collect:*` script. The project uses `tsx` so TypeScript files can be executed directly without a build step.
+After changes, run `pnpm run collect:*` to update `conference-postings.json` (the project uses `tsx`, so no separate build step is required).
 
 ## File of interest
 
