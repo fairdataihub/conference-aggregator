@@ -5,7 +5,7 @@
 <h1>Conference Aggregator</h1>
 
 <p>
-A small TypeScript toolset to collect and aggregate conference CFP/posting metadata from public sources (WikiCFP, EasyChair, cfp.wiki).
+A scraper that collects and aggregates conference CFP and posting metadata from public sources.
 </p>
 
 <br />
@@ -16,7 +16,7 @@ A small TypeScript toolset to collect and aggregate conference CFP/posting metad
 
 ## About
 
-This repository contains a lightweight conference aggregator that crawls public conference listing sites and saves a deduplicated JSON database of conference postings at the repository root (`conference-postings.json`). It is intended for research and tooling that needs a machine-readable list of upcoming conferences and their CFP details.
+This repository contains a lightweight conference aggregator that crawls public conference listing sites and produces a machine-readable dataset of conference postings at the repository root (conference-postings.json).
 
 The collector currently implements scrapers for three sources:
 
@@ -24,7 +24,7 @@ The collector currently implements scrapers for three sources:
 - `easychair` (EasyChair CFP search)
 - `cfpwiki` (cfp.wiki)
 
-Extracted fields include conference name, year, dates, location, website URL, CFP text snippets, categories/tags, and source metadata. Records are deduplicated and merged on save.
+Extracted fields include conference name, year, dates, location, website URL, CFP text snippets, and categories metadata. 
 
 ## What this repo does
 
@@ -39,7 +39,7 @@ Running a collection script executes `scripts/conference-collecting/main.ts` wit
 
 1. Crawl listings and collect detail-page URLs.
 2. Fetch detail pages and parse conference metadata.
-3. Merge/deduplicate postings and write the consolidated DB.
+3. Merge postings and write the consolidated DB.
 
 ## Code layout
 
@@ -50,7 +50,7 @@ Running a collection script executes `scripts/conference-collecting/main.ts` wit
 
 ## Where data is stored
 
-- `conference-postings.json` (repo root): consolidated, deduplicated output.
+- `conference-postings.json` (repo root): consolidated output.
 - `storage/` (repo root): Crawlee internal crawl state (KV stores + request queues). Deleting it resets crawl progress/state.
 
 ## Getting started
@@ -96,20 +96,10 @@ The collectors write the consolidated database to `conference-postings.json` at 
 
 ## Development
 
-- Scraper logic lives in [scripts/conference-collecting/collectors.ts](scripts/conference-collecting/collectors.ts#L1).
-- Record/DB shapes are defined in [scripts/conference-collecting/schema.ts](scripts/conference-collecting/schema.ts#L1).
-- Load/save helpers are in [scripts/conference-collecting/storage.ts](scripts/conference-collecting/storage.ts#L1).
+Collection-source configuration can be found in `scripts/conference-collecting/collectors.ts`:
 
 After changes, run `pnpm run collect:*` to update `conference-postings.json` (the project uses `tsx`, so no separate build step is required).
-
-## File of interest
-
-- `conference-postings.json` — consolidated output created/updated by the collectors.
 
 ## Contributing
 
 Contributions welcome — open issues or pull requests for new collector sources, bug fixes, or improvements to normalization/merging logic.
-
-## License
-
-This repository does not include a top-level license file in this project snapshot. Add an appropriate license file if you intend to redistribute.
