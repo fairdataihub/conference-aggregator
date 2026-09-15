@@ -1,11 +1,6 @@
 name: Collect cfp.wiki
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - conference-postings.json
   schedule:
     - cron: "0 2 * * 1"
   workflow_dispatch:

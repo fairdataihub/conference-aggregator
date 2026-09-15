@@ -105,13 +105,6 @@ async function collectWikiCFPCategories(): Promise<WikiCFPCategory[]> {
 
   const allCategories = [...new Map(categories.map((c) => [c.url, c])).values()];
 
-  // Log raw allcat category names (names only, no links) for debugging/progress.
-  const allCategoryNames = allCategories.map((category) => category.name);
-  console.log(
-    `[WikiCFP] allcat categories (names only, count=${allCategoryNames.length}):`,
-  );
-  console.log(allCategoryNames);
-
   // Filter out categories we don't want to process.
   let categoriesToProcessBase = allCategories;
 
@@ -401,10 +394,6 @@ function parseWikiCFPConferenceDetail(
     .get()
     .filter((t) => Boolean(t) && t.toLowerCase() !== "categories");
 
-  if (categories.length) {
-    console.log("[WikiCFP] Categories:", categories);
-  }
-
   // There can be multiple `div.cfp` blocks on a page; extract the one that
   // appears right after the "Call For Papers" row.
   const callForPapersRow = $("tr").filter((_, tr) => {
@@ -414,10 +403,6 @@ function parseWikiCFPConferenceDetail(
 
   const nextRow = callForPapersRow.length ? callForPapersRow.next("tr") : $();
   const cfpDetails = nextRow.find("div.cfp").first().text().trim();
-
-  if (cfpDetails) {
-    console.log("[WikiCFP] CFP details (div.cfp after Call For Papers):", cfpDetails);
-  }
 
   const year =
     conferenceStartDate?.match(/^(\d{4})/)?.[1] ??
@@ -551,6 +536,8 @@ async function collectWikiCFPConferences(
 
   // Step 2: Crawl each conference detail page and parse the full posting.
   const postings: CollectedConference[] = [];
+
+  let detailsProcessed = 0;
 
   const detailCrawler = new CheerioCrawler({
     maxRequestsPerCrawl: conferenceUrls.size,
@@ -796,6 +783,11 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
     ],
     async requestHandler({ $, log, request, addRequests }) {
       pagesScanned++;
+      if (EASYCHAIR_CONFIG.pageLimit !== null) {
+        console.log(`[EasyChair] Listing pages processed: ${pagesScanned}/${EASYCHAIR_CONFIG.pageLimit}`);
+      } else {
+        console.log(`[EasyChair] Listing pages processed: ${pagesScanned}`);
+      }
 
       const found = parseEasyChairConferences($);
 
@@ -843,6 +835,8 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
   const conferenceUrls = [...postingsByDetailUrl.keys()].filter(
     (conferenceUrl): conferenceUrl is string => Boolean(conferenceUrl),
   );
+
+  let detailsProcessed = 0;
 
   limitedPostings.forEach((posting) => {
     posting.conferenceUri = "";
@@ -924,6 +918,11 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
       }
 
       log.debug(`${conferenceWebsite ? "Found" : "No"} conference website`);
+
+      detailsProcessed++;
+      console.log(
+        `[EasyChair] Detail pages processed: ${detailsProcessed}/${conferenceUrls.length}`,
+      );
     },
 
     errorHandler: async ({ request, log }, error) => {
@@ -1096,6 +1095,8 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
 
   const postings: CollectedConference[] = [];
 
+  let detailsProcessed = 0;
+
   const detailCrawler = new CheerioCrawler({
     maxRequestsPerCrawl: limitedDetailUrls.length || 1,
     maxConcurrency: 1,
@@ -1246,6 +1247,11 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
         submissionDeadline:
           submissionDeadline || null,
       });
+
+      detailsProcessed++;
+      console.log(
+        `[cfp.wiki] Detail pages processed: ${detailsProcessed}/${limitedDetailUrls.length}`,
+      );
     },
 
     errorHandler: async ({ request, log }, error) => {
