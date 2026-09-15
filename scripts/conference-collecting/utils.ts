@@ -142,8 +142,9 @@ export const generateCollectionDate = (): string => {
   return new Date().toISOString().slice(0, 10);
 }
 
+// This is a list of categories that we do not want to collect from WikiCFP.
+// This can help the collector action nut run over the 6hr limit.
 export const wikiCFPCategoriesToNotCollect = [
-  "artificial intelligence",
   "1",
   "anthropology",
   "art",
