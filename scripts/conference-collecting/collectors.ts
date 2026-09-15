@@ -1,5 +1,5 @@
 import { CheerioCrawler, type CheerioCrawlingContext } from "crawlee";
-
+import { wikiCFPCategoriesToNotCollect } from "./utils.js";
 import type { CollectedConference } from "./schema.js";
 
 import {
@@ -19,11 +19,13 @@ const WIKICFP_CONFIG: {
   categoryPageLimit: number | null;
   crawlMinDelayBetweenRequests: number;
   crawlMaxDelayBetweenRequests: number;
+  categoriesToNotProcess: string[];
 } = {
   categoryLimit: null,
   categoryPageLimit: null,
   crawlMinDelayBetweenRequests: 5001,
-  crawlMaxDelayBetweenRequests: 5200,
+  crawlMaxDelayBetweenRequests: 5049,
+  categoriesToNotProcess: wikiCFPCategoriesToNotCollect,
 };
 
 const EASYCHAIR_CONFIG: {
@@ -36,14 +38,6 @@ const EASYCHAIR_CONFIG: {
   crawlMaxDelayBetweenRequests: 3900,
 };
 
-const EASYCHAIR_DETAIL_CRAWL_CONFIG: {
-  crawlMinDelayBetweenRequests: number;
-  crawlMaxDelayBetweenRequests: number;
-} = {
-  crawlMinDelayBetweenRequests: 5000,
-  crawlMaxDelayBetweenRequests: 5200,
-};
-
 const CFP_WIKI_CONFIG: {
   pageLimit: number | null;
   crawlMinDelayBetweenRequests: number;
@@ -54,37 +48,33 @@ const CFP_WIKI_CONFIG: {
   crawlMaxDelayBetweenRequests: 3900,
 };
 
-const CFP_WIKI_DETAIL_CRAWL_CONFIG: {
-  crawlMinDelayBetweenRequests: number;
-  crawlMaxDelayBetweenRequests: number;
-} = {
-  crawlMinDelayBetweenRequests: 2500,
-  crawlMaxDelayBetweenRequests: 3500,
-};
+type WikiCFPCategory = { url: string; name: string };
 
 /**
- * Extracts category URLs from the WikiCFP "all categories" page.
+ * Extracts categories (name + URL) from the WikiCFP "all categories" page.
  */
-function parseWikiCFPCategories($: CheerioCrawlingContext["$"]): string[] {
-  const categories: string[] = [];
+function parseWikiCFPCategories($: CheerioCrawlingContext["$"]): WikiCFPCategory[] {
+  const categories: WikiCFPCategory[] = [];
 
   $("div.contsec a").each((_, element) => {
     const href = $(element).attr("href");
     const url = resolveUrl(href, WIKICFP_BASE_URL);
+    const name = $(element).text().trim();
 
-    if (url) {
-      categories.push(url);
+    if (url && name) {
+      categories.push({ url, name });
     }
   });
 
-  return [...new Set(categories)];
+  // Ensure stable uniqueness by URL.
+  return [...new Map(categories.map((c) => [c.url, c])).values()];
 }
 
 /**
  * Fetches all available WikiCFP categories from the main categories page.
  */
-async function collectWikiCFPCategories(): Promise<string[]> {
-  const categories: string[] = [];
+async function collectWikiCFPCategories(): Promise<WikiCFPCategory[]> {
+  const categories: WikiCFPCategory[] = [];
   const allcatUrl = `${WIKICFP_BASE_URL}/cfp/allcat`;
 
   const crawler = new CheerioCrawler({
@@ -113,7 +103,49 @@ async function collectWikiCFPCategories(): Promise<string[]> {
 
   await crawler.run([allcatUrl]);
 
-  return [...new Set(categories)];
+  const allCategories = [...new Map(categories.map((c) => [c.url, c])).values()];
+
+  // Log raw allcat category names (names only, no links) for debugging/progress.
+  const allCategoryNames = allCategories.map((category) => category.name);
+  console.log(
+    `[WikiCFP] allcat categories (names only, count=${allCategoryNames.length}):`,
+  );
+  console.log(allCategoryNames);
+
+  // Filter out categories we don't want to process.
+  let categoriesToProcessBase = allCategories;
+
+  if (WIKICFP_CONFIG.categoriesToNotProcess.length !== 0) {
+    categoriesToProcessBase =
+      allCategories.filter(
+        (category) =>
+          !WIKICFP_CONFIG.categoriesToNotProcess.some((skip) =>
+            category.name
+              .toLowerCase()
+              .includes(skip.trim().toLowerCase()),
+          ),
+      );
+
+    const skippedCount = allCategories.length - categoriesToProcessBase.length;
+    if (skippedCount > 0) {
+      console.log(
+        `[WikiCFP] Skipped ${skippedCount} categories (categoriesToNotProcess).`,
+      );
+    }
+
+    // If your skip list filters out everything, fall back so the run doesn't become a no-op.
+    if (
+      categoriesToProcessBase.length === 0 &&
+      allCategories.length > 0
+    ) {
+      console.log(
+        `[WikiCFP] Warning: categoriesToNotProcess filtered out all ${allCategories.length} categories; falling back to unfiltered list for this run.`,
+      );
+      categoriesToProcessBase = allCategories;
+    }
+  }
+
+  return categoriesToProcessBase;
 }
 
 /**
@@ -578,7 +610,6 @@ async function collectWikiCFPConferences(
 export async function collectWikiCFP(): Promise<CollectedConference[]> {
   // Step 1: Fetch all WikiCFP categories.
   const categories = await collectWikiCFPCategories();
-  console.log("[WikiCFP] Categories:", categories);
 
   if (!categories.length) {
     console.log("[WikiCFP] No categories found");
@@ -598,16 +629,18 @@ export async function collectWikiCFP(): Promise<CollectedConference[]> {
   // Step 2: Process each category (list crawl + detail crawl), accumulating postings.
   const postings: CollectedConference[] = [];
 
-  for (const [index, categoryUrl] of categoriesToProcess.entries()) {
-    await randomDelay(200, 1500);
+  for (const [index, category] of categoriesToProcess.entries()) {
 
     const categoryPostings = await collectWikiCFPConferences(
-      categoryUrl,
+      category.url,
       index + 1,
       categoriesToProcess.length,
     );
 
     postings.push(...categoryPostings);
+    console.log(
+      `[WikiCFP] Categories processed: ${index + 1}/${categoriesToProcess.length} (${category.name})`,
+    );
   }
 
   console.log(`[WikiCFP] Collected ${postings.length} conferences`);
@@ -823,8 +856,8 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
     preNavigationHooks: [
       async () => {
         await randomDelay(
-          EASYCHAIR_DETAIL_CRAWL_CONFIG.crawlMinDelayBetweenRequests,
-          EASYCHAIR_DETAIL_CRAWL_CONFIG.crawlMaxDelayBetweenRequests,
+          EASYCHAIR_CONFIG.crawlMinDelayBetweenRequests,
+          EASYCHAIR_CONFIG.crawlMaxDelayBetweenRequests,
         );
       },
     ],
@@ -1070,8 +1103,8 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
     preNavigationHooks: [
       async () => {
         await randomDelay(
-          CFP_WIKI_DETAIL_CRAWL_CONFIG.crawlMinDelayBetweenRequests,
-          CFP_WIKI_DETAIL_CRAWL_CONFIG.crawlMaxDelayBetweenRequests,
+          CFP_WIKI_CONFIG.crawlMinDelayBetweenRequests,
+          CFP_WIKI_CONFIG.crawlMaxDelayBetweenRequests,
         );
       },
     ],
