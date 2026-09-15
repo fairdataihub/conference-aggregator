@@ -54,13 +54,20 @@ jobs:
           for i in 1 2 3 4 5; do
             echo "Push attempt $i"
 
+            git fetch origin main
+
+            if ! git rebase origin/main; then
+              echo "Rebase failed."
+              git rebase --abort
+              exit 1
+            fi
+
             if git push origin main; then
               echo "Successfully pushed changes."
               exit 0
             fi
 
-            git fetch origin main
-            git rebase origin/main || true
+            echo "Push failed, retrying in 5 seconds..."
             sleep 5
           done
 
