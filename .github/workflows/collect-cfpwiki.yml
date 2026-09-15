@@ -3,7 +3,7 @@ name: Collect cfp.wiki
 on:
   push:
     branches:
-      - test
+      - main
     paths-ignore:
       - conference-postings.json
   schedule:
@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: test
+          ref: main
           fetch-depth: 0
 
       - name: Setup Node
@@ -47,10 +47,10 @@ jobs:
           for i in 1 2 3 4 5; do
             echo "Attempt $i"
 
-            git fetch origin test
+            git fetch origin main
 
-            echo "Resetting to latest test branch..."
-            git reset --hard origin/test
+            echo "Resetting to latest main branch..."
+            git reset --hard origin/main
 
             echo "Collecting cfp.wiki against latest data..."
             pnpm collect:cfpwiki
@@ -64,7 +64,7 @@ jobs:
 
             git commit -m "chore: update cfp.wiki conference data"
 
-            if git push origin test; then
+            if git push origin main; then
               echo "Successfully pushed changes."
               exit 0
             fi
