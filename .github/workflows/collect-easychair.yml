@@ -1,72 +1,65 @@
-name: Collect EasyChair
+# name: Collect EasyChair
 
-on:
-  schedule:
-    - cron: "0 2 * * 1"
-  workflow_dispatch:
+# on:
+#   schedule:
+#     - cron: "0 2 * * 1"
+#   workflow_dispatch:
 
-permissions:
-  contents: write
+# permissions:
+#   contents: write
 
-jobs:
-  collect-easychair:
-    runs-on: ubuntu-latest
-    name: Collect EasyChair
+# jobs:
+#   collect-easychair:
+#     runs-on: ubuntu-latest
+#     name: Collect EasyChair
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#         with:
+#           ref: main
+#           fetch-depth: 0
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
+#       - name: Setup Node
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 22
 
-      - name: Enable Corepack
-        run: corepack enable
+#       - name: Enable Corepack
+#         run: corepack enable
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+#       - name: Install dependencies
+#         run: pnpm install --frozen-lockfile
 
-      - name: Collect EasyChair
-        run: pnpm collect:easychair
+#       - name: Collect EasyChair
+#         run: pnpm collect:easychair
 
-      - name: Commit changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+#       - name: Commit changes
+#         run: |
+#           git config user.name "github-actions[bot]"
+#           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          for i in 1 2 3 4 5; do
-            echo "Attempt $i"
+#           git add conference-postings.json
 
-            git fetch origin main
+#           if git diff --cached --quiet; then
+#             echo "No changes to commit."
+#             exit 0
+#           fi
 
-            echo "Resetting to latest main branch..."
-            git reset --hard origin/main
+#           git commit -m "chore: update EasyChair conference data"
 
-            echo "Collecting EasyChair against latest data..."
-            pnpm collect:easychair
+#           for i in 1 2 3 4 5; do
+#             echo "Push attempt $i"
 
-            git add conference-postings.json
+#             if git push origin main; then
+#               echo "Successfully pushed changes."
+#               exit 0
+#             fi
 
-            if git diff --cached --quiet; then
-              echo "No changes to commit."
-              exit 0
-            fi
+#             git fetch origin main
+#             git rebase origin/main || true
+#             sleep 5
+#           done
 
-            git commit -m "chore: update EasyChair conference data"
-
-            if git push origin main; then
-              echo "Successfully pushed changes."
-              exit 0
-            fi
-
-            echo "Push failed. Retrying..."
-            sleep 5
-          done
-
-          echo "Failed to push after 5 attempts."
-          exit 1
+#           echo "Failed to push after 5 attempts."
+#           exit 1
