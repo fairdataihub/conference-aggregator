@@ -21,8 +21,8 @@ const WIKICFP_CONFIG: {
   crawlMaxDelayBetweenRequests: number;
   categoriesToNotProcess: string[];
 } = {
-  categoryLimit: null,
-  categoryPageLimit: null,
+  categoryLimit: 1,
+  categoryPageLimit: nu1ll,
   crawlMinDelayBetweenRequests: 5001,
   crawlMaxDelayBetweenRequests: 5049,
   categoriesToNotProcess: wikiCFPCategoriesToNotCollect,
@@ -33,7 +33,7 @@ const EASYCHAIR_CONFIG: {
   crawlMinDelayBetweenRequests: number;
   crawlMaxDelayBetweenRequests: number;
 } = {
-  pageLimit: null,
+  pageLimit: 5,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
@@ -43,7 +43,7 @@ const CFP_WIKI_CONFIG: {
   crawlMinDelayBetweenRequests: number;
   crawlMaxDelayBetweenRequests: number;
 } = {
-  pageLimit: null,
+  pageLimit: 5,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
