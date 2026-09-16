@@ -1,10 +1,11 @@
-
 name: Collect cfp.wiki
 
 on:
   push:
     branches:
       - main
+    paths-ignore:
+      - conference-postings.json
   schedule:
     - cron: "0 2 * * 1"
   workflow_dispatch:
@@ -24,6 +25,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Update main
+        run: |
+          git pull --ff-only origin main
 
       - name: Setup Node
         uses: actions/setup-node@v4

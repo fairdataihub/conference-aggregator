@@ -33,7 +33,7 @@ const EASYCHAIR_CONFIG: {
   crawlMinDelayBetweenRequests: number;
   crawlMaxDelayBetweenRequests: number;
 } = {
-  pageLimit: 5,
+  pageLimit: 1,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
@@ -43,7 +43,7 @@ const CFP_WIKI_CONFIG: {
   crawlMinDelayBetweenRequests: number;
   crawlMaxDelayBetweenRequests: number;
 } = {
-  pageLimit: 10,
+  pageLimit: 1,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
