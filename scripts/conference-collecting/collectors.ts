@@ -21,8 +21,8 @@ const WIKICFP_CONFIG: {
   crawlMaxDelayBetweenRequests: number;
   categoriesToNotProcess: string[];
 } = {
-  categoryLimit: 2,
-  categoryPageLimit: 2,
+  categoryLimit: 1,
+  categoryPageLimit: 1,
   crawlMinDelayBetweenRequests: 5001,
   crawlMaxDelayBetweenRequests: 5049,
   categoriesToNotProcess: wikiCFPCategoriesToNotCollect,
