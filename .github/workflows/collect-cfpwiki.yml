@@ -1,3 +1,4 @@
+
 name: Collect cfp.wiki
 
 on:
@@ -7,6 +8,10 @@ on:
   schedule:
     - cron: "0 2 * * 1"
   workflow_dispatch:
+
+concurrency:
+  group: conference-aggregator-collectors
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -19,9 +24,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -37,39 +39,17 @@ jobs:
       - name: Collect cfp.wiki
         run: pnpm collect:cfpwiki
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          TEMP_FILE="$(mktemp)"
-          cp conference-postings.json "$TEMP_FILE"
+          git add conference-postings.json
 
-          for i in 1 2 3 4 5; do
-            echo "Push attempt $i"
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
 
-            git fetch origin main
-            git reset --hard origin/main
-
-            cp "$TEMP_FILE" conference-postings.json
-
-            git add conference-postings.json
-
-            if git diff --cached --quiet; then
-              echo "No changes to commit."
-              exit 0
-            fi
-
-            git commit -m "chore: update cfp.wiki conference data"
-
-            if git push origin main; then
-              echo "Successfully pushed changes."
-              exit 0
-            fi
-
-            echo "Push failed, retrying in 5 seconds..."
-            sleep 5
-          done
-
-          echo "Failed to push after 5 attempts."
-          exit 1
+          git commit -m "chore: update cfp.wiki conference data"
+          git push origin main
