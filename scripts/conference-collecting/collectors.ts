@@ -22,7 +22,7 @@ const WIKICFP_CONFIG: {
   categoriesToNotProcess: string[];
 } = {
   categoryLimit: 1,
-  categoryPageLimit: nu1ll,
+  categoryPageLimit: null,
   crawlMinDelayBetweenRequests: 5001,
   crawlMaxDelayBetweenRequests: 5049,
   categoriesToNotProcess: wikiCFPCategoriesToNotCollect,
