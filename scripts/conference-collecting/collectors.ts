@@ -21,8 +21,8 @@ const WIKICFP_CONFIG: {
   crawlMaxDelayBetweenRequests: number;
   categoriesToNotProcess: string[];
 } = {
-  categoryLimit: 1,
-  categoryPageLimit: null,
+  categoryLimit: 2,
+  categoryPageLimit: 2,
   crawlMinDelayBetweenRequests: 5001,
   crawlMaxDelayBetweenRequests: 5049,
   categoriesToNotProcess: wikiCFPCategoriesToNotCollect,
@@ -43,7 +43,7 @@ const CFP_WIKI_CONFIG: {
   crawlMinDelayBetweenRequests: number;
   crawlMaxDelayBetweenRequests: number;
 } = {
-  pageLimit: 5,
+  pageLimit: 10,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
