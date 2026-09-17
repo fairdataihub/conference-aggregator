@@ -1,6 +1,6 @@
 import type { CollectedConference } from "./schema.js";
 import { generateCollectionDate } from "./utils.js";
-const WIKIDATA_CONFIG = { limit: 1000 as number | null };
+const WIKIDATA_CONFIG = { limit: null as number | null };
 export async function collectWikiData(): Promise<CollectedConference[]> {
   if (WIKIDATA_CONFIG.limit === null) {
     console.log("[Wikidata] Collection disabled: limit is null.");

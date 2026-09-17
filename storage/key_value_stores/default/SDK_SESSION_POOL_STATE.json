@@ -1,9 +1,9 @@
 {
-  "usableSessionsCount": 4,
+  "usableSessionsCount": 1,
   "retiredSessionsCount": 0,
   "sessions": [
     {
-      "id": "session_VsdYNbREtG",
+      "id": "session_H0rajr3xAK",
       "cookieJar": {
         "version": "tough-cookie@6.0.2",
         "storeType": "MemoryCookieStore",
@@ -11,73 +11,48 @@
         "enableLooseMode": false,
         "allowSpecialUseDomain": true,
         "prefixSecurity": "silent",
-        "cookies": []
+        "cookies": [
+          {
+            "key": "AWSALB",
+            "value": "7fxmQ4fHKdlY4lzyL4nFA8qKnJRJCK6eLcmUnmCwj3vRhLClccLR5HKbqgQUvSb6/O0OoVKGjYxKF1Op8vP03vcQTKkbfRl5oNL/gXDgnB8zS1VQ3So4JkiR6oV+",
+            "expires": "2026-09-24T18:19:20.000Z",
+            "domain": "www.call4paper.com",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2026-09-17T18:19:25.230Z",
+            "lastAccessed": "2026-09-17T18:19:25.230Z"
+          },
+          {
+            "key": "AWSALBCORS",
+            "value": "7fxmQ4fHKdlY4lzyL4nFA8qKnJRJCK6eLcmUnmCwj3vRhLClccLR5HKbqgQUvSb6/O0OoVKGjYxKF1Op8vP03vcQTKkbfRl5oNL/gXDgnB8zS1VQ3So4JkiR6oV+",
+            "expires": "2026-09-24T18:19:20.000Z",
+            "domain": "www.call4paper.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2026-09-17T18:19:25.231Z",
+            "lastAccessed": "2026-09-17T18:19:25.231Z",
+            "sameSite": "none"
+          },
+          {
+            "key": "SESSION",
+            "value": "NzVlMGQ5MDYtYjhiMi00MjZkLWI2OWItNmE2MGI3ZjllYjBi",
+            "domain": "www.call4paper.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-09-17T18:19:25.231Z",
+            "lastAccessed": "2026-09-17T18:19:25.231Z",
+            "sameSite": "lax"
+          }
+        ]
       },
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-17T04:24:12.385Z",
-      "createdAt": "2026-09-17T03:34:12.385Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_nTDcVEKwXJ",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": []
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-17T04:24:18.617Z",
-      "createdAt": "2026-09-17T03:34:18.617Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_6J1Vno55kA",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": []
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-17T04:24:22.088Z",
-      "createdAt": "2026-09-17T03:34:22.088Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_t49cjwqtBT",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": []
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-09-17T04:24:25.900Z",
-      "createdAt": "2026-09-17T03:34:25.900Z",
+      "expiresAt": "2026-09-17T19:09:15.643Z",
+      "createdAt": "2026-09-17T18:19:15.643Z",
       "usageCount": 1,
       "maxUsageCount": 50,
       "errorScore": 0

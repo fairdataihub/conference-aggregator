@@ -1,138 +1,148 @@
-import type { CollectedConference } from "./schema.js";
+import * as path from "node:path";
+import { fileURLToPath } from "node:url";
 
-import { generateCollectionDate } from "./utils.js";
+import type { CollectedConference, ConferenceDatabase } from "./schema.js";
 
-const WIKIDATA_CONFIG = {
-  limit: 1000 as number | null,
+import { collectCfpWiki } from "./cfpwiki.js";
+import { collectEasyChair } from "./easychair.js";
+import { collectWikiCFP } from "./wikicfp.js";
+import { collectWikiData } from "./wikidata.js";
+import { collectCall4Paper } from "./call4paper.js";
+
+import { loadConferenceDatabase, saveConferenceDatabase } from "./storage.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const DATABASE_PATH = path.join(
+  __dirname,
+  "..",
+  "..",
+  "conference-postings.json",
+);
+
+const COLLECTORS = {
+  wikicfp: collectWikiCFP,
+  cfpwiki: collectCfpWiki,
+  wikidata: collectWikiData,
+  call4paper: collectCall4Paper,
 };
 
-export async function collectWikiData(): Promise<CollectedConference[]> {
-  if (WIKIDATA_CONFIG.limit === null) {
-    console.log("[Wikidata] Collection disabled: limit is null.");
-    return [];
+type Site = "all" | keyof typeof COLLECTORS;
+
+function parseSiteArg(): Site {
+  // Supports:
+  // - `--site all|wikicfp|easychair`
+  // - `--site=<value>`
+  const eqValue = process.argv
+    .find((arg) => arg.startsWith("--site="))
+    ?.split("=", 2)[1];
+
+  const siteFlagIndex = process.argv.indexOf("--site");
+  const nextValue =
+    siteFlagIndex !== -1 ? process.argv[siteFlagIndex + 1] : undefined;
+
+  const rawSite = eqValue ?? nextValue ?? "";
+  const normalized = rawSite.trim().toLowerCase();
+
+  if (normalized === "all") {
+    return "all";
   }
 
-  const conferences = new Map<string, CollectedConference>();
-
-  const query = `
-    SELECT DISTINCT
-      ?conference
-      ?conferenceLabel
-      ?description
-      ?website
-      ?startDate
-      ?endDate
-      ?location
-      ?locationLabel
-      ?acronym
-      ?series
-      ?seriesLabel
-      ?subject
-      ?subjectLabel
-    WHERE {
-      ?conference wdt:P31 wd:Q2020153 .
-
-      ?conference rdfs:label ?conferenceLabel .
-      FILTER(LANG(?conferenceLabel) = "en")
-
-      OPTIONAL {
-        ?conference schema:description ?description .
-        FILTER(LANG(?description) = "en")
-      }
-
-      OPTIONAL {
-        ?conference wdt:P856 ?website .
-      }
-
-      OPTIONAL {
-        ?conference wdt:P580 ?startDate .
-      }
-
-      OPTIONAL {
-        ?conference wdt:P582 ?endDate .
-      }
-
-      OPTIONAL {
-        ?conference wdt:P276 ?location .
-      }
-
-      OPTIONAL {
-        ?conference wdt:P1813 ?acronym .
-      }
-
-      OPTIONAL {
-        ?conference wdt:P179 ?series .
-      }
-
-      OPTIONAL {
-        ?conference wdt:P921 ?subject .
-        ?subject rdfs:label ?subjectLabel .
-        FILTER(LANG(?subjectLabel) = "en")
-      }
-
-      SERVICE wikibase:label {
-        bd:serviceParam wikibase:language "en" .
-      }
-    }
-
-    LIMIT ${WIKIDATA_CONFIG.limit}
-  `;
-
-  const url = new URL("https://query.wikidata.org/sparql");
-  url.searchParams.set("query", query);
-  url.searchParams.set("format", "json");
-
-  const response = await fetch(url, {
-    headers: {
-      Accept: "application/sparql-results+json",
-      "User-Agent": "conference-aggregator/1.0",
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(
-      `Wikidata request failed: ${response.status} ${response.statusText}`,
-    );
+  if (
+    normalized === "wikicfp" ||
+    normalized === "easychair" ||
+    normalized === "cfpwiki"
+  ) {
+    return normalized;
   }
 
-  const data = await response.json();
-
-  for (const result of data.results.bindings) {
-    const id = result.conference.value;
-    const subject = result.subjectLabel?.value || null;
-
-    const existing = conferences.get(id);
-
-    if (existing) {
-      if (subject && !existing.conferenceCategories?.includes(subject)) {
-        existing.conferenceCategories ??= [];
-        existing.conferenceCategories.push(subject);
-      }
-
-      continue;
-    }
-
-    const conferenceStartDate = result.startDate?.value?.split("T")[0] || null;
-
-    conferences.set(id, {
-      id,
-      collectionDate: generateCollectionDate(),
-      _source: "wikidata",
-      conferenceName: result.conferenceLabel?.value,
-      conferenceYear: conferenceStartDate
-        ? Number(conferenceStartDate.substring(0, 4))
-        : null,
-      conferenceUri: result.website?.value || null,
-      conferenceLocation: result.locationLabel?.value || null,
-      conferenceStartDate,
-      conferenceEndDate: result.endDate?.value?.split("T")[0] || null,
-      conferenceAcronym: result.acronym?.value || null,
-      conferenceSeries: result.seriesLabel?.value || null,
-      conferenceCategories: subject ? [subject] : [],
-      conferenceText: result.description?.value || null,
-      submissionDeadline: null,
-    });
-  }
-
-  return [...conferences.values()];
+  return "all";
 }
+
+async function main(): Promise<void> {
+  const startTime = Date.now();
+  const site = parseSiteArg();
+
+  console.log(`[Main] Starting conference collection (site=${site})`);
+
+  if (site === "all") {
+    const collected: CollectedConference[] = [];
+
+    for (const [name, collect] of Object.entries(COLLECTORS)) {
+      try {
+        const postings = await collect();
+        collected.push(...postings);
+      } catch (error) {
+        console.error(`[${name}] Collection failed:`, error);
+      }
+    }
+
+    collected.sort((a, b) => a.id.localeCompare(b.id));
+
+    const db: ConferenceDatabase = {
+      metadata: {
+        lastUpdated: new Date().toISOString(),
+        totalPostings: collected.length,
+        sources: [
+          ...new Set(
+            collected
+              .map((posting) => posting._source)
+              .filter((source): source is string => Boolean(source)),
+          ),
+        ],
+      },
+      postings: collected,
+    };
+
+    await saveConferenceDatabase(DATABASE_PATH, db);
+  } else {
+    // Single-site update: keep other sources, replace only this site's postings.
+    const existingDb = await loadConferenceDatabase(DATABASE_PATH);
+    const collect = COLLECTORS[site];
+    const updated = await collect();
+
+    for (const posting of updated) {
+      posting._source = site;
+    }
+
+    const existingOtherSources = existingDb.postings.filter(
+      (posting) => posting._source !== site,
+    );
+
+    const byId = new Map<string, CollectedConference>(
+      existingOtherSources.map((posting) => [posting.id, posting]),
+    );
+
+    for (const posting of updated) {
+      // Replace by `id` so updated postings win on collisions.
+      byId.set(posting.id, posting);
+    }
+
+    const mergedPostings = [...byId.values()];
+
+    mergedPostings.sort((a, b) => a.id.localeCompare(b.id));
+
+    const db: ConferenceDatabase = {
+      metadata: existingDb.metadata,
+      postings: mergedPostings,
+    };
+
+    await saveConferenceDatabase(DATABASE_PATH, db);
+  }
+
+  const elapsedMs = Date.now() - startTime;
+  const elapsedSec = (elapsedMs / 1000).toFixed(2);
+  const finalDb = await loadConferenceDatabase(DATABASE_PATH);
+
+  console.log(
+    `[Main] Complete: ${finalDb.postings.length} conferences in database`,
+  );
+  console.log(`[Main] Duration: ${elapsedSec}s`);
+  console.log(`[Main] Database: ${DATABASE_PATH}`);
+}
+
+main().catch((error) => {
+  console.error("[Main] Fatal error:", error);
+  process.exit(1);
+});
