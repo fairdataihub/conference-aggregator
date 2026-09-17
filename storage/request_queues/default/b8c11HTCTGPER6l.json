@@ -1,0 +1,9 @@
+{
+	"id": "b8c11HTCTGPER6l",
+	"json": "{\"id\":\"b8c11HTCTGPER6l\",\"url\":\"https://cfp.wiki/conferences\",\"loadedUrl\":\"https://cfp.wiki/conferences\",\"uniqueKey\":\"https://cfp.wiki/conferences\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-09-17T03:34:18.074Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://cfp.wiki/conferences",
+	"url": "https://cfp.wiki/conferences"
+}

@@ -5,7 +5,7 @@
 export interface CollectedConference {
   id: string;
   conferenceName: string;
-  conferenceYear: number;
+  conferenceYear: number | null;
   conferenceLocation?: string | null;
   conferenceUri?: string | null;
   conferenceIdentifier?: string;
