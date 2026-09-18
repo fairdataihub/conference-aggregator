@@ -2,6 +2,8 @@ import { CheerioCrawler, type CheerioCrawlingContext } from "crawlee";
 
 import type { CollectedConference } from "./schema.js";
 
+import { CALL4PAPER_CONFIG } from "./collection-config.js";
+
 import {
   generateCollectionDate,
   parseDateRange,
@@ -9,33 +11,8 @@ import {
   resolveUrl,
 } from "./utils.js";
 
-const CALL4PAPER_BASE_URL = "https://www.call4paper.com";
-
-const CALL4PAPER_CONFIG = {
-  subjectLimit: 2 as number | null,
-  eventLimit: 2 as number | null,
-  crawlMinDelayBetweenRequests: 3001,
-  crawlMaxDelayBetweenRequests: 3900,
-};
-
-interface Call4PaperListing {
-  detailUrl: string;
-  conferenceUri: string | null;
-  conferenceName: string;
-  conferenceAcronym: string | null;
-  conferenceLocation: string | null;
-  conferenceStartDate: string | null;
-  conferenceEndDate: string | null;
-  submissionDeadline: string | null;
-  conferenceCategories: string[];
-}
-
 function parseSubmissionDate(value: string | null): string | null {
-  if (!value) {
-    return null;
-  }
-
-  return value.match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? null;
+  return value?.match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? null;
 }
 
 function getConferenceYear(startDate: string | null): number | null {
@@ -44,11 +21,34 @@ function getConferenceYear(startDate: string | null): number | null {
   }
 
   const year = Number.parseInt(startDate.slice(0, 4), 10);
+
   return Number.isNaN(year) ? null : year;
 }
 
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/** Canonical detail URL; listing links and post-redirect paths may differ. */
+function call4PaperEventId(url: string): string | null {
+  try {
+    const parsed = new URL(url);
+    const match = parsed.pathname.match(
+      /(?:\/cfp)?\/detail\/event\/([^/?#]+)/i,
+    );
+
+    if (!match) {
+      return null;
+    }
+
+    return `${parsed.origin}/cfp/detail/event/${match[1]}`;
+  } catch {
+    return null;
+  }
+}
+
+function detailMapKey(url: string): string {
+  return call4PaperEventId(url) ?? url;
 }
 
 function extractLabeledValue(
@@ -85,68 +85,118 @@ function extractLabeledValue(
   return value || null;
 }
 
-function extractCategories($: CheerioCrawlingContext["$"]): string[] {
-  const categories: string[] = [];
-  const bodyText = $("body").text().replace(/\s+/g, " ").trim();
-  const titleMatch = bodyText.match(
-    /Organizer:.*?Location:.*?(.*?)(?:\s{2,}|$)/i,
-  );
+function findSectionHeading($: CheerioCrawlingContext["$"], label: string) {
+  const normalizedLabel = label.toLowerCase();
 
-  if (titleMatch?.[1]) {
-    categories.push(
-      ...titleMatch[1]
-        .split(/\s{2,}/)
-        .map((category) => category.trim())
-        .filter(Boolean),
-    );
-  }
+  return $("h1, h2, h3, h4, h5, h6, strong, b")
+    .filter((_, element) => {
+      const text = $(element).text().replace(/\s+/g, " ").trim().toLowerCase();
 
-  return [...new Set(categories)];
+      return text === normalizedLabel || text.startsWith(`${normalizedLabel} `);
+    })
+    .first();
 }
 
-function extractEventDetails($: CheerioCrawlingContext["$"]): {
-  officialUrl: string | null;
-  acronym: string | null;
-  location: string | null;
-  startDate: string | null;
-  endDate: string | null;
-  submissionDeadline: string | null;
-  categories: string[];
-} {
-  const officialUrl = extractLabeledValue($, "URL");
-  const eventDate = extractLabeledValue($, "Event Date");
-  const submissionDate =
-    extractLabeledValue($, "Submission Date") ||
-    extractLabeledValue($, "Submission Due Date");
-  const location = extractLabeledValue($, "Location");
-  const { startDate, endDate } = parseDateRange(eventDate ?? "");
-  const title = $("h1").first().text().replace(/\s+/g, " ").trim();
+function extractSectionText(
+  $: CheerioCrawlingContext["$"],
+  label: string,
+): string | null {
+  const heading = findSectionHeading($, label);
+  if (!heading.length) {
+    return null;
+  }
 
-  const acronymMatch = title.match(/\(([A-Z][A-Z0-9&-]{1,15})\)/g);
-  const acronym = acronymMatch?.length
-    ? acronymMatch[acronymMatch.length - 1].slice(1, -1)
-    : null;
+  const section = heading
+    .nextUntil("h1, h2, h3, h4, h5, h6")
+    .addBack()
+    .text()
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return (
+    section
+      .replace(new RegExp(`^${escapeRegExp(label)}\\s*`, "i"), "")
+      .trim() || null
+  );
+}
+
+function extractTopicsOfInterest($: CheerioCrawlingContext["$"]): string[] {
+  const heading = findSectionHeading($, "topics of interest");
+  if (!heading.length) {
+    return [];
+  }
+
+  const list =
+    heading.nextAll("ul, ol").first().length > 0
+      ? heading.nextAll("ul, ol").first()
+      : heading.parent().find("ul, ol").first();
+  return list
+    .find("li")
+    .map((_, item) => $(item).text().replace(/\s+/g, " ").trim())
+    .get()
+    .filter(Boolean);
+}
+
+function extractEventDescFields(
+  $: CheerioCrawlingContext["$"],
+): Record<string, string> {
+  const fields: Record<string, string> = {};
+
+  $("ul.event-desc li").each((_, li) => {
+    const $li = $(li);
+    const fullText = $li.text().replace(/\s+/g, " ").trim();
+    const match = fullText.match(/^([^:]+):\s*(.*)$/);
+
+    if (!match) {
+      return;
+    }
+
+    const key = match[1].trim();
+    let value = match[2].trim();
+
+    if (key.toLowerCase() === "url") {
+      const href = $li.find("a[href]").first().attr("href");
+      if (href) {
+        value = href;
+      }
+    }
+
+    if (value) {
+      fields[key] = value;
+    }
+  });
+
+  return fields;
+}
+
+function extractEventDetails($: CheerioCrawlingContext["$"]) {
+  const eventDesc = extractEventDescFields($);
+
+  const officialUrl = eventDesc.URL ?? extractLabeledValue($, "URL");
 
   return {
     officialUrl,
-    acronym,
-    location,
-    startDate: startDate ?? null,
-    endDate: endDate ?? null,
-    submissionDeadline: parseSubmissionDate(submissionDate),
-    categories: extractCategories($),
+    categories: extractTopicsOfInterest($),
+    conferenceText: extractSectionText($, "scope"),
   };
 }
 
 export async function collectCall4Paper(): Promise<CollectedConference[]> {
-  const listings = new Map<string, Call4PaperListing>();
+  if (
+    CALL4PAPER_CONFIG.subjectLimit === 0 ||
+    CALL4PAPER_CONFIG.eventLimit === 0
+  ) {
+    console.log(
+      "[Call4Paper] Collection disabled: subjectLimit or eventLimit is 0.",
+    );
+    return [];
+  }
 
-  // ===========================================================================
-  // LISTING CRAWLER
-  // ===========================================================================
+  const listings = new Map<string, CollectedConference>();
 
   const listingCrawler = new CheerioCrawler({
     maxConcurrency: 1,
+
     preNavigationHooks: [
       async () => {
         await randomDelay(
@@ -157,118 +207,90 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
     ],
 
     requestHandler: async ({ request, $ }: CheerioCrawlingContext) => {
-      const rows = $("table tr").toArray();
+      $("#cfpTable").each((_, table) => {
+        const headers = $(table)
+          .find("thead th")
+          .map((_, header) => $(header).text().replace(/\s+/g, " ").trim())
+          .get();
 
-      console.log(
-        `[Call4Paper] Listing page: ${request.url} (${rows.length} rows)`,
-      );
+        $(table)
+          .find("tbody tr")
+          .each((_, row) => {
+            const cells = $(row).find("td");
 
-      console.log(
-        `[Call4Paper] Tables: ${$("table").length}; rows: ${rows.length}`,
-      );
-
-      const rowsWithCells = rows.filter((row) => $(row).find("td").length > 0);
-
-      console.log(`[Call4Paper] Rows with cells: ${rowsWithCells.length}`);
-
-      rowsWithCells.slice(0, 3).forEach((row, index) => {
-        const cells = $(row).find("td");
-
-        console.log(
-          `[Call4Paper] Row ${index + 1} cells:`,
-          cells
-            .toArray()
-            .map((element) => $(element).text().replace(/\s+/g, " ").trim()),
-        );
-
-        console.log(
-          `[Call4Paper] Row ${index + 1} links:`,
-          $(row)
-            .find("a[href]")
-            .toArray()
-            .map((element) => ({
-              text: $(element).text().replace(/\s+/g, " ").trim(),
-              href: $(element).attr("href"),
-            })),
-        );
-      });
-
-      let listingsFound = 0;
-
-      rowsWithCells.forEach((row) => {
-        const cells = $(row).find("td");
-
-        if (cells.length < 5) {
-          return;
-        }
-
-        const link = $(row).find('a[href*="/cfp/detail/event/"]').first();
-
-        if (!link.length) {
-          return;
-        }
-
-        const conferenceName =
-          link.find("span").first().text().replace(/\s+/g, " ").trim() ||
-          link.text().replace(/\s+/g, " ").trim();
-
-        const href = link.attr("href");
-
-        if (!conferenceName || !href) {
-          return;
-        }
-
-        const detailUrl = resolveUrl(href, request.url);
-
-        if (!detailUrl) {
-          console.warn(
-            `[Call4Paper] Could not resolve conference URL: ${href}`,
-          );
-
-          return;
-        }
-
-        const conferenceAcronym =
-          cells.eq(1).text().replace(/\s+/g, " ").trim() || null;
-
-        const conferenceLocation =
-          cells.eq(3).text().replace(/\s+/g, " ").trim() || null;
-
-        const dateText = cells.eq(4).text().replace(/\s+/g, " ").trim();
-
-        const submissionText =
-          cells.length > 5
-            ? cells.eq(5).text().replace(/\s+/g, " ").trim()
-            : null;
-
-        const numericDateRange = dateText.match(
-          /(\d{4}-\d{2}-\d{2})\s*~\s*(\d{4}-\d{2}-\d{2})/,
-        );
-        const { startDate, endDate } = numericDateRange
-          ? {
-              startDate: numericDateRange[1],
-              endDate: numericDateRange[2],
+            if (!headers.length || cells.length < headers.length) {
+              return;
             }
-          : parseDateRange(dateText);
 
-        listings.set(detailUrl, {
-          detailUrl,
-          conferenceUri: null,
-          conferenceName,
-          conferenceAcronym,
-          conferenceLocation,
-          conferenceStartDate: startDate,
-          conferenceEndDate: endDate,
-          submissionDeadline: parseSubmissionDate(submissionText),
-          conferenceCategories: [],
-        });
+            const listingFields = headers.reduce<Record<string, string>>(
+              (fields, header, index) => {
+                fields[header] = $(cells[index])
+                  .text()
+                  .replace(/\s+/g, " ")
+                  .trim();
+                return fields;
+              },
+              {},
+            );
 
-        listingsFound++;
+            const link = $(row).find('a[href*="/cfp/detail/event/"]').first();
+
+            if (!link.length) {
+              return;
+            }
+
+            const conferenceName =
+              link.find("span").first().text().replace(/\s+/g, " ").trim() ||
+              link.text().replace(/\s+/g, " ").trim();
+
+            const href = link.attr("href");
+
+            if (!conferenceName || !href) {
+              return;
+            }
+
+            const resolved = resolveUrl(href, request.url);
+
+            if (!resolved) {
+              return;
+            }
+
+            const id = call4PaperEventId(resolved) ?? resolved;
+
+            const conferenceAcronym = listingFields["Title Abbr."] || null;
+            const conferenceLocation = listingFields.Location || null;
+            const dateText = listingFields.Date || "";
+            const submissionText = listingFields["Submission Due Date"] || null;
+
+            const numericDateRange = dateText.match(
+              /(\d{4}-\d{2}-\d{2})\s*~\s*(\d{4}-\d{2}-\d{2})/,
+            );
+
+            const { startDate, endDate } = numericDateRange
+              ? {
+                  startDate: numericDateRange[1],
+                  endDate: numericDateRange[2],
+                }
+              : parseDateRange(dateText);
+
+            listings.set(id, {
+              id,
+              collectionDate: null,
+              _source: "call4paper",
+              conferenceName,
+              conferenceYear: getConferenceYear(startDate ?? null),
+              conferenceLocation,
+              conferenceIdentifier: undefined,
+              conferenceIdentifierType: undefined,
+              conferenceSchemaUri: undefined,
+              conferenceStartDate: startDate ?? null,
+              conferenceEndDate: endDate ?? null,
+              conferenceAcronym,
+              conferenceSeries: null,
+              submissionDeadline: parseSubmissionDate(submissionText),
+            });
+          });
       });
-
-      console.log(
-        `[Call4Paper] Listings found: ${listingsFound}; total listings: ${listings.size}`,
-      );
     },
 
     errorHandler: async ({ request, log }, error) => {
@@ -278,9 +300,30 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
     },
   });
 
-  // ===========================================================================
-  // DETAIL CRAWLER
-  // ===========================================================================
+  const subjectUrls = await collectSubjectUrls();
+
+  const limitedSubjectUrls =
+    CALL4PAPER_CONFIG.subjectLimit === null
+      ? subjectUrls
+      : subjectUrls.slice(0, CALL4PAPER_CONFIG.subjectLimit);
+
+  if (!limitedSubjectUrls.length) {
+    return [];
+  }
+
+  await listingCrawler.run(limitedSubjectUrls);
+
+  let listingIds = [...listings.keys()];
+
+  if (CALL4PAPER_CONFIG.eventLimit !== null) {
+    listingIds = listingIds.slice(0, CALL4PAPER_CONFIG.eventLimit);
+  }
+
+  if (!listingIds.length) {
+    return [];
+  }
+
+  const details = new Map<string, ReturnType<typeof extractEventDetails>>();
 
   const detailCrawler = new CheerioCrawler({
     maxConcurrency: 1,
@@ -295,52 +338,8 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
     ],
 
     requestHandler: async ({ request, $ }: CheerioCrawlingContext) => {
-      const listing = listings.get(request.url);
-
-      if (!listing) {
-        console.log(
-          `[Call4Paper] Missing listing for detail URL: ${request.url}`,
-        );
-
-        return;
-      }
-
-      const details = extractEventDetails($);
-
-      if (details.categories.length > 0) {
-        listing.conferenceCategories = details.categories;
-      }
-
-      if (details.officialUrl) {
-        const officialUrl = resolveUrl(details.officialUrl, request.url);
-
-        if (officialUrl) {
-          listing.conferenceUri = officialUrl;
-        }
-      }
-
-      if (details.location) {
-        listing.conferenceLocation = details.location;
-      }
-
-      if (details.startDate) {
-        listing.conferenceStartDate = details.startDate;
-      }
-
-      if (details.endDate) {
-        listing.conferenceEndDate = details.endDate;
-      }
-
-      if (details.submissionDeadline) {
-        listing.submissionDeadline = details.submissionDeadline;
-      }
-
-      listing.conferenceAcronym =
-        listing.conferenceAcronym ||
-        details.acronym ||
-        extractConferenceAcronym(listing.conferenceName);
-
-      console.log(`[Call4Paper] Detail processed: ${request.url}`);
+      const key = detailMapKey(request.loadedUrl ?? request.url);
+      details.set(key, extractEventDetails($));
     },
 
     errorHandler: async ({ request, log }, error) => {
@@ -350,74 +349,40 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
     },
   });
 
-  // ===========================================================================
-  // COLLECT SUBJECT URLS
-  // ===========================================================================
+  await detailCrawler.run(listingIds.map((id) => listings.get(id)?.id ?? id));
 
-  const subjectUrls = await collectSubjectUrls();
+  return listingIds
+    .map((listingId) => {
+      const listing = listings.get(listingId);
 
-  const limitedSubjectUrls =
-    CALL4PAPER_CONFIG.subjectLimit === null
-      ? subjectUrls
-      : subjectUrls.slice(0, CALL4PAPER_CONFIG.subjectLimit);
+      if (!listing) {
+        return null;
+      }
 
-  console.log(
-    `[Call4Paper] Subject URLs to process: ${limitedSubjectUrls.length}`,
-  );
+      const detail = details.get(detailMapKey(listing.id));
 
-  if (limitedSubjectUrls.length === 0) {
-    console.log("[Call4Paper] No subject URLs found.");
+      if (!detail) {
+        return {
+          ...listing,
+          collectionDate: generateCollectionDate(),
+          conferenceUri: null,
+          conferenceCategories: [],
+          conferenceText: null,
+        };
+      }
 
-    return [];
-  }
-
-  await listingCrawler.run(limitedSubjectUrls);
-
-  console.log("listings after listing crawler", listings);
-
-  let detailUrls = [...listings.keys()];
-
-  console.log(`[Call4Paper] Detail URLs collected: ${detailUrls.length}`);
-
-  if (CALL4PAPER_CONFIG.eventLimit !== null) {
-    detailUrls = detailUrls.slice(0, CALL4PAPER_CONFIG.eventLimit);
-  }
-
-  console.log(`[Call4Paper] Detail URLs to process: ${detailUrls.length}`);
-
-  if (detailUrls.length === 0) {
-    console.log("[Call4Paper] No detail URLs found.");
-
-    return [];
-  }
-
-  await detailCrawler.run(detailUrls);
-
-  const postings = [...listings.values()].map((listing) => ({
-    id: listing.detailUrl,
-    collectionDate: generateCollectionDate(),
-    _source: "call4paper" as const,
-    conferenceName: listing.conferenceName,
-    conferenceYear: getConferenceYear(listing.conferenceStartDate),
-    conferenceUri: listing.conferenceUri,
-    conferenceLocation: listing.conferenceLocation,
-    conferenceStartDate: listing.conferenceStartDate,
-    conferenceEndDate: listing.conferenceEndDate,
-    conferenceAcronym: listing.conferenceAcronym,
-    conferenceSeries: null,
-    conferenceCategories: listing.conferenceCategories,
-    conferenceText: null,
-    submissionDeadline: listing.submissionDeadline,
-  }));
-
-  console.log(`[Call4Paper] Collection complete: ${postings.length} postings.`);
-
-  return postings;
+      return {
+        ...listing,
+        collectionDate: generateCollectionDate(),
+        conferenceUri: detail.officialUrl
+          ? (resolveUrl(detail.officialUrl, listing.id) ?? null)
+          : null,
+        conferenceCategories: detail.categories,
+        conferenceText: detail.conferenceText,
+      };
+    })
+    .filter((posting): posting is CollectedConference => posting !== null);
 }
-
-// ============================================================================
-// SUBJECT COLLECTION
-// ============================================================================
 
 async function collectSubjectUrls(): Promise<string[]> {
   const subjectUrls = new Set<string>();
@@ -435,218 +400,37 @@ async function collectSubjectUrls(): Promise<string[]> {
     ],
 
     requestHandler: async ({ request, $ }: CheerioCrawlingContext) => {
-      console.log(`[Call4Paper] Collecting subject URLs from: ${request.url}`);
-
-      const links = $('a.normal[href*="/cfp/listBySubject"]');
-
-      links.each((_, element) => {
+      $('a.normal[href*="/cfp/listBySubject"]').each((_, element) => {
         const href = $(element).attr("href");
 
         if (!href) {
           return;
         }
 
-        let parsedUrl: URL;
-
         try {
-          parsedUrl = new URL(href, request.url);
+          const url = new URL(href, request.url);
+
+          if (
+            url.searchParams.get("type") === "event" &&
+            url.searchParams.get("subject")
+          ) {
+            subjectUrls.add(url.href);
+          }
         } catch (error) {
           console.warn(`[Call4Paper] Invalid subject href: ${href}`, error);
-          return;
         }
-
-        if (parsedUrl.searchParams.get("type") !== "event") {
-          console.log(
-            "event type is not event",
-            parsedUrl.searchParams.get("type"),
-            parsedUrl.href,
-          );
-          return;
-        }
-
-        const subjectCode = parsedUrl.searchParams.get("subject");
-
-        if (!subjectCode) {
-          return;
-        }
-
-        subjectUrls.add(parsedUrl.href);
       });
-
-      console.log(`[Call4Paper] Event subject URLs found: ${subjectUrls.size}`);
     },
 
     errorHandler: async ({ request, log }, error) => {
       log.error(
         `[Call4Paper] Subject homepage request failed: ${request.url}`,
-        {
-          error: String(error),
-        },
+        { error: String(error) },
       );
     },
   });
 
-  await crawler.run([CALL4PAPER_BASE_URL]);
+  await crawler.run([CALL4PAPER_CONFIG.baseUrl]);
 
-  const urls = [...subjectUrls];
-
-  console.log(
-    `[Call4Paper] Subject collection complete: ${urls.length} event subjects`,
-  );
-
-  return urls;
+  return [...subjectUrls];
 }
-
-// ============================================================================
-// EVENT DETAIL PARSING
-// ============================================================================
-
-// function extractEventDetails(
-//   $: CheerioCrawlingContext["$"],
-// ): {
-//   officialUrl: string | null;
-//   acronym: string | null;
-//   location: string | null;
-//   startDate: string | null;
-//   endDate: string | null;
-//   submissionDeadline: string | null;
-//   categories: string[];
-// } {
-//   const officialUrl = extractLabeledValue($, "URL");
-//   const eventDate = extractLabeledValue($, "Event Date");
-//
-//   const submissionDate =
-//     extractLabeledValue($, "Submission Date") ||
-//     extractLabeledValue($, "Submission Due Date");
-//
-//   const location = extractLabeledValue($, "Location");
-//
-//   const { startDate, endDate } = parseDateRange(eventDate);
-//
-//   const categories = extractCategories($);
-//
-//   const title = $("h1").first().text().replace(/\s+/g, " ").trim();
-//
-//   return {
-//     officialUrl,
-//     acronym: extractConferenceAcronym(title),
-//     location,
-//     startDate,
-//     endDate,
-//     submissionDeadline: parseSubmissionDate(submissionDate),
-//     categories,
-//   };
-// }
-
-// ============================================================================
-// LABELED VALUE EXTRACTION
-// ============================================================================
-
-// function extractLabeledValue(
-//   $: CheerioCrawlingContext["$"],
-//   label: string,
-// ): string | null {
-//   const element = $("body")
-//     .find("*")
-//     .filter((_, candidate) => {
-//       const text = $(candidate)
-//         .clone()
-//         .children()
-//         .remove()
-//         .end()
-//         .text()
-//         .replace(/\s+/g, " ")
-//         .trim();
-//
-//       return text === `${label}:`;
-//     })
-//     .first();
-//
-//   if (!element.length) {
-//     return null;
-//   }
-//
-//   const value = element
-//     .parent()
-//     .text()
-//     .replace(new RegExp(`^${escapeRegExp(label)}\\s*:\\s*`, "i"), "")
-//     .replace(/\s+/g, " ")
-//     .trim();
-//
-//   return value || null;
-// }
-
-// ============================================================================
-// CATEGORY EXTRACTION
-// ============================================================================
-
-// function extractCategories($: CheerioCrawlingContext["$"]): string[] {
-//   const categories: string[] = [];
-//
-//   const bodyText = $("body").text().replace(/\s+/g, " ").trim();
-//
-//   const titleMatch = bodyText.match(
-//     /Organizer:.*?Location:.*?(.*?)(?:\s{2,}|$)/i,
-//   );
-//
-//   if (titleMatch?.[1]) {
-//     categories.push(
-//       ...titleMatch[1]
-//         .split(/\s{2,}/)
-//         .map((category) => category.trim())
-//         .filter(Boolean),
-//     );
-//   }
-//
-//   return [...new Set(categories)];
-// }
-
-// ============================================================================
-// SUBMISSION DATE
-// ============================================================================
-
-// function parseSubmissionDate(value: string | null): string | null {
-//   if (!value) {
-//     return null;
-//   }
-//
-//   const match = value.match(/\d{4}-\d{2}-\d{2}/);
-//
-//   return match?.[0] || null;
-// }
-
-// ============================================================================
-// CONFERENCE ACRONYM
-// ============================================================================
-
-// function extractConferenceAcronym(title: string): string | null {
-//   const matches = [...title.matchAll(/\(([A-Z][A-Z0-9&-]{1,15})\)/g)];
-//
-//   if (matches.length === 0) {
-//     return null;
-//   }
-//
-//   return matches[matches.length - 1][1];
-// }
-
-// ============================================================================
-// CONFERENCE YEAR
-// ============================================================================
-
-// function getConferenceYear(startDate: string | null): number | null {
-//   if (!startDate) {
-//     return null;
-//   }
-//
-//   const year = Number(startDate.substring(0, 4));
-//
-//   return Number.isNaN(year) ? null : year;
-// }
-
-// ============================================================================
-// REGEX ESCAPING
-// ============================================================================
-
-// function escapeRegExp(value: string): string {
-//   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-// }

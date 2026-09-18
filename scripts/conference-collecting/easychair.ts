@@ -1,20 +1,14 @@
 import { CheerioCrawler, type CheerioCrawlingContext } from "crawlee";
 import type { CollectedConference } from "./schema.js";
 
+import { EASYCHAIR_CONFIG } from "./collection-config.js";
+
 import {
   generateCollectionDate,
   parseDateRange,
   randomDelay,
   resolveUrl,
 } from "./utils.js";
-
-const EASYCHAIR_BASE_URL = "https://easychair.org";
-
-const EASYCHAIR_CONFIG = {
-  pageLimit: 1 as number | null,
-  crawlMinDelayBetweenRequests: 3001,
-  crawlMaxDelayBetweenRequests: 3900,
-};
 
 function parseEasyChairConferences(
   $: CheerioCrawlingContext["$"],
@@ -38,7 +32,7 @@ function parseEasyChairConferences(
       return;
     }
 
-    const conferenceUri = resolveUrl(href, EASYCHAIR_BASE_URL);
+    const conferenceUri = resolveUrl(href, EASYCHAIR_CONFIG.baseUrl);
 
     if (!conferenceUri) {
       return;
@@ -97,7 +91,7 @@ function extractEasyChairPaginationUrls(
       const parsedUrl = new URL(url);
 
       if (
-        parsedUrl.hostname === new URL(EASYCHAIR_BASE_URL).hostname &&
+        parsedUrl.hostname === new URL(EASYCHAIR_CONFIG.baseUrl).hostname &&
         parsedUrl.pathname === "/cfp" &&
         parsedUrl.searchParams.has("page")
       ) {
@@ -129,15 +123,20 @@ function extractEasyChairConferenceWebsite(
 
     const href = $(cells[1]).find("a").first().attr("href");
 
-    conferenceWebsite = resolveUrl(href, EASYCHAIR_BASE_URL) ?? "";
+    conferenceWebsite = resolveUrl(href, EASYCHAIR_CONFIG.baseUrl) ?? "";
   });
 
   return conferenceWebsite;
 }
 
 export async function collectEasyChair(): Promise<CollectedConference[]> {
+  if (EASYCHAIR_CONFIG.pageLimit === 0) {
+    console.log("[EasyChair] Collection disabled: pageLimit is 0.");
+    return [];
+  }
+
   const postings: CollectedConference[] = [];
-  const url = `${EASYCHAIR_BASE_URL}/cfp`;
+  const url = `${EASYCHAIR_CONFIG.baseUrl}/cfp`;
 
   let pagesScanned = 0;
 
@@ -157,12 +156,12 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
     async requestHandler({ $, log, request, addRequests }) {
       pagesScanned++;
 
-      if (EASYCHAIR_CONFIG.pageLimit !== null) {
+      if (EASYCHAIR_CONFIG.pageLimit === null) {
+        console.log(`[EasyChair] Listing pages processed: ${pagesScanned}`);
+      } else {
         console.log(
           `[EasyChair] Listing pages processed: ${pagesScanned}/${EASYCHAIR_CONFIG.pageLimit}`,
         );
-      } else {
-        console.log(`[EasyChair] Listing pages processed: ${pagesScanned}`);
       }
 
       const found = parseEasyChairConferences($);
@@ -198,9 +197,9 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
   await crawler.run([url]);
 
   const limitedPostings =
-    EASYCHAIR_CONFIG.pageLimit !== null
-      ? postings.slice(0, EASYCHAIR_CONFIG.pageLimit)
-      : postings;
+    EASYCHAIR_CONFIG.pageLimit === null
+      ? postings
+      : postings.slice(0, EASYCHAIR_CONFIG.pageLimit);
 
   const postingsByDetailUrl = new Map(
     limitedPostings.map((posting) => [posting.conferenceUri, posting]),

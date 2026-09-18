@@ -3,7 +3,7 @@ name: Collect cfp.wiki
 on:
   push:
     branches:
-      - main
+      - staging
     paths-ignore:
       - conference-postings.json
   schedule:

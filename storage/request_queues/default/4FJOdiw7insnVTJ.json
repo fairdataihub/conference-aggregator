@@ -1,0 +1,9 @@
+{
+	"id": "4FJOdiw7insnVTJ",
+	"json": "{\"id\":\"4FJOdiw7insnVTJ\",\"url\":\"http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192383&copyownerid=13881\",\"loadedUrl\":\"http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192383&copyownerid=13881\",\"uniqueKey\":\"http://www.wikicfp.com/cfp/servlet/event.showcfp?copyownerid=13881&eventid=192383\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-09-18T23:00:08.017Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "http://www.wikicfp.com/cfp/servlet/event.showcfp?copyownerid=13881&eventid=192383",
+	"url": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192383&copyownerid=13881"
+}

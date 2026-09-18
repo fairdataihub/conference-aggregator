@@ -1,23 +1,14 @@
 import { CheerioCrawler, type CheerioCrawlingContext } from "crawlee";
 import type { CollectedConference } from "./schema.js";
 
+import { WIKICFP_CONFIG } from "./collection-config.js";
+
 import {
   extractConferenceAcronym,
   generateCollectionDate,
   randomDelay,
   resolveUrl,
-  wikiCFPCategoriesToNotCollect,
 } from "./utils.js";
-
-const WIKICFP_BASE_URL = "http://www.wikicfp.com";
-
-const WIKICFP_CONFIG = {
-  categoryLimit: null as number | null,
-  categoryPageLimit: null as number | null,
-  crawlMinDelayBetweenRequests: 5001,
-  crawlMaxDelayBetweenRequests: 5049,
-  categoriesToNotProcess: wikiCFPCategoriesToNotCollect,
-};
 
 type WikiCFPCategory = {
   url: string;
@@ -40,7 +31,7 @@ function parseWikiCFPCategories(
 
   $("div.contsec a").each((_, element) => {
     const href = $(element).attr("href");
-    const url = resolveUrl(href, WIKICFP_BASE_URL);
+    const url = resolveUrl(href, WIKICFP_CONFIG.baseUrl);
     const name = $(element).text().trim();
 
     if (url && name) {
@@ -53,7 +44,7 @@ function parseWikiCFPCategories(
 
 async function collectWikiCFPCategories(): Promise<WikiCFPCategory[]> {
   const categories: WikiCFPCategory[] = [];
-  const allcatUrl = `${WIKICFP_BASE_URL}/cfp/allcat`;
+  const allcatUrl = `${WIKICFP_CONFIG.baseUrl}/cfp/allcat`;
 
   const crawler = new CheerioCrawler({
     maxRequestsPerCrawl: 1,
@@ -141,7 +132,7 @@ function extractWikiCFPPaginationUrls(
       try {
         const url = new URL(absoluteUrl);
 
-        if (url.hostname !== new URL(WIKICFP_BASE_URL).hostname) {
+        if (url.hostname !== new URL(WIKICFP_CONFIG.baseUrl).hostname) {
           return;
         }
 
@@ -189,7 +180,7 @@ function extractWikiCFPConferenceUrls(
 
   $("a[href*='/cfp/servlet/event.showcfp']").each((_, element) => {
     const href = $(element).attr("href");
-    const url = resolveUrl(href, WIKICFP_BASE_URL);
+    const url = resolveUrl(href, WIKICFP_CONFIG.baseUrl);
     const rawAcronym = $(element).text().trim();
     const acronym = normalizeWikiCFPListingAcronym(rawAcronym);
 
@@ -333,7 +324,7 @@ function parseWikiCFPConferenceDetail(
     const href = $(cell).find("a").first().attr("href");
 
     if (href) {
-      conferenceUri = resolveUrl(href, WIKICFP_BASE_URL) ?? "";
+      conferenceUri = resolveUrl(href, WIKICFP_CONFIG.baseUrl) ?? "";
     }
   });
 
@@ -532,11 +523,11 @@ async function collectWikiCFPConferences(
 
 export async function collectWikiCFP(): Promise<CollectedConference[]> {
   if (
-    WIKICFP_CONFIG.categoryLimit === null &&
-    WIKICFP_CONFIG.categoryPageLimit === null
+    WIKICFP_CONFIG.categoryLimit === 0 ||
+    WIKICFP_CONFIG.categoryPageLimit === 0
   ) {
     console.log(
-      "[WikiCFP] Collection disabled: categoryLimit and categoryPageLimit are both null.",
+      "[WikiCFP] Collection disabled: categoryLimit or categoryPageLimit is 0.",
     );
     return [];
   }

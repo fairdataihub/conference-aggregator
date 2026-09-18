@@ -1,0 +1,9 @@
+{
+	"id": "PLEITEFJUOpe98p",
+	"json": "{\"id\":\"PLEITEFJUOpe98p\",\"url\":\"http://www.wikicfp.com/cfp/call?conference=computer%20science\",\"loadedUrl\":\"http://www.wikicfp.com/cfp/call?conference=computer%20science\",\"uniqueKey\":\"http://www.wikicfp.com/cfp/call?conference=computer+science\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-09-18T22:57:23.795Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "http://www.wikicfp.com/cfp/call?conference=computer+science",
+	"url": "http://www.wikicfp.com/cfp/call?conference=computer%20science"
+}

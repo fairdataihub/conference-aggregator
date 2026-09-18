@@ -8,7 +8,8 @@
     "start": "tsx scripts/conference-collecting/main.ts",
     "collect:wikicfp": "tsx scripts/conference-collecting/main.ts --site wikicfp",
     "collect:easychair": "tsx scripts/conference-collecting/main.ts --site easychair",
-    "collect:cfpwiki": "tsx scripts/conference-collecting/main.ts --site cfpwiki"
+    "collect:cfpwiki": "tsx scripts/conference-collecting/main.ts --site cfpwiki",
+    "collect:call4paper": "tsx scripts/conference-collecting/main.ts --site call4paper"
   },
   "keywords": [],
   "author": "",

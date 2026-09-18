@@ -1,13 +1,19 @@
+import { WIKIDATA_CONFIG } from "./collection-config.js";
 import type { CollectedConference } from "./schema.js";
 import { generateCollectionDate } from "./utils.js";
-const WIKIDATA_CONFIG = { limit: null as number | null };
 export async function collectWikiData(): Promise<CollectedConference[]> {
-  if (WIKIDATA_CONFIG.limit === null) {
-    console.log("[Wikidata] Collection disabled: limit is null.");
+  if (WIKIDATA_CONFIG.limit === 0) {
+    console.log("[Wikidata] Collection disabled: limit is 0.");
     return [];
   }
+
+  const limitClause =
+    WIKIDATA_CONFIG.limit === null
+      ? ""
+      : ` LIMIT ${WIKIDATA_CONFIG.limit}`;
+
   const conferences = new Map<string, CollectedConference>();
-  const query = ` SELECT DISTINCT ?conference ?conferenceLabel ?description ?website ?startDate ?endDate ?location ?locationLabel ?acronym ?series ?seriesLabel ?subject ?subjectLabel WHERE { ?conference wdt:P31 wd:Q2020153 . ?conference rdfs:label ?conferenceLabel . FILTER(LANG(?conferenceLabel) = "en") OPTIONAL { ?conference schema:description ?description . FILTER(LANG(?description) = "en") } OPTIONAL { ?conference wdt:P856 ?website . } OPTIONAL { ?conference wdt:P580 ?startDate . } OPTIONAL { ?conference wdt:P582 ?endDate . } OPTIONAL { ?conference wdt:P276 ?location . } OPTIONAL { ?conference wdt:P1813 ?acronym . } OPTIONAL { ?conference wdt:P179 ?series . } OPTIONAL { ?conference wdt:P921 ?subject . } SERVICE wikibase:label { bd:serviceParam wikibase:language "en" . } } LIMIT ${WIKIDATA_CONFIG.limit === null ? "" : WIKIDATA_CONFIG.limit} `;
+  const query = ` SELECT DISTINCT ?conference ?conferenceLabel ?description ?website ?startDate ?endDate ?location ?locationLabel ?acronym ?series ?seriesLabel ?subject ?subjectLabel WHERE { ?conference wdt:P31 wd:Q2020153 . ?conference rdfs:label ?conferenceLabel . FILTER(LANG(?conferenceLabel) = "en") OPTIONAL { ?conference schema:description ?description . FILTER(LANG(?description) = "en") } OPTIONAL { ?conference wdt:P856 ?website . } OPTIONAL { ?conference wdt:P580 ?startDate . } OPTIONAL { ?conference wdt:P582 ?endDate . } OPTIONAL { ?conference wdt:P276 ?location . } OPTIONAL { ?conference wdt:P1813 ?acronym . } OPTIONAL { ?conference wdt:P179 ?series . } OPTIONAL { ?conference wdt:P921 ?subject . } SERVICE wikibase:label { bd:serviceParam wikibase:language "en" . } }${limitClause} `;
   const url = new URL("https://query.wikidata.org/sparql");
   url.searchParams.set("query", query);
   url.searchParams.set("format", "json");

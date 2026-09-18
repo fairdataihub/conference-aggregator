@@ -1,20 +1,14 @@
 import { CheerioCrawler, type CheerioCrawlingContext } from "crawlee";
 import type { CollectedConference } from "./schema.js";
 
+import { CFP_WIKI_CONFIG } from "./collection-config.js";
+
 import {
   generateCollectionDate,
   parseDateRange,
   randomDelay,
   resolveUrl,
 } from "./utils.js";
-
-const CFP_WIKI_BASE_URL = "https://cfp.wiki";
-
-const CFP_WIKI_CONFIG = {
-  pageLimit: null as number | null,
-  crawlMinDelayBetweenRequests: 3001,
-  crawlMaxDelayBetweenRequests: 3900,
-};
 
 type CfpWikiListingMeta = {
   conferenceName: string | null;
@@ -27,12 +21,12 @@ type CfpWikiListingMeta = {
 };
 
 export async function collectCfpWiki(): Promise<CollectedConference[]> {
-  if (CFP_WIKI_CONFIG.pageLimit === null) {
-    console.log("[cfp.wiki] Collection disabled: pageLimit is null.");
+  if (CFP_WIKI_CONFIG.pageLimit === 0) {
+    console.log("[cfp.wiki] Collection disabled: pageLimit is 0.");
     return [];
   }
 
-  const listingUrl = `${CFP_WIKI_BASE_URL}/conferences`;
+  const listingUrl = `${CFP_WIKI_CONFIG.baseUrl}/conferences`;
   const detailUrls = new Set<string>();
 
   const listingCardMetaByDetailUrl = new Map<string, CfpWikiListingMeta>();
@@ -64,7 +58,7 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
             return;
           }
 
-          const abs = resolveUrl(href, CFP_WIKI_BASE_URL);
+          const abs = resolveUrl(href, CFP_WIKI_CONFIG.baseUrl);
 
           if (!abs) {
             return;
@@ -331,7 +325,7 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
       const officialSiteHref = dlFields["Official site"] ?? null;
 
       const conferenceUri = officialSiteHref
-        ? (resolveUrl(officialSiteHref, CFP_WIKI_BASE_URL) ?? officialSiteHref)
+        ? (resolveUrl(officialSiteHref, CFP_WIKI_CONFIG.baseUrl) ?? officialSiteHref)
         : null;
 
       postings.push({

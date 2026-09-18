@@ -1,0 +1,62 @@
+name: Collect Call4Paper
+
+on:
+  push:
+    branches:
+      - staging
+    paths-ignore:
+      - conference-postings.json
+  schedule:
+    - cron: "0 2 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: conference-aggregator-collectors
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  collect-call4paper:
+    runs-on: ubuntu-latest
+    name: Collect Call4Paper
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: staging
+
+      - name: Update staging
+        run: |
+          git pull --ff-only origin staging
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Collect Call4Paper
+        run: pnpm collect:call4paper
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add conference-postings.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update Call4Paper conference data"
+          git push origin staging

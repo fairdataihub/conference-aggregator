@@ -1,62 +1,62 @@
 name: Collect WikiData
 
 on:
-    push:
-        branches:
-            - main
-        paths-ignore:
-            - conference-postings.json
-    schedule:
-        - cron: "0 2 * * 1"
-    workflow_dispatch:
+  push:
+    branches:
+      - staging
+    paths-ignore:
+      - conference-postings.json
+  schedule:
+    - cron: "0 2 * * 1"
+  workflow_dispatch:
 
 concurrency:
-    group: conference-aggregator-collectors
-    cancel-in-progress: false
+  group: conference-aggregator-collectors
+  cancel-in-progress: false
 
 permissions:
-    contents: write
+  contents: write
 
 jobs:
-    collect-wikidata:
-        runs-on: ubuntu-latest
-        name: Collect WikiData
+  collect-wikidata:
+    runs-on: ubuntu-latest
+    name: Collect WikiData
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-              with:
-                  ref: main
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
 
-            - name: Update main
-              run: |
-                  git pull --ff-only origin main
+      - name: Update main
+        run: |
+          git pull --ff-only origin main
 
-            - name: Setup Node
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 22
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-            - name: Enable Corepack
-              run: corepack enable
+      - name: Enable Corepack
+        run: corepack enable
 
-            - name: Install dependencies
-              run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-            - name: Collect WikiData
-              run: pnpm collect:wikidata
+      - name: Collect WikiData
+        run: pnpm collect:wikidata
 
-            - name: Commit and push changes
-              run: |
-                  git config user.name "github-actions[bot]"
-                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-                  git add conference-postings.json
+          git add conference-postings.json
 
-                  if git diff --cached --quiet; then
-                    echo "No changes to commit."
-                    exit 0
-                  fi
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
 
-                  git commit -m "chore: update Wikidata conference data"
-                  git push origin main
+          git commit -m "chore: update Wikidata conference data"
+          git push origin main
