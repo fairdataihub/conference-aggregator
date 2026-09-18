@@ -12,14 +12,15 @@ import {
 const CALL4PAPER_BASE_URL = "https://www.call4paper.com";
 
 const CALL4PAPER_CONFIG = {
-  subjectLimit: null as number | null,
-  eventLimit: null as number | null,
+  subjectLimit: 2 as number | null,
+  eventLimit: 2 as number | null,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
 
 interface Call4PaperListing {
-  url: string;
+  detailUrl: string;
+  conferenceUri: string | null;
   conferenceName: string;
   conferenceAcronym: string | null;
   conferenceLocation: string | null;
@@ -27,6 +28,114 @@ interface Call4PaperListing {
   conferenceEndDate: string | null;
   submissionDeadline: string | null;
   conferenceCategories: string[];
+}
+
+function parseSubmissionDate(value: string | null): string | null {
+  if (!value) {
+    return null;
+  }
+
+  return value.match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? null;
+}
+
+function getConferenceYear(startDate: string | null): number | null {
+  if (!startDate) {
+    return null;
+  }
+
+  const year = Number.parseInt(startDate.slice(0, 4), 10);
+  return Number.isNaN(year) ? null : year;
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function extractLabeledValue(
+  $: CheerioCrawlingContext["$"],
+  label: string,
+): string | null {
+  const element = $("body")
+    .find("*")
+    .filter((_, candidate) => {
+      const text = $(candidate)
+        .clone()
+        .children()
+        .remove()
+        .end()
+        .text()
+        .replace(/\s+/g, " ")
+        .trim();
+
+      return text.toLowerCase() === `${label}:`.toLowerCase();
+    })
+    .first();
+
+  if (!element.length) {
+    return null;
+  }
+
+  const value = element
+    .parent()
+    .text()
+    .replace(new RegExp(`^${escapeRegExp(label)}\\s*:\\s*`, "i"), "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return value || null;
+}
+
+function extractCategories($: CheerioCrawlingContext["$"]): string[] {
+  const categories: string[] = [];
+  const bodyText = $("body").text().replace(/\s+/g, " ").trim();
+  const titleMatch = bodyText.match(
+    /Organizer:.*?Location:.*?(.*?)(?:\s{2,}|$)/i,
+  );
+
+  if (titleMatch?.[1]) {
+    categories.push(
+      ...titleMatch[1]
+        .split(/\s{2,}/)
+        .map((category) => category.trim())
+        .filter(Boolean),
+    );
+  }
+
+  return [...new Set(categories)];
+}
+
+function extractEventDetails($: CheerioCrawlingContext["$"]): {
+  officialUrl: string | null;
+  acronym: string | null;
+  location: string | null;
+  startDate: string | null;
+  endDate: string | null;
+  submissionDeadline: string | null;
+  categories: string[];
+} {
+  const officialUrl = extractLabeledValue($, "URL");
+  const eventDate = extractLabeledValue($, "Event Date");
+  const submissionDate =
+    extractLabeledValue($, "Submission Date") ||
+    extractLabeledValue($, "Submission Due Date");
+  const location = extractLabeledValue($, "Location");
+  const { startDate, endDate } = parseDateRange(eventDate ?? "");
+  const title = $("h1").first().text().replace(/\s+/g, " ").trim();
+
+  const acronymMatch = title.match(/\(([A-Z][A-Z0-9&-]{1,15})\)/g);
+  const acronym = acronymMatch?.length
+    ? acronymMatch[acronymMatch.length - 1].slice(1, -1)
+    : null;
+
+  return {
+    officialUrl,
+    acronym,
+    location,
+    startDate: startDate ?? null,
+    endDate: endDate ?? null,
+    submissionDeadline: parseSubmissionDate(submissionDate),
+    categories: extractCategories($),
+  };
 }
 
 export async function collectCall4Paper(): Promise<CollectedConference[]> {
@@ -49,7 +158,6 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
 
     requestHandler: async ({ request, $ }: CheerioCrawlingContext) => {
       const rows = $("table tr").toArray();
-      console.log("rows", rows);
 
       console.log(
         `[Call4Paper] Listing page: ${request.url} (${rows.length} rows)`,
@@ -100,7 +208,9 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
           return;
         }
 
-        const conferenceName = link.text().replace(/\s+/g, " ").trim();
+        const conferenceName =
+          link.find("span").first().text().replace(/\s+/g, " ").trim() ||
+          link.text().replace(/\s+/g, " ").trim();
 
         const href = link.attr("href");
 
@@ -108,9 +218,9 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
           return;
         }
 
-        const conferenceUri = resolveUrl(request.url, href);
+        const detailUrl = resolveUrl(href, request.url);
 
-        if (!conferenceUri) {
+        if (!detailUrl) {
           console.warn(
             `[Call4Paper] Could not resolve conference URL: ${href}`,
           );
@@ -131,10 +241,19 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
             ? cells.eq(5).text().replace(/\s+/g, " ").trim()
             : null;
 
-        const { startDate, endDate } = parseDateRange(dateText);
+        const numericDateRange = dateText.match(
+          /(\d{4}-\d{2}-\d{2})\s*~\s*(\d{4}-\d{2}-\d{2})/,
+        );
+        const { startDate, endDate } = numericDateRange
+          ? {
+              startDate: numericDateRange[1],
+              endDate: numericDateRange[2],
+            }
+          : parseDateRange(dateText);
 
-        listings.set(conferenceUri, {
-          url: conferenceUri,
+        listings.set(detailUrl, {
+          detailUrl,
+          conferenceUri: null,
           conferenceName,
           conferenceAcronym,
           conferenceLocation,
@@ -193,10 +312,10 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
       }
 
       if (details.officialUrl) {
-        const officialUrl = resolveUrl(request.url, details.officialUrl);
+        const officialUrl = resolveUrl(details.officialUrl, request.url);
 
         if (officialUrl) {
-          listing.url = officialUrl;
+          listing.conferenceUri = officialUrl;
         }
       }
 
@@ -242,89 +361,58 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
       ? subjectUrls
       : subjectUrls.slice(0, CALL4PAPER_CONFIG.subjectLimit);
 
-  console.log(`[Call4Paper] Subject URLs: ${subjectUrls}`);
-
   console.log(
     `[Call4Paper] Subject URLs to process: ${limitedSubjectUrls.length}`,
   );
 
-  /*
-   * STOP HERE FOR NOW.
-   *
-   * Everything below is intentionally commented out.
-   *
-   * We only want to:
-   *
-   * 1. Visit the Call4Paper homepage.
-   * 2. Collect event subject URLs.
-   * 3. Log them.
-   *
-   * We do NOT want to crawl listing pages or detail pages yet.
-   */
+  if (limitedSubjectUrls.length === 0) {
+    console.log("[Call4Paper] No subject URLs found.");
 
-  // if (limitedSubjectUrls.length === 0) {
-  //   console.log("[Call4Paper] No subject URLs found.");
-  //
-  //   return [];
-  // }
+    return [];
+  }
 
-  // ===========================================================================
-  // CRAWL SUBJECT LISTING PAGES
-  // ===========================================================================
+  await listingCrawler.run(limitedSubjectUrls);
 
-  // await listingCrawler.run(limitedSubjectUrls);
+  console.log("listings after listing crawler", listings);
 
-  // let detailUrls = [...listings.keys()];
+  let detailUrls = [...listings.keys()];
 
-  // console.log(`[Call4Paper] Detail URLs collected: ${detailUrls.length}`);
+  console.log(`[Call4Paper] Detail URLs collected: ${detailUrls.length}`);
 
-  // if (CALL4PAPER_CONFIG.eventLimit !== null) {
-  //   detailUrls = detailUrls.slice(0, CALL4PAPER_CONFIG.eventLimit);
-  // }
+  if (CALL4PAPER_CONFIG.eventLimit !== null) {
+    detailUrls = detailUrls.slice(0, CALL4PAPER_CONFIG.eventLimit);
+  }
 
-  // console.log(`[Call4Paper] Detail URLs to process: ${detailUrls.length}`);
+  console.log(`[Call4Paper] Detail URLs to process: ${detailUrls.length}`);
 
-  // if (detailUrls.length === 0) {
-  //   console.log("[Call4Paper] No detail URLs found.");
-  //
-  //   return [];
-  // }
+  if (detailUrls.length === 0) {
+    console.log("[Call4Paper] No detail URLs found.");
 
-  // ===========================================================================
-  // CRAWL DETAIL PAGES
-  // ===========================================================================
+    return [];
+  }
 
-  // await detailCrawler.run(detailUrls);
+  await detailCrawler.run(detailUrls);
 
-  // ===========================================================================
-  // BUILD RESULT
-  // ===========================================================================
+  const postings = [...listings.values()].map((listing) => ({
+    id: listing.detailUrl,
+    collectionDate: generateCollectionDate(),
+    _source: "call4paper" as const,
+    conferenceName: listing.conferenceName,
+    conferenceYear: getConferenceYear(listing.conferenceStartDate),
+    conferenceUri: listing.conferenceUri,
+    conferenceLocation: listing.conferenceLocation,
+    conferenceStartDate: listing.conferenceStartDate,
+    conferenceEndDate: listing.conferenceEndDate,
+    conferenceAcronym: listing.conferenceAcronym,
+    conferenceSeries: null,
+    conferenceCategories: listing.conferenceCategories,
+    conferenceText: null,
+    submissionDeadline: listing.submissionDeadline,
+  }));
 
-  // const postings = [...listings.values()].map((listing) => ({
-  //   id: listing.url,
-  //   collectionDate: generateCollectionDate(),
-  //   _source: "call4paper" as const,
-  //   conferenceName: listing.conferenceName,
-  //   conferenceYear: getConferenceYear(listing.conferenceStartDate),
-  //   conferenceUri: listing.url,
-  //   conferenceLocation: listing.conferenceLocation,
-  //   conferenceStartDate: listing.conferenceStartDate,
-  //   conferenceEndDate: listing.conferenceEndDate,
-  //   conferenceAcronym: listing.conferenceAcronym,
-  //   conferenceSeries: null,
-  //   conferenceCategories: listing.conferenceCategories,
-  //   conferenceText: null,
-  //   submissionDeadline: listing.submissionDeadline,
-  // }));
+  console.log(`[Call4Paper] Collection complete: ${postings.length} postings.`);
 
-  // console.log(
-  //   `[Call4Paper] Collection complete: ${postings.length} postings.`,
-  // );
-
-  // return postings;
-
-  // Temporary return so the existing collector interface remains valid.
-  return [];
+  return postings;
 }
 
 // ============================================================================
@@ -368,6 +456,11 @@ async function collectSubjectUrls(): Promise<string[]> {
         }
 
         if (parsedUrl.searchParams.get("type") !== "event") {
+          console.log(
+            "event type is not event",
+            parsedUrl.searchParams.get("type"),
+            parsedUrl.href,
+          );
           return;
         }
 
