@@ -163,5 +163,11 @@ export const WIKICFP_CONFIG = {
 };
 
 export const WIKIDATA_CONFIG = {
+  /** Max SPARQL rows (`null` = all pages). `0` disables collection. */
   limit: null as number | null,
+  pageSize: 5000,
+  maxRequestAttempts: 5,
+  retryBaseDelayMs: 2000,
+  minDelayBetweenPagesMs: 1000,
+  maxDelayBetweenPagesMs: 2500,
 };
