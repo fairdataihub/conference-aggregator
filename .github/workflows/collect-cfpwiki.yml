@@ -26,11 +26,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: staging
 
-      - name: Update main
+      - name: Update staging
         run: |
-          git pull --ff-only origin main
+          git pull --ff-only origin staging
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -59,4 +59,4 @@ jobs:
           fi
 
           git commit -m "chore: update cfp.wiki conference data"
-          git push origin main
+          git push origin staging
