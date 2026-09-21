@@ -133,15 +133,15 @@ export function getDedupSourceRank(
 
 export const CALL4PAPER_CONFIG = {
   baseUrl: "https://www.call4paper.com",
-  subjectLimit: null as number | null,
-  eventLimit: null as number | null,
+  subjectLimit: 1 as number | null,
+  eventLimit: 1 as number | null,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
 
 export const CFP_WIKI_CONFIG = {
   baseUrl: "https://cfp.wiki",
-  pageLimit: null as number | null,
+  pageLimit: 20 as number | null,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
@@ -155,8 +155,8 @@ export const EASYCHAIR_CONFIG = {
 
 export const WIKICFP_CONFIG = {
   baseUrl: "http://www.wikicfp.com",
-  categoryLimit: null as number | null,
-  categoryPageLimit: null as number | null,
+  categoryLimit: 1 as number | null,
+  categoryPageLimit: 5 as number | null,
   crawlMinDelayBetweenRequests: 5001,
   crawlMaxDelayBetweenRequests: 5049,
   categoriesToNotProcess: wikiCFPCategoriesToNotCollect,
