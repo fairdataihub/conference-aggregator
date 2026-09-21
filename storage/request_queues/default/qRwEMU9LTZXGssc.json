@@ -1,9 +1,0 @@
-{
-	"id": "qRwEMU9LTZXGssc",
-	"json": "{\"id\":\"qRwEMU9LTZXGssc\",\"url\":\"http://www.wikicfp.com/cfp/call?conference=materials%20science\",\"loadedUrl\":\"http://www.wikicfp.com/cfp/call?conference=materials%20science\",\"uniqueKey\":\"http://www.wikicfp.com/cfp/call?conference=materials+science\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-09-18T22:59:20.440Z\"}",
-	"method": "GET",
-	"orderNo": null,
-	"retryCount": 0,
-	"uniqueKey": "http://www.wikicfp.com/cfp/call?conference=materials+science",
-	"url": "http://www.wikicfp.com/cfp/call?conference=materials%20science"
-}

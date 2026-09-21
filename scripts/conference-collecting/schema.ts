@@ -15,7 +15,8 @@ export interface CollectedConference {
   conferenceEndDate?: string | null;
   conferenceAcronym?: string | null;
   conferenceSeries?: string | null;
-  _source?: string;
+  /** Data sources that contributed to this record (more than one after dedup). */
+  _source?: string[];
   collectionDate?: string | null;
   conferenceCategories?: string[] | null;
   conferenceText?: string | null;

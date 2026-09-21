@@ -4,12 +4,13 @@ import { fileURLToPath } from "node:url";
 import type { CollectedConference, ConferenceDatabase } from "./schema.js";
 
 import { collectCfpWiki } from "./cfpwiki.js";
-import { collectEasyChair } from "./easychair.js";
 import { collectWikiCFP } from "./wikicfp.js";
 import { collectWikiData } from "./wikidata.js";
 import { collectCall4Paper } from "./call4paper.js";
 
+import { deduplicatePostings } from "./deduplicate.js";
 import { loadConferenceDatabase, saveConferenceDatabase } from "./storage.js";
+import { collectUniqueSources, postingHasSource } from "./utils.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -45,16 +46,12 @@ function parseSiteArg(): Site {
   const rawSite = eqValue ?? nextValue ?? "";
   const normalized = rawSite.trim().toLowerCase();
 
-  if (normalized === "all") {
+  if (normalized === "all" || !normalized) {
     return "all";
   }
 
-  if (
-    normalized === "wikicfp" ||
-    normalized === "easychair" ||
-    normalized === "cfpwiki"
-  ) {
-    return normalized;
+  if (normalized in COLLECTORS) {
+    return normalized as keyof typeof COLLECTORS;
   }
 
   return "all";
@@ -78,21 +75,21 @@ async function main(): Promise<void> {
       }
     }
 
-    collected.sort((a, b) => a.id.localeCompare(b.id));
+    const beforeDedup = collected.length;
+    const deduped = deduplicatePostings(collected);
+    deduped.sort((a, b) => a.id.localeCompare(b.id));
+
+    console.log(
+      `[Main] Dedup by conference name: ${beforeDedup} → ${deduped.length} postings`,
+    );
 
     const db: ConferenceDatabase = {
       metadata: {
         lastUpdated: new Date().toISOString(),
-        totalPostings: collected.length,
-        sources: [
-          ...new Set(
-            collected
-              .map((posting) => posting._source)
-              .filter((source): source is string => Boolean(source)),
-          ),
-        ],
+        totalPostings: deduped.length,
+        sources: collectUniqueSources(deduped),
       },
-      postings: collected,
+      postings: deduped,
     };
 
     await saveConferenceDatabase(DATABASE_PATH, db);
@@ -103,11 +100,11 @@ async function main(): Promise<void> {
     const updated = await collect();
 
     for (const posting of updated) {
-      posting._source = site;
+      posting._source = [site];
     }
 
     const existingOtherSources = existingDb.postings.filter(
-      (posting) => posting._source !== site,
+      (posting) => !postingHasSource(posting, site),
     );
 
     const byId = new Map<string, CollectedConference>(
@@ -119,12 +116,20 @@ async function main(): Promise<void> {
       byId.set(posting.id, posting);
     }
 
-    const mergedPostings = [...byId.values()];
-
+    const mergedPostings = deduplicatePostings([...byId.values()]);
     mergedPostings.sort((a, b) => a.id.localeCompare(b.id));
 
+    console.log(
+      `[Main] Dedup by conference name: ${byId.size} → ${mergedPostings.length} postings`,
+    );
+
     const db: ConferenceDatabase = {
-      metadata: existingDb.metadata,
+      metadata: {
+        ...existingDb.metadata,
+        lastUpdated: new Date().toISOString(),
+        totalPostings: mergedPostings.length,
+        sources: collectUniqueSources(mergedPostings),
+      },
       postings: mergedPostings,
     };
 
@@ -140,6 +145,31 @@ async function main(): Promise<void> {
   );
   console.log(`[Main] Duration: ${elapsedSec}s`);
   console.log(`[Main] Database: ${DATABASE_PATH}`);
+
+  for (const field of ["conferenceName", "conferenceAcronym"] as const) {
+    const counts = new Map<string, number>();
+
+    for (const posting of finalDb.postings) {
+      const value = posting[field];
+      if (typeof value !== "string" || !value.trim()) {
+        continue;
+      }
+
+      counts.set(value, (counts.get(value) ?? 0) + 1);
+    }
+
+    let duplicateKeys = 0;
+    for (const [value, count] of counts) {
+      if (count > 1) {
+        duplicateKeys++;
+        console.log(`[Main] Duplicate ${field}: ${count}x ${value}`);
+      }
+    }
+
+    if (duplicateKeys === 0) {
+      console.log(`[Main] Duplicate ${field}: none`);
+    }
+  }
 }
 
 main().catch((error) => {

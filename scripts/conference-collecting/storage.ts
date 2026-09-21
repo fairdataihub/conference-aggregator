@@ -2,6 +2,7 @@ import * as fs from "node:fs/promises";
 import * as path from "node:path";
 
 import type { ConferenceDatabase } from "./schema.js";
+import { collectUniqueSources } from "./utils.js";
 
 /**
  * Creates an empty database with default metadata.
@@ -46,13 +47,7 @@ export async function saveConferenceDatabase(
   data.metadata = {
     lastUpdated: new Date().toISOString(),
     totalPostings: data.postings.length,
-    sources: [
-      ...new Set(
-        data.postings
-          .map((posting) => posting._source)
-          .filter((source): source is string => Boolean(source)),
-      ),
-    ],
+    sources: collectUniqueSources(data.postings),
   };
 
   await fs.mkdir(path.dirname(filePath), {

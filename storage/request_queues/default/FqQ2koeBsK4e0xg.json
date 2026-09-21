@@ -1,9 +1,0 @@
-{
-	"id": "FqQ2koeBsK4e0xg",
-	"json": "{\"id\":\"FqQ2koeBsK4e0xg\",\"url\":\"http://www.wikicfp.com/cfp/allcat\",\"loadedUrl\":\"http://www.wikicfp.com/cfp/allcat\",\"uniqueKey\":\"http://www.wikicfp.com/cfp/allcat\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-09-18T22:55:21.297Z\"}",
-	"method": "GET",
-	"orderNo": null,
-	"retryCount": 0,
-	"uniqueKey": "http://www.wikicfp.com/cfp/allcat",
-	"url": "http://www.wikicfp.com/cfp/allcat"
-}

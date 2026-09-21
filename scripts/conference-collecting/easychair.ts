@@ -56,7 +56,7 @@ function parseEasyChairConferences(
     postings.push({
       id: conferenceUri,
       collectionDate,
-      _source: "easychair",
+      _source: ["easychair"],
       conferenceName: title,
       conferenceYear,
       conferenceUri,
@@ -133,6 +133,10 @@ export async function collectEasyChair(): Promise<CollectedConference[]> {
   if (EASYCHAIR_CONFIG.pageLimit === 0) {
     console.log("[EasyChair] Collection disabled: pageLimit is 0.");
     return [];
+  } else {
+    console.log(
+      `[EasyChair] Collection Starting: pageLimit=${EASYCHAIR_CONFIG.pageLimit}`,
+    );
   }
 
   const postings: CollectedConference[] = [];

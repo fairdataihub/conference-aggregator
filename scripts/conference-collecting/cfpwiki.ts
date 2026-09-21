@@ -24,6 +24,10 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
   if (CFP_WIKI_CONFIG.pageLimit === 0) {
     console.log("[cfp.wiki] Collection disabled: pageLimit is 0.");
     return [];
+  } else {
+    console.log(
+      `[cfp.wiki] Collection Starting: pageLimit=${CFP_WIKI_CONFIG.pageLimit}`,
+    );
   }
 
   const listingUrl = `${CFP_WIKI_CONFIG.baseUrl}/conferences`;
@@ -325,13 +329,14 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
       const officialSiteHref = dlFields["Official site"] ?? null;
 
       const conferenceUri = officialSiteHref
-        ? (resolveUrl(officialSiteHref, CFP_WIKI_CONFIG.baseUrl) ?? officialSiteHref)
+        ? (resolveUrl(officialSiteHref, CFP_WIKI_CONFIG.baseUrl) ??
+          officialSiteHref)
         : null;
 
       postings.push({
         id: request.url,
         collectionDate: generateCollectionDate(),
-        _source: "cfpwiki",
+        _source: ["cfpwiki"],
         conferenceName: listingMeta.conferenceName,
         conferenceYear: listingMeta.conferenceYear,
         conferenceUri,

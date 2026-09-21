@@ -85,56 +85,11 @@ function extractLabeledValue(
   return value || null;
 }
 
-function findSectionHeading($: CheerioCrawlingContext["$"], label: string) {
-  const normalizedLabel = label.toLowerCase();
-
-  return $("h1, h2, h3, h4, h5, h6, strong, b")
-    .filter((_, element) => {
-      const text = $(element).text().replace(/\s+/g, " ").trim().toLowerCase();
-
-      return text === normalizedLabel || text.startsWith(`${normalizedLabel} `);
-    })
-    .first();
-}
-
-function extractSectionText(
+function extractDescriptionConferenceText(
   $: CheerioCrawlingContext["$"],
-  label: string,
 ): string | null {
-  const heading = findSectionHeading($, label);
-  if (!heading.length) {
-    return null;
-  }
-
-  const section = heading
-    .nextUntil("h1, h2, h3, h4, h5, h6")
-    .addBack()
-    .text()
-    .replace(/\s+/g, " ")
-    .trim();
-
-  return (
-    section
-      .replace(new RegExp(`^${escapeRegExp(label)}\\s*`, "i"), "")
-      .trim() || null
-  );
-}
-
-function extractTopicsOfInterest($: CheerioCrawlingContext["$"]): string[] {
-  const heading = findSectionHeading($, "topics of interest");
-  if (!heading.length) {
-    return [];
-  }
-
-  const list =
-    heading.nextAll("ul, ol").first().length > 0
-      ? heading.nextAll("ul, ol").first()
-      : heading.parent().find("ul, ol").first();
-  return list
-    .find("li")
-    .map((_, item) => $(item).text().replace(/\s+/g, " ").trim())
-    .get()
-    .filter(Boolean);
+  const text = $("div.description").text().replace(/\s+/g, " ").trim();
+  return text || null;
 }
 
 function extractEventDescFields(
@@ -171,13 +126,16 @@ function extractEventDescFields(
 
 function extractEventDetails($: CheerioCrawlingContext["$"]) {
   const eventDesc = extractEventDescFields($);
-
-  const officialUrl = eventDesc.URL ?? extractLabeledValue($, "URL");
+  const urlFromEventDesc =
+    eventDesc.URL ?? eventDesc.Url ?? eventDesc.url ?? null;
+  const urlFromLabel = extractLabeledValue($, "URL");
+  const officialUrl = urlFromEventDesc ?? urlFromLabel;
+  const conferenceText = extractDescriptionConferenceText($);
 
   return {
     officialUrl,
-    categories: extractTopicsOfInterest($),
-    conferenceText: extractSectionText($, "scope"),
+    categories: [],
+    conferenceText,
   };
 }
 
@@ -190,6 +148,10 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
       "[Call4Paper] Collection disabled: subjectLimit or eventLimit is 0.",
     );
     return [];
+  } else {
+    console.log(
+      `[Call4Paper] Collection Starting: subjectLimit=${CALL4PAPER_CONFIG.subjectLimit}, eventLimit=${CALL4PAPER_CONFIG.eventLimit}`,
+    );
   }
 
   const listings = new Map<string, CollectedConference>();
@@ -276,7 +238,7 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
             listings.set(id, {
               id,
               collectionDate: null,
-              _source: "call4paper",
+              _source: ["call4paper"],
               conferenceName,
               conferenceYear: getConferenceYear(startDate ?? null),
               conferenceLocation,
@@ -313,6 +275,10 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
 
   await listingCrawler.run(limitedSubjectUrls);
 
+  console.log(
+    `[Call4Paper] Listing crawl: ${listings.size} events from ${limitedSubjectUrls.length} subjects`,
+  );
+
   let listingIds = [...listings.keys()];
 
   if (CALL4PAPER_CONFIG.eventLimit !== null) {
@@ -338,7 +304,8 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
     ],
 
     requestHandler: async ({ request, $ }: CheerioCrawlingContext) => {
-      const key = detailMapKey(request.loadedUrl ?? request.url);
+      const loadedUrl = request.loadedUrl ?? request.url;
+      const key = detailMapKey(loadedUrl);
       details.set(key, extractEventDetails($));
     },
 
@@ -351,7 +318,7 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
 
   await detailCrawler.run(listingIds.map((id) => listings.get(id)?.id ?? id));
 
-  return listingIds
+  const postings = listingIds
     .map((listingId) => {
       const listing = listings.get(listingId);
 
@@ -371,17 +338,23 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
         };
       }
 
+      const conferenceUri = detail.officialUrl
+        ? (resolveUrl(detail.officialUrl, listing.id) ?? null)
+        : null;
+
       return {
         ...listing,
         collectionDate: generateCollectionDate(),
-        conferenceUri: detail.officialUrl
-          ? (resolveUrl(detail.officialUrl, listing.id) ?? null)
-          : null,
+        conferenceUri,
         conferenceCategories: detail.categories,
         conferenceText: detail.conferenceText,
       };
     })
-    .filter((posting): posting is CollectedConference => posting !== null);
+    .filter(Boolean) as CollectedConference[];
+
+  console.log(`[Call4Paper] Collected ${postings.length} conferences`);
+
+  return postings;
 }
 
 async function collectSubjectUrls(): Promise<string[]> {
@@ -416,8 +389,8 @@ async function collectSubjectUrls(): Promise<string[]> {
           ) {
             subjectUrls.add(url.href);
           }
-        } catch (error) {
-          console.warn(`[Call4Paper] Invalid subject href: ${href}`, error);
+        } catch {
+          // skip malformed subject links
         }
       });
     },

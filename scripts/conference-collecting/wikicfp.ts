@@ -363,7 +363,7 @@ function parseWikiCFPConferenceDetail(
   return {
     id: conferenceDetailUrl,
     collectionDate,
-    _source: "wikicfp",
+    _source: ["wikicfp"],
     conferenceName,
     conferenceYear,
     conferenceUri,
@@ -530,6 +530,10 @@ export async function collectWikiCFP(): Promise<CollectedConference[]> {
       "[WikiCFP] Collection disabled: categoryLimit or categoryPageLimit is 0.",
     );
     return [];
+  } else {
+    console.log(
+      `[WikiCFP] Collection Starting: categoryLimit=${WIKICFP_CONFIG.categoryLimit}, categoryPageLimit=${WIKICFP_CONFIG.categoryPageLimit}`,
+    );
   }
 
   const categories = await collectWikiCFPCategories();

@@ -1,5 +1,20 @@
 import type { CollectedConference } from "./schema.js";
 
+export function postingHasSource(
+  posting: Pick<CollectedConference, "_source">,
+  sourceId: string,
+): boolean {
+  return posting._source?.includes(sourceId) ?? false;
+}
+
+export function collectUniqueSources(
+  postings: Pick<CollectedConference, "_source">[],
+): string[] {
+  return [
+    ...new Set(postings.flatMap((posting) => posting._source ?? [])),
+  ];
+}
+
 /**
  * Introduces a random delay between min and max milliseconds.
  * Used for rate-limiting requests to external servers.
