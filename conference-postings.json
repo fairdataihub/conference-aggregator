@@ -1,9 +1,10 @@
 {
   "metadata": {
-    "lastUpdated": "2026-09-22T23:01:32.870Z",
-    "totalPostings": 10423,
+    "lastUpdated": "2026-09-22T23:02:19.348Z",
+    "totalPostings": 10425,
     "sources": [
-      "wikidata.org"
+      "wikidata.org",
+      "call4paper.com"
     ]
   },
   "postings": [
@@ -192701,6 +192702,42 @@
       "conferenceCategories": [],
       "conferenceText": null,
       "submissionDeadline": null
+    },
+    {
+      "id": "https://www.call4paper.com/cfp/detail/event/JOUWGFMN67937417",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "call4paper.com"
+      ],
+      "conferenceName": "2026 The 19th International Conference on Computer Science and Information Technology (ICCSIT 2026)",
+      "conferenceYear": 2026,
+      "conferenceLocation": "France, Paris",
+      "conferenceStartDate": "2026-09-25",
+      "conferenceEndDate": "2026-09-27",
+      "conferenceAcronym": "ICCSIT 2026",
+      "conferenceSeries": null,
+      "submissionDeadline": "2026-08-10",
+      "conferenceUri": "http://www.iccsit.org/",
+      "conferenceCategories": [],
+      "conferenceText": null
+    },
+    {
+      "id": "https://www.call4paper.com/cfp/detail/event/PHNDXLXB70258989",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "call4paper.com"
+      ],
+      "conferenceName": "HoneyCON26",
+      "conferenceYear": 2026,
+      "conferenceLocation": "Mexico, Guadalajara",
+      "conferenceStartDate": "2026-09-24",
+      "conferenceEndDate": "2026-09-26",
+      "conferenceAcronym": "HoneyCON26",
+      "conferenceSeries": null,
+      "submissionDeadline": "2026-08-29",
+      "conferenceUri": "http://honeysec.info/",
+      "conferenceCategories": [],
+      "conferenceText": null
     }
   ]
 }

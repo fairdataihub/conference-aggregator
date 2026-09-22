@@ -1,9 +1,10 @@
 {
   "metadata": {
-    "lastUpdated": "2026-09-22T23:01:32.836Z",
-    "totalPostings": 10423,
+    "lastUpdated": "2026-09-22T23:02:19.309Z",
+    "totalPostings": 10425,
     "sources": [
-      "wikidata.org"
+      "wikidata.org",
+      "call4paper.com"
     ]
   },
   "postings": [
@@ -192701,6 +192702,42 @@
       "conferenceCategories": [],
       "conferenceText": null,
       "submissionDeadline": null
+    },
+    {
+      "id": "https://www.call4paper.com/cfp/detail/event/JOUWGFMN67937417",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "call4paper.com"
+      ],
+      "conferenceName": "2026 The 19th International Conference on Computer Science and Information Technology (ICCSIT 2026)",
+      "conferenceYear": 2026,
+      "conferenceLocation": "France, Paris",
+      "conferenceStartDate": "2026-09-25",
+      "conferenceEndDate": "2026-09-27",
+      "conferenceAcronym": "ICCSIT 2026",
+      "conferenceSeries": null,
+      "submissionDeadline": "2026-08-10",
+      "conferenceUri": "http://www.iccsit.org/",
+      "conferenceCategories": [],
+      "conferenceText": "Full Name: The 19th International Conference on Computer Science and Information Technology Abbreviation: ICCSIT 2026Website: http://www.iccsit.org/Conference Date: September 25-27, 2026Conference Venue: Paris, FranceThe 19th International Conference on Computer Science and Information Technology (ICCSIT 2026) will be held in Paris, France during September 25-27, 2026. ICCSIT 2026 is a forum for presenting excellent results and new challenges facing the field of computer science and information technology. It brings together experts from industry, governments and academia, experienced in engineering, design and research. ICCSIT 2026 will be held together with its workshop: ICOAI 2026.==Conference Committees==Advisory ChairSchahram Dustdar (IEEE Fellow/AAIA Fellow), TU Wien, AustriaConference ChairsSmain Femmam, University of Haute-Alsace, FranceMalleswara Talla, McGill University, CanadaProgram ChairsRichi Nayak, Queensland Unversity of Technology, AustraliaFarid Nait-Abdesselam, Farid Nait-Abdesselam, Université Paris Cité, FranceYuan-Kai Wang, Fu Jen Catholic University, Taiwan, ChinaNaoshi Sakamoto, Tokyo Denki University, JapanSteering CommitteeRoberto Montemanni, University of Modena and Reggio Emilia, ItalyRogério Rossi, Federal University of ABC, São Paulo, BrazilJemal H. Abawajy, Deakin University, AustraliaPublicity ChairsSeppo J. Sirkemaa, University of Turku, FinlandRaja Kumar Murugesan, Taylor’s University, MalaysiaArea ChairsUshio Inoue, Tokyo Denki University, JapanGuanghui Wang, Toronto Metropolitan University, CanadaAhmed Sheikh, Ontario Tech University, CanadaMario Konecki, University of Zagreb, CroatiaLocal Organizing ChairsToufik Bakir, Université Bourgogne Europe, FranceSelma Boumerdassi, CNAM, FranceThomas Lebris ENSIATE Paris, FranceMadjid Boukra ENSIATE Paris, FranceRafael Madon ENSIATE Paris, FranceElie Terzibachian, ENSIATE Paris, FranceChiraz Trabelsi, ESIEA Paris / Ivry-sur-Seine, FranceMore Details please click: https://iccsit.org/committee.html==Keynote Speakers==Prof. Schahram Dustdar (IEEE Fellow/AAIA Fellow), TU Wien, AustriaProf. Ling Liu (IEEE Fellow), Georgia Institute of Technology, USA==Invited Speakers==Prof. Guillermo De Ita Luna, Autonomous University of Puebla, MexicoProf. Antonios Saravanos, New York University (NYU), USADr. Douglas Schmidt, William & Mary, USA==Publication==--Conference Proceedings--Submitted papers will be peer reviewed by conference committees, and accepted papers after proper registration and presentation will be published in the International Conference Proceedings Series by ACM (ISBN: 979-8-4007-2514-2), which will be submitted for indexing by Ei Compendex, Scopus, etc.--Journal Recommendation--Selected papers have the opportunity to be recommended for publication in the following journals:Journal of Advances in Information Technology (JAIT)ISSN: 1798-2340 (Online) | DOI: 10.12720/jaitAbstracting/Indexing: ESCI (Web of Science), Scopus (Since 2020), EBSCO, Google Scholar, CNKI, etc.Journal of Image and Graphics (JOIG)ISSN: 2301-3699 (Print); 2972-3973 (Online) | DOI: 10.18178/joigAbstracting/ Indexing: Scopus (Since 2021), CNKI, Ulrich's Periodicals Directory, Google Scholar, Crossref, etc.International Journal of Computer Theory and Engineering (IJCTE)ISSN: 1793-8201 (Print), 2972-4511 (Online) | DOI: 10.7763/IJCTEAbstracting/Indexing: Scopus (Since 2022), INSPEC (IET), CNKI, Google Scholar, EBSCO, etc.==Topics== (Topics of interest for submission include, but are not limited to:) ▷Computer Science▪ Algorithm design▪ Algorithms▪ Artificial intelligence▪ Automata theory▪ Automated reasoning▪ Coding theory▪ Compiler theory▪ Computability theory▪ Computational biology▪ Computational chemistry▪ Computational complexity theory▪ Computational neuroscience ▷Information Technology▪ Accounting and financial information systems▪ Artificial & computational intelligence▪ Bioinformatics and computational biology▪ Business intelligence and management▪ Business strategy and information technology▪ CAD/CAM/CIM▪ Communications and networking▪ Computational biology & bio-informatics▪ Computational science and technology▪ Computer simulation▪ Control theory▪ Data mining, data warehousing and knowledge discoveryMore Details please click: http://www.iccsit.org/cfp.html==Submission Instructions== ▪Language: All submissions should be written in English. ▪Submission Types: Abstract submission for presentation only without publication; Full paper submission for both presentation and publication. ▪Paper Length: The submitted papers for conference proceedings should be no less than 8 pages. ▪Submission Method: ▪By online: http://confsys.iconf.org/submission/iccsit2026 ▪By email: send your paper to iccsit_Conf@outlook.com==Conference Program== September 25, 2026 | 10:00 - 17:00 | Registration & Materials Collection September 26, 2026 | 09:30 - 09:35 | Opening Remark September 26, 2026 | 09:35 - 12:30 | Keynote & Invited Speeches September 26, 2026 | 12:30 - 14:00 | Lunch September 26, 2026 | 14:00 - 19:45 | Oral Presentation Sessions September 27, 2026 | 10:00 - 18:00 | City TourWorkshops of ICCSIT 2026ICOAI 2026: www.icoai.org==Contact Us== Conference secretary: Ms. Luna Wu Tel: 001-518-478-2659 Email: iccsit_Conf@outlook.com Office Hour: 9:30--18:00, Monday to Friday (GMT+8 Time Zone)"
+    },
+    {
+      "id": "https://www.call4paper.com/cfp/detail/event/PHNDXLXB70258989",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "call4paper.com"
+      ],
+      "conferenceName": "HoneyCON26",
+      "conferenceYear": 2026,
+      "conferenceLocation": "Mexico, Guadalajara",
+      "conferenceStartDate": "2026-09-24",
+      "conferenceEndDate": "2026-09-26",
+      "conferenceAcronym": "HoneyCON26",
+      "conferenceSeries": null,
+      "submissionDeadline": "2026-08-29",
+      "conferenceUri": "http://honeysec.info/",
+      "conferenceCategories": [],
+      "conferenceText": "El 24, 25 y 26 de septiembre se celebrará el 11º Congreso de Seguridad Informática de Guadalajara (España), HoneyCON, organizado por la asociación alcarreña HoneySEC. Durante estas jornadas, numerosos ponentes abordarán diferentes aspectos relacionados con la seguridad informática a través de ponencias y talleres. Este año celebrando nuestro décimo aniversario queremos organizar un evento mayor, con mas actividades y charlas. ¡ANIMATE A PARTICIPAR!El evento se desarrollará de manera presencial, con charlas y talleres en Castellano en el Centro Asociado de la UNED de Guadalajara, España.Mediante este formulario podrá enviar su solicitud para realizar una ponencia de 50 minutos o un taller de 2-3 horas durante las jornadas de seguridad HoneyCON26.Enviar una ponencia o un taller sobre seguridad informática de la cual el solicitante sea autor o co-autor. Duración máxima de la ponencia 50 minutos Duración máximo del taller 2-3 horas en español.Se valorara positivamente charlas o talleres que se impartan por primera vez y no hayan sido utilizadas en otros congresos."
     }
   ]
 }
