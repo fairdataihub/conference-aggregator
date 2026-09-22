@@ -24,7 +24,7 @@ The collector currently implements scrapers for three sources:
 - `easychair` (EasyChair CFP search)
 - `cfpwiki` (cfp.wiki)
 
-Extracted fields include conference name, year, dates, location, website URL, CFP text snippets, and categories metadata. 
+Extracted fields include conference name, year, dates, location, website URL, CFP text snippets, and categories metadata.
 
 ## What this repo does
 
@@ -35,7 +35,7 @@ Extracted fields include conference name, year, dates, location, website URL, CF
 
 ## How collection works
 
-Running a collection script executes `scripts/conference-collecting/main.ts` with a `--site` argument (`all`, `wikicfp`, `easychair`, `cfpwiki`).
+Running a collection script executes `scripts/conference-collecting/main.ts` with a `--site` argument (`all`, `wikicfp`, `easychair`, `cfpwiki`, `callforpaperorg` ).
 
 1. Crawl listings and collect detail-page URLs.
 2. Fetch detail pages and parse conference metadata.
