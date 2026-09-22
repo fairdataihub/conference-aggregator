@@ -1,13 +1,886 @@
 {
   "metadata": {
-    "lastUpdated": "2026-09-22T23:02:19.348Z",
-    "totalPostings": 10425,
+    "lastUpdated": "2026-09-22T23:14:29.079Z",
+    "totalPostings": 10463,
     "sources": [
+      "wiki.cfp",
       "wikidata.org",
       "call4paper.com"
     ]
   },
   "postings": [
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=185655&copyownerid=182680",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "2026 2nd International Conference on Green Materials and Manufacturing Technology-EI/Scopus",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://www.aischolar.com/conference/gmmt2026?invite=wiki",
+      "conferenceLocation": "University of Cambridge, UK",
+      "conferenceStartDate": "2026-10-09",
+      "conferenceEndDate": "2026-10-11",
+      "conferenceAcronym": "GMMT 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials",
+        "manufacturing",
+        "recycling",
+        "materials science"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=190620&copyownerid=182680",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "2026 International Conference on Artificial Intelligence, Virtual Reality and Cultural Heritage-EI/Scopus",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://ais.cn/u/Y7neQv",
+      "conferenceLocation": "Wuhan, China",
+      "conferenceStartDate": "2026-10-23",
+      "conferenceEndDate": "2026-10-25",
+      "conferenceAcronym": "AIVRCH 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "artificial intelligence",
+        "virtual reality",
+        "culture",
+        "augmented reality"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191342&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "Springer--2026 8th Asia Conference on Material and Manufacturing Technology (ACMMT 2026)",
+      "conferenceYear": 2026,
+      "conferenceUri": "http://www.acmmt.org/",
+      "conferenceLocation": "Bangkok, Thailand",
+      "conferenceStartDate": "2026-11-05",
+      "conferenceEndDate": "2026-11-08",
+      "conferenceAcronym": "Springer ACMMT 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "manufacturing",
+        "mechanical engineering",
+        "engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191344&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "Springer--2026 10th International Conference on Nanomaterials and Biomaterials (ICNB 2026)",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://www.icnb.org/",
+      "conferenceLocation": "Bangkok, Thailand",
+      "conferenceStartDate": "2026-11-05",
+      "conferenceEndDate": "2026-11-08",
+      "conferenceAcronym": "Springer ICNB 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "biomedical engineering",
+        "manufacturing",
+        "mechanical engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191506&copyownerid=46167",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "3rd International Conference on Computer Science, Engineering and AI",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://ccseai2026.org/",
+      "conferenceLocation": "Virtual Conference",
+      "conferenceStartDate": "2026-12-30",
+      "conferenceEndDate": "2026-12-31",
+      "conferenceAcronym": "CCSEAI 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "artificial intelligence",
+        "big data",
+        "artificial intelligence"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191647&copyownerid=46167",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "International Journal of Computational Science and Information Technology",
+      "conferenceYear": 2026,
+      "conferenceUri": "http://airccse.org/journal/ijcsity/index.html",
+      "conferenceLocation": "N/A",
+      "conferenceStartDate": "2026-09-22",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "IJCSITY 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "information technology",
+        "cryptography",
+        "natural langugge processing",
+        "computational linguistics"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-22"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191786&copyownerid=46167",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "4th International Conference on NLP, AI & Information Retrieval",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://nlaii2026.org/index",
+      "conferenceLocation": "Virtual Conference",
+      "conferenceStartDate": "2026-10-30",
+      "conferenceEndDate": "2026-10-31",
+      "conferenceAcronym": "NLAII  2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "artificial intelligence",
+        "bioinformatics",
+        "data mining",
+        "deep learning"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192039&copyownerid=46167",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "12th International Conference on Computer Science, Engineering and Applications",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://csea2026.org/",
+      "conferenceLocation": "Sydney, Australia",
+      "conferenceStartDate": "2026-12-19",
+      "conferenceEndDate": "2026-12-20",
+      "conferenceAcronym": "CSEA 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "big data",
+        "blockchain",
+        "data mining",
+        "deep learning"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192130&copyownerid=46167",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "12th International Conference on Computer Science and Information Technology",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://csty2026.org/",
+      "conferenceLocation": "Dubai, UAE",
+      "conferenceStartDate": "2026-12-26",
+      "conferenceEndDate": "2026-12-27",
+      "conferenceAcronym": "CSTY 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "information technology",
+        "big data",
+        "blockchain"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192324&copyownerid=46167",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "7th International Conference on Machine Learning Techniques and NLP",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://clsb2026.org/mlnlp/index",
+      "conferenceLocation": "Sydney, Australia",
+      "conferenceStartDate": "2026-10-17",
+      "conferenceEndDate": "2026-10-18",
+      "conferenceAcronym": "MLNLP 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "NLP",
+        "algorithms",
+        "deep learning",
+        "machine learning"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192383&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "2027 the 6th International Conference on Materials Engineering and Nanotechnology (ICMEN 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://www.icmen.org/",
+      "conferenceLocation": "Kyoto, Japan",
+      "conferenceStartDate": "2027-04-02",
+      "conferenceEndDate": "2027-04-05",
+      "conferenceAcronym": "ICMEN 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "nanotechnology",
+        "manufacturing",
+        "architecture"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-11-05"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192578&copyownerid=33993",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "International Journal of Web & Semantic Technology",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://airccse.org/journal/ijwest/ijwest.html",
+      "conferenceLocation": "N/A",
+      "conferenceStartDate": "2026-09-25",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "IJWesT 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "semantic web",
+        "web",
+        "software testing",
+        "ontology"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192961&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "2026 the 15th International Conference on Material Science and Engineering Technology (ICMSET 2026)",
+      "conferenceYear": 2026,
+      "conferenceUri": "http://www.icmset.com/",
+      "conferenceLocation": "Osaka, Japan",
+      "conferenceStartDate": "2026-11-25",
+      "conferenceEndDate": "2026-11-28",
+      "conferenceAcronym": "ICMSET 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "engineering",
+        "nanotechnology",
+        "manufacturing"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-10-10"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194120&copyownerid=33993",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "International Journal of Software Engineering & Applications - ERA  Indexed, H Index 35",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://www.airccse.org/journal/ijsea/ijsea.html",
+      "conferenceLocation": "N/A",
+      "conferenceStartDate": "2026-09-26",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "IJSEA 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "information technology",
+        "operating systems",
+        "software testing"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194438&copyownerid=33993",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "Health Informatics: An International Journal",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://airccse.org/journal/hiij/index.html",
+      "conferenceLocation": "N/A",
+      "conferenceStartDate": "2026-09-22",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "HIIJ 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "informatics",
+        "knowledge management",
+        "e-learning",
+        "information management"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-22"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194515&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "2027 The 10th International Conference on Materials Engineering and Applications (ICMEA 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "http://www.icmea.org/",
+      "conferenceLocation": "Tokyo, Japan",
+      "conferenceStartDate": "2027-01-12",
+      "conferenceEndDate": "2027-01-15",
+      "conferenceAcronym": "ICMEA 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "engineering",
+        "manufacturing",
+        "nanotechnology"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-10-05"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194950&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "Springer--2027 12th International Conference on Building Materials and Construction (ICBMC 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "http://www.icbmc.org/",
+      "conferenceLocation": "Hong Kong",
+      "conferenceStartDate": "2027-02-18",
+      "conferenceEndDate": "2027-02-21",
+      "conferenceAcronym": "ICBMC 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "smart cities",
+        "civil engineering",
+        "sustainable development"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195010&copyownerid=33993",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "International Journal of Security, Privacy and Trust Management",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://airccse.org/journal/ijsptm/index.html",
+      "conferenceLocation": "N/A",
+      "conferenceStartDate": "2026-09-22",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "IJSPTM 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "security",
+        "networks",
+        "privacy",
+        "grid computing"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-22"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195089&copyownerid=33993",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "4th International Conference on AI, Data Mining and Data Science",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://aidd2026.org/index",
+      "conferenceLocation": "Virtual Conference",
+      "conferenceStartDate": "2026-10-30",
+      "conferenceEndDate": "2026-10-31",
+      "conferenceAcronym": "AIDD 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "chemistry",
+        "chemical engineering",
+        "chemical",
+        "engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195279&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "2027 11th International Conference on Material Engineering and Manufacturing (ICMEM 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://www.icmem.org/",
+      "conferenceLocation": "Osaka, Japan",
+      "conferenceStartDate": "2027-03-28",
+      "conferenceEndDate": "2027-03-31",
+      "conferenceAcronym": "ICMEM 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "engineering",
+        "manufacturing",
+        "nanotechnology"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-11-10"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195283&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "2027 The 17th International Conference on Advanced Materials Research (ICAMR 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "http://www.icamr.org/",
+      "conferenceLocation": "Phuket, Thailand",
+      "conferenceStartDate": "2027-01-23",
+      "conferenceEndDate": "2027-01-25",
+      "conferenceAcronym": "ICAMR 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "manufacturing",
+        "nanotechnology",
+        "engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-10-05"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195285&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "2027 The 11th International Conference on Civil and Building Materials (ICCBM 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "http://www.iccbm.org/",
+      "conferenceLocation": "Phuket, Thailand",
+      "conferenceStartDate": "2027-01-23",
+      "conferenceEndDate": "2027-01-25",
+      "conferenceAcronym": "ICCBM--EI 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "architecture",
+        "engineering",
+        "manufacturing"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-10-05"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195426&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "Springer--2027 6th International Conference on Materials Engineering and Functional Materials (ICMFM 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://www.icmfm.org/",
+      "conferenceLocation": "Da Nang, Vietnam",
+      "conferenceStartDate": "2027-03-01",
+      "conferenceEndDate": "2027-03-04",
+      "conferenceAcronym": "ICMFM 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "mechatronics",
+        "mechanical engineering",
+        "reliability"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-10-20"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=199581&copyownerid=79981",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "The 15th International Symposium on Information and Communication Technology",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://soict.org/",
+      "conferenceLocation": "Hochiminh city, Vietnam",
+      "conferenceStartDate": "2026-12-04",
+      "conferenceEndDate": "2026-12-05",
+      "conferenceAcronym": "SOICT  2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "network and communication",
+        "artificial intelligence",
+        "software engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=199804&copyownerid=193912",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "AFRICAN SMART CITIES & INNOVATION CONGRESS",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://www.ascic.org/",
+      "conferenceLocation": "LAAYOUNE - Morocco",
+      "conferenceStartDate": "2026-10-27",
+      "conferenceEndDate": "2026-10-29",
+      "conferenceAcronym": "ASCIC 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "artificial intelligence",
+        "smart technologies",
+        "information systems"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=200044&copyownerid=33993",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "7th International Conference on Integrating Technology in Education",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://ite2026.org/index",
+      "conferenceLocation": "London, United Kingdom",
+      "conferenceStartDate": "2026-11-21",
+      "conferenceEndDate": "2026-11-22",
+      "conferenceAcronym": "ITE 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "education",
+        "higher education",
+        "e-education",
+        "engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=200080&copyownerid=77623",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "KomPlasTech & NeuroMet - Joint conference on computer methods and artificial intelligence in materials technology (ECCOMAS Thematic Conference)",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://www.komplastech.agh.edu.pl/",
+      "conferenceLocation": "Kraków, Poland",
+      "conferenceStartDate": "2027-04-05",
+      "conferenceEndDate": "2027-04-07",
+      "conferenceAcronym": "KPT 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "numerical simulations",
+        "artificial intelligence",
+        "materials science",
+        "engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2027-01-29"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=200149&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "2027 The 12th International Conference on Composite Materials and Material Engineering (ICCMME 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "http://www.iccmme.com/",
+      "conferenceLocation": "Sapporo, Japan",
+      "conferenceStartDate": "2027-01-08",
+      "conferenceEndDate": "2027-01-10",
+      "conferenceAcronym": "ICCMME 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "nanotechnology",
+        "manufacturing",
+        "engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-10-20"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=200150&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "2027 10th International Conference on Smart Materials Applications (ICSMA 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "http://www.icsma.org/",
+      "conferenceLocation": "Sapporo, Japan",
+      "conferenceStartDate": "2027-01-08",
+      "conferenceEndDate": "2027-01-10",
+      "conferenceAcronym": "ICSMA 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "nanotechnology",
+        "manufacturing",
+        "engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-10-20"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=200256&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "Springer--2027 18th International Conference on Materials and Manufacturing Technologies (ICMMT 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "http://www.icmmt.org/",
+      "conferenceLocation": "Fukuoka, Japan",
+      "conferenceStartDate": "2027-03-26",
+      "conferenceEndDate": "2027-03-28",
+      "conferenceAcronym": "Springer ICMMT 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "manufacturing",
+        "engineering",
+        "mechanical engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-10-20"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=201650&copyownerid=33993",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "16th International Conference on Peer-to-Peer Networks and Trust Management",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://cndc2026.org/p2ptm/index",
+      "conferenceLocation": "Zurich, Switzerland",
+      "conferenceStartDate": "2026-11-27",
+      "conferenceEndDate": "2026-11-28",
+      "conferenceAcronym": "P2PTM 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "wireless",
+        "wireless networks",
+        "wireless communication"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=201652&copyownerid=188924",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "3rd SOCAISA WORKSHOP",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://socaisa.org/",
+      "conferenceLocation": "Lodz, Poland",
+      "conferenceStartDate": "2026-12-01",
+      "conferenceEndDate": "2026-12-01",
+      "conferenceAcronym": "SOCAISA  2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "service oriented computing",
+        "artifitial intelligence",
+        "IOT"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-23"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202513&copyownerid=96880",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "2027 8th International Conference on Materials Science and Manufacturing Engineering (MSME 2027)",
+      "conferenceYear": 2027,
+      "conferenceLocation": "Tianjin, China",
+      "conferenceUri": "https://msme2027.org/",
+      "conferenceStartDate": "2027-04-22",
+      "conferenceEndDate": "2027-04-24",
+      "conferenceAcronym": "CFP--MSME 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "3d printing",
+        "materials",
+        "manufacturing"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-10-15"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202798&copyownerid=176336",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "8th International Conference on Advancements in Computational Sciences",
+      "conferenceYear": 2027,
+      "conferenceUri": "http://sites.uol.edu.pk/icacs27",
+      "conferenceLocation": "Lahore, Pakistan",
+      "conferenceStartDate": "2027-02-02",
+      "conferenceEndDate": "2027-02-03",
+      "conferenceAcronym": "ICACS 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "artificial intelligence",
+        "data science",
+        "security and privacy"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202831&copyownerid=171255",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "Service-Oriented Computing for AI Applications",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://soc4ai-at-icsoc-github-io.onrender.com/",
+      "conferenceLocation": "Lodz, Poland",
+      "conferenceStartDate": "2026-12-01",
+      "conferenceEndDate": "2026-12-01",
+      "conferenceAcronym": "SOC4AI 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "service oriented computing",
+        "artificial intelligence",
+        "computer science"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-23"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202886&copyownerid=13881",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "2027 The 9th International Conference on Materials and Intelligent Manufacturing (ICMIM 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "http://www.icmim.org/",
+      "conferenceLocation": "Hong Kong",
+      "conferenceStartDate": "2027-06-10",
+      "conferenceEndDate": "2027-06-13",
+      "conferenceAcronym": "ICMIM 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "materials science",
+        "artificial intelligence",
+        "engineering",
+        "manufacturing"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2027-01-20"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202993&copyownerid=163220",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "IEEE 2026 6th International Conference on Computer Science, Electronic Information Engineering and Intelligent Control Technology",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://ais.cn/u/Mvqeuu",
+      "conferenceLocation": "Nanning, China",
+      "conferenceStartDate": "2026-11-20",
+      "conferenceEndDate": "2026-11-22",
+      "conferenceAcronym": "CEI 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "electronics",
+        "control",
+        "communications"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-24"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=203011&copyownerid=71641",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "2nd International Workshop on XR for Challenging Environments",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://xr4ce-eur26.tech-experience.at/",
+      "conferenceLocation": "Valencia",
+      "conferenceStartDate": "2026-11-03",
+      "conferenceEndDate": "2026-11-03",
+      "conferenceAcronym": "XR4CE 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "HCI",
+        "XR"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-23"
+    },
     {
       "id": "http://www.wikidata.org/entity/Q100504660",
       "collectionDate": "2026-09-22",
