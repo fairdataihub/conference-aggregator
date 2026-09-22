@@ -80,7 +80,7 @@ async function main(): Promise<void> {
     deduped.sort((a, b) => a.id.localeCompare(b.id));
 
     console.log(
-      `[Main] Dedup by conference name: ${beforeDedup} → ${deduped.length} postings`,
+      `[Main] Merge dedup by name: ${beforeDedup} → ${deduped.length} postings`,
     );
 
     const db: ConferenceDatabase = {
@@ -120,7 +120,7 @@ async function main(): Promise<void> {
     mergedPostings.sort((a, b) => a.id.localeCompare(b.id));
 
     console.log(
-      `[Main] Dedup by conference name: ${byId.size} → ${mergedPostings.length} postings`,
+      `[Main] Merge dedup by name: ${byId.size} → ${mergedPostings.length} postings`,
     );
 
     const db: ConferenceDatabase = {

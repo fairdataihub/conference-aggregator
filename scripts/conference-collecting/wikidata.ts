@@ -4,15 +4,14 @@ import { generateCollectionDate, randomDelay } from "./utils.js";
 
 const SPARQL_ENDPOINT = "https://query.wikidata.org/sparql";
 
-const RETRYABLE_STATUS = new Set([429, 500, 502, 503, 504]);
+const RETRYABLE_STATUS = new Set([408, 429, 500, 502, 503, 504]);
 
 const SPARQL_BODY = `
-SELECT DISTINCT ?conference ?conferenceLabel ?description ?website ?startDate ?endDate ?location ?locationLabel ?acronym ?series ?seriesLabel ?subject ?subjectLabel
+SELECT DISTINCT ?conference ?conferenceLabel ?website ?startDate ?endDate ?location ?locationLabel ?acronym ?series ?seriesLabel ?subject ?subjectLabel
 WHERE {
   ?conference wdt:P31 wd:Q2020153 .
   ?conference rdfs:label ?conferenceLabel .
   FILTER(LANG(?conferenceLabel) = "en")
-  OPTIONAL { ?conference schema:description ?description . FILTER(LANG(?description) = "en") }
   OPTIONAL { ?conference wdt:P856 ?website . }
   OPTIONAL { ?conference wdt:P580 ?startDate . }
   OPTIONAL { ?conference wdt:P582 ?endDate . }
@@ -38,6 +37,60 @@ function buildPageQuery(offset: number, pageLimit: number): string {
   return `${SPARQL_BODY}\nLIMIT ${pageLimit}\nOFFSET ${offset}`;
 }
 
+function retryBackoffMs(attempt: number): number {
+  return (
+    WIKIDATA_CONFIG.retryBaseDelayMs * 2 ** (attempt - 1) +
+    Math.random() * 750
+  );
+}
+
+function isRetryableNetworkError(error: unknown): boolean {
+  if (!(error instanceof Error)) {
+    return false;
+  }
+
+  const message = error.message.toLowerCase();
+  if (
+    message.includes("terminated") ||
+    message.includes("fetch failed") ||
+    message.includes("network") ||
+    message.includes("socket")
+  ) {
+    return true;
+  }
+
+  let current: unknown = error;
+  for (let depth = 0; depth < 4; depth++) {
+    if (!current || typeof current !== "object") {
+      break;
+    }
+
+    const code = (current as { code?: string }).code;
+    if (
+      code &&
+      [
+        "UND_ERR_SOCKET",
+        "UND_ERR_HEADERS_TIMEOUT",
+        "UND_ERR_BODY_TIMEOUT",
+        "ECONNRESET",
+        "ETIMEDOUT",
+        "EPIPE",
+        "ECONNREFUSED",
+      ].includes(code)
+    ) {
+      return true;
+    }
+
+    current = (current as { cause?: unknown }).cause;
+  }
+
+  return false;
+}
+
+async function sleep(ms: number): Promise<void> {
+  await new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function fetchSparqlPage(
   query: string,
   offset: number,
@@ -45,57 +98,79 @@ async function fetchSparqlPage(
   const maxAttempts = WIKIDATA_CONFIG.maxRequestAttempts;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-    const response = await fetch(SPARQL_ENDPOINT, {
-      method: "POST",
-      headers: {
-        Accept: "application/sparql-results+json",
-        "Content-Type": "application/sparql-query",
-        "User-Agent": "conference-aggregator/1.0 (https://github.com/conference-aggregator)",
-      },
-      body: query,
-    });
-
-    if (!response.ok) {
-      const retryable = RETRYABLE_STATUS.has(response.status);
-      const isLast = attempt >= maxAttempts;
-
-      if (!retryable || isLast) {
-        throw new Error(
-          `Wikidata request failed: ${response.status} ${response.statusText} (offset=${offset}, attempt=${attempt}/${maxAttempts})`,
-        );
-      }
-
-      const backoffMs =
-        WIKIDATA_CONFIG.retryBaseDelayMs * 2 ** (attempt - 1) +
-        Math.random() * 500;
-
-      console.warn(
-        `[Wikidata] HTTP ${response.status}, retrying in ${Math.round(backoffMs)}ms (attempt ${attempt}/${maxAttempts}, offset=${offset})`,
-      );
-      await new Promise((resolve) => setTimeout(resolve, backoffMs));
-      continue;
-    }
-
-    const text = await response.text();
-
     try {
-      return JSON.parse(text) as SparqlResponse;
-    } catch {
+      const response = await fetch(SPARQL_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/sparql-results+json",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "User-Agent":
+            "conference-aggregator/1.0 (https://github.com/conference-aggregator)",
+        },
+        body: new URLSearchParams({
+          query,
+          format: "json",
+        }),
+      });
+
+      if (!response.ok) {
+        const retryable = RETRYABLE_STATUS.has(response.status);
+        const isLast = attempt >= maxAttempts;
+
+        if (!retryable || isLast) {
+          throw new Error(
+            `Wikidata request failed: ${response.status} ${response.statusText} (offset=${offset}, attempt=${attempt}/${maxAttempts})`,
+          );
+        }
+
+        const backoffMs = retryBackoffMs(attempt);
+        console.warn(
+          `[Wikidata] HTTP ${response.status}, retrying in ${Math.round(backoffMs)}ms (attempt ${attempt}/${maxAttempts}, offset=${offset})`,
+        );
+        await sleep(backoffMs);
+        continue;
+      }
+
+      const text = await response.text();
+
+      try {
+        return JSON.parse(text) as SparqlResponse;
+      } catch {
+        const isLast = attempt >= maxAttempts;
+        if (isLast) {
+          throw new Error(
+            `Wikidata returned invalid JSON (${text.length} bytes, offset=${offset}, attempt=${attempt}/${maxAttempts})`,
+          );
+        }
+
+        const backoffMs = retryBackoffMs(attempt);
+        console.warn(
+          `[Wikidata] Invalid JSON response, retrying in ${Math.round(backoffMs)}ms (offset=${offset})`,
+        );
+        await sleep(backoffMs);
+      }
+    } catch (error) {
       const isLast = attempt >= maxAttempts;
+
+      if (!isRetryableNetworkError(error)) {
+        throw error;
+      }
+
       if (isLast) {
+        const detail =
+          error instanceof Error ? error.message : String(error);
         throw new Error(
-          `Wikidata returned invalid JSON (${text.length} bytes, offset=${offset}, attempt=${attempt}/${maxAttempts})`,
+          `Wikidata network error (offset=${offset}, attempt=${attempt}/${maxAttempts}): ${detail}`,
+          { cause: error },
         );
       }
 
-      const backoffMs =
-        WIKIDATA_CONFIG.retryBaseDelayMs * 2 ** (attempt - 1) +
-        Math.random() * 500;
-
+      const backoffMs = retryBackoffMs(attempt);
+      const detail = error instanceof Error ? error.message : String(error);
       console.warn(
-        `[Wikidata] Invalid JSON response, retrying in ${Math.round(backoffMs)}ms (offset=${offset})`,
+        `[Wikidata] Network error (${detail}), retrying in ${Math.round(backoffMs)}ms (attempt ${attempt}/${maxAttempts}, offset=${offset})`,
       );
-      await new Promise((resolve) => setTimeout(resolve, backoffMs));
+      await sleep(backoffMs);
     }
   }
 
@@ -142,43 +217,31 @@ function ingestBinding(
     conferenceAcronym: result.acronym?.value || null,
     conferenceSeries: result.seriesLabel?.value || null,
     conferenceCategories: subject ? [subject] : [],
-    conferenceText: result.description?.value || null,
+    conferenceText: null,
     submissionDeadline: null,
   });
 }
 
 export async function collectWikiData(): Promise<CollectedConference[]> {
-  if (WIKIDATA_CONFIG.limit === 0) {
-    console.log("[Wikidata] Collection disabled: limit is 0.");
+  if (!WIKIDATA_CONFIG.collectWikiData) {
+    console.log("[Wikidata] Collection disabled (collectWikiData is false).");
     return [];
   }
 
   const conferences = new Map<string, CollectedConference>();
-  const pageSize = WIKIDATA_CONFIG.pageSize;
+  const { pageSize } = WIKIDATA_CONFIG;
   let offset = 0;
   let page = 0;
   let rowsFetched = 0;
-  const rowCap =
-    WIKIDATA_CONFIG.limit === null ? null : WIKIDATA_CONFIG.limit;
 
-  console.log(
-    `[Wikidata] Starting collection (pageSize=${pageSize}, rowCap=${rowCap ?? "none"})`,
-  );
+  console.log(`[Wikidata] Starting collection (pageSize=${pageSize})`);
 
   while (true) {
-    const remaining =
-      rowCap === null ? pageSize : Math.max(0, rowCap - rowsFetched);
-
-    if (remaining === 0) {
-      break;
-    }
-
-    const pageLimit = Math.min(pageSize, remaining);
     page++;
-    const query = buildPageQuery(offset, pageLimit);
+    const query = buildPageQuery(offset, pageSize);
 
     console.log(
-      `[Wikidata] Fetching page ${page} (offset=${offset}, limit=${pageLimit})`,
+      `[Wikidata] Fetching page ${page} (offset=${offset}, limit=${pageSize})`,
     );
 
     const data = await fetchSparqlPage(query, offset);
@@ -195,7 +258,7 @@ export async function collectWikiData(): Promise<CollectedConference[]> {
       `[Wikidata] Page ${page}: ${bindings.length} rows (${conferences.size} unique conferences so far)`,
     );
 
-    if (bindings.length < pageLimit) {
+    if (bindings.length < pageSize) {
       break;
     }
 

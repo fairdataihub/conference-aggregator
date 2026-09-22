@@ -1,7 +1,7 @@
 import type { CollectedConference } from "./schema.js";
 import { wikiCFPCategoriesToNotCollect } from "./utils.js";
 
-/** Known `_source` values used when merging duplicate postings. */
+/** Known `_source` values on collected postings. */
 export type DedupSourceId =
   | "wikicfp"
   | "cfpwiki"
@@ -9,7 +9,7 @@ export type DedupSourceId =
   | "wikidata"
   | "easychair";
 
-/** Fields merged from duplicate postings (identity keys excluded). */
+/** Fields combined when duplicate postings are merged. */
 export type DedupMergeField = Exclude<
   keyof CollectedConference,
   | "id"
@@ -20,115 +20,112 @@ export type DedupMergeField = Exclude<
   | "conferenceSchemaUri"
 >;
 
-/** Field merge priorities when deduplicating by normalized conference name. */
-export const DEDUP_CONFIG = {
-  /** Fallback source priority when a field has no fieldSourceOrder entry. */
-  defaultSourceOrder: [
-    "wikicfp",
-    "cfpwiki",
-    "call4paper",
-    "easychair",
-    "wikidata",
-  ] satisfies DedupSourceId[],
+/** Source reliability when merging a duplicate group (5 = most trusted). */
+export type DedupSourceRank = 1 | 2 | 3 | 4 | 5;
 
-  /** Per-field source priority (first = preferred). */
-  fieldSourceOrder: {
-    conferenceUri: [
-      "call4paper",
-      "wikicfp",
-      "cfpwiki",
-      "easychair",
-      "wikidata",
-    ],
-    conferenceName: [
-      "wikicfp",
-      "cfpwiki",
-      "call4paper",
-      "easychair",
-      "wikidata",
-    ],
-    conferenceAcronym: [
-      "wikicfp",
-      "call4paper",
-      "cfpwiki",
-      "easychair",
-      "wikidata",
-    ],
-    conferenceYear: [
-      "wikicfp",
-      "call4paper",
-      "cfpwiki",
-      "wikidata",
-      "easychair",
-    ],
-    conferenceLocation: [
-      "call4paper",
-      "wikicfp",
-      "cfpwiki",
-      "easychair",
-      "wikidata",
-    ],
-    conferenceStartDate: [
-      "call4paper",
-      "wikicfp",
-      "cfpwiki",
-      "easychair",
-      "wikidata",
-    ],
-    conferenceEndDate: [
-      "call4paper",
-      "wikicfp",
-      "cfpwiki",
-      "easychair",
-      "wikidata",
-    ],
-    submissionDeadline: [
-      "call4paper",
-      "wikicfp",
-      "cfpwiki",
-      "easychair",
-      "wikidata",
-    ],
-    conferenceSeries: [
-      "wikidata",
-      "wikicfp",
-      "cfpwiki",
-      "call4paper",
-      "easychair",
-    ],
-    conferenceText: [
-      "call4paper",
-      "cfpwiki",
-      "wikicfp",
-      "easychair",
-      "wikidata",
-    ],
-    conferenceCategories: [
-      "wikidata",
-      "wikicfp",
-      "cfpwiki",
-      "easychair",
-      "call4paper",
-    ],
-  } satisfies Partial<Record<DedupMergeField, DedupSourceId[]>>,
+type FieldSourceRankings = Partial<
+  Record<DedupMergeField, Partial<Record<DedupSourceId, DedupSourceRank>>>
+>;
+
+export const DEDUP_CONFIG = {
+  /** Fallback when a field has no entry in `fieldSourceRankings`. */
+  defaultSourceRankings: {
+    cfpwiki: 5,
+    wikicfp: 4,
+    call4paper: 3,
+    easychair: 2,
+    wikidata: 1,
+  } satisfies Record<DedupSourceId, DedupSourceRank>,
+
+  fieldSourceRankings: {
+    conferenceUri: {
+      wikicfp: 4,
+      call4paper: 3,
+      cfpwiki: 5,
+      easychair: 2,
+      wikidata: 1,
+    },
+    conferenceName: {
+      cfpwiki: 5,
+      wikicfp: 4,
+      call4paper: 3,
+      easychair: 2,
+      wikidata: 1,
+    },
+    conferenceAcronym: {
+      call4paper: 5,
+      cfpwiki: 4,
+      easychair: 2,
+      wikicfp: 3,
+      wikidata: 1,
+    },
+    conferenceYear: {
+      wikicfp: 5,
+      call4paper: 5,
+      cfpwiki: 5,
+      wikidata: 1,
+      easychair: 2,
+    },
+    conferenceLocation: {
+      call4paper: 4,
+      wikicfp: 5,
+      cfpwiki: 3,
+      easychair: 2,
+      wikidata: 1,
+    },
+    conferenceStartDate: {
+      call4paper: 4,
+      wikicfp: 5,
+      cfpwiki: 3,
+      easychair: 2,
+      wikidata: 1,
+    },
+    conferenceEndDate: {
+      call4paper: 4,
+      wikicfp: 5,
+      cfpwiki: 3,
+      easychair: 2,
+      wikidata: 1,
+    },
+    submissionDeadline: {
+      call4paper: 4,
+      wikicfp: 3,
+      cfpwiki: 5,
+      easychair: 2,
+      wikidata: 1,
+    },
+    conferenceSeries: {
+      wikidata: 5,
+      wikicfp: 4,
+      cfpwiki: 3,
+      call4paper: 2,
+      easychair: 1,
+    },
+    conferenceText: {
+      call4paper: 5,
+      cfpwiki: 4,
+      wikicfp: 3,
+      easychair: 2,
+      wikidata: 1,
+    },
+    conferenceCategories: {
+      wikidata: 5,
+      wikicfp: 4,
+      cfpwiki: 3,
+      easychair: 2,
+      call4paper: 1,
+    },
+  } satisfies FieldSourceRankings,
 };
 
-export function getDedupFieldSourceOrder(
-  field: DedupMergeField,
-): readonly DedupSourceId[] {
-  return (
-    DEDUP_CONFIG.fieldSourceOrder[field] ?? DEDUP_CONFIG.defaultSourceOrder
-  );
-}
-
-/** Lower rank = higher priority (for sorting postings when merging a field). */
 export function getDedupSourceRank(
   field: DedupMergeField,
   source: DedupSourceId,
-): number {
-  const order = getDedupFieldSourceOrder(field);
-  const index = order.indexOf(source);
-  return index === -1 ? order.length : index;
+): DedupSourceRank {
+  return (
+    DEDUP_CONFIG.fieldSourceRankings[field]?.[source] ??
+    DEDUP_CONFIG.defaultSourceRankings[source]
+  );
 }
 
 export const CALL4PAPER_CONFIG = {
@@ -163,11 +160,10 @@ export const WIKICFP_CONFIG = {
 };
 
 export const WIKIDATA_CONFIG = {
-  /** Max SPARQL rows (`null` = all pages). `0` disables collection. */
-  limit: null as number | null,
-  pageSize: 5000,
-  maxRequestAttempts: 5,
-  retryBaseDelayMs: 2000,
-  minDelayBetweenPagesMs: 1000,
-  maxDelayBetweenPagesMs: 2500,
+  collectWikiData: true,
+  pageSize: 1500,
+  maxRequestAttempts: 7,
+  retryBaseDelayMs: 3000,
+  minDelayBetweenPagesMs: 4000,
+  maxDelayBetweenPagesMs: 7000,
 };

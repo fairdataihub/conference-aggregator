@@ -1,7 +1,7 @@
 import {
   type DedupMergeField,
   type DedupSourceId,
-  getDedupFieldSourceOrder,
+  getDedupSourceRank,
 } from "./collection-config.js";
 import type { CollectedConference } from "./schema.js";
 
@@ -19,35 +19,22 @@ const MERGE_FIELDS: DedupMergeField[] = [
   "submissionDeadline",
 ];
 
-function normalizeConferenceName(name: string): string {
-  return name.replace(/\s+/g, " ").trim().toLowerCase();
+function normalizeDedupKey(value: string): string {
+  return value.replace(/\s+/g, " ").trim().toLowerCase();
 }
 
-function postingPriorityForField(
+function postingRankForField(
   posting: CollectedConference,
   field: DedupMergeField,
 ): number {
-  const order = getDedupFieldSourceOrder(field);
   const sources = posting._source ?? [];
-  let best = order.length;
+  let best = 0;
 
   for (const source of sources) {
-    const index = order.indexOf(source as DedupSourceId);
-    if (index !== -1 && index < best) {
-      best = index;
-    }
+    best = Math.max(best, getDedupSourceRank(field, source as DedupSourceId));
   }
 
   return best;
-}
-
-function sortByFieldPriority(
-  group: CollectedConference[],
-  field: DedupMergeField,
-): CollectedConference[] {
-  return [...group].sort(
-    (a, b) => postingPriorityForField(a, field) - postingPriorityForField(b, field),
-  );
 }
 
 function isFieldEmpty(field: DedupMergeField, value: unknown): boolean {
@@ -64,6 +51,43 @@ function isFieldEmpty(field: DedupMergeField, value: unknown): boolean {
   }
 
   return false;
+}
+
+function filledFieldCount(posting: CollectedConference): number {
+  let count = 0;
+
+  for (const field of MERGE_FIELDS) {
+    if (!isFieldEmpty(field, posting[field])) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+function comparePostingPriority(
+  a: CollectedConference,
+  b: CollectedConference,
+  field: DedupMergeField,
+): number {
+  const byRank = postingRankForField(b, field) - postingRankForField(a, field);
+  if (byRank !== 0) {
+    return byRank;
+  }
+
+  const byFilledFields = filledFieldCount(b) - filledFieldCount(a);
+  if (byFilledFields !== 0) {
+    return byFilledFields;
+  }
+
+  return a.id.localeCompare(b.id);
+}
+
+function sortByFieldPriority(
+  group: CollectedConference[],
+  field: DedupMergeField,
+): CollectedConference[] {
+  return [...group].sort((a, b) => comparePostingPriority(a, b, field));
 }
 
 function pickScalarField(
@@ -146,27 +170,41 @@ function mergeDuplicateGroup(group: CollectedConference[]): CollectedConference 
   return merged;
 }
 
-/** Collapse postings that share the same normalized conference name. */
-export function deduplicatePostings(
+function deduplicateByField(
   postings: CollectedConference[],
+  rawKey: (posting: CollectedConference) => string | null | undefined,
+  missingKeyPrefix: string,
 ): CollectedConference[] {
   const groups = new Map<string, CollectedConference[]>();
 
   for (const posting of postings) {
-    const nameKey = normalizeConferenceName(posting.conferenceName);
+    const raw = rawKey(posting);
+    const normalized =
+      typeof raw === "string" ? normalizeDedupKey(raw) : "";
 
-    if (!nameKey) {
-      groups.set(`__missing_name__:${posting.id}`, [posting]);
+    if (!normalized) {
+      groups.set(`${missingKeyPrefix}:${posting.id}`, [posting]);
       continue;
     }
 
-    const group = groups.get(nameKey);
+    const group = groups.get(normalized);
     if (group) {
       group.push(posting);
     } else {
-      groups.set(nameKey, [posting]);
+      groups.set(normalized, [posting]);
     }
   }
 
   return [...groups.values()].map(mergeDuplicateGroup);
+}
+
+/** Merge duplicates by normalized conference name (per-field source priority). */
+export function deduplicatePostings(
+  postings: CollectedConference[],
+): CollectedConference[] {
+  return deduplicateByField(
+    postings,
+    (posting) => posting.conferenceName,
+    "__missing_name__",
+  );
 }

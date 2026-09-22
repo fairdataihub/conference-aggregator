@@ -135,24 +135,6 @@ export function parseDateRange(dateStr: string): {
   return { year };
 }
 
-
-/**
- * Extracts acronym from conference title using pattern matching.
- * Returns undefined if no valid acronym found.
- */
-export function extractConferenceAcronym(title: string): string | undefined {
-  const cleaned = title.replace(/^\d{4}\s+/, "").trim();
-  const match = cleaned.match(/^([A-Z][A-Z0-9]{1,})(?:\b|[-_])/);
-
-  if (!match) {
-    return undefined;
-  }
-
-  const acronym = match[1].replace(/\d{4}$/, "").trim();
-
-  return acronym.length >= 2 ? acronym : undefined;
-}
-
 export const generateCollectionDate = (): string => {
   return new Date().toISOString().slice(0, 10);
 }

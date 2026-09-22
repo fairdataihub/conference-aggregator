@@ -3,12 +3,7 @@ import type { CollectedConference } from "./schema.js";
 
 import { WIKICFP_CONFIG } from "./collection-config.js";
 
-import {
-  extractConferenceAcronym,
-  generateCollectionDate,
-  randomDelay,
-  resolveUrl,
-} from "./utils.js";
+import { generateCollectionDate, randomDelay, resolveUrl } from "./utils.js";
 
 type WikiCFPCategory = {
   url: string;
@@ -18,7 +13,6 @@ type WikiCFPCategory = {
 type WikiCFPListingData = {
   url: string;
   acronym: string;
-  series: string;
   startDate?: string;
   endDate?: string;
   location?: string;
@@ -157,22 +151,6 @@ function extractWikiCFPPaginationUrls(
   return [...urls];
 }
 
-function cleanAcronym(rawAcronym: string): string {
-  return rawAcronym.replace(/\s+\d{4}$/, "").trim();
-}
-
-function normalizeWikiCFPListingAcronym(rawAcronym: string): string {
-  const candidate = cleanAcronym(rawAcronym);
-
-  if (!candidate) return "";
-  if (/\s/.test(candidate)) return "";
-  if (candidate.length > 12) return "";
-  if (candidate !== candidate.toUpperCase()) return "";
-  if (!/^[A-Z0-9][A-Z0-9&./_-]*$/.test(candidate)) return "";
-
-  return candidate;
-}
-
 function extractWikiCFPConferenceUrls(
   $: CheerioCrawlingContext["$"],
 ): WikiCFPListingData[] {
@@ -181,8 +159,7 @@ function extractWikiCFPConferenceUrls(
   $("a[href*='/cfp/servlet/event.showcfp']").each((_, element) => {
     const href = $(element).attr("href");
     const url = resolveUrl(href, WIKICFP_CONFIG.baseUrl);
-    const rawAcronym = $(element).text().trim();
-    const acronym = normalizeWikiCFPListingAcronym(rawAcronym);
+    const acronym = $(element).text().trim();
 
     if (!url || results.has(url)) {
       return;
@@ -191,7 +168,6 @@ function extractWikiCFPConferenceUrls(
     const data: WikiCFPListingData = {
       url,
       acronym,
-      series: acronym ? rawAcronym : "",
     };
 
     const row = $(element).closest("tr");
@@ -241,7 +217,6 @@ function parseWikiCFPConferenceDetail(
   $: CheerioCrawlingContext["$"],
   conferenceDetailUrl: string,
   acronymFromListing?: string,
-  seriesFromListing?: string,
   startDateFromListing?: string,
   endDateFromListing?: string,
   locationFromListing?: string,
@@ -357,8 +332,7 @@ function parseWikiCFPConferenceDetail(
 
   const conferenceYear = Number.parseInt(year, 10);
 
-  const conferenceAcronym =
-    acronymFromListing || extractConferenceAcronym(conferenceName);
+  const conferenceAcronym = acronymFromListing?.trim() || null;
 
   return {
     id: conferenceDetailUrl,
@@ -370,8 +344,8 @@ function parseWikiCFPConferenceDetail(
     conferenceLocation: conferenceLocation || null,
     conferenceStartDate: conferenceStartDate ?? null,
     conferenceEndDate: conferenceEndDate ?? null,
-    conferenceAcronym: conferenceAcronym ?? null,
-    conferenceSeries: seriesFromListing || null,
+    conferenceAcronym,
+    conferenceSeries: null,
     conferenceCategories: categories.length ? categories : null,
     conferenceText: cfpDetails || null,
     submissionDeadline: submissionDeadline || null,
@@ -412,11 +386,10 @@ async function collectWikiCFPConferences(
       const conferenceData = extractWikiCFPConferenceUrls($);
 
       conferenceData.forEach(
-        ({ url, acronym, series, startDate, endDate, location }) => {
+        ({ url, acronym, startDate, endDate, location }) => {
           if (!conferenceUrls.has(url)) {
             conferenceUrls.set(url, {
               acronym,
-              series,
               startDate,
               endDate,
               location,
@@ -487,7 +460,6 @@ async function collectWikiCFPConferences(
         $,
         request.url,
         data?.acronym,
-        data?.series,
         data?.startDate,
         data?.endDate,
         data?.location,
