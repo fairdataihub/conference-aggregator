@@ -1,10 +1,11 @@
 {
   "metadata": {
-    "lastUpdated": "2026-09-22T23:14:29.079Z",
-    "totalPostings": 10463,
+    "lastUpdated": "2026-09-22T23:16:13.055Z",
+    "totalPostings": 10483,
     "sources": [
       "wiki.cfp",
       "wikidata.org",
+      "cfp.wiki",
       "call4paper.com"
     ]
   },
@@ -193573,6 +193574,443 @@
       "conferenceAcronym": null,
       "conferenceSeries": null,
       "conferenceCategories": [],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://cfp.wiki/conferences/ad-2026",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "First International Conference on AI and Digitalization: A Multidisciplinary Approach (AD’2026)",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://abcdedu.co.uk/conferences-in-english-language/",
+      "conferenceLocation": "United Kingdom",
+      "conferenceStartDate": "2026-12-19",
+      "conferenceEndDate": "2026-12-20",
+      "conferenceAcronym": "AD",
+      "conferenceSeries": "International Conference on AI and Digitalization AD",
+      "conferenceCategories": [
+        "Artificial Intelligence"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-10-31"
+    },
+    {
+      "id": "https://cfp.wiki/conferences/aemds-2026",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "The 3rd International Conference on Advanced Energy Materials, Devices and Systems 2026",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://aemds.org/",
+      "conferenceLocation": "Glasgow, United Kingdom",
+      "conferenceStartDate": "2026-10-19",
+      "conferenceEndDate": "2026-10-21",
+      "conferenceAcronym": "AEMDS",
+      "conferenceSeries": "AEMDS",
+      "conferenceCategories": [
+        "Materials Engineering",
+        "Nanomaterials",
+        "Advanced Materials",
+        "Energy Materials"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-10-08"
+    },
+    {
+      "id": "https://cfp.wiki/conferences/aicbb-2027",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "Annual International Conference on Biotechnology and Bioinformatics 2027",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://aicbb2027.synergiasummits.com/",
+      "conferenceLocation": "Vienna, Australia",
+      "conferenceStartDate": "2027-07-05",
+      "conferenceEndDate": "2027-07-07",
+      "conferenceAcronym": "AICBB",
+      "conferenceSeries": "First",
+      "conferenceCategories": [
+        "Bioinformatics",
+        "biomaterials",
+        "Nanobiotechnology",
+        "Bio-Engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://cfp.wiki/conferences/aicbea-2027",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "Annual International Conference on Biomedical Engineering and Applications 2027",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://aicbea2027.synergiasummits.com/",
+      "conferenceLocation": "Nice, France",
+      "conferenceStartDate": "2027-06-16",
+      "conferenceEndDate": "2027-06-17",
+      "conferenceAcronym": "AICBEA",
+      "conferenceSeries": "First Series",
+      "conferenceCategories": [
+        "Biometrics",
+        "Bioinformatics",
+        "biomaterials",
+        "Bio-Engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://cfp.wiki/conferences/alzheimer-s-disease-dementia-and-cognitive-disorders-conference-addc-2027-2027",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "International Alzheimer’s Disease, Dementia & Cognitive Disorders Conference (ADDC 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://alzheimers.magnusconferences.com/",
+      "conferenceLocation": "Rome, Italy",
+      "conferenceStartDate": "2027-06-24",
+      "conferenceEndDate": "2027-06-26",
+      "conferenceAcronym": "Conference",
+      "conferenceSeries": "Alzheimer’s Disease, Dementia & Cognitive Disorders Conference (ADDC 2027)",
+      "conferenceCategories": [
+        "Artificial Intelligence"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://cfp.wiki/conferences/bid-2026",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "From Innovation to Global Market: Biopharma Going Global 2026",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://www.gala-tech.cn/bioexpo2026/",
+      "conferenceLocation": "China, Shanghai",
+      "conferenceStartDate": "2026-11-19",
+      "conferenceEndDate": "2026-11-21",
+      "conferenceAcronym": "BID",
+      "conferenceSeries": "The Congress of Biopharma Industry Development",
+      "conferenceCategories": [
+        "biopharmaceutical",
+        "Medical"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-10-31"
+    },
+    {
+      "id": "https://cfp.wiki/conferences/enviworld-2027",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "EnviWorld 2027",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://environmentalscienceconference.com/",
+      "conferenceLocation": "Rome, Italy",
+      "conferenceStartDate": "2027-06-21",
+      "conferenceEndDate": "2027-06-23",
+      "conferenceAcronym": "EnviWorld",
+      "conferenceSeries": "2nd Edition of International Conference on Environmental Science, Sustainability & Global Innovation",
+      "conferenceCategories": [
+        "Environmental Engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://cfp.wiki/conferences/eubiotech-2027",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "Annual International Conference on Biotechnology and Bioengineering 2027",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://biotechnology.synergiasummits.com/",
+      "conferenceLocation": "Lisbon, Australia",
+      "conferenceStartDate": "2027-02-22",
+      "conferenceEndDate": "2027-02-24",
+      "conferenceAcronym": "EUBIOTECH",
+      "conferenceSeries": "First",
+      "conferenceCategories": [
+        "Bioinformatics",
+        "Polymers",
+        "Nanobiotechnology",
+        "Bio-Engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://cfp.wiki/conferences/g-medai-2028",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "Global Medical Artificial Intelligence Workshop 2028",
+      "conferenceYear": 2028,
+      "conferenceUri": "https://g-medai2028-chicago.org/",
+      "conferenceLocation": "Chicago, United States",
+      "conferenceStartDate": "2028-09-20",
+      "conferenceEndDate": "2028-09-23",
+      "conferenceAcronym": "G-MedAI-",
+      "conferenceSeries": "G-MedAI-2028",
+      "conferenceCategories": [
+        "Machine Learning",
+        "Medical AI",
+        "Healthcare Technology",
+        "Radiology"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2028-07-01"
+    },
+    {
+      "id": "https://cfp.wiki/conferences/green-chemistry-2027",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "International Conference on Green Chemistry and Renewable Energy (Green Chemistry 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://magnusconferences.com/green-chemistry/",
+      "conferenceLocation": "Roma, Italy",
+      "conferenceStartDate": null,
+      "conferenceEndDate": null,
+      "conferenceAcronym": "Green Chemistry",
+      "conferenceSeries": "International Conference on Green Chemistry and Renewable Energy",
+      "conferenceCategories": [
+        "Accessibility",
+        "Advanced Materials",
+        "agriculture",
+        "Agricultural Sensors"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://cfp.wiki/conferences/gssa-2027",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "Global Summit on Sustainable Agriculture 2027",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://gssa2027.org/",
+      "conferenceLocation": "London, UK",
+      "conferenceStartDate": "2027-03-10",
+      "conferenceEndDate": "2027-03-12",
+      "conferenceAcronym": "GSSA-",
+      "conferenceSeries": "GSSA-2027",
+      "conferenceCategories": [
+        "agriculture",
+        "Sustainability",
+        "Farming tech"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2027-01-20"
+    },
+    {
+      "id": "https://cfp.wiki/conferences/heart-congress-2027",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "International Heart Congress (Heart Congress 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://heart.magnusconferences.com/",
+      "conferenceLocation": "Rome, Italy",
+      "conferenceStartDate": "2027-06-24",
+      "conferenceEndDate": "2027-06-26",
+      "conferenceAcronym": "Conference",
+      "conferenceSeries": "Heart Congress",
+      "conferenceCategories": [
+        "Artificial Intelligence"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2027-06-24"
+    },
+    {
+      "id": "https://cfp.wiki/conferences/icb-2026",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "International Conference on Buddhonomics 2026",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://iimbg.ac.in/conferences/international-conference-on-buddhist-economics-2026/",
+      "conferenceLocation": "Bodh Gaya, India",
+      "conferenceStartDate": "2026-11-20",
+      "conferenceEndDate": "2026-11-22",
+      "conferenceAcronym": "ICB-",
+      "conferenceSeries": "International Conference on Buddhonomics",
+      "conferenceCategories": [
+        "Sustainability",
+        "Economics",
+        "Business Ethics",
+        "Management"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-30"
+    },
+    {
+      "id": "https://cfp.wiki/conferences/iccfn-2026",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "The International Conference on Cybertechnology and Future Networks (ICCFN) 2026",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://cybertech.niu.edu/iccfn/",
+      "conferenceLocation": "Prague, Czech Republic",
+      "conferenceStartDate": "2026-11-25",
+      "conferenceEndDate": "2026-11-26",
+      "conferenceAcronym": "ICCFN",
+      "conferenceSeries": "Springer CCIS book series",
+      "conferenceCategories": [
+        "Computer Science",
+        "Cybersecurity",
+        "Computer Sc",
+        "cyber"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-01"
+    },
+    {
+      "id": "https://cfp.wiki/conferences/iciaa-2027",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "International Conference on Clinical Immunology, Allergy & Autoimmune Diseases 2027",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://clinical-immunology.magnusconferences.com/",
+      "conferenceLocation": "Rome, Italy",
+      "conferenceStartDate": "2027-06-28",
+      "conferenceEndDate": "2027-06-30",
+      "conferenceAcronym": "ICIAA",
+      "conferenceSeries": "2nd Edition of International Conference on Clinical Immunology, Allergy & Autoimmune Diseases",
+      "conferenceCategories": [
+        "Immunology",
+        "Immunology Conference 2027",
+        "Allergy Conference 2027"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://cfp.wiki/conferences/icprl-2027",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "International Conference on Advanced Pulmonology, Respiratory Medicine & Lung Health (ICPRL 2027)",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://pulmonologyconference.com/",
+      "conferenceLocation": "Italy, Italy",
+      "conferenceStartDate": "2027-06-28",
+      "conferenceEndDate": "2027-06-30",
+      "conferenceAcronym": "ICPRL",
+      "conferenceSeries": "International Conference on Advanced Pulmonology, Respiratory Medicine & Lung Health (ICPRL 2027)",
+      "conferenceCategories": [
+        "Artificial Intelligence",
+        "Accessibility",
+        "Advanced Materials",
+        "agriculture"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://cfp.wiki/conferences/icseegt-2026",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "Sixth International Conference on Sustainable Energy, Environment and Green Technologies 2026",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://icseegt.poornima.org/",
+      "conferenceLocation": "Jaipur, India",
+      "conferenceStartDate": "2026-12-11",
+      "conferenceEndDate": "2026-12-12",
+      "conferenceAcronym": "ICSEEGT",
+      "conferenceSeries": "ICSEEGT",
+      "conferenceCategories": [
+        "Environmental Engineering",
+        "Energy Materials",
+        "Sustainable Energy"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-11-30"
+    },
+    {
+      "id": "https://cfp.wiki/conferences/infection-2027",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "11th Edition of World Congress on Infectious Diseases 2027",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://infectiouscongress.com/",
+      "conferenceLocation": "Rome, Italy",
+      "conferenceStartDate": "2027-06-28",
+      "conferenceEndDate": "2027-06-30",
+      "conferenceAcronym": "Infection",
+      "conferenceSeries": "Infection 2027",
+      "conferenceCategories": [
+        "health"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2027-06-30"
+    },
+    {
+      "id": "https://cfp.wiki/conferences/itft-2026",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "The 3rd International Symposium on Intelligent Technology for Future Transportation 2026",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://itft.org/",
+      "conferenceLocation": "Glasgow, United Kingdom",
+      "conferenceStartDate": "2026-10-20",
+      "conferenceEndDate": "2026-10-22",
+      "conferenceAcronym": "ITFT",
+      "conferenceSeries": "UK conference on Transportation",
+      "conferenceCategories": [
+        "transportation"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-10"
+    },
+    {
+      "id": "https://cfp.wiki/conferences/nanosummit-2027",
+      "collectionDate": "2026-09-22",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "2nd World Summit and Expo on Nanoscience and Nanotechnology (NANOSUMMIT2027) 2027",
+      "conferenceYear": 2027,
+      "conferenceUri": "https://nanotechnology.synergiasummits.com/",
+      "conferenceLocation": "Valencia, Spain",
+      "conferenceStartDate": "2027-03-15",
+      "conferenceEndDate": "2027-03-17",
+      "conferenceAcronym": "NANOSUMMIT",
+      "conferenceSeries": "2nd series",
+      "conferenceCategories": [
+        "Nanomaterials",
+        "Nanotechnology",
+        "Nanophotonics",
+        "Nanofabrication"
+      ],
       "conferenceText": null,
       "submissionDeadline": null
     },
