@@ -26,15 +26,15 @@ export type DedupMergeField = Exclude<
 
 export const CALL4PAPER_CONFIG = {
   baseUrl: "https://www.call4paper.com",
-  subjectLimit: 2 as number | null,
-  eventLimit: 20 as number | null,
+  subjectLimit: null as number | null,
+  eventLimit: null as number | null,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
 
 export const CFP_WIKI_CONFIG = {
   baseUrl: "https://cfp.wiki",
-  pageLimit: 20 as number | null,
+  pageLimit: null as number | null,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
@@ -48,8 +48,8 @@ export const EASYCHAIR_CONFIG = {
 
 export const WIKICFP_CONFIG = {
   baseUrl: "http://www.wikicfp.com",
-  categoryLimit: 4 as number | null,
-  categoryPageLimit: 20 as number | null,
+  categoryLimit: null as number | null,
+  categoryPageLimit: null as number | null,
   crawlMinDelayBetweenRequests: 5001,
   crawlMaxDelayBetweenRequests: 5049,
   categoriesToNotProcess: wikiCFPCategoriesToNotCollect,
@@ -67,9 +67,9 @@ export const WIKIDATA_CONFIG = {
 export const CALLFORPAPER_ORG_CONFIG = {
   baseUrl: "https://callforpaper.org",
   /** `null` = all categories. `0` disables collection. */
-  categoryLimit: 5 as number | null,
+  categoryLimit: null as number | null,
   /** Max listing pages per category (`null` = follow pagination until end). */
-  categoryPageLimit: 20 as number | null,
+  categoryPageLimit: null as number | null,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
