@@ -1,4 +1,4 @@
-import { POSTING_SOURCES, WIKIDATA_CONFIG } from "./collection-config.js";
+import { WIKIDATA_CONFIG } from "./collection-config.js";
 import type { CollectedConference } from "./schema.js";
 import { generateCollectionDate, randomDelay } from "./utils.js";
 
@@ -39,8 +39,7 @@ function buildPageQuery(offset: number, pageLimit: number): string {
 
 function retryBackoffMs(attempt: number): number {
   return (
-    WIKIDATA_CONFIG.retryBaseDelayMs * 2 ** (attempt - 1) +
-    Math.random() * 750
+    WIKIDATA_CONFIG.retryBaseDelayMs * 2 ** (attempt - 1) + Math.random() * 750
   );
 }
 
@@ -157,8 +156,7 @@ async function fetchSparqlPage(
       }
 
       if (isLast) {
-        const detail =
-          error instanceof Error ? error.message : String(error);
+        const detail = error instanceof Error ? error.message : String(error);
         throw new Error(
           `Wikidata network error (offset=${offset}, attempt=${attempt}/${maxAttempts}): ${detail}`,
           { cause: error },
@@ -205,7 +203,7 @@ function ingestBinding(
   conferences.set(id, {
     id,
     collectionDate: generateCollectionDate(),
-    _source: [POSTING_SOURCES.wikidata],
+    _sources: ["wikidata.org"],
     conferenceName: result.conferenceLabel?.value ?? "",
     conferenceYear: conferenceStartDate
       ? Number(conferenceStartDate.substring(0, 4))

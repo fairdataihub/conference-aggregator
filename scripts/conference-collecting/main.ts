@@ -1,7 +1,12 @@
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import type { CollectedConference, ConferenceDatabase } from "./schema.js";
+import {
+  POSTING_SOURCES,
+  type CollectedConference,
+  type ConferenceDatabase,
+  type PostingSourceId,
+} from "./schema.js";
 
 import { collectCfpWiki } from "./cfpwiki.js";
 import { collectWikiCFP } from "./wikicfp.js";
@@ -9,44 +14,39 @@ import { collectWikiData } from "./wikidata.js";
 import { collectCall4Paper } from "./call4paper.js";
 import { collectCallForPaperOrg } from "./callforpaperorg.js";
 
-import { POSTING_SOURCES, type DedupSourceId } from "./collection-config.js";
 import { deduplicatePostings } from "./deduplicate.js";
-import { loadConferenceDatabase, saveConferenceDatabase } from "./storage.js";
+import {
+  loadConferenceDatabase,
+  saveConferenceDatabaseExports,
+} from "./storage.js";
 import { collectUniqueSources, postingHasSource } from "./utils.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DATABASE_PATH = path.join(
-  __dirname,
-  "..",
-  "..",
-  "conference-postings.json",
+const REPO_ROOT = path.join(__dirname, "..", "..");
+
+const DATABASE_PATH_FULL = path.join(
+  REPO_ROOT,
+  "conference-postings-full.json",
 );
+const DATABASE_PATH_SLIM = path.join(REPO_ROOT, "conference-postings.json");
 
-const COLLECTORS = {
-  wikicfp: collectWikiCFP,
-  cfpwiki: collectCfpWiki,
-  wikidata: collectWikiData,
-  call4paper: collectCall4Paper,
-  callforpaperorg: collectCallForPaperOrg,
+const COLLECTORS: Record<
+  PostingSourceId,
+  () => Promise<CollectedConference[]>
+> = {
+  "wiki.cfp": collectWikiCFP,
+  "cfp.wiki": collectCfpWiki,
+  "wikidata.org": collectWikiData,
+  "call4paper.com": collectCall4Paper,
+  "callforpaper.org": collectCallForPaperOrg,
 };
 
-/** `_source` value written to postings (CLI site key may differ). */
-const SOURCE_ID_BY_SITE: Record<keyof typeof COLLECTORS, DedupSourceId> = {
-  wikicfp: POSTING_SOURCES.wikiCfp,
-  cfpwiki: POSTING_SOURCES.cfpWiki,
-  wikidata: POSTING_SOURCES.wikidata,
-  call4paper: POSTING_SOURCES.call4PaperCom,
-  callforpaperorg: POSTING_SOURCES.call4PaperOrg,
-};
-
-type Site = "all" | keyof typeof COLLECTORS;
+type Site = "all" | PostingSourceId;
 
 function parseSiteArg(): Site {
-  // Supports:
-  // - `--site all|wikicfp|easychair`
-  // - `--site=<value>`
+  // Supports `--site all|<source>` and `--site=<source>` (source = `_sources` id).
   const eqValue = process.argv
     .find((arg) => arg.startsWith("--site="))
     ?.split("=", 2)[1];
@@ -63,7 +63,7 @@ function parseSiteArg(): Site {
   }
 
   if (normalized in COLLECTORS) {
-    return normalized as keyof typeof COLLECTORS;
+    return normalized as PostingSourceId;
   }
 
   return "all";
@@ -78,12 +78,13 @@ async function main(): Promise<void> {
   if (site === "all") {
     const collected: CollectedConference[] = [];
 
-    for (const [name, collect] of Object.entries(COLLECTORS)) {
+    for (const sourceId of POSTING_SOURCES) {
+      const collect = COLLECTORS[sourceId];
       try {
         const postings = await collect();
         collected.push(...postings);
       } catch (error) {
-        console.error(`[${name}] Collection failed:`, error);
+        console.error(`[${sourceId}] Collection failed:`, error);
       }
     }
 
@@ -104,20 +105,23 @@ async function main(): Promise<void> {
       postings: deduped,
     };
 
-    await saveConferenceDatabase(DATABASE_PATH, db);
+    await saveConferenceDatabaseExports(
+      DATABASE_PATH_FULL,
+      DATABASE_PATH_SLIM,
+      db,
+    );
   } else {
     // Single-site update: keep other sources, replace only this site's postings.
-    const existingDb = await loadConferenceDatabase(DATABASE_PATH);
+    const existingDb = await loadConferenceDatabase(DATABASE_PATH_FULL);
     const collect = COLLECTORS[site];
-    const sourceId = SOURCE_ID_BY_SITE[site];
     const updated = await collect();
 
     for (const posting of updated) {
-      posting._source = [sourceId];
+      posting._sources = [site];
     }
 
     const existingOtherSources = existingDb.postings.filter(
-      (posting) => !postingHasSource(posting, sourceId),
+      (posting) => !postingHasSource(posting, site),
     );
 
     const byId = new Map<string, CollectedConference>(
@@ -146,18 +150,23 @@ async function main(): Promise<void> {
       postings: mergedPostings,
     };
 
-    await saveConferenceDatabase(DATABASE_PATH, db);
+    await saveConferenceDatabaseExports(
+      DATABASE_PATH_FULL,
+      DATABASE_PATH_SLIM,
+      db,
+    );
   }
 
   const elapsedMs = Date.now() - startTime;
   const elapsedSec = (elapsedMs / 1000).toFixed(2);
-  const finalDb = await loadConferenceDatabase(DATABASE_PATH);
+  const finalDb = await loadConferenceDatabase(DATABASE_PATH_FULL);
 
   console.log(
     `[Main] Complete: ${finalDb.postings.length} conferences in database`,
   );
   console.log(`[Main] Duration: ${elapsedSec}s`);
-  console.log(`[Main] Database: ${DATABASE_PATH}`);
+  console.log(`[Main] Slim database: ${DATABASE_PATH_SLIM}`);
+  console.log(`[Main] Full database: ${DATABASE_PATH_FULL}`);
 
   for (const field of ["conferenceName", "conferenceAcronym"] as const) {
     const counts = new Map<string, number>();

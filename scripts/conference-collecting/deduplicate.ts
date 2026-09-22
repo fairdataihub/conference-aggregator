@@ -1,9 +1,16 @@
-import {
-  DEDUP_CONFIG,
-  type DedupMergeField,
-  type DedupSourceId,
-} from "./collection-config.js";
-import type { CollectedConference } from "./schema.js";
+import { DEDUP_CONFIG } from "./collection-config.js";
+import type { CollectedConference, PostingSourceId } from "./schema.js";
+
+/** Fields combined when duplicate postings are merged. */
+type DedupMergeField = Exclude<
+  keyof CollectedConference,
+  | "id"
+  | "_sources"
+  | "collectionDate"
+  | "conferenceIdentifier"
+  | "conferenceIdentifierType"
+  | "conferenceSchemaUri"
+>;
 
 const MERGE_FIELDS: DedupMergeField[] = [
   "conferenceName",
@@ -25,11 +32,11 @@ function normalizeDedupKey(value: string): string {
 
 function postingTrustScore(posting: CollectedConference): number {
   const order = DEDUP_CONFIG.sourceOrder;
-  const sources = posting._source ?? [];
+  const sources = posting._sources ?? [];
   let bestIndex = order.length;
 
   for (const source of sources) {
-    const index = order.indexOf(source as DedupSourceId);
+    const index = order.indexOf(source as PostingSourceId);
     const effective = index === -1 ? order.length : index;
     bestIndex = Math.min(bestIndex, effective);
   }
@@ -140,7 +147,7 @@ function mergeCategories(group: CollectedConference[]): string[] {
 }
 
 function mergeSources(group: CollectedConference[]): string[] {
-  return [...new Set(group.flatMap((posting) => posting._source ?? []))];
+  return [...new Set(group.flatMap((posting) => posting._sources ?? []))];
 }
 
 function pickNewestCollectionDate(group: CollectedConference[]): string | null {
@@ -160,7 +167,9 @@ function pickNewestCollectionDate(group: CollectedConference[]): string | null {
   return newest;
 }
 
-function mergeDuplicateGroup(group: CollectedConference[]): CollectedConference {
+function mergeDuplicateGroup(
+  group: CollectedConference[],
+): CollectedConference {
   if (group.length === 1) {
     return group[0];
   }
@@ -170,7 +179,7 @@ function mergeDuplicateGroup(group: CollectedConference[]): CollectedConference 
   const merged = {
     id: primary.id,
     collectionDate: pickNewestCollectionDate(group),
-    _source: mergeSources(group),
+    _sources: mergeSources(group),
     conferenceIdentifier: primary.conferenceIdentifier,
     conferenceIdentifierType: primary.conferenceIdentifierType,
     conferenceSchemaUri: primary.conferenceSchemaUri,
@@ -197,8 +206,7 @@ function deduplicateByField(
 
   for (const posting of postings) {
     const raw = rawKey(posting);
-    const normalized =
-      typeof raw === "string" ? normalizeDedupKey(raw) : "";
+    const normalized = typeof raw === "string" ? normalizeDedupKey(raw) : "";
 
     if (!normalized) {
       groups.set(`${missingKeyPrefix}:${posting.id}`, [posting]);

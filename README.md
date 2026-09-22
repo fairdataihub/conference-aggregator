@@ -16,13 +16,15 @@ A scraper that collects and aggregates conference CFP and posting metadata from 
 
 ## About
 
-This repository contains a lightweight conference aggregator that crawls public conference listing sites and produces a machine-readable dataset of conference postings at the repository root (conference-postings.json).
+This repository contains a lightweight conference aggregator that crawls public conference listing sites and produces machine-readable conference datasets at the repository root (`conference-postings.json` without CFP body text, and `conference-postings-full.json` with `conferenceText`).
 
-The collector currently implements scrapers for three sources:
+The collector implements scrapers for these sources (`_sources` / `--site` ids):
 
-- `wikicfp` (WikiCFP)
-- `easychair` (EasyChair CFP search)
-- `cfpwiki` (cfp.wiki)
+- `wiki.cfp` (WikiCFP)
+- `cfp.wiki` (cfp.wiki)
+- `call4paper.com` (call4paper.com)
+- `callforpaper.org` (callforpaper.org)
+- `wikidata.org` (Wikidata)
 
 Extracted fields include conference name, year, dates, location, website URL, CFP text snippets, and categories metadata.
 
@@ -30,12 +32,12 @@ Extracted fields include conference name, year, dates, location, website URL, CF
 
 - Crawls listing and detail pages on WikiCFP, EasyChair, and cfp.wiki.
 - Parses conference metadata and normalizes dates and acronyms.
-- Merges new postings into a single JSON database at `conference-postings.json`.
+- Merges new postings into JSON databases at `conference-postings.json` (slim) and `conference-postings-full.json` (includes `conferenceText`).
 - Provides single-site and full-collection CLI commands.
 
 ## How collection works
 
-Running a collection script executes `scripts/conference-collecting/main.ts` with a `--site` argument (`all`, `wikicfp`, `easychair`, `cfpwiki`, `callforpaperorg` ).
+Running a collection script executes `scripts/conference-collecting/main.ts` with a `--site` argument (`all`, or any `_sources` id such as `wiki.cfp`, `cfp.wiki`, `call4paper.com`, `callforpaper.org`, `wikidata.org`).
 
 1. Crawl listings and collect detail-page URLs.
 2. Fetch detail pages and parse conference metadata.
@@ -46,11 +48,12 @@ Running a collection script executes `scripts/conference-collecting/main.ts` wit
 - `scripts/conference-collecting/main.ts`: CLI entrypoint (`--site`)
 - `scripts/conference-collecting/collectors.ts`: source-specific scrapers
 - `scripts/conference-collecting/schema.ts`: record/DB shapes
-- `scripts/conference-collecting/storage.ts`: load/save `conference-postings.json`
+- `scripts/conference-collecting/storage.ts`: load/save conference JSON exports
 
 ## Where data is stored
 
-- `conference-postings.json` (repo root): consolidated output.
+- `conference-postings.json` (repo root): consolidated output without `conferenceText` (for lightweight consumers).
+- `conference-postings-full.json`: same records with `conferenceText` preserved.
 - `storage/` (repo root): Crawlee internal crawl state (KV stores + request queues). Deleting it resets crawl progress/state.
 
 ## Getting started
@@ -77,22 +80,16 @@ pnpm run collect:all
 - Collect only WikiCFP:
 
 ```bash
-pnpm run collect:wikicfp
-```
-
-- Collect only EasyChair:
-
-```bash
-pnpm run collect:easychair
+pnpm run collect:wiki.cfp
 ```
 
 - Collect only cfp.wiki:
 
 ```bash
-pnpm run collect:cfpwiki
+pnpm run collect:cfp.wiki
 ```
 
-The collectors write the consolidated database to `conference-postings.json` at the repository root.
+The collectors write both JSON files at the repository root. Load `conference-postings.json` for dropdowns and lists; use `conference-postings-full.json` when you need CFP text.
 
 ## Development
 

@@ -2,7 +2,7 @@ import { CheerioCrawler, type CheerioCrawlingContext } from "crawlee";
 
 import type { CollectedConference } from "./schema.js";
 
-import { CALL4PAPER_CONFIG, POSTING_SOURCES } from "./collection-config.js";
+import { CALL4PAPER_CONFIG } from "./collection-config.js";
 
 import {
   generateCollectionDate,
@@ -238,7 +238,7 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
             listings.set(id, {
               id,
               collectionDate: null,
-              _source: [POSTING_SOURCES.call4PaperCom],
+              _sources: ["call4paper.com"],
               conferenceName,
               conferenceYear: getConferenceYear(startDate ?? null),
               conferenceLocation,

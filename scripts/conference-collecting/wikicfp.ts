@@ -1,7 +1,7 @@
 import { CheerioCrawler, type CheerioCrawlingContext } from "crawlee";
 import type { CollectedConference } from "./schema.js";
 
-import { POSTING_SOURCES, WIKICFP_CONFIG } from "./collection-config.js";
+import { WIKICFP_CONFIG } from "./collection-config.js";
 
 import { generateCollectionDate, randomDelay, resolveUrl } from "./utils.js";
 
@@ -337,7 +337,7 @@ function parseWikiCFPConferenceDetail(
   return {
     id: conferenceDetailUrl,
     collectionDate,
-    _source: [POSTING_SOURCES.wikiCfp],
+    _sources: ["wiki.cfp"],
     conferenceName,
     conferenceYear,
     conferenceUri,

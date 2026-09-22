@@ -6,6 +6,7 @@ on:
       - staging
     paths-ignore:
       - conference-postings.json
+      - conference-postings-full.json
   schedule:
     - cron: "0 2 * * 1"
   workflow_dispatch:
@@ -45,14 +46,14 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Collect WikiCFP
-        run: pnpm collect:wikicfp
+        run: pnpm collect:wiki.cfp
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add conference-postings.json
+          git add conference-postings.json conference-postings-full.json
 
           if git diff --cached --quiet; then
             echo "No changes to commit."

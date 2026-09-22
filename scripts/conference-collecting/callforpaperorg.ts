@@ -1,10 +1,7 @@
 import { CheerioCrawler, type CheerioCrawlingContext } from "crawlee";
 import type { CollectedConference } from "./schema.js";
 
-import {
-  CALLFORPAPER_ORG_CONFIG,
-  POSTING_SOURCES,
-} from "./collection-config.js";
+import { CALLFORPAPER_ORG_CONFIG } from "./collection-config.js";
 import { generateCollectionDate, randomDelay, resolveUrl } from "./utils.js";
 
 function readString(value: unknown): string | null {
@@ -106,8 +103,12 @@ function postingFromCfpPage(
     return null;
   }
 
-  const conferenceStartDate = isoDateOnly(readString(readField(event, "startDate")));
-  const conferenceEndDate = isoDateOnly(readString(readField(event, "endDate")));
+  const conferenceStartDate = isoDateOnly(
+    readString(readField(event, "startDate")),
+  );
+  const conferenceEndDate = isoDateOnly(
+    readString(readField(event, "endDate")),
+  );
   const yearMatch =
     conferenceStartDate?.match(/^(\d{4})/)?.[1] ??
     conferenceEndDate?.match(/^(\d{4})/)?.[1] ??
@@ -153,7 +154,7 @@ function postingFromCfpPage(
   return {
     id: cfpUrl,
     collectionDate: generateCollectionDate(),
-    _source: [POSTING_SOURCES.call4PaperOrg],
+    _sources: ["callforpaper.org"],
     conferenceName,
     conferenceYear,
     conferenceUri,
@@ -240,11 +241,8 @@ async function discoverCfpUrlsForCategory(
 ): Promise<Map<string, string | null>> {
   const cfpUrls = new Map<string, string | null>();
   const startUrl = categoryUrl.split("?")[0]!;
-  const categorySlug =
-    startUrl.split("/categories/")[1]?.split("/")[0] ?? null;
-  const categoryLabel = categorySlug
-    ? categorySlug.replace(/-/g, " ")
-    : null;
+  const categorySlug = startUrl.split("/categories/")[1]?.split("/")[0] ?? null;
+  const categoryLabel = categorySlug ? categorySlug.replace(/-/g, " ") : null;
 
   let pagesScanned = 0;
 

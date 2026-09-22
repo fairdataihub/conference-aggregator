@@ -1,7 +1,7 @@
 import { CheerioCrawler, type CheerioCrawlingContext } from "crawlee";
 import type { CollectedConference } from "./schema.js";
 
-import { CFP_WIKI_CONFIG, POSTING_SOURCES } from "./collection-config.js";
+import { CFP_WIKI_CONFIG } from "./collection-config.js";
 
 import {
   generateCollectionDate,
@@ -336,7 +336,7 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
       postings.push({
         id: request.url,
         collectionDate: generateCollectionDate(),
-        _source: [POSTING_SOURCES.cfpWiki],
+        _sources: ["cfp.wiki"],
         conferenceName: listingMeta.conferenceName,
         conferenceYear: listingMeta.conferenceYear,
         conferenceUri,

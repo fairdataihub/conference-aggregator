@@ -56,7 +56,7 @@ function parseEasyChairConferences(
     postings.push({
       id: conferenceUri,
       collectionDate,
-      _source: ["easychair"],
+      _sources: ["easychair"],
       conferenceName: title,
       conferenceYear,
       conferenceUri,

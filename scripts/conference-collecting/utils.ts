@@ -1,18 +1,16 @@
 import type { CollectedConference } from "./schema.js";
 
 export function postingHasSource(
-  posting: Pick<CollectedConference, "_source">,
+  posting: Pick<CollectedConference, "_sources">,
   sourceId: string,
 ): boolean {
-  return posting._source?.includes(sourceId) ?? false;
+  return posting._sources?.includes(sourceId) ?? false;
 }
 
 export function collectUniqueSources(
-  postings: Pick<CollectedConference, "_source">[],
+  postings: Pick<CollectedConference, "_sources">[],
 ): string[] {
-  return [
-    ...new Set(postings.flatMap((posting) => posting._source ?? [])),
-  ];
+  return [...new Set(postings.flatMap((posting) => posting._sources ?? []))];
 }
 
 /**
@@ -137,7 +135,7 @@ export function parseDateRange(dateStr: string): {
 
 export const generateCollectionDate = (): string => {
   return new Date().toISOString().slice(0, 10);
-}
+};
 
 // This is a list of categories that we do not want to collect from WikiCFP.
 // This can help the collector action nut run over the 6hr limit.
@@ -198,5 +196,5 @@ export const wikiCFPCategoriesToNotCollect = [
   "sociology",
   "teaching",
   "tourism",
-  "training"
+  "training",
 ];
