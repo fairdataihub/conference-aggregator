@@ -10,7 +10,8 @@
     "collect:easychair": "tsx scripts/conference-collecting/main.ts --site easychair",
     "collect:cfpwiki": "tsx scripts/conference-collecting/main.ts --site cfpwiki",
     "collect:call4paper": "tsx scripts/conference-collecting/main.ts --site call4paper",
-    "collect:wikidata": "tsx scripts/conference-collecting/main.ts --site wikidata"
+    "collect:wikidata": "tsx scripts/conference-collecting/main.ts --site wikidata",
+    "collect:callforpaperorg": "tsx scripts/conference-collecting/main.ts --site callforpaperorg"
   },
   "keywords": [],
   "author": "",

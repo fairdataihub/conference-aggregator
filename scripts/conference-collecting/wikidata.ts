@@ -1,4 +1,4 @@
-import { WIKIDATA_CONFIG } from "./collection-config.js";
+import { POSTING_SOURCES, WIKIDATA_CONFIG } from "./collection-config.js";
 import type { CollectedConference } from "./schema.js";
 import { generateCollectionDate, randomDelay } from "./utils.js";
 
@@ -205,7 +205,7 @@ function ingestBinding(
   conferences.set(id, {
     id,
     collectionDate: generateCollectionDate(),
-    _source: ["wikidata"],
+    _source: [POSTING_SOURCES.wikidata],
     conferenceName: result.conferenceLabel?.value ?? "",
     conferenceYear: conferenceStartDate
       ? Number(conferenceStartDate.substring(0, 4))

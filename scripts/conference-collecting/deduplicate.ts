@@ -1,7 +1,7 @@
 import {
+  DEDUP_CONFIG,
   type DedupMergeField,
   type DedupSourceId,
-  getDedupSourceRank,
 } from "./collection-config.js";
 import type { CollectedConference } from "./schema.js";
 
@@ -23,18 +23,18 @@ function normalizeDedupKey(value: string): string {
   return value.replace(/\s+/g, " ").trim().toLowerCase();
 }
 
-function postingRankForField(
-  posting: CollectedConference,
-  field: DedupMergeField,
-): number {
+function postingTrustScore(posting: CollectedConference): number {
+  const order = DEDUP_CONFIG.sourceOrder;
   const sources = posting._source ?? [];
-  let best = 0;
+  let bestIndex = order.length;
 
   for (const source of sources) {
-    best = Math.max(best, getDedupSourceRank(field, source as DedupSourceId));
+    const index = order.indexOf(source as DedupSourceId);
+    const effective = index === -1 ? order.length : index;
+    bestIndex = Math.min(bestIndex, effective);
   }
 
-  return best;
+  return order.length - bestIndex;
 }
 
 function isFieldEmpty(field: DedupMergeField, value: unknown): boolean {
@@ -51,6 +51,13 @@ function isFieldEmpty(field: DedupMergeField, value: unknown): boolean {
   }
 
   return false;
+}
+
+function hasCompleteEventDates(posting: CollectedConference): boolean {
+  return (
+    !isFieldEmpty("conferenceStartDate", posting.conferenceStartDate) &&
+    !isFieldEmpty("conferenceEndDate", posting.conferenceEndDate)
+  );
 }
 
 function filledFieldCount(posting: CollectedConference): number {
@@ -70,7 +77,18 @@ function comparePostingPriority(
   b: CollectedConference,
   field: DedupMergeField,
 ): number {
-  const byRank = postingRankForField(b, field) - postingRankForField(a, field);
+  const isEventDateField =
+    field === "conferenceStartDate" || field === "conferenceEndDate";
+
+  if (isEventDateField) {
+    const byComplete =
+      Number(hasCompleteEventDates(b)) - Number(hasCompleteEventDates(a));
+    if (byComplete !== 0) {
+      return byComplete;
+    }
+  }
+
+  const byRank = postingTrustScore(b) - postingTrustScore(a);
   if (byRank !== 0) {
     return byRank;
   }
@@ -198,7 +216,7 @@ function deduplicateByField(
   return [...groups.values()].map(mergeDuplicateGroup);
 }
 
-/** Merge duplicates by normalized conference name (per-field source priority). */
+/** Merge duplicates by normalized conference name (source order + field rules). */
 export function deduplicatePostings(
   postings: CollectedConference[],
 ): CollectedConference[] {

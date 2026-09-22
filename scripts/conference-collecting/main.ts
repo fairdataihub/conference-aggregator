@@ -7,7 +7,9 @@ import { collectCfpWiki } from "./cfpwiki.js";
 import { collectWikiCFP } from "./wikicfp.js";
 import { collectWikiData } from "./wikidata.js";
 import { collectCall4Paper } from "./call4paper.js";
+import { collectCallForPaperOrg } from "./callforpaperorg.js";
 
+import { POSTING_SOURCES, type DedupSourceId } from "./collection-config.js";
 import { deduplicatePostings } from "./deduplicate.js";
 import { loadConferenceDatabase, saveConferenceDatabase } from "./storage.js";
 import { collectUniqueSources, postingHasSource } from "./utils.js";
@@ -27,6 +29,16 @@ const COLLECTORS = {
   cfpwiki: collectCfpWiki,
   wikidata: collectWikiData,
   call4paper: collectCall4Paper,
+  callforpaperorg: collectCallForPaperOrg,
+};
+
+/** `_source` value written to postings (CLI site key may differ). */
+const SOURCE_ID_BY_SITE: Record<keyof typeof COLLECTORS, DedupSourceId> = {
+  wikicfp: POSTING_SOURCES.wikiCfp,
+  cfpwiki: POSTING_SOURCES.cfpWiki,
+  wikidata: POSTING_SOURCES.wikidata,
+  call4paper: POSTING_SOURCES.call4PaperCom,
+  callforpaperorg: POSTING_SOURCES.call4PaperOrg,
 };
 
 type Site = "all" | keyof typeof COLLECTORS;
@@ -97,14 +109,15 @@ async function main(): Promise<void> {
     // Single-site update: keep other sources, replace only this site's postings.
     const existingDb = await loadConferenceDatabase(DATABASE_PATH);
     const collect = COLLECTORS[site];
+    const sourceId = SOURCE_ID_BY_SITE[site];
     const updated = await collect();
 
     for (const posting of updated) {
-      posting._source = [site];
+      posting._source = [sourceId];
     }
 
     const existingOtherSources = existingDb.postings.filter(
-      (posting) => !postingHasSource(posting, site),
+      (posting) => !postingHasSource(posting, sourceId),
     );
 
     const byId = new Map<string, CollectedConference>(
