@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "lastUpdated": "2026-09-22T02:13:54.857Z",
-    "totalPostings": 10462,
+    "lastUpdated": "2026-09-22T02:14:30.404Z",
+    "totalPostings": 10463,
     "sources": [
       "wikicfp",
       "wikidata",
-      "cfpwiki"
+      "cfpwiki",
+      "call4paper"
     ]
   },
   "postings": [
@@ -193581,6 +193582,24 @@
       ],
       "conferenceText": "It is with great pleasure and profound honor that we welcome you to attend the 2nd World Summit and Expo on Nanoscience and Nanotechnology (NANOSUMMIT2027), which will be held in Valencia, Spain during March 15–17, 2027. Nano-biomedicine, Nanofabrication Nano-Optics, Nanophotonics, and Nano-Optoelectronics Spintronics Nanoelectronics Nanosensors and Nanoactuators Nano-Materials",
       "submissionDeadline": null
+    },
+    {
+      "id": "https://www.call4paper.com/cfp/detail/event/PHNDXLXB70258989",
+      "collectionDate": "2026-09-22",
+      "_source": [
+        "call4paper"
+      ],
+      "conferenceName": "HoneyCON26",
+      "conferenceYear": 2026,
+      "conferenceLocation": "Mexico, Guadalajara",
+      "conferenceStartDate": "2026-09-24",
+      "conferenceEndDate": "2026-09-26",
+      "conferenceAcronym": "HoneyCON26",
+      "conferenceSeries": null,
+      "submissionDeadline": "2026-08-29",
+      "conferenceUri": "http://honeysec.info/",
+      "conferenceCategories": [],
+      "conferenceText": "El 24, 25 y 26 de septiembre se celebrará el 11º Congreso de Seguridad Informática de Guadalajara (España), HoneyCON, organizado por la asociación alcarreña HoneySEC. Durante estas jornadas, numerosos ponentes abordarán diferentes aspectos relacionados con la seguridad informática a través de ponencias y talleres. Este año celebrando nuestro décimo aniversario queremos organizar un evento mayor, con mas actividades y charlas. ¡ANIMATE A PARTICIPAR!El evento se desarrollará de manera presencial, con charlas y talleres en Castellano en el Centro Asociado de la UNED de Guadalajara, España.Mediante este formulario podrá enviar su solicitud para realizar una ponencia de 50 minutos o un taller de 2-3 horas durante las jornadas de seguridad HoneyCON26.Enviar una ponencia o un taller sobre seguridad informática de la cual el solicitante sea autor o co-autor. Duración máxima de la ponencia 50 minutos Duración máximo del taller 2-3 horas en español.Se valorara positivamente charlas o talleres que se impartan por primera vez y no hayan sido utilizadas en otros congresos."
     }
   ]
 }
