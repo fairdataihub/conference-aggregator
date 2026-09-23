@@ -82,16 +82,50 @@ Special cases:
 
 ## Getting started
 
-Prerequisites:
+### Prerequisites/Dependencies
 
-- Node.js (recommended recent LTS)
-- pnpm (recommended) or a compatible package manager
+You will need the following installed on your system:
 
-Install dependencies:
+- [mise](https://mise.jdx.dev) - manages Node.js and pnpm versions (see `mise.toml`)
+- [Docker](https://www.docker.com/) - for running PostgreSQL locally
 
-```bash
-pnpm install
-```
+## Setup
+
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/fairdataihub/posters-science.git
+   cd posters-science
+   ```
+
+2. Trust and install the required tool versions
+
+   ```bash
+   mise trust
+   mise install
+   ```
+
+3. Install dependencies
+
+   ```bash
+   pnpm install
+   ```
+
+4. Add your environment variables
+
+   ```bash
+   cp .env.example .env
+   ```
+
+5. Start the development server
+
+   ```bash
+   pnpm dev
+   ```
+
+6. Open the application at [http://localhost:3000](http://localhost:3000) or appropriate port if you have it configured differently.
+
+## Running Collectors
 
 Run the collectors (examples):
 
