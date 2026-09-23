@@ -1,12 +1,6 @@
 name: Collect WikiCFP
 
 on:
-  push:
-    branches:
-      - staging
-    paths-ignore:
-      - conference-postings.json
-      - conference-postings-full.json
   schedule:
     - cron: "0 2 * * 1"
   workflow_dispatch:
@@ -28,11 +22,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: staging
+          ref: main
 
-      - name: Update staging
+      - name: Update main
         run: |
-          git pull --ff-only origin staging
+          git pull --ff-only origin main
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -61,4 +55,4 @@ jobs:
           fi
 
           git commit -m "chore: update WikiCFP conference data"
-          git push origin staging
+          git push origin main
