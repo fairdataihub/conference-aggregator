@@ -2,6 +2,7 @@ import * as fs from "node:fs/promises";
 import * as path from "node:path";
 
 import type { ConferenceDatabase } from "./schema.js";
+import { collectUniqueSources } from "./utils.js";
 
 /**
  * Creates an empty database with default metadata.
@@ -43,21 +44,38 @@ export async function saveConferenceDatabase(
   filePath: string,
   data: ConferenceDatabase,
 ): Promise<void> {
-  data.metadata = {
-    lastUpdated: new Date().toISOString(),
-    totalPostings: data.postings.length,
-    sources: [
-      ...new Set(
-        data.postings
-          .map((posting) => posting._source)
-          .filter((source): source is string => Boolean(source)),
-      ),
-    ],
+  const toWrite: ConferenceDatabase = {
+    metadata: {
+      lastUpdated: new Date().toISOString(),
+      totalPostings: data.postings.length,
+      sources: collectUniqueSources(data.postings),
+    },
+    postings: data.postings,
   };
 
   await fs.mkdir(path.dirname(filePath), {
     recursive: true,
   });
 
-  await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf-8");
+  await fs.writeFile(filePath, JSON.stringify(toWrite, null, 2), "utf-8");
+}
+
+function withoutConferenceText(data: ConferenceDatabase): ConferenceDatabase {
+  return {
+    metadata: data.metadata,
+    postings: data.postings.map((posting) => ({
+      ...posting,
+      conferenceText: null,
+    })),
+  };
+}
+
+/** Writes full JSON and a slim copy with `conferenceText` set to null. */
+export async function saveConferenceDatabaseExports(
+  fullPath: string,
+  slimPath: string,
+  data: ConferenceDatabase,
+): Promise<void> {
+  await saveConferenceDatabase(fullPath, data);
+  await saveConferenceDatabase(slimPath, withoutConferenceText(data));
 }

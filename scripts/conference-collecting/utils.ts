@@ -1,5 +1,18 @@
 import type { CollectedConference } from "./schema.js";
 
+export function postingHasSource(
+  posting: Pick<CollectedConference, "_sources">,
+  sourceId: string,
+): boolean {
+  return posting._sources?.includes(sourceId) ?? false;
+}
+
+export function collectUniqueSources(
+  postings: Pick<CollectedConference, "_sources">[],
+): string[] {
+  return [...new Set(postings.flatMap((posting) => posting._sources ?? []))];
+}
+
 /**
  * Introduces a random delay between min and max milliseconds.
  * Used for rate-limiting requests to external servers.
@@ -120,30 +133,79 @@ export function parseDateRange(dateStr: string): {
   return { year };
 }
 
-
-/**
- * Extracts acronym from conference title using pattern matching.
- * Returns undefined if no valid acronym found.
- */
-export function extractConferenceAcronym(title: string): string | undefined {
-  const cleaned = title.replace(/^\d{4}\s+/, "").trim();
-  const match = cleaned.match(/^([A-Z][A-Z0-9]{1,})(?:\b|[-_])/);
-
-  if (!match) {
-    return undefined;
-  }
-
-  const acronym = match[1].replace(/\d{4}$/, "").trim();
-
-  return acronym.length >= 2 ? acronym : undefined;
-}
-
 export const generateCollectionDate = (): string => {
   return new Date().toISOString().slice(0, 10);
+};
+
+export function normalizeConferenceAcronym(
+  value: string | null | undefined,
+): string | null {
+  // Maximum length of a conference acronym.
+  const ACRONYM_MAX_LENGTH = 30;
+
+  // Maximum number of words in a conference acronym.
+  const ACRONYM_MAX_WORDS = 5;
+
+  // Regex for phrases that suggest a title or description, not a short acronym.
+  const ACRONYM_TITLE_LIKE =
+    /\b(conference|symposium|workshop|congress|colloquium|seminar|forum|summit|meeting|journal|proceedings|annual|symposia|transactions|university|department|association|society|assembly|expo|exhibition|convention)\b/i;
+
+  if (value == null) {
+    return null;
+  }
+
+  const trimmed = value.replace(/\s+/g, " ").trim();
+
+  if (!trimmed) {
+    return null;
+  }
+
+  const words = trimmed.split(/\s+/);
+  const nonYearWords = words.filter((word) => !/^\d{4}$/.test(word));
+
+  let rejectionReason: string | null = null;
+
+  if (trimmed.length > ACRONYM_MAX_LENGTH) {
+    rejectionReason = `length>${ACRONYM_MAX_LENGTH}`;
+  } else if (trimmed.includes(":")) {
+    rejectionReason = "contains colon";
+  } else if (
+    /^https?:\/\//i.test(trimmed) ||
+    /^www\./i.test(trimmed) ||
+    /\b[\w-]+\.(com|org|net|edu|gov)\b/i.test(trimmed)
+  ) {
+    rejectionReason = "URL-like value";
+  } else if (ACRONYM_TITLE_LIKE.test(trimmed)) {
+    rejectionReason = "title-like phrase";
+  } else if (words.length > ACRONYM_MAX_WORDS) {
+    rejectionReason = `word count>${ACRONYM_MAX_WORDS}`;
+  } else if ((trimmed.match(/,/g)?.length ?? 0) > 1) {
+    rejectionReason = "too many commas";
+  } else if (/\([^)]{20,}\)/.test(trimmed)) {
+    rejectionReason = "long parenthetical";
+  } else if (
+    nonYearWords.length >= ACRONYM_MAX_WORDS &&
+    nonYearWords.every(
+      (word) => word === word.toLowerCase() && /[a-z]/.test(word),
+    )
+  ) {
+    rejectionReason = "reads like a sentence";
+  }
+
+  if (rejectionReason) {
+    const preview =
+      trimmed.length > 120 ? `${trimmed.slice(0, 117)}...` : trimmed;
+
+    console.log(`[Acronym] Rejected (${rejectionReason}): ${preview}`);
+
+    return null;
+  }
+
+  return trimmed;
 }
 
 // This is a list of categories that we do not want to collect from WikiCFP.
-// This can help the collector action nut run over the 6hr limit.
+// This can help the collector action not to run over the 6hr limit.
 export const wikiCFPCategoriesToNotCollect = [
   "1",
   "anthropology",
@@ -201,5 +263,5 @@ export const wikiCFPCategoriesToNotCollect = [
   "sociology",
   "teaching",
   "tourism",
-  "training"
+  "training",
 ];

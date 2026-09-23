@@ -1,11 +1,6 @@
 name: Collect cfp.wiki
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - conference-postings.json
   schedule:
     - cron: "0 2 * * 1"
   workflow_dispatch:
@@ -13,6 +8,7 @@ on:
 concurrency:
   group: conference-aggregator-collectors
   cancel-in-progress: false
+  queue: max
 
 permissions:
   contents: write
@@ -44,14 +40,14 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Collect cfp.wiki
-        run: pnpm collect:cfpwiki
+        run: pnpm collect:cfp.wiki
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add conference-postings.json
+          git add conference-postings.json conference-postings-full.json
 
           if git diff --cached --quiet; then
             echo "No changes to commit."

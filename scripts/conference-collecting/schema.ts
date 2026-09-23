@@ -1,3 +1,14 @@
+/** Valid `_sources` tags on collected postings and CLI `--site` ids. */
+export const POSTING_SOURCES = [
+  "cfp.wiki",
+  "callforpaper.org",
+  "call4paper.com",
+  "wikidata.org",
+  "wiki.cfp",
+] as const;
+
+export type PostingSourceId = (typeof POSTING_SOURCES)[number];
+
 /**
  * Represents a collected conference record with metadata extracted from various sources.
  * All date fields are ISO 8601 format (YYYY-MM-DD).
@@ -5,7 +16,7 @@
 export interface CollectedConference {
   id: string;
   conferenceName: string;
-  conferenceYear: number;
+  conferenceYear: number | null;
   conferenceLocation?: string | null;
   conferenceUri?: string | null;
   conferenceIdentifier?: string;
@@ -15,7 +26,8 @@ export interface CollectedConference {
   conferenceEndDate?: string | null;
   conferenceAcronym?: string | null;
   conferenceSeries?: string | null;
-  _source?: string;
+  /** Data sources that contributed to this record (more than one after dedup). */
+  _sources?: string[];
   collectionDate?: string | null;
   conferenceCategories?: string[] | null;
   conferenceText?: string | null;
