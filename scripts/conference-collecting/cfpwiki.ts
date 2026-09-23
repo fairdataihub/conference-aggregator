@@ -5,6 +5,7 @@ import { CFP_WIKI_CONFIG } from "./collection-config.js";
 
 import {
   generateCollectionDate,
+  normalizeConferenceAcronym,
   parseDateRange,
   randomDelay,
   resolveUrl,
@@ -86,7 +87,8 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
             .text()
             .trim();
 
-          const conferenceAcronym = conferenceAcronymText || null;
+          const conferenceAcronym =
+            normalizeConferenceAcronym(conferenceAcronymText);
 
           const locationStrong = card
             .find(".conference-list-meta strong")
@@ -343,7 +345,7 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
         conferenceLocation: conferenceLocation || null,
         conferenceStartDate,
         conferenceEndDate,
-        conferenceAcronym: listingMeta.conferenceAcronym || null,
+        conferenceAcronym: listingMeta.conferenceAcronym,
         conferenceSeries: detailConferenceSeries ?? null,
         conferenceCategories:
           conferenceCategories.length > 0 ? conferenceCategories : null,

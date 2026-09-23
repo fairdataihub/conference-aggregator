@@ -2,7 +2,12 @@ import { CheerioCrawler, type CheerioCrawlingContext } from "crawlee";
 import type { CollectedConference } from "./schema.js";
 
 import { CALLFORPAPER_ORG_CONFIG } from "./collection-config.js";
-import { generateCollectionDate, randomDelay, resolveUrl } from "./utils.js";
+import {
+  generateCollectionDate,
+  normalizeConferenceAcronym,
+  randomDelay,
+  resolveUrl,
+} from "./utils.js";
 
 function readString(value: unknown): string | null {
   if (typeof value !== "string") {
@@ -143,11 +148,12 @@ function postingFromCfpPage(
   const alternateName = readString(readField(event, "alternateName"));
   const organizerName = readString(readField(organizer, "name"));
 
-  const conferenceAcronym =
+  const conferenceAcronym = normalizeConferenceAcronym(
     acronymBeforeColon(conferenceName) ??
-    acronymBeforeColon(alternateName) ??
-    alternateName ??
-    organizerName;
+      acronymBeforeColon(alternateName) ??
+      alternateName ??
+      organizerName,
+  );
 
   const category = breadcrumbCategory ?? fallbackCategory;
 

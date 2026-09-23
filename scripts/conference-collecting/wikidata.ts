@@ -1,6 +1,10 @@
 import { WIKIDATA_CONFIG } from "./collection-config.js";
 import type { CollectedConference } from "./schema.js";
-import { generateCollectionDate, randomDelay } from "./utils.js";
+import {
+  generateCollectionDate,
+  normalizeConferenceAcronym,
+  randomDelay,
+} from "./utils.js";
 
 const SPARQL_ENDPOINT = "https://query.wikidata.org/sparql";
 
@@ -212,7 +216,7 @@ function ingestBinding(
     conferenceLocation: result.locationLabel?.value || null,
     conferenceStartDate,
     conferenceEndDate: result.endDate?.value?.split("T")[0] || null,
-    conferenceAcronym: result.acronym?.value || null,
+    conferenceAcronym: normalizeConferenceAcronym(result.acronym?.value),
     conferenceSeries: result.seriesLabel?.value || null,
     conferenceCategories: subject ? [subject] : [],
     conferenceText: null,

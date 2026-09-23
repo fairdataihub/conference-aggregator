@@ -6,6 +6,7 @@ import { CALL4PAPER_CONFIG } from "./collection-config.js";
 
 import {
   generateCollectionDate,
+  normalizeConferenceAcronym,
   parseDateRange,
   randomDelay,
   resolveUrl,
@@ -219,7 +220,9 @@ export async function collectCall4Paper(): Promise<CollectedConference[]> {
 
             const id = call4PaperEventId(resolved) ?? resolved;
 
-            const conferenceAcronym = listingFields["Title Abbr."] || null;
+            const conferenceAcronym = normalizeConferenceAcronym(
+              listingFields["Title Abbr."],
+            );
             const conferenceLocation = listingFields.Location || null;
             const dateText = listingFields.Date || "";
             const submissionText = listingFields["Submission Due Date"] || null;

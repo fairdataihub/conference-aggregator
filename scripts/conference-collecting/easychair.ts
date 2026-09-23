@@ -5,6 +5,7 @@ import { EASYCHAIR_CONFIG } from "./collection-config.js";
 
 import {
   generateCollectionDate,
+  normalizeConferenceAcronym,
   parseDateRange,
   randomDelay,
   resolveUrl,
@@ -63,7 +64,7 @@ function parseEasyChairConferences(
       conferenceLocation: conferenceLocation || null,
       conferenceStartDate: conferenceStartDate ?? null,
       conferenceEndDate: conferenceEndDate ?? null,
-      conferenceAcronym: acronym || null,
+      conferenceAcronym: normalizeConferenceAcronym(acronym),
       conferenceSeries: conferenceSeries || null,
       conferenceCategories: null,
       conferenceText: null,

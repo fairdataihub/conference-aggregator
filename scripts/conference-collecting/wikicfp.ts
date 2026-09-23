@@ -3,7 +3,12 @@ import type { CollectedConference } from "./schema.js";
 
 import { WIKICFP_CONFIG } from "./collection-config.js";
 
-import { generateCollectionDate, randomDelay, resolveUrl } from "./utils.js";
+import {
+  generateCollectionDate,
+  normalizeConferenceAcronym,
+  randomDelay,
+  resolveUrl,
+} from "./utils.js";
 
 type WikiCFPCategory = {
   url: string;
@@ -332,7 +337,7 @@ function parseWikiCFPConferenceDetail(
 
   const conferenceYear = Number.parseInt(year, 10);
 
-  const conferenceAcronym = acronymFromListing?.trim() || null;
+  const conferenceAcronym = normalizeConferenceAcronym(acronymFromListing);
 
   return {
     id: conferenceDetailUrl,
