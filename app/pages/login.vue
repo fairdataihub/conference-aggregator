@@ -55,10 +55,16 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         icon: "material-symbols:check-circle-outline",
       });
 
-      if (routeQueryParams.redirect) {
-        console.log("redirecting to", routeQueryParams.redirect);
+      const redirect = routeQueryParams.redirect;
 
-        window.location.href = routeQueryParams.redirect as string;
+      // Only follow same-origin redirects to avoid sending users off-site
+      if (
+        typeof redirect === "string" &&
+        redirect.startsWith("/") &&
+        new URL(redirect, window.location.origin).origin ===
+          window.location.origin
+      ) {
+        window.location.href = redirect;
       } else {
         window.location.href = "/app/dashboard";
       }
@@ -69,7 +75,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       toast.add({
         title: "Error logging in",
         color: "error",
-        description: error.data.statusMessage,
+        description: error.data?.statusMessage ?? "Request failed",
         icon: "material-symbols:error",
       });
     })

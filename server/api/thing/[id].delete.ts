@@ -1,4 +1,9 @@
 export default defineEventHandler(async (event) => {
+  const session = await requireUserSession(event);
+
+  const { user } = session;
+  const userId = user.id;
+
   const { id } = event.context.params as { id: string };
 
   if (!id) {
@@ -9,7 +14,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const thing = await prisma.thing.findUnique({
-    where: { id },
+    where: { id, userId },
   });
 
   if (!thing) {
@@ -20,7 +25,7 @@ export default defineEventHandler(async (event) => {
   }
 
   await prisma.thing.delete({
-    where: { id },
+    where: { id, userId },
   });
 
   return { success: true, message: `Thing with ID ${id} deleted` };

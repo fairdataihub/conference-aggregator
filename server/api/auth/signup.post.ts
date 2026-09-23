@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { hash } from "argon2";
-import { nanoid } from "nanoid";
+import { faker } from "@faker-js/faker";
 import dayjs from "dayjs";
 import { sendEmail } from "../../utils/sendEmail";
 import { randomBytes } from "crypto";
@@ -51,7 +51,7 @@ export default defineEventHandler(async (event) => {
   // Create a new user
   const hashedPassword = await hash(body.data.password);
 
-  const rawToken = nanoid();
+  const rawToken = faker.string.nanoid();
   const hashedToken = createHash("sha256").update(rawToken).digest("hex");
 
   const verificationToken = rawToken; // Send raw token via email

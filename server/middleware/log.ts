@@ -1,3 +1,4 @@
 export default defineEventHandler((event) => {
-  console.log("New request: " + event.node.req.url);
+  // Drop the query string so tokens (e.g. email verification) never reach the logs
+  console.log("New request: " + event.path.split("?")[0]);
 });

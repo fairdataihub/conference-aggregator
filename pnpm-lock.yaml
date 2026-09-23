@@ -31,13 +31,19 @@ importers:
         version: 0.29.6
       kysely-postgres-js:
         specifier: 5.0.0
-        version: 5.0.0(kysely@0.29.6)(postgres@3.4.7)
+        version: 5.0.0(kysely@0.29.6)(postgres@3.4.9)
       marked:
         specifier: 18.0.13
         version: 18.0.13
+      nanoid:
+        specifier: 6.0.1
+        version: 6.0.1
       nodemailer:
         specifier: 10.0.10
         version: 10.0.10
+      postgres:
+        specifier: 3.4.9
+        version: 3.4.9
       prisma-kysely:
         specifier: 3.2.1
         version: 3.2.1(magicast@0.5.5)(prisma@7.10.0(@types/react@19.3.0)(magicast@0.5.5)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@7.0.2))
@@ -5948,6 +5954,11 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  nanoid@6.0.1:
+    resolution: {integrity: sha512-3wVS3i51pE2pi1k5FFL/95BGfVS0kSsvDVuGXHOtxox/TywUmtgq+3qiTOTbs9J7KfHaXPiN171k/A6dBnaXFw==}
+    engines: {node: ^22 || ^24 || >=26}
+    hasBin: true
+
   nanotar@0.3.0:
     resolution: {integrity: sha512-Kv2JYYiCzt16Kt5QwAc9BFG89xfPNBx+oQL4GQXD9nLqPkZBiNaqaCWtwnbk/q7UVsTYevvM1b0UF8zmEI4pCg==}
 
@@ -6579,6 +6590,10 @@ packages:
 
   postgres@3.4.7:
     resolution: {integrity: sha512-Jtc2612XINuBjIl/QTWsV5UvE8UHuNblcO3vVADSrKsrc6RqGX6lOW1cEo3CM2v0XG4Nat8nI+YM7/f26VxXLw==}
+    engines: {node: '>=12'}
+
+  postgres@3.4.9:
+    resolution: {integrity: sha512-GD3qdB0x1z9xgFI6cdRD6xu2Sp2WCOEoe3mtnyB5Ee0XrrL5Pe+e4CCnJrRMnL1zYtRDZmQQVbvOttLnKDLnaw==}
     engines: {node: '>=12'}
 
   powershell-utils@0.1.0:
@@ -8829,26 +8844,14 @@ snapshots:
       tinyexec: 1.3.1
       zigpty: 0.2.1
 
-  '@devframes/hub@0.8.2(devframe@1.0.0(@devframes/agentic@1.0.0)(cac@7.0.0)(srvx@0.11.22))':
-    dependencies:
-      '@standard-schema/spec': 1.1.0
-      destr: 2.0.5
-      devframe: 1.0.0(@devframes/agentic@1.0.0)(cac@7.0.0)(srvx@0.11.22)
-      nostics: 1.2.0
-      pathe: 2.0.3
-      perfect-debounce: 2.1.0
-      tinyexec: 1.3.1
-      zigpty: 0.2.1
-    optional: true
-
-  '@devframes/json-render@0.8.2(@devframes/hub@0.8.2(devframe@1.0.0(@devframes/agentic@1.0.0)(cac@7.0.0)(srvx@0.11.22)))(devframe@0.8.2(@modelcontextprotocol/client@2.0.0)(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@0.11.22))':
+  '@devframes/json-render@0.8.2(@devframes/hub@0.8.2(devframe@0.8.2(@modelcontextprotocol/client@2.0.0)(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@0.11.22)))(devframe@0.8.2(@modelcontextprotocol/client@2.0.0)(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@0.11.22))':
     dependencies:
       '@json-render/core': 0.19.0(zod@4.6.5)
       devframe: 0.8.2(@modelcontextprotocol/client@2.0.0)(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@0.11.22)
       nostics: 1.2.0
       zod: 4.6.5
     optionalDependencies:
-      '@devframes/hub': 0.8.2(devframe@1.0.0(@devframes/agentic@1.0.0)(cac@7.0.0)(srvx@0.11.22))
+      '@devframes/hub': 0.8.2(devframe@0.8.2(@modelcontextprotocol/client@2.0.0)(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@0.11.22))
 
   '@dxup/nuxt@0.5.10(esbuild@0.28.2)(magicast@0.5.5)(rolldown@1.2.9)(rollup@4.63.3)(vite@8.3.0(@types/node@26.6.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.13)(yaml@2.9.1))':
     dependencies:
@@ -11672,7 +11675,7 @@ snapshots:
   '@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/client@2.0.0)(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@0.11.22)(vite@8.3.0(@types/node@26.6.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(tsx@4.23.13)(yaml@2.9.1))':
     dependencies:
       '@devframes/hub': 0.8.2(devframe@0.8.2(@modelcontextprotocol/client@2.0.0)(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@0.11.22))
-      '@devframes/json-render': 0.8.2(@devframes/hub@0.8.2(devframe@1.0.0(@devframes/agentic@1.0.0)(cac@7.0.0)(srvx@0.11.22)))(devframe@0.8.2(@modelcontextprotocol/client@2.0.0)(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@0.11.22))
+      '@devframes/json-render': 0.8.2(@devframes/hub@0.8.2(devframe@0.8.2(@modelcontextprotocol/client@2.0.0)(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@0.11.22)))(devframe@0.8.2(@modelcontextprotocol/client@2.0.0)(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@0.11.22))
       devframe: 0.8.2(@modelcontextprotocol/client@2.0.0)(@modelcontextprotocol/server@2.0.0)(cac@7.0.0)(srvx@0.11.22)
       local-pkg: 1.2.1
       mlly: 1.8.2
@@ -14585,11 +14588,11 @@ snapshots:
 
   knitwork@1.3.0: {}
 
-  kysely-postgres-js@5.0.0(kysely@0.29.6)(postgres@3.4.7):
+  kysely-postgres-js@5.0.0(kysely@0.29.6)(postgres@3.4.9):
     dependencies:
       kysely: 0.29.6
     optionalDependencies:
-      postgres: 3.4.7
+      postgres: 3.4.9
 
   kysely@0.29.6: {}
 
@@ -15002,6 +15005,8 @@ snapshots:
       lru.min: 1.1.5
 
   nanoid@3.3.19: {}
+
+  nanoid@6.0.1: {}
 
   nanotar@0.3.0: {}
 
@@ -15863,6 +15868,8 @@ snapshots:
       xtend: 4.0.2
 
   postgres@3.4.7: {}
+
+  postgres@3.4.9: {}
 
   powershell-utils@0.1.0: {}
 

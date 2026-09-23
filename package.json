@@ -42,7 +42,9 @@
     "kysely": "0.29.6",
     "kysely-postgres-js": "5.0.0",
     "marked": "18.0.13",
+    "nanoid": "6.0.1",
     "nodemailer": "10.0.10",
+    "postgres": "3.4.9",
     "prisma-kysely": "3.2.1",
     "sanitize-html": "2.17.7"
   },
