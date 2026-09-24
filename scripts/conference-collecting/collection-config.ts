@@ -3,15 +3,15 @@ import { wikiCFPCategoriesToNotCollect } from "./utils.js";
 
 export const CALL4PAPER_CONFIG = {
   baseUrl: "https://www.call4paper.com",
-  subjectLimit: null as number | null,
-  eventLimit: null as number | null,
+  subjectLimit: 1 as number | null,
+  eventLimit: 20 as number | null,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
 
 export const CFP_WIKI_CONFIG = {
   baseUrl: "https://cfp.wiki",
-  pageLimit: null as number | null,
+  pageLimit: 1 as number | null,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
@@ -25,15 +25,15 @@ export const EASYCHAIR_CONFIG = {
 
 export const WIKICFP_CONFIG = {
   baseUrl: "http://www.wikicfp.com",
-  categoryLimit: null as number | null,
-  categoryPageLimit: null as number | null,
+  categoryLimit: 1 as number | null,
+  categoryPageLimit: 1 as number | null,
   crawlMinDelayBetweenRequests: 5001,
   crawlMaxDelayBetweenRequests: 5049,
   categoriesToNotProcess: wikiCFPCategoriesToNotCollect,
 };
 
 export const WIKIDATA_CONFIG = {
-  collectWikiData: false,
+  collectWikiData: true,
   pageSize: 1500,
   maxRequestAttempts: 10,
   retryBaseDelayMs: 3000,
@@ -43,8 +43,8 @@ export const WIKIDATA_CONFIG = {
 
 export const CALLFORPAPER_ORG_CONFIG = {
   baseUrl: "https://callforpaper.org",
-  categoryLimit: null as number | null,
-  categoryPageLimit: null as number | null,
+  categoryLimit: 1 as number | null,
+  categoryPageLimit: 1 as number | null,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
