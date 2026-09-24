@@ -40,7 +40,7 @@ Scripts run `main.ts` with `--site` set to `all` or a source id (`wiki.cfp`, `cf
 Each collector crawls listings, parses detail pages, and returns rows. `main.ts` deduplicates by conference name, then writes **`conference-postings-full.json`** (includes `conferenceText`) and **`conference-postings.json`** (same records, `conferenceText` omitted).
 
 - **One source:** load the full file, delete that source’s old rows, add the new crawl, dedupe, save both files. Other sources are untouched.
-- **`all`:** run every collector, dedupe, save both files (full refresh).
+- **`all`:** run every collector, deduplicate, save both files (full refresh).
 
 ### How normalization works
 
