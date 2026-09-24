@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "lastUpdated": "2026-09-24T21:17:36.180Z",
+    "totalPostings": 1,
+    "sources": [
+      "cfp.wiki"
+    ]
+  },
+  "postings": [
+    {
+      "id": "https://cfp.wiki/conferences/icb-2026",
+      "collectionDate": "2026-09-24",
+      "_sources": [
+        "cfp.wiki"
+      ],
+      "conferenceName": "International Conference on Buddhonomics 2026",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://iimbg.ac.in/conferences/international-conference-on-buddhist-economics-2026/",
+      "conferenceLocation": "Bodh Gaya, India",
+      "conferenceStartDate": "2026-11-20",
+      "conferenceEndDate": "2026-11-22",
+      "conferenceAcronym": "ICB-",
+      "conferenceSeries": "International Conference on Buddhonomics",
+      "conferenceCategories": [
+        "Sustainability",
+        "Economics",
+        "Business Ethics",
+        "Management"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-30"
+    }
+  ]
+}
