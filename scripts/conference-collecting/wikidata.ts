@@ -6,8 +6,6 @@ import {
   randomDelay,
 } from "./utils.js";
 
-const SPARQL_ENDPOINT = "https://query.wikidata.org/sparql";
-
 const RETRYABLE_STATUS = new Set([408, 429, 500, 502, 503, 504]);
 
 const SPARQL_BODY = `
@@ -25,7 +23,6 @@ WHERE {
   OPTIONAL { ?conference wdt:P921 ?subject . }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en" . }
 }
-ORDER BY ?conference
 `.trim();
 
 type SparqlBinding = Record<
@@ -99,10 +96,11 @@ async function fetchSparqlPage(
   offset: number,
 ): Promise<SparqlResponse> {
   const maxAttempts = WIKIDATA_CONFIG.maxRequestAttempts;
+  const endpoint = WIKIDATA_CONFIG.sparqlEndpoint;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
-      const response = await fetch(SPARQL_ENDPOINT, {
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           Accept: "application/sparql-results+json",

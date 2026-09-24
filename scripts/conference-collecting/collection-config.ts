@@ -34,11 +34,13 @@ export const WIKICFP_CONFIG = {
 
 export const WIKIDATA_CONFIG = {
   collectWikiData: true,
-  pageSize: 1500,
-  maxRequestAttempts: 10,
-  retryBaseDelayMs: 3000,
-  minDelayBetweenPagesMs: 4000,
-  maxDelayBetweenPagesMs: 7000,
+  /** Smaller pages reduce 502/504 timeouts on query.wikidata.org. */
+  pageSize: 500,
+  sparqlEndpoint: "https://query.wikidata.org/sparql" as const,
+  maxRequestAttempts: 10 as const,
+  retryBaseDelayMs: 3000 as const,
+  minDelayBetweenPagesMs: 4000 as const,
+  maxDelayBetweenPagesMs: 7000 as const,
 };
 
 export const CALLFORPAPER_ORG_CONFIG = {
