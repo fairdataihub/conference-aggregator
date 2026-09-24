@@ -1,12 +1,213 @@
 {
   "metadata": {
-    "lastUpdated": "2026-09-24T21:17:36.180Z",
-    "totalPostings": 1,
+    "lastUpdated": "2026-09-24T21:18:59.863Z",
+    "totalPostings": 11,
     "sources": [
+      "callforpaper.org",
       "cfp.wiki"
     ]
   },
   "postings": [
+    {
+      "id": "https://callforpaper.org/cfp/all-for-papers-amse-scopus-2026-2026-the-7th-international-conference-on-advanced-materials-science-and-engineering-amse-2026",
+      "collectionDate": "2026-09-24",
+      "_sources": [
+        "callforpaper.org"
+      ],
+      "conferenceName": "AMSE--SCOPUS 2026 : 2026 The 7th International Conference on Advanced Materials Science and Engineering (AMSE 2026)",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://amse.net/",
+      "conferenceLocation": "Japan",
+      "conferenceStartDate": "2026-11-13",
+      "conferenceEndDate": "2026-11-15",
+      "conferenceAcronym": "AMSE--SCOPUS 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "Materials Science & Nanotechnology"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://callforpaper.org/cfp/all-for-papers-cret-2026-2026-international-conference-on-control-robotics-engineering-and-technology-cret-2026",
+      "collectionDate": "2026-09-24",
+      "_sources": [
+        "callforpaper.org"
+      ],
+      "conferenceName": "CRET 2026 : 2026 International Conference on Control, Robotics Engineering and Technology (CRET 2026)",
+      "conferenceYear": 2026,
+      "conferenceUri": "http://www.cret.net/",
+      "conferenceLocation": "Norway",
+      "conferenceStartDate": "2026-09-24",
+      "conferenceEndDate": "2026-09-26",
+      "conferenceAcronym": "CRET 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "Robotics & Autonomous Systems"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://callforpaper.org/cfp/all-for-papers-iice-2026-30th-ireland-international-conference-on-education",
+      "collectionDate": "2026-09-24",
+      "_sources": [
+        "callforpaper.org"
+      ],
+      "conferenceName": "IICE 2026 : 30th Ireland International Conference on Education",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://www.iicedu.org/",
+      "conferenceLocation": "Ireland",
+      "conferenceStartDate": "2026-10-27",
+      "conferenceEndDate": "2026-10-29",
+      "conferenceAcronym": "IICE 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "Mechanical & Manufacturing Engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://callforpaper.org/cfp/all-for-papers-iros-2026-intelligent-robots-and-systems",
+      "collectionDate": "2026-09-24",
+      "_sources": [
+        "callforpaper.org"
+      ],
+      "conferenceName": "Intelligent RObots and Systems",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://2026.ieee-iros.org/",
+      "conferenceLocation": "David Lawrence Convention Center, Pittsburgh, Pennsylvania, USA",
+      "conferenceStartDate": "2026-09-27",
+      "conferenceEndDate": "2026-10-01",
+      "conferenceAcronym": "IROS 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "Robotics & Autonomous Systems"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://callforpaper.org/cfp/call-for-papers-gmmt-2026",
+      "collectionDate": "2026-09-24",
+      "_sources": [
+        "callforpaper.org"
+      ],
+      "conferenceName": "GMMT 2026 : 2026 2nd International Conference on Green Materials and Manufacturing Technology",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://www.aischolar.com/conference/gmmt2026?invite=wiki",
+      "conferenceLocation": "University of Cambridge, UK",
+      "conferenceStartDate": "2026-10-09",
+      "conferenceEndDate": "2026-10-11",
+      "conferenceAcronym": "GMMT 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "Mechanical & Manufacturing Engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
+    {
+      "id": "https://callforpaper.org/cfp/call-for-papers-ic-smart-2026",
+      "collectionDate": "2026-09-24",
+      "_sources": [
+        "callforpaper.org"
+      ],
+      "conferenceName": "International Conference on Smart Engineering, Agricultural Resilience, and Digital Transoformation",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://seminar.ustjogja.ac.id/index.php/icsmart/",
+      "conferenceLocation": "Yogyakarta, Indonesia",
+      "conferenceStartDate": "2026-10-08",
+      "conferenceEndDate": "2026-10-10",
+      "conferenceAcronym": "IC-SMART 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "Mechanical & Manufacturing Engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "https://callforpaper.org/cfp/call-for-papers-icid-2026",
+      "collectionDate": "2026-09-24",
+      "_sources": [
+        "callforpaper.org"
+      ],
+      "conferenceName": "2026 7th International Conference on Intelligent Design",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://ais.cn/u/NZfi63",
+      "conferenceLocation": "Xi'an, China",
+      "conferenceStartDate": "2026-10-23",
+      "conferenceEndDate": "2026-10-25",
+      "conferenceAcronym": "ICID 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "Mechanical & Manufacturing Engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-08-08"
+    },
+    {
+      "id": "https://callforpaper.org/cfp/call-for-papers-saimechewc2026",
+      "collectionDate": "2026-09-24",
+      "_sources": [
+        "callforpaper.org"
+      ],
+      "conferenceName": "SAIMechE WC PG Conference 2026",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://easychair.org/cfp/SAIMechEWC2026",
+      "conferenceLocation": "Stellenbosch, South Africa",
+      "conferenceStartDate": "2026-11-06",
+      "conferenceEndDate": "2026-11-06",
+      "conferenceAcronym": "SAIMechEWC2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "Mechanical & Manufacturing Engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-18"
+    },
+    {
+      "id": "https://callforpaper.org/cfp/fois-2026-formal-ontology-conference",
+      "collectionDate": "2026-09-24",
+      "_sources": [
+        "callforpaper.org"
+      ],
+      "conferenceName": "FOIS 2026 : 16th International Conference on Formal Ontology in Information Systems",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://www.foisconference.org/",
+      "conferenceLocation": "Brazil",
+      "conferenceStartDate": "2026-09-21",
+      "conferenceEndDate": "2026-09-25",
+      "conferenceAcronym": "FOIS 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "Computer Science & Software Engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
+    {
+      "id": "https://callforpaper.org/cfp/icsed-2026-software-engineering-conference",
+      "collectionDate": "2026-09-24",
+      "_sources": [
+        "callforpaper.org"
+      ],
+      "conferenceName": "ICSED--EI 2026 : 2026 8th International Conference on Software Engineering and Development (ICSED 2026)",
+      "conferenceYear": 2026,
+      "conferenceUri": "http://www.icsed.org/",
+      "conferenceLocation": "Japan",
+      "conferenceStartDate": "2026-10-24",
+      "conferenceEndDate": "2026-10-26",
+      "conferenceAcronym": "ICSED--EI 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "Mechanical & Manufacturing Engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": null
+    },
     {
       "id": "https://cfp.wiki/conferences/icb-2026",
       "collectionDate": "2026-09-24",
