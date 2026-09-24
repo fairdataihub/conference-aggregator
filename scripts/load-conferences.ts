@@ -4,6 +4,7 @@ import path from "node:path";
 import { PrismaPg } from "@prisma/adapter-pg";
 import "dotenv/config";
 
+import type { CollectedConference } from "./conference-collecting/schema.js";
 import { PrismaClient } from "../shared/generated/client";
 import type { Prisma } from "../shared/generated/client";
 
@@ -17,43 +18,29 @@ const inputFile = path.resolve(
   "../conference-postings-full.json",
 );
 
-interface Posting {
-  id: string;
-  collectionDate: string;
-  _sources: string[];
-  conferenceName: string;
-  conferenceYear: number | null;
-  conferenceUri: string | null;
-  conferenceLocation: string | null;
-  conferenceStartDate: string | null;
-  conferenceEndDate: string | null;
-  conferenceAcronym: string | null;
-  conferenceSeries: string | null;
-  conferenceCategories: string[] | null;
-  conferenceText: string | null;
-  submissionDeadline: string | null;
-}
-
 // Dates come in as YYYY-MM-DD; anything else (e.g. "TBD") is stored as null
-const toDate = (value: string | null) =>
+const toDate = (value: string | null | undefined) =>
   value && /^\d{4}-\d{2}-\d{2}$/.test(value) ? new Date(value) : null;
 
 const toConference = (
-  posting: Posting,
+  posting: CollectedConference,
 ): Prisma.ConferenceCreateManyInput => ({
-  sourceUrl: posting.id,
-  collectionDate: new Date(posting.collectionDate),
-  sources: posting._sources,
+  id: posting.id,
   conferenceName: posting.conferenceName,
   conferenceYear: posting.conferenceYear,
-  conferenceUri: posting.conferenceUri,
-  conferenceLocation: posting.conferenceLocation,
+  conferenceLocation: posting.conferenceLocation ?? null,
+  conferenceUri: posting.conferenceUri ?? null,
+  conferenceIdentifier: posting.conferenceIdentifier ?? null,
+  conferenceIdentifierType: posting.conferenceIdentifierType ?? null,
+  conferenceSchemaUri: posting.conferenceSchemaUri ?? null,
   conferenceStartDate: toDate(posting.conferenceStartDate),
   conferenceEndDate: toDate(posting.conferenceEndDate),
-  conferenceAcronym: posting.conferenceAcronym,
-  conferenceSeries: posting.conferenceSeries,
+  conferenceAcronym: posting.conferenceAcronym ?? null,
+  conferenceSeries: posting.conferenceSeries ?? null,
+  sources: posting._sources ?? [],
+  collectionDate: toDate(posting.collectionDate),
   conferenceCategories: posting.conferenceCategories ?? [],
-  conferenceText: posting.conferenceText,
+  conferenceText: posting.conferenceText ?? null,
   submissionDeadline: toDate(posting.submissionDeadline),
 });
 
@@ -64,7 +51,7 @@ const loadConferences = async () => {
   let failed = 0;
 
   const { postings } = JSON.parse(await readFile(inputFile, "utf8")) as {
-    postings: Posting[];
+    postings: CollectedConference[];
   };
   const totalCount = postings.length;
 
@@ -81,7 +68,7 @@ const loadConferences = async () => {
     try {
       await prisma.conference.createMany({
         data: batch.map(toConference),
-        skipDuplicates: true, // Skip if sourceUrl already exists
+        skipDuplicates: true,
       });
     } catch (error) {
       failed += batch.length;

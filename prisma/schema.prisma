@@ -51,22 +51,29 @@ model Thing {
 }
 
 model Conference {
-    id String @id @default(cuid(2))
+    /// CollectedConference.id
+    id String @id
 
-    sourceUrl String @unique
+    conferenceName   String
+    conferenceYear   Int?
+    conferenceLocation String?
+    conferenceUri    String?
 
-    collectionDate DateTime @db.Date
-    sources        String[] // maps from `_sources` in the scraped JSON
+    conferenceIdentifier     String?
+    conferenceIdentifierType String?
+    conferenceSchemaUri      String?
 
-    conferenceName       String
-    conferenceYear       Int?
-    conferenceUri        String?
-    conferenceLocation   String?
-    conferenceStartDate  DateTime? @db.Date
-    conferenceEndDate    DateTime? @db.Date
-    conferenceAcronym    String?
-    conferenceSeries     String?
-    conferenceCategories String[]  @default([])
+    conferenceStartDate DateTime? @db.Date
+    conferenceEndDate   DateTime? @db.Date
+    conferenceAcronym   String?
+    conferenceSeries    String?
+
+    /// CollectedConference._sources
+    sources String[] @default([])
+
+    collectionDate DateTime? @db.Date
+
+    conferenceCategories String[] @default([])
     conferenceText       String?   @db.Text
     submissionDeadline   DateTime? @db.Date
 
