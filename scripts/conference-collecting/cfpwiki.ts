@@ -180,6 +180,10 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
       ? detailUrlList
       : detailUrlList.slice(0, CFP_WIKI_CONFIG.pageLimit);
 
+  console.log(
+    `[cfp.wiki] Detail crawl queue: ${limitedDetailUrls.length}/${detailUrlList.length} URLs (pageLimit=${CFP_WIKI_CONFIG.pageLimit})`,
+  );
+
   const postings: CollectedConference[] = [];
 
   let detailsProcessed = 0;
