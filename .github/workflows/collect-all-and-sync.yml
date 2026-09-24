@@ -1,0 +1,77 @@
+name: Collect all conferences and sync database
+
+on:
+  schedule:
+    - cron: "0 2 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    name: Collect (${{ matrix.source }})
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - source: cfp.wiki
+            script: collect:cfp.wiki
+            message: "chore: update cfp.wiki conference data"
+          - source: callforpaper.org
+            script: collect:callforpaper.org
+            message: "chore: update CallForPaper.org conference data"
+          - source: call4paper.com
+            script: collect:call4paper.com
+            message: "chore: update Call4Paper conference data"
+          - source: wikidata.org
+            script: collect:wikidata.org
+            message: "chore: update Wikidata conference data"
+          - source: wiki.cfp
+            script: collect:wiki.cfp
+            message: "chore: update WikiCFP conference data"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Update main
+        run: git pull --ff-only origin main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Collect source
+        run: pnpm ${{ matrix.script }}
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add conference-postings.json conference-postings-full.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "${{ matrix.message }}"
+          git push origin main
+
+  sync-database:
+    needs: collect
+    uses: ./.github/workflows/sync-conferences-db.yml
+    secrets: inherit

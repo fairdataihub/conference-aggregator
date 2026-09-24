@@ -33,7 +33,7 @@ export const WIKICFP_CONFIG = {
 };
 
 export const WIKIDATA_CONFIG = {
-  collectWikiData: true,
+  collectWikiData: false,
   pageSize: 1500,
   maxRequestAttempts: 10,
   retryBaseDelayMs: 3000,
