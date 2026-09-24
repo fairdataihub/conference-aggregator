@@ -180,8 +180,11 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
       ? detailUrlList
       : detailUrlList.slice(0, CFP_WIKI_CONFIG.pageLimit);
 
+  const allowedDetailUrls = new Set(limitedDetailUrls);
+  const detailTargetCount = limitedDetailUrls.length;
+
   console.log(
-    `[cfp.wiki] Detail crawl queue: ${limitedDetailUrls.length}/${detailUrlList.length} URLs (pageLimit=${CFP_WIKI_CONFIG.pageLimit})`,
+    `[cfp.wiki] Detail crawl queue: ${detailTargetCount}/${detailUrlList.length} URLs (pageLimit=${CFP_WIKI_CONFIG.pageLimit})`,
   );
 
   const postings: CollectedConference[] = [];
@@ -189,7 +192,7 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
   let detailsProcessed = 0;
 
   const detailCrawler = new CheerioCrawler({
-    maxRequestsPerCrawl: limitedDetailUrls.length || 1,
+    maxRequestsPerCrawl: detailTargetCount || 1,
     maxConcurrency: 1,
 
     preNavigationHooks: [
@@ -202,6 +205,10 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
     ],
 
     async requestHandler({ $, request }) {
+      if (!allowedDetailUrls.has(request.url)) {
+        return;
+      }
+
       const listingMeta = listingCardMetaByDetailUrl.get(request.url);
 
       if (!listingMeta?.conferenceName) {
@@ -360,7 +367,7 @@ export async function collectCfpWiki(): Promise<CollectedConference[]> {
       detailsProcessed++;
 
       console.log(
-        `[cfp.wiki] Detail pages processed: ${detailsProcessed}/${limitedDetailUrls.length}`,
+        `[cfp.wiki] Detail pages processed: ${detailsProcessed}/${detailTargetCount}`,
       );
     },
 

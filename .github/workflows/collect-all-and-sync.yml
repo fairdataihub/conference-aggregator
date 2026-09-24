@@ -41,11 +41,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: main
 
-      - name: Update main
-        run: git pull --ff-only origin main
+      - name: Update branch
+        run: git pull --ff-only origin "${{ github.ref_name }}"
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -74,7 +72,7 @@ jobs:
           fi
 
           git commit -m "${{ matrix.message }}"
-          git push origin main
+          git push origin "HEAD:${{ github.ref_name }}"
 
   sync-database:
     needs: collect
