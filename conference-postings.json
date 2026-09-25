@@ -1,8 +1,9 @@
 {
   "metadata": {
-    "lastUpdated": "2026-09-25T17:06:29.162Z",
-    "totalPostings": 7146,
+    "lastUpdated": "2026-09-25T17:08:57.108Z",
+    "totalPostings": 7166,
     "sources": [
+      "wiki.cfp",
       "wikidata.org",
       "callforpaper.org",
       "cfp.wiki",
@@ -10,6 +11,466 @@
     ]
   },
   "postings": [
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191552&copyownerid=46167",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "12th International Conference on Software Security",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://acity2026.org/icss/index",
+      "conferenceLocation": "Zurich, Switzerland",
+      "conferenceStartDate": "2026-11-27",
+      "conferenceEndDate": "2026-11-28",
+      "conferenceAcronym": "ICSS 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "software engineering",
+        "software",
+        "software testing",
+        "security"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191554&copyownerid=46167",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "14th International Conference on Artificial Intelligence, Soft Computing",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://aisc2026.org/",
+      "conferenceLocation": "London, United Kingdom",
+      "conferenceStartDate": "2026-11-21",
+      "conferenceEndDate": "2026-11-22",
+      "conferenceAcronym": "AISC 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "artificial intelligence",
+        "soft computing",
+        "fuzzy logic",
+        "engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191787&copyownerid=46167",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "International Conference on NLP Techniques and Advanced AI Systems",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://nlpta2026.org/",
+      "conferenceLocation": "Zurich, Switzerland",
+      "conferenceStartDate": "2026-11-27",
+      "conferenceEndDate": "2026-11-28",
+      "conferenceAcronym": "NLPTAI 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "NLP",
+        "information technology",
+        "image processing",
+        "computer science"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=191788&copyownerid=46167",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "3rd International Conference on NLP, AI, Computer Science & Engineering",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://nlaicse2026.org/",
+      "conferenceLocation": "Virtual Conference",
+      "conferenceStartDate": "2026-12-30",
+      "conferenceEndDate": "2026-12-31",
+      "conferenceAcronym": "NLAICSE 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "machine learning",
+        "NLP",
+        "artificial intelligence",
+        "computer engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192075&copyownerid=33993",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "International Journal of Computer Science and Information Technology - H-index 60",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://airccse.org/journal/ijcsit.html",
+      "conferenceLocation": "N/A",
+      "conferenceStartDate": "2026-09-26",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "IJCSIT 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "artificial intelligence",
+        "computer science",
+        "machine learning",
+        "engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192076&copyownerid=46167",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "12th International Conference on Computer Science, Engineering and Information Technology",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://csity2026.org/",
+      "conferenceLocation": "Sydney, Australia",
+      "conferenceStartDate": "2026-10-17",
+      "conferenceEndDate": "2026-10-18",
+      "conferenceAcronym": "CSITY 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "information technology",
+        "engineering",
+        "computer engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192361&copyownerid=33993",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "14th International Conference on Signal, Image Processing and Pattern Recognition",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://ccsit2026.org/sipp/index",
+      "conferenceLocation": "London, United Kingdom",
+      "conferenceStartDate": "2026-11-21",
+      "conferenceEndDate": "2026-11-22",
+      "conferenceAcronym": "SIPP 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "signal processing",
+        "image processing",
+        "VLSI",
+        "engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192456&copyownerid=33993",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "8th International Conference on Mechanical Engineering",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://asoft2026.org/mechan/index",
+      "conferenceLocation": "Sydney, Australia",
+      "conferenceStartDate": "2026-10-17",
+      "conferenceEndDate": "2026-10-18",
+      "conferenceAcronym": "MECHAN 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "mechanical engineering",
+        "manufacturing",
+        "materials",
+        "engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=192578&copyownerid=33993",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "International Journal of Web & Semantic Technology",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://airccse.org/journal/ijwest/ijwest.html",
+      "conferenceLocation": "N/A",
+      "conferenceStartDate": "2026-09-25",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "IJWesT 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "semantic web",
+        "web",
+        "software testing",
+        "ontology"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194152&copyownerid=33993",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "International Journal of Embedded Systems and Applications",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://wireilla.com/ijesa/index.html",
+      "conferenceLocation": "N/A",
+      "conferenceStartDate": "2026-09-26",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "IJESA 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "embedded systems",
+        "software engineering",
+        "software",
+        "engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=194196&copyownerid=33993",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "The International Journal of Managing Value and Supply Chains",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://airccse.org/journal/mvsc/ijmvsc.html",
+      "conferenceLocation": "N/A",
+      "conferenceStartDate": "2026-09-26",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "IJMVSC 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "cultural studies",
+        "knowledge management",
+        "supply chain management",
+        "logistics"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=195150&copyownerid=33993",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "Signal & Image Processing : An International Journal - H index - 33",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://airccse.org/journal/sipij/index.html",
+      "conferenceLocation": "N/A",
+      "conferenceStartDate": "2026-09-26",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "SIPIJ 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "signal processing",
+        "image processing",
+        "pattern recognition",
+        "computer vision"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=199581&copyownerid=79981",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "The 15th International Symposium on Information and Communication Technology",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://soict.org/",
+      "conferenceLocation": "Hochiminh city, Vietnam",
+      "conferenceStartDate": "2026-12-04",
+      "conferenceEndDate": "2026-12-05",
+      "conferenceAcronym": "SOICT 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "network and communication",
+        "artificial intelligence",
+        "software engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=199582&copyownerid=33993",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "International Journal on Bioinformatics & Biosciences",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://wireilla.com/ijbb/index.html",
+      "conferenceLocation": "N/A",
+      "conferenceStartDate": "2026-09-26",
+      "conferenceEndDate": null,
+      "conferenceAcronym": "IJBB 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "bioinformatics",
+        "biomedical",
+        "biotechnology",
+        "biomedical engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=199804&copyownerid=193912",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "AFRICAN SMART CITIES & INNOVATION CONGRESS",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://www.ascic.org/",
+      "conferenceLocation": "LAAYOUNE - Morocco",
+      "conferenceStartDate": "2026-10-27",
+      "conferenceEndDate": "2026-10-29",
+      "conferenceAcronym": "ASCIC 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "artificial intelligence",
+        "smart technologies",
+        "information systems"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=200044&copyownerid=33993",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "7th International Conference on Integrating Technology in Education",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://ite2026.org/index",
+      "conferenceLocation": "London, United Kingdom",
+      "conferenceStartDate": "2026-11-21",
+      "conferenceEndDate": "2026-11-22",
+      "conferenceAcronym": "ITE 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "education",
+        "higher education",
+        "e-education",
+        "engineering"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=201650&copyownerid=33993",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "16th International Conference on Peer-to-Peer Networks and Trust Management",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://cndc2026.org/p2ptm/index",
+      "conferenceLocation": "Zurich, Switzerland",
+      "conferenceStartDate": "2026-11-27",
+      "conferenceEndDate": "2026-11-28",
+      "conferenceAcronym": "P2PTM 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "wireless",
+        "wireless networks",
+        "wireless communication"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=201716&copyownerid=33993",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "12th International Conference on Next Generation Networks and Communication Technologies",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://nmoct2026.org/index",
+      "conferenceLocation": "Dubai, UAE",
+      "conferenceStartDate": "2026-12-26",
+      "conferenceEndDate": "2026-12-27",
+      "conferenceAcronym": "NGNCT 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "network security",
+        "wireless networks",
+        "wireless sensor networks",
+        "computer networks"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202738&copyownerid=33993",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "16th International Conference on Artificial Intelligence, Soft Computing and Applications",
+      "conferenceYear": 2026,
+      "conferenceUri": "https://aiaa2026.org/",
+      "conferenceLocation": "Zurich, Switzerland",
+      "conferenceStartDate": "2026-11-27",
+      "conferenceEndDate": "2026-11-28",
+      "conferenceAcronym": "AIAA 2026",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "artificial intelligence",
+        "machine learning",
+        "intelligent systems",
+        "computer science"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-26"
+    },
+    {
+      "id": "http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=202798&copyownerid=176336",
+      "collectionDate": "2026-09-25",
+      "_sources": [
+        "wiki.cfp"
+      ],
+      "conferenceName": "8th International Conference on Advancements in Computational Sciences",
+      "conferenceYear": 2027,
+      "conferenceUri": "http://sites.uol.edu.pk/icacs27",
+      "conferenceLocation": "Lahore, Pakistan",
+      "conferenceStartDate": "2027-02-02",
+      "conferenceEndDate": "2027-02-03",
+      "conferenceAcronym": "ICACS 2027",
+      "conferenceSeries": null,
+      "conferenceCategories": [
+        "computer science",
+        "artificial intelligence",
+        "data science",
+        "security and privacy"
+      ],
+      "conferenceText": null,
+      "submissionDeadline": "2026-09-25"
+    },
     {
       "id": "http://www.wikidata.org/entity/Q100504660",
       "collectionDate": "2026-09-25",
