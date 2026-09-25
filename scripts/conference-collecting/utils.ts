@@ -141,7 +141,7 @@ export function normalizeConferenceAcronym(
   value: string | null | undefined,
 ): string | null {
   // Maximum length of a conference acronym.
-  const ACRONYM_MAX_LENGTH = 30;
+  const ACRONYM_MAX_LENGTH = 20;
 
   // Maximum number of words in a conference acronym.
   const ACRONYM_MAX_WORDS = 5;

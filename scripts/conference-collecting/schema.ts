@@ -13,7 +13,7 @@ export type PostingSourceId = (typeof POSTING_SOURCES)[number];
  * Represents a collected conference record with metadata extracted from various sources.
  * All date fields are ISO 8601 format (YYYY-MM-DD).
  */
-export interface CollectedConference {
+export type CollectedConference = {
   id: string;
   conferenceName: string;
   conferenceYear: number | null;
@@ -32,7 +32,7 @@ export interface CollectedConference {
   conferenceCategories?: string[] | null;
   conferenceText?: string | null;
   submissionDeadline?: string | null;
-}
+};
 
 /**
  * Represents the complete conference database with metadata and postings.

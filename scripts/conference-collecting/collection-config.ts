@@ -34,7 +34,6 @@ export const WIKICFP_CONFIG = {
 
 export const WIKIDATA_CONFIG = {
   collectWikiData: true,
-  /** Smaller pages reduce 502/504 timeouts on query.wikidata.org. */
   pageSize: 500,
   sparqlEndpoint: "https://query.wikidata.org/sparql" as const,
   maxRequestAttempts: 10 as const,
