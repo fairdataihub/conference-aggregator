@@ -19,6 +19,7 @@ import {
   loadConferenceDatabase,
   saveConferenceDatabaseExports,
 } from "./storage.js";
+import { COLLECTION_MODE } from "./collection-config.js";
 import { collectUniqueSources, postingHasSource } from "./utils.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -73,7 +74,9 @@ async function main(): Promise<void> {
   const startTime = Date.now();
   const site = parseSiteArg();
 
-  console.log(`[Main] Starting conference collection (site=${site})`);
+  console.log(
+    `[Main] Starting conference collection (site=${site}, mode=${COLLECTION_MODE})`,
+  );
 
   if (site === "all") {
     const collected: CollectedConference[] = [];

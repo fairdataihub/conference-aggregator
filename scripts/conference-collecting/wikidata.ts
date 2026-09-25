@@ -229,14 +229,20 @@ export async function collectWikiData(): Promise<CollectedConference[]> {
   }
 
   const conferences = new Map<string, CollectedConference>();
-  const { pageSize } = WIKIDATA_CONFIG;
+  const { pageSize, maxPages } = WIKIDATA_CONFIG;
   let offset = 0;
   let page = 0;
   let rowsFetched = 0;
 
-  console.log(`[Wikidata] Starting collection (pageSize=${pageSize})`);
+  console.log(
+    `[Wikidata] Starting collection (pageSize=${pageSize}, maxPages=${maxPages ?? "∞"})`,
+  );
 
   while (true) {
+    if (maxPages !== null && page >= maxPages) {
+      break;
+    }
+
     page++;
     const query = buildPageQuery(offset, pageSize);
 

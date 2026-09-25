@@ -129,7 +129,7 @@ You will need the following installed on your system:
 
 Run the collectors (examples):
 
-- Collect all configured sources:
+- Collect all configured sources (local runs use **test** limits; GitHub Actions use **full** automatically):
 
 ```bash
 pnpm run collect:all
@@ -141,11 +141,13 @@ pnpm run collect:all
 pnpm run collect:wiki.cfp
 ```
 
+Edit `LIMITS.test` / `LIMITS.full` in `scripts/conference-collecting/collection-config.ts`. Mode is `full` when `GITHUB_ACTIONS=true`, otherwise `test`.
+
 The collectors write both JSON files at the repository root. Load `conference-postings.json` for dropdowns and lists; use `conference-postings-full.json` when you need CFP text.
 
 ## Development
 
-Collection-source configuration can be found in `scripts/conference-collecting/collectors.ts`:
+Collection limits and modes are in `scripts/conference-collecting/collection-config.ts`.
 
 After changes, run `pnpm run collect:*` to update `conference-postings.json`.
 

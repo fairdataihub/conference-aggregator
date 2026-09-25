@@ -3,7 +3,7 @@ name: Collect all conferences and sync database
 on:
   push:
     branches:
-      - port-collections-to-db
+      - main
   schedule:
     - cron: "0 2 * * 1"
   workflow_dispatch:
