@@ -2,7 +2,7 @@ name: Collect all conferences and sync database
 
 on:
   schedule:
-    - cron: "40 13 * * 0"
+    - cron: "10 14 * * 0"
       timezone: "America/Los_Angeles"
 
   workflow_dispatch:
