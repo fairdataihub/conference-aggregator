@@ -1,80 +1,140 @@
 name: Collect all conferences and sync database
 
 on:
-  push:
-    branches:
-      - main
   schedule:
-    - cron: "0 2 * * 1"
+    - cron: "40 13 * * 0"
+      timezone: "America/Los_Angeles"
+
   workflow_dispatch:
+
+concurrency:
+  group: collect-all-and-sync
+  cancel-in-progress: false
 
 permissions:
   contents: write
 
 jobs:
-  collect:
+  collect-cfp-wiki:
     runs-on: ubuntu-latest
-    name: Collect (${{ matrix.source }})
+    timeout-minutes: 360
+    name: Collect cfp.wiki
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
-    strategy:
-      fail-fast: false
-      max-parallel: 1
-      matrix:
-        include:
-          - source: cfp.wiki
-            script: collect:cfp.wiki
-            message: "chore: update cfp.wiki conference data"
-          - source: callforpaper.org
-            script: collect:callforpaper.org
-            message: "chore: update CallForPaper.org conference data"
-          - source: call4paper.com
-            script: collect:call4paper.com
-            message: "chore: update Call4Paper conference data"
-          - source: wikidata.org
-            script: collect:wikidata.org
-            message: "chore: update Wikidata conference data"
-          - source: wiki.cfp
-            script: collect:wiki.cfp
-            message: "chore: update WikiCFP conference data"
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Update branch
-        run: git pull --ff-only origin "${{ github.ref_name }}"
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - run: git pull --ff-only origin "${{ github.ref_name }}"
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Collect source
-        run: pnpm ${{ matrix.script }}
-
-      - name: Commit and push changes
-        run: |
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm collect:cfp.wiki
+      - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           git add conference-postings.json conference-postings-full.json
+          if git diff --cached --quiet; then echo "No changes to commit."; exit 0; fi
+          git commit -m "chore: update cfp.wiki conference data"
+          git push origin "HEAD:${{ github.ref_name }}"
 
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-            exit 0
-          fi
+  collect-callforpaper-org:
+    needs: collect-cfp-wiki
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    name: Collect callforpaper.org
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull --ff-only origin "${{ github.ref_name }}"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm collect:callforpaper.org
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add conference-postings.json conference-postings-full.json
+          if git diff --cached --quiet; then echo "No changes to commit."; exit 0; fi
+          git commit -m "chore: update CallForPaper.org conference data"
+          git push origin "HEAD:${{ github.ref_name }}"
 
-          git commit -m "${{ matrix.message }}"
+  collect-call4paper:
+    needs: collect-callforpaper-org
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    name: Collect call4paper.com
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull --ff-only origin "${{ github.ref_name }}"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm collect:call4paper.com
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add conference-postings.json conference-postings-full.json
+          if git diff --cached --quiet; then echo "No changes to commit."; exit 0; fi
+          git commit -m "chore: update Call4Paper conference data"
+          git push origin "HEAD:${{ github.ref_name }}"
+
+  collect-wikidata:
+    needs: collect-call4paper
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    name: Collect wikidata.org
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull --ff-only origin "${{ github.ref_name }}"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm collect:wikidata.org
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add conference-postings.json conference-postings-full.json
+          if git diff --cached --quiet; then echo "No changes to commit."; exit 0; fi
+          git commit -m "chore: update Wikidata conference data"
+          git push origin "HEAD:${{ github.ref_name }}"
+
+  collect-wikicfp:
+    needs: collect-wikidata
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    name: Collect wiki.cfp
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull --ff-only origin "${{ github.ref_name }}"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm collect:wiki.cfp
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add conference-postings.json conference-postings-full.json
+          if git diff --cached --quiet; then echo "No changes to commit."; exit 0; fi
+          git commit -m "chore: update WikiCFP conference data"
           git push origin "HEAD:${{ github.ref_name }}"
 
   sync-database:
-    needs: collect
+    needs: collect-wikicfp
     uses: ./.github/workflows/sync-conferences-db.yml
     secrets: inherit
