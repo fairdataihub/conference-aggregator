@@ -13,7 +13,6 @@ const LIMITS = {
       subjectLimit: null as number | null,
       eventLimit: null as number | null,
     },
-    cfpWiki: { pageLimit: null as number | null },
     easyChair: { pageLimit: 0 as number | null },
     wikiCfp: {
       categoryLimit: null as number | null,
@@ -33,7 +32,6 @@ const LIMITS = {
       subjectLimit: 1 as number | null,
       eventLimit: 20 as number | null,
     },
-    cfpWiki: { pageLimit: 1 as number | null },
     easyChair: { pageLimit: 0 as number | null },
     wikiCfp: {
       categoryLimit: 1 as number | null,
@@ -56,13 +54,6 @@ export const CALL4PAPER_CONFIG = {
   baseUrl: "https://www.call4paper.com",
   subjectLimit: activeLimits.call4paper.subjectLimit,
   eventLimit: activeLimits.call4paper.eventLimit,
-  crawlMinDelayBetweenRequests: 3001,
-  crawlMaxDelayBetweenRequests: 3900,
-};
-
-export const CFP_WIKI_CONFIG = {
-  baseUrl: "https://cfp.wiki",
-  pageLimit: activeLimits.cfpWiki.pageLimit,
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
 };
@@ -106,7 +97,6 @@ export const DEDUP_CONFIG = {
   /** Source reliability when merging duplicates (most trusted first). */
   sourceOrder: [
     "callforpaper.org",
-    "cfp.wiki",
     "call4paper.com",
     "wiki.cfp",
     "wikidata.org",

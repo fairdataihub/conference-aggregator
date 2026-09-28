@@ -19,7 +19,6 @@ This repository contains a conference aggregator that crawls public conference l
 The collector implements scrapers for these sources:
 
 - `wiki.cfp`
-- `cfp.wiki`
 - `call4paper.com`
 - `callforpaper.org`
 - `wikidata.org`
@@ -35,7 +34,7 @@ Extracted fields include conference name, acronym, year, dates, location, websit
 
 ## How collection works
 
-Scripts run `main.ts` with `--site` set to `all` or a source id (`wiki.cfp`, `cfp.wiki`, `call4paper.com`, `callforpaper.org`, `wikidata.org`).
+Scripts run `main.ts` with `--site` set to `all` or a source id (`wiki.cfp`, `call4paper.com`, `callforpaper.org`, `wikidata.org`).
 
 Each collector crawls listings, parses detail pages, and returns rows. `main.ts` deduplicates by conference name, then writes **`conference-postings-full.json`** (includes `conferenceText`) and **`conference-postings.json`** (same records, `conferenceText` omitted).
 

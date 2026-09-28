@@ -8,7 +8,6 @@ import {
   type PostingSourceId,
 } from "./schema.js";
 
-import { collectCfpWiki } from "./cfpwiki.js";
 import { collectWikiCFP } from "./wikicfp.js";
 import { collectWikiData } from "./wikidata.js";
 import { collectCall4Paper } from "./call4paper.js";
@@ -38,7 +37,6 @@ const COLLECTORS: Record<
   () => Promise<CollectedConference[]>
 > = {
   "wiki.cfp": collectWikiCFP,
-  "cfp.wiki": collectCfpWiki,
   "wikidata.org": collectWikiData,
   "call4paper.com": collectCall4Paper,
   "callforpaper.org": collectCallForPaperOrg,
