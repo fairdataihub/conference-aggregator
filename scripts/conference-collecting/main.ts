@@ -13,6 +13,7 @@ import { collectWikiCFP } from "./wikicfp.js";
 import { collectWikiData } from "./wikidata.js";
 import { collectCall4Paper } from "./call4paper.js";
 import { collectCallForPaperOrg } from "./callforpaperorg.js";
+import { collectConfidentConference } from "./confident-conference.js";
 
 import { deduplicatePostings } from "./deduplicate.js";
 import {
@@ -42,6 +43,7 @@ const COLLECTORS: Record<
   "wikidata.org": collectWikiData,
   "call4paper.com": collectCall4Paper,
   "callforpaper.org": collectCallForPaperOrg,
+  "confident-conference.org": collectConfidentConference,
 };
 
 type Site = "all" | PostingSourceId;

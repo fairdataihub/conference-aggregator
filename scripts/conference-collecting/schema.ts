@@ -7,6 +7,7 @@ export const POSTING_SOURCES = [
   "call4paper.com",
   "wikidata.org",
   "wiki.cfp",
+  "confident-conference.org",
 ] as const;
 
 export type PostingSourceId = (typeof POSTING_SOURCES)[number];

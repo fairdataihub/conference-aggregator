@@ -27,6 +27,10 @@ const LIMITS = {
       categoryLimit: null as number | null,
       categoryPageLimit: null as number | null,
     },
+    confidentConference: {
+      categoryLimit: null as number | null,
+      categoryPageLimit: null as number | null,
+    },
   },
   test: {
     call4paper: {
@@ -44,6 +48,10 @@ const LIMITS = {
       maxPages: 1 as number | null,
     },
     callforpaperOrg: {
+      categoryLimit: 1 as number | null,
+      categoryPageLimit: 1 as number | null,
+    },
+    confidentConference: {
       categoryLimit: 1 as number | null,
       categoryPageLimit: 1 as number | null,
     },
@@ -102,9 +110,22 @@ export const CALLFORPAPER_ORG_CONFIG = {
   crawlMaxDelayBetweenRequests: 3900,
 };
 
+export const CONFIDENT_CONFERENCE_CONFIG = {
+  baseUrl: "https://www.confident-conference.org",
+  /** First page to discover Event_Series (or Events) links — customize for full crawl. */
+  eventSeriesBrowseUrl:
+    "https://www.confident-conference.org/index.php/Special:AllPages?from=Event_Series%3A",
+  categoryLimit: activeLimits.confidentConference.categoryLimit,
+  categoryPageLimit: activeLimits.confidentConference.categoryPageLimit,
+  crawlMinDelayBetweenRequests: 3001,
+  crawlMaxDelayBetweenRequests: 3900,
+  seriesToNotProcess: [] as readonly string[],
+};
+
 export const DEDUP_CONFIG = {
   /** Source reliability when merging duplicates (most trusted first). */
   sourceOrder: [
+    "confident-conference.org",
     "callforpaper.org",
     "cfp.wiki",
     "call4paper.com",

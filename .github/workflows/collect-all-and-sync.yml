@@ -132,7 +132,31 @@ jobs:
           git commit -m "chore: update WikiCFP conference data"
           git push origin "HEAD:${{ github.ref_name }}"
 
-  sync-database:
+  collect-confident-conference:
     needs: collect-wikicfp
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    name: Collect confident-conference.org
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: git pull --ff-only origin "${{ github.ref_name }}"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm collect:confident-conference.org
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add conference-postings.json conference-postings-full.json
+          if git diff --cached --quiet; then echo "No changes to commit."; exit 0; fi
+          git commit -m "chore: update ConfIDent conference data"
+          git push origin "HEAD:${{ github.ref_name }}"
+
+  sync-database:
+    needs: collect-confident-conference
     uses: ./.github/workflows/sync-conferences-db.yml
     secrets: inherit
