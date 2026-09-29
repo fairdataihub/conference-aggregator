@@ -26,9 +26,8 @@
     "start": "tsx scripts/conference-collecting/main.ts",
     "collect:all": "tsx scripts/conference-collecting/main.ts --site all",
     "collect:wiki.cfp": "tsx scripts/conference-collecting/main.ts --site wiki.cfp",
-    "collect:call4paper.com": "tsx scripts/conference-collecting/main.ts --site call4paper.com",
     "collect:wikidata.org": "tsx scripts/conference-collecting/main.ts --site wikidata.org",
-    "collect:callforpaper.org": "tsx scripts/conference-collecting/main.ts --site callforpaper.org",
+    "collect:confident-conference.org": "tsx scripts/conference-collecting/main.ts --site confident-conference.org",
     "load:conferences": "tsx scripts/load-conferences.ts"
   },
   "dependencies": {

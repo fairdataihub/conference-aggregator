@@ -1,15 +1,15 @@
-import type { CollectedConference } from "./schema.js";
+import type { CollectedConference, PostingSourceId } from "./schema.js";
 
 export function postingHasSource(
   posting: Pick<CollectedConference, "_sources">,
-  sourceId: string,
+  sourceId: PostingSourceId,
 ): boolean {
   return posting._sources?.includes(sourceId) ?? false;
 }
 
 export function collectUniqueSources(
   postings: Pick<CollectedConference, "_sources">[],
-): string[] {
+): PostingSourceId[] {
   return [...new Set(postings.flatMap((posting) => posting._sources ?? []))];
 }
 
@@ -141,7 +141,7 @@ export function normalizeConferenceAcronym(
   value: string | null | undefined,
 ): string | null {
   // Maximum length of a conference acronym.
-  const ACRONYM_MAX_LENGTH = 20;
+  const ACRONYM_MAX_LENGTH = 30;
 
   // Maximum number of words in a conference acronym.
   const ACRONYM_MAX_WORDS = 5;
@@ -162,6 +162,11 @@ export function normalizeConferenceAcronym(
 
   const words = trimmed.split(/\s+/);
   const nonYearWords = words.filter((word) => !/^\d{4}$/.test(word));
+  const withoutTrailingYear = trimmed.replace(/\s+\d{4}\s*$/, "").trim();
+  const acronymCoreWords = withoutTrailingYear.split(/\s+/).filter(Boolean);
+  /** e.g. "E-Society 2008" — hyphenated series name, not a prose title */
+  const hyphenatedAcronymWithYear =
+    acronymCoreWords.length === 1 && acronymCoreWords[0].includes("-");
 
   let rejectionReason: string | null = null;
 
@@ -175,7 +180,7 @@ export function normalizeConferenceAcronym(
     /\b[\w-]+\.(com|org|net|edu|gov)\b/i.test(trimmed)
   ) {
     rejectionReason = "URL-like value";
-  } else if (ACRONYM_TITLE_LIKE.test(trimmed)) {
+  } else if (ACRONYM_TITLE_LIKE.test(trimmed) && !hyphenatedAcronymWithYear) {
     rejectionReason = "title-like phrase";
   } else if (words.length > ACRONYM_MAX_WORDS) {
     rejectionReason = `word count>${ACRONYM_MAX_WORDS}`;
