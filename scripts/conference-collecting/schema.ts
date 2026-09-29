@@ -2,10 +2,8 @@
  * Valid `_sources` tags on collected postings and CLI `--site` ids.
  */
 export const POSTING_SOURCES = [
-  "callforpaper.org",
-  "call4paper.com",
-  "wikidata.org",
   "wiki.cfp",
+  "wikidata.org",
   "confident-conference.org",
 ] as const;
 

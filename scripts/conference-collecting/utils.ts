@@ -9,7 +9,7 @@ export function postingHasSource(
 
 export function collectUniqueSources(
   postings: Pick<CollectedConference, "_sources">[],
-): string[] {
+): PostingSourceId[] {
   return [...new Set(postings.flatMap((posting) => posting._sources ?? []))];
 }
 
@@ -141,7 +141,7 @@ export function normalizeConferenceAcronym(
   value: string | null | undefined,
 ): string | null {
   // Maximum length of a conference acronym.
-  const ACRONYM_MAX_LENGTH = 20;
+  const ACRONYM_MAX_LENGTH = 30;
 
   // Maximum number of words in a conference acronym.
   const ACRONYM_MAX_WORDS = 5;
@@ -180,10 +180,7 @@ export function normalizeConferenceAcronym(
     /\b[\w-]+\.(com|org|net|edu|gov)\b/i.test(trimmed)
   ) {
     rejectionReason = "URL-like value";
-  } else if (
-    ACRONYM_TITLE_LIKE.test(trimmed) &&
-    !hyphenatedAcronymWithYear
-  ) {
+  } else if (ACRONYM_TITLE_LIKE.test(trimmed) && !hyphenatedAcronymWithYear) {
     rejectionReason = "title-like phrase";
   } else if (words.length > ACRONYM_MAX_WORDS) {
     rejectionReason = `word count>${ACRONYM_MAX_WORDS}`;

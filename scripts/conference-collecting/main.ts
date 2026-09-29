@@ -10,8 +10,6 @@ import {
 
 import { collectWikiCFP } from "./wikicfp.js";
 import { collectWikiData } from "./wikidata.js";
-import { collectCall4Paper } from "./call4paper.js";
-import { collectCallForPaperOrg } from "./callforpaperorg.js";
 import { collectConfidentConference } from "./confident-conference.js";
 
 import { deduplicatePostings } from "./deduplicate.js";
@@ -39,8 +37,6 @@ const COLLECTORS: Record<
 > = {
   "wiki.cfp": collectWikiCFP,
   "wikidata.org": collectWikiData,
-  "call4paper.com": collectCall4Paper,
-  "callforpaper.org": collectCallForPaperOrg,
   "confident-conference.org": collectConfidentConference,
 };
 

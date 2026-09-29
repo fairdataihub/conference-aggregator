@@ -1,4 +1,4 @@
-import { WIKIDATA_CONFIG } from "./collection-config.js";
+import { COLLECTOR_USER_AGENT, WIKIDATA_CONFIG } from "./collection-config.js";
 import type { CollectedConference } from "./schema.js";
 import {
   generateCollectionDate,
@@ -105,8 +105,7 @@ async function fetchSparqlPage(
         headers: {
           Accept: "application/sparql-results+json",
           "Content-Type": "application/x-www-form-urlencoded",
-          "User-Agent":
-            "conference-aggregator/1.0 (https://github.com/conference-aggregator)",
+          "User-Agent": COLLECTOR_USER_AGENT,
         },
         body: new URLSearchParams({
           query,

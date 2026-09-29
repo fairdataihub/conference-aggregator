@@ -18,9 +18,7 @@ This repository contains a conference aggregator that crawls public conference l
 
 The collector implements scrapers for these sources:
 
-- `wiki.cfp`
-- `call4paper.com`
-- `callforpaper.org`
+- `wiki.cfp` (WikiCFP)
 - `wikidata.org`
 - `confident-conference.org` ([ConfIDent](https://www.confident-conference.org/))
 
@@ -35,7 +33,7 @@ Extracted fields include conference name, acronym, year, dates, location, websit
 
 ## How collection works
 
-Scripts run `main.ts` with `--site` set to `all` or a source id (`wiki.cfp`, `call4paper.com`, `callforpaper.org`, `wikidata.org`).
+Scripts run `main.ts` with `--site` set to `all` or a source id (`wiki.cfp`, `wikidata.org`, `confident-conference.org`).
 
 Each collector crawls listings, parses detail pages, and returns rows. `main.ts` deduplicates by conference name, then writes **`conference-postings-full.json`** (includes `conferenceText`) and **`conference-postings.json`** (same records, `conferenceText` omitted).
 
@@ -50,7 +48,7 @@ Normalization happens in two layers: while scraping, and when merging duplicates
 
 - Dates are parsed into ISO `YYYY-MM-DD` where possible (`utils.ts`).
 - Each scraper sets `_sources` to the site id (for example `wiki.cfp`).
-- `conferenceAcronym` is passed through `normalizeConferenceAcronym()` in `utils.ts`. Values that look like titles, URLs, or full sentences are dropped (`null`), with a console log explaining the rejection. Some sources apply extra rules first (for example callforpaper.org often uses the segment before `:` in the event title).
+- `conferenceAcronym` is passed through `normalizeConferenceAcronym()` in `utils.ts`. Values that look like titles, URLs, or full sentences are dropped (`null`), with a console log explaining the rejection.
 
 **Merge and deduplication**
 
@@ -70,6 +68,8 @@ Special cases:
 
 - `scripts/conference-collecting/main.ts`: CLI entrypoint (`--site`)
 - `scripts/conference-collecting/collection-config.ts`: per-source crawl limits and dedup `sourceOrder`
+- `scripts/conference-collecting/wikicfp.ts`: WikiCFP scraper
+- `scripts/conference-collecting/wikidata.ts`: Wikidata SPARQL collector
 - `scripts/conference-collecting/confident-conference.ts`: ConfIDent via MediaWiki `action=ask` + `action=query` (SMW)
 - `scripts/conference-collecting/schema.ts`: record/DB shapes
 - `scripts/conference-collecting/storage.ts`: load/save conference JSON exports

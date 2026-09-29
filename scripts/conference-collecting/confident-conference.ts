@@ -1,10 +1,21 @@
-import { CONFIDENT_CONFERENCE_CONFIG } from "./collection-config.js";
+import {
+  COLLECTOR_USER_AGENT,
+  CONFIDENT_CONFERENCE_CONFIG,
+} from "./collection-config.js";
 import type { CollectedConference } from "./schema.js";
 import {
   generateCollectionDate,
   normalizeConferenceAcronym,
   randomDelay,
 } from "./utils.js";
+
+const MEDIA_WIKI_API_URL = "https://www.confident-conference.org/api.php";
+const ASK_PAGE_SIZE = 500;
+const WIKITEXT_BATCH_SIZE = 50;
+const MAX_REQUEST_ATTEMPTS = 10;
+const RETRY_BASE_DELAY_MS = 3000;
+const CRAWL_MIN_DELAY_MS = 3001;
+const CRAWL_MAX_DELAY_MS = 3900;
 
 const RETRYABLE_STATUS = new Set([408, 429, 500, 502, 503, 504]);
 
@@ -49,27 +60,24 @@ function sleep(ms: number): Promise<void> {
 }
 
 async function apiDelay(): Promise<void> {
-  await randomDelay(
-    CONFIDENT_CONFERENCE_CONFIG.crawlMinDelayBetweenRequests,
-    CONFIDENT_CONFERENCE_CONFIG.crawlMaxDelayBetweenRequests,
-  );
+  await randomDelay(CRAWL_MIN_DELAY_MS, CRAWL_MAX_DELAY_MS);
 }
 
 async function fetchJson<T>(url: URL, label: string): Promise<T> {
-  const maxAttempts = CONFIDENT_CONFERENCE_CONFIG.maxRequestAttempts;
+  const maxAttempts = MAX_REQUEST_ATTEMPTS;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
       const response = await fetch(url, {
         headers: {
           Accept: "application/json",
-          "User-Agent": CONFIDENT_CONFERENCE_CONFIG.userAgent,
+          "User-Agent": COLLECTOR_USER_AGENT,
         },
       });
 
       if (!response.ok) {
         if (RETRYABLE_STATUS.has(response.status) && attempt < maxAttempts) {
-          await sleep(CONFIDENT_CONFERENCE_CONFIG.retryBaseDelayMs * attempt);
+          await sleep(RETRY_BASE_DELAY_MS * attempt);
           continue;
         }
 
@@ -84,7 +92,7 @@ async function fetchJson<T>(url: URL, label: string): Promise<T> {
         throw error;
       }
 
-      await sleep(CONFIDENT_CONFERENCE_CONFIG.retryBaseDelayMs * attempt);
+      await sleep(RETRY_BASE_DELAY_MS * attempt);
     }
   }
 
@@ -92,8 +100,8 @@ async function fetchJson<T>(url: URL, label: string): Promise<T> {
 }
 
 function buildAskUrl(offset: number): URL {
-  const url = new URL(CONFIDENT_CONFERENCE_CONFIG.mediaWikiApiUrl);
-  const pageSize = CONFIDENT_CONFERENCE_CONFIG.askPageSize;
+  const url = new URL(MEDIA_WIKI_API_URL);
+  const pageSize = ASK_PAGE_SIZE;
   const offsetClause = offset > 0 ? `|offset=${offset}` : "";
   const query = `${CONFIDENT_CONFERENCE_CONFIG.eventsAskQuery}|limit=${pageSize}${offsetClause}`;
 
@@ -299,12 +307,11 @@ async function resolveConferenceSeriesLabels(
 
   const titles = [...seriesTitles];
   const labelByTitle = new Map<string, string>();
-  const batchSize = CONFIDENT_CONFERENCE_CONFIG.wikitextBatchSize;
 
-  for (let i = 0; i < titles.length; i += batchSize) {
+  for (let i = 0; i < titles.length; i += WIKITEXT_BATCH_SIZE) {
     await apiDelay();
     const wikitextByTitle = await fetchWikitextBatch(
-      titles.slice(i, i + batchSize),
+      titles.slice(i, i + WIKITEXT_BATCH_SIZE),
     );
 
     for (const [title, wikitext] of wikitextByTitle) {
@@ -394,9 +401,7 @@ function postingFromEventWikitext(
     event.Year?.match(/^(\d{4})/)?.[1] ??
     conferenceName.match(/\b(19|20)\d{2}\b/)?.[0];
 
-  const conferenceYear = yearMatch
-    ? Number.parseInt(yearMatch, 10)
-    : null;
+  const conferenceYear = yearMatch ? Number.parseInt(yearMatch, 10) : null;
   const acronymSource = event.Acronym?.trim() || stub.displayTitle.trim();
 
   return {
@@ -420,7 +425,7 @@ function postingFromEventWikitext(
 async function fetchWikitextBatch(
   titles: string[],
 ): Promise<Map<string, string>> {
-  const url = new URL(CONFIDENT_CONFERENCE_CONFIG.mediaWikiApiUrl);
+  const url = new URL(MEDIA_WIKI_API_URL);
   url.searchParams.set("action", "query");
   url.searchParams.set("format", "json");
   url.searchParams.set("prop", "revisions");
@@ -428,7 +433,10 @@ async function fetchWikitextBatch(
   url.searchParams.set("rvprop", "content");
   url.searchParams.set("titles", titles.join("|"));
 
-  const body = await fetchJson<MwQueryRevisionsResponse>(url, "query revisions");
+  const body = await fetchJson<MwQueryRevisionsResponse>(
+    url,
+    "query revisions",
+  );
 
   if (body.error) {
     throw new Error(
@@ -466,18 +474,17 @@ async function collectConfidentEventsFromMediaWikiApi(): Promise<
   const postings: CollectedConference[] = [];
   let skippedNoWikitext = 0;
   let skippedUnmapped = 0;
-  const batchSize = CONFIDENT_CONFERENCE_CONFIG.wikitextBatchSize;
   const eventLimit = CONFIDENT_CONFERENCE_CONFIG.eventLimit;
-  const totalBatches = Math.ceil(stubs.length / batchSize);
+  const totalBatches = Math.ceil(stubs.length / WIKITEXT_BATCH_SIZE);
 
   console.log(
     `[ConfIDent API] Loading wikitext for ${stubs.length} events ` +
-      `(batch size ${batchSize}, eventLimit ${eventLimit ?? "unlimited"})`,
+      `(batch size ${WIKITEXT_BATCH_SIZE}, eventLimit ${eventLimit ?? "unlimited"})`,
   );
 
   batchLoop: for (let batchIndex = 0; batchIndex < totalBatches; batchIndex++) {
-    const i = batchIndex * batchSize;
-    const batch = stubs.slice(i, i + batchSize);
+    const i = batchIndex * WIKITEXT_BATCH_SIZE;
+    const batch = stubs.slice(i, i + WIKITEXT_BATCH_SIZE);
     await apiDelay();
 
     const wikitextByTitle = await fetchWikitextBatch(
@@ -537,7 +544,6 @@ export async function collectConfidentConference(): Promise<
 
   console.log(
     `[ConfIDent] MediaWiki API collection: askQuery=${CONFIDENT_CONFERENCE_CONFIG.eventsAskQuery}, ` +
-      `askPageSize=${CONFIDENT_CONFERENCE_CONFIG.askPageSize}, ` +
       `eventLimit=${CONFIDENT_CONFERENCE_CONFIG.eventLimit ?? "unlimited"}`,
   );
 
