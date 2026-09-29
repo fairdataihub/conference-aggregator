@@ -27,8 +27,7 @@ const LIMITS = {
       categoryPageLimit: null as number | null,
     },
     confidentConference: {
-      categoryLimit: null as number | null,
-      categoryPageLimit: null as number | null,
+      eventLimit: null as number | null,
     },
   },
   test: {
@@ -50,8 +49,7 @@ const LIMITS = {
       categoryPageLimit: 1 as number | null,
     },
     confidentConference: {
-      categoryLimit: 1 as number | null,
-      categoryPageLimit: 1 as number | null,
+      eventLimit: null as number | null,
     },
   },
 } as const;
@@ -103,14 +101,19 @@ export const CALLFORPAPER_ORG_CONFIG = {
 
 export const CONFIDENT_CONFERENCE_CONFIG = {
   baseUrl: "https://www.confident-conference.org",
-  /** First page to discover Event_Series (or Events) links — customize for full crawl. */
-  eventSeriesBrowseUrl:
-    "https://www.confident-conference.org/index.php/Special:AllPages?from=Event_Series%3A",
-  categoryLimit: activeLimits.confidentConference.categoryLimit,
-  categoryPageLimit: activeLimits.confidentConference.categoryPageLimit,
+  mediaWikiApiUrl: "https://www.confident-conference.org/api.php",
+  /** SMW ask conditions for events (`action=ask`). Append `|?…` printouts only if needed. */
+  eventsAskQuery: "[[Concept:Events]]",
+  askPageSize: 500,
+  /** Max events to list and load. null = full catalog. */
+  eventLimit: activeLimits.confidentConference.eventLimit,
+  wikitextBatchSize: 50,
+  maxRequestAttempts: 10 as const,
+  retryBaseDelayMs: 3000 as const,
+  userAgent:
+    "conference-aggregator/1.0 (ConfIDent SMW API; contact: repo maintainer)",
   crawlMinDelayBetweenRequests: 3001,
   crawlMaxDelayBetweenRequests: 3900,
-  seriesToNotProcess: [] as readonly string[],
 };
 
 export const DEDUP_CONFIG = {

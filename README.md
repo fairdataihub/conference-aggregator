@@ -35,11 +35,7 @@ Extracted fields include conference name, acronym, year, dates, location, websit
 
 ## How collection works
 
-<<<<<<< HEAD
-Scripts run `main.ts` with `--site` set to `all` or a source id (`wiki.cfp`, `cfp.wiki`, `call4paper.com`, `callforpaper.org`, `wikidata.org`, `confident-conference.org`).
-=======
 Scripts run `main.ts` with `--site` set to `all` or a source id (`wiki.cfp`, `call4paper.com`, `callforpaper.org`, `wikidata.org`).
->>>>>>> main
 
 Each collector crawls listings, parses detail pages, and returns rows. `main.ts` deduplicates by conference name, then writes **`conference-postings-full.json`** (includes `conferenceText`) and **`conference-postings.json`** (same records, `conferenceText` omitted).
 
@@ -74,7 +70,7 @@ Special cases:
 
 - `scripts/conference-collecting/main.ts`: CLI entrypoint (`--site`)
 - `scripts/conference-collecting/collection-config.ts`: per-source crawl limits and dedup `sourceOrder`
-- `scripts/conference-collecting/collectors.ts`: source-specific scrapers
+- `scripts/conference-collecting/confident-conference.ts`: ConfIDent via MediaWiki `action=ask` + `action=query` (SMW)
 - `scripts/conference-collecting/schema.ts`: record/DB shapes
 - `scripts/conference-collecting/storage.ts`: load/save conference JSON exports
 
